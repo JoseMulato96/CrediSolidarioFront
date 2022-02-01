@@ -1,0 +1,152 @@
+<!-- Lista de coberturas -->
+<ng-container *ngFor="let cotizacionDetalle of mimCotizacionDetalleSet; index as i;">
+
+  <div class="border-left-div p-2 mt-2 default-border-left"
+    [ngStyle]="{'border-left': '1px solid '+ cotizacionDetalle.mimPlanCobertura.mimCobertura.codigoColor}">
+    <div class="row mx-0 w-100 justify-content-between pt-2">
+      <div class="px-2">
+        <div class="btn--icon mx-auto text-center centrar--texto default-background-icono"
+          [ngStyle]="{'background-color': cotizacionDetalle.mimPlanCobertura.mimCobertura.codigoColor}">
+          <span class="icon-shield text--white"></span>
+        </div>
+      </div>
+      <div class="col-3">
+        <h5 class="text--13pts text--gray2 text--600wt my-0">
+          {{'shared.components.form.adminCoberturas.listarCoberturas.cobertura' | translate}}
+        </h5>
+        <h4 class="text--14pts text--gray1 text--600wt my-0"> {{cotizacionDetalle.mimPlanCobertura?.nombre}}
+        </h4>
+      </div>
+      <div class="col">
+        <h5 class="text--13pts text--gray2 text--600wt my-0">
+          {{'shared.components.form.adminCoberturas.listarCoberturas.proteccion' | translate}}
+        </h5>
+        <h4 class="text--14pts text--gray1 text--600wt my-0">
+          {{cotizacionDetalle.valorProteccion  | customCurrency | emptyPipe}} </h4>
+      </div>
+      <div class="col">
+        <h5 class="text--13pts text--gray2 text--600wt my-0">
+          {{'shared.components.form.adminCoberturas.listarCoberturas.cuota' | translate}}
+        </h5>
+        <h4 class="text--14pts text--gray1 text--600wt my-0">
+          {{ cotizacionDetalle?.cuota | customCurrency | emptyPipe}} </h4>
+      </div>
+      <div class="col">
+        <h5 class="text--13pts text--gray2 text--600wt my-0">
+          {{'shared.components.form.adminCoberturas.listarCoberturas.factorContribucion' | translate}}
+        </h5>
+        <h4 class="text--14pts text--gray1 text--600wt my-0"> {{ cotizacionDetalle?.sipFactores?.valor }} </h4>
+      </div>
+      <div class="col-1">
+
+        <div role="group" class="row" *ngIf="!cotizacionDetalle?.mimCotizacionDetalleRelacionado">
+          <button type="button" class="btn btn--icon bg--blue2 mx-auto" [disabled]="isDisabled"
+            (click)="editarCobertura(cotizacionDetalle, i)">
+            <span class="icon-edit-3 text--blue1"></span>
+          </button>
+          <button type="button" class="btn btn--icon bg--red2 mx-auto"
+            [disabled]="!mimCotizacion?.permiteBorrarMimCotizacionDetalle || bloquearEliminar || isDisabled"
+            (click)="eliminarCobertura(cotizacionDetalle, i)">
+            <span class="icon-trash-3 text--red1"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<div class="form--default w-100" [formGroup]="addForm" *ngIf="isAddForm | async as isAddForm">
+  <div class="card posicion_top_card cards--panelLeft col-md-12 mt-2 px-0" *ngIf="mostrarFormularioCoberturas">
+    <div class="card-header bg-white py-4 border-bottom-0">
+      <h1 class="text--gray1 text--700wt text--18pts my-0">
+        <ng-template [ngIf]="esCreacion">
+          {{'shared.components.form.adminCoberturas.crearCobertura' | translate}}
+        </ng-template>
+        <ng-template [ngIf]="!esCreacion">
+          {{'shared.components.form.adminCoberturas.editarCobertura' | translate}}
+        </ng-template>
+      </h1>
+    </div>
+    <div class="card-body">
+      <div class="row pt-3">
+        <!-- Coberturas -->
+        <div class="col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="mimPlanCobertura" class="col-sm-12 col-form-label">
+              {{ 'shared.components.form.adminCoberturas.coberturas' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'mimPlanCobertura'" [controlName]="'mimPlanCobertura'">
+                <app-mim-select class="w-100" [inputId]="'mimPlanCobertura'" [options]="mimPlanCoberturaSet"
+                  formControlName="mimPlanCobertura" [optionKey]="'nombre'" name="'mimPlanCobertura'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="mimPlanCobertura" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'shared.components.form.adminCoberturas.coberturas' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+        <!-- Protección actual -->
+        <div class="col-md-3">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="valorProteccion" class="col-sm-12 col-form-label">
+              {{ 'shared.components.form.adminCoberturas.proteccionActual' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'valorProteccion'" [controlName]="'valorProteccion'">
+                <input type="text" class="form-control" id="valorProteccion" formControlName="valorProteccion"
+                  name="valorProteccion" prefix="$ " mask="separator.0" thousandSeparator="." maxlength="24" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="valorProteccion" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'shared.components.form.adminCoberturas.proteccionActual' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Cuota -->
+        <div class="col-md-3">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="cuota" class="col-sm-12 col-form-label">
+              {{ 'shared.components.form.adminCoberturas.cuota' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'cuota'" [controlName]="'cuota'">
+                <input type="text" class="form-control" id="cuota" formControlName="cuota" name="cuota" prefix="$ "
+                  mask="separator.0" thousandSeparator="." maxlength="24" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="cuota" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'shared.components.form.adminCoberturas.cuota' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end py-3">
+        <button class="btn btn--white btn--md mx-1 justify-content-start" (click)="cancelarAgregarCobertura()">
+          <span class="icon-x mr-2"></span>
+          {{'shared.components.form.adminCoberturas.cancelar' | translate}}
+        </button>
+
+        <button class="btn btn--green1 btn--md mx-1 justify-content-start" (click)="registrar()">
+          <span class="icon-plus-2 mr-2"></span>
+          {{'shared.components.form.adminCoberturas.registrar' | translate}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="d-flex justify-content-end">
+  <span class="text-left mr-2">
+    <a class="btn btn--circle justify-content-start"
+      [class.disabled]="mimPlanCoberturaSet === null || mimPlanCoberturaSet === undefined || mimPlanCoberturaSet.length === 0 || isDisabled ? true: null || !this.esCreacion"
+      (click)="agregarCobertura()">
+      <span class="icon-plus-2 mr-2"></span>
+      {{' Agregar cobertura' | translate}}
+    </a>
+  </span>
+</div>

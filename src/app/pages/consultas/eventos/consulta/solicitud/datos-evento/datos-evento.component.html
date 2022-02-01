@@ -1,0 +1,343 @@
+<div class="row mx-0 w-100 ">
+  <!-- TÍTULO -->
+  <div class="col-md-5">
+    <h1 class="my-0"> {{ 'eventos.datosEvento' | translate }}</h1>
+  </div>
+</div>
+
+<div class="row mx-0 w-100 mt-4">
+  <!-- PANELES DE INFORMACIÓN -->
+  <div class="col-md-12 mb-3">
+    <!-- DATOS DE ASOCIADO -->
+
+    <div>
+      <div class="card cards--headerFooter w-100 mb-3">
+        <div class="card-header">
+          <h2 class="text--500wt text--gray1 my-0">
+            <span class="icon-article text--18pts mr-2 text--orange1"></span>
+            {{ 'eventos.consulta.solicitud.informacionSolicitud' | translate }}
+          </h2>
+        </div>
+
+        <div class="card-body px-2 pt-3 pb-4">
+
+          <div class="row mx-0 w-100">
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                {{ 'eventos.noEvento' | translate }}:
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{idProceso}}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                {{ 'eventos.consulta.solicitud.tipoAuxilio' | translate }}:
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.tipoAuxilio | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                {{ 'eventos.consulta.solicitud.fechaRadicacion' | translate }}:
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.fechaEvento | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                {{ 'eventos.consulta.solicitud.estado' | translate }}:
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.estado | emptyPipe }}
+              </h4>
+            </div>
+          </div>
+
+          <div class="row mx-0 w-100">
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.solicitudRecibidaPor' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.solicitudRecibidaPor | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.canal' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.canal | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.fechaEvento' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.fechaSolicitud | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.origen' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.origen | emptyPipe }}
+              </h4>
+            </div>
+          </div>
+
+          <div class="row mx-0 w-100">
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.reclamoPor' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.eventoPor | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.beneficiario' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.beneficiario | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.tratamientoEspecial' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.tratamientoEspecial | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.validaDocumentos.reclamaCopago' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.reclamaCopago | emptyPipe }}
+              </h4>
+            </div>
+          </div>
+
+          <div class="row mx-0 w-100">
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.declarante' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.asociadoBeneficiarioDeclaranteRenta | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.oficina' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.nombreOficina | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="card cards--headerFooter w-100 mb-3" *ngIf="documentos">
+        <div class="card-header">
+          <h2 class="text--500wt text--gray1 my-0">
+            <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+            {{ 'eventos.consulta.solicitud.informacionDocumentos' | translate }}
+          </h2>
+        </div>
+        <div class="card-body px-2 pt-2 pb-2">
+
+          <div class="row mx-0 w-100">
+            <div class="col-md-12">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let documento of documentos; let i = index">
+                  <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                    <em class="text--green1 icon-check-circle pr-2"></em>
+                    {{documento.docReqDescripcion}}
+                  </h4>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card cards--headerFooter w-100 mb-3">
+        <div class="card-header">
+          <h2 class="text--500wt text--gray1 my-0">
+            <span class="icon-graph-line text--18pts mr-2 text--orange1"></span>
+            {{ 'eventos.consulta.solicitud.informacionRadicacion' | translate }}
+          </h2>
+        </div>
+        <div class="card-body px-2 pt-3 pb-4">
+          <div class="row mx-0 w-100">
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                {{ 'eventos.consulta.solicitud.fechaEvento' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.fechaEvento | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                {{ 'eventos.consulta.solicitud.formaPago' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.nombreFormaPago | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                {{ 'eventos.consulta.solicitud.tipoCuenta' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.nombreTipoCuenta | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                {{ 'eventos.consulta.solicitud.banco' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.nombreBanco | emptyPipe }}
+              </h4>
+            </div>
+          </div>
+
+          <div class="row mx-0 w-100">
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.numeroCuenta' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.numeroCuentaDeposito | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.oficinaPago' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.nombreOficinaCheque | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.valorPagar' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.valorSolicitado | customCurrency | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.retencionEvento' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.valorRetencion | emptyPipe }} %
+              </h4>
+            </div>
+
+          </div>
+
+          <div class="row mx-0 w-100">
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.pagarA' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.pagarA | emptyPipe }}
+              </h4>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.descuentoCuotaMes' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.cuotaMes | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.descuentoSaldoVencido' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.saldoVencido | emptyPipe }}
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="text--600wt text--gray2 mt-3 mb-0">
+                {{ 'eventos.consulta.solicitud.abonaCredito' | translate }}
+              </h5>
+              <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                {{ solicitudEvento.credito | emptyPipe }}
+              </h4>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card cards--headerFooter w-100 mb-3">
+        <div class="card-header">
+          <h2 class="text--500wt text--gray1 my-0">
+            <span class="icon-graph-line text--18pts mr-2 text--orange1"></span>
+            {{ 'eventos.consulta.solicitud.informacionAuditoriaMedica' | translate }}
+          </h2>
+        </div>
+        <div class="card-body px-2 pt-3 pb-4">
+          <div class="row mx-0 w-100">
+            <ng-template ngFor let-item="$implicit" [ngForOf]="solicitudEvento.mimSolicitudEventoDetalleList"
+              let-i="index">
+              <div class="col-md-6">
+                <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                  {{ 'eventos.consulta.solicitud.auditoriaMedica.origenEvento' | translate }}
+                </h5>
+                <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                  {{ item.mimEventoCoberturaPortafolioDto.nombre | emptyPipe }}
+                </h4>
+              </div>
+              <div class="col-md-6">
+                <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                  {{ 'eventos.consulta.solicitud.auditoriaMedica.conceptoMedico' | translate }}
+                </h5>
+                <h4 class="text--500wt text--gray1 mt-2 mb-0">
+                  {{ item.mimConceptoAuditor.nombre | emptyPipe }}
+                </h4>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

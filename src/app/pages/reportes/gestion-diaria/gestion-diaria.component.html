@@ -1,0 +1,132 @@
+<div class="row mx-0 w-100 pb-5">
+    <!-- PANEL DERECHO -->
+    <div class="col-1 col-xl-3">
+        <!-- CONSULTAS -->
+        <div class="cards--headerFooter w-100 mt-2">
+            <div class="card-header py-2">
+                {{ 'administracion.reportesGestionDiaria.filtros.titulo' | translate }}
+            </div>
+            <div class="card-body py-3 px-1">
+                <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm">
+                    <!-- Numero cedula colaborado -->
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="documentoColaborador" class="col-sm-12 col-form-label">
+                                {{ 'administracion.reportesGestionDiaria.filtros.documentoColaborador' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'documentoColaborador'"
+                                    [controlName]="'documentoColaborador'">
+                                    <input type="number" class="form-control" id="documentoColaborador"
+                                        formControlName="documentoColaborador" name="documentoColaborador" />
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="documentoColaborador"
+                                errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'administracion.reportesGestionDiaria.filtros.documentoColaborador' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <!-- fecha inicio y fecha fin -->
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="form-group row align-items-center">
+                            <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFin">
+                                {{ 'administracion.reportesGestionDiaria.filtros.fechaInicioFin' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'fechaInicioFin'"
+                                    [controlName]="'fechaInicioFin'">
+                                    <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFin'" formControlName="fechaInicioFin"
+                                        [selectionMode]="'range'" ngDefaultControl>
+                                    </app-mim-date-picker>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="fechaInicioFin" errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'administracion.reportesGestionDiaria.filtros.fechaInicioFin' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <div class="row mx-0 w-10 justify-content-end align-items-center">
+                        <!-- Botones -->
+                        <div class="col-xl-12">
+                            <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn--border_green1 btn--md w-100 mx-1"
+                                    (click)="buscar()">
+                                    {{ 'global.search' | translate }}
+                                </button>
+                                <button type="button" class="btn btn--gray2 btn--md w-100 mx-1" (click)="limpiar()">
+                                    {{ 'global.clean' | translate }}
+                                    <span class="icon-cross ml-3"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- PANEL DERECHO -->
+    <div class="col-11 offset-1 col-xl-9 offset-xl-0 pt-3 pb-5 d-block px-xl-3">
+        <div class="row  mx-0 w-100 align-items-center">
+            <div class="col-md-12">
+                <h1 class="my-0">
+                    {{ 'administracion.reportesGestionDiaria.titulo' | translate }}
+                </h1>
+            </div>
+        </div>
+        <div>
+            <app-mim-grid [configuracion]="configuracion.gridConfig" (siguiente)="_onSiguiente($event)"
+                (atras)="_onAtras($event)" (clickCeldaElement)="_onClickCeldaElement($event)">
+            </app-mim-grid>
+        </div>
+    </div>
+</div>
+
+<div class="card cards--footer border-0 rounded-0 panel-crear-cuenta">
+    <div class="card-body py-2">
+        <div class="row mx-0 w-10 justify-content-end align-items-center">
+            <!-- Botones -->
+            <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                    <button class="btn btn--orange1 btn--md mr-2" (click)="_onClickExportarExcel()"
+                    [disabled]="!habilitarBotonExportar">
+                        <span class="icon-export mr-2"></span>
+                        {{ 'administracion.reportesGestionDiaria.botonExportarExcel' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarGuardar == true }" *ngIf="mostrarGuardar">
+    <div class="row mx-0 w-100 justify-content-end">
+      <div class="col-xl-4 col-md-6 px-0">
+        <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+          <div class="card-header">
+            <div class="row mx-0 w-100 align-items-center">
+              <div class="col-lg-10">
+                <h1 class="text--500wt text--gray1 my-0">
+                  {{ 'administracion.reportesGestionDiaria.grid.observacion' | translate }}
+                </h1>
+              </div>
+              <div class="col-lg-2">
+                <button class="btn btn--circle btn--circle_green" (click)="_toggle(false)">
+                  <span class="icon-cross mr-2"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="text--16pts">{{observacion}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin crear Exclusiones. -->

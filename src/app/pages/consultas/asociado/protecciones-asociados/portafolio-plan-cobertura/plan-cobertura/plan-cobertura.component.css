@@ -1,0 +1,74 @@
+.posicion_buscar{
+    margin-top: -42px !important;
+}
+
+.posicion_filtro_estado {
+    position: absolute;
+    top: 42px;
+}
+
+.active_border_bottom{
+    border-bottom: solid 2px;
+}
+
+/* .tabs .nav-item button:hover h3 {
+    border-bottom: solid 2px;
+} */
+
+#bloquear{
+    background:#333;
+    width: 100%;
+    height: 100%;
+    filter:alpha(opacity=20);
+    opacity:0.2;
+    margin: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    z-index:1;
+    cursor: wait;  
+    margin: 0px;
+    padding: 0px;
+  }
+  .loader--componet{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+  }
+
+  .nav .nav-tabs .nav-item button:focus,
+  .nav .nav-tabs .nav-item button:active,
+  .nav .nav-tabs .nav-item button:hover
+  .nav .nav-tabs .nav-item button.active {
+      border: none;
+  }
+.bg_buttom_tab{
+    background-color: #f6f6f6 !important;
+}
+
+.figure{
+    font-size: 4.5rem;
+}
+
+.posicionBtnCerrar{
+    position: absolute;
+    right: -12px;
+    top: -12px;
+}
+.border--btn{
+    border: 1px solid #ff743b;
+}
+
+.table--default {
+    border-collapse: collapse !important;
+}
+
+.table--default > tbody > tr > td{
+    background-color: #FFF !important;
+}

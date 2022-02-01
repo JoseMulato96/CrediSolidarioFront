@@ -1,0 +1,48 @@
+<div class="form--default w-100" [formGroup]="controlContainer.control">
+
+  <div class="card border-0 col-md-12 p-0 mt-2">
+    <div class="d-flex bg--green3 px-3 py-2">
+      <div class="p-2 flex-grow-1 text--14pts text--600wt">
+        {{ 'shared.components.form.tipoCalculo.elegirtipoCalculo' | translate }}
+      </div>
+      <div class="p-2 pr-5 text--14pts text--600wt form-check">
+        <input class="form-check-input" type="radio" formControlName="rdTipoCalculo" value="2"
+          (change)="cambiarTipoCalculo($event)">
+        <label class="form-check-label pt-0">
+          {{ 'shared.components.form.tipoCalculo.valorCuota' | translate }}
+        </label>
+      </div>
+      <div class="p-2 text--14pts text--600wt form-check">
+        <input class="form-check-input" type="radio" formControlName="rdTipoCalculo" value="1"
+          (change)="cambiarTipoCalculo($event)" checked>
+        <label class="form-check-label pt-0">
+          {{ 'shared.components.form.tipoCalculo.valorProteccion' | translate }}
+        </label>
+      </div>
+    </div>
+    <div class="col-md-12 py-3" *ngIf="mostrarSlider()">
+      <div class="row align-items-center centrar--texto">
+        <label appMimLabel for="canalVenta" class="col-md-2 pl-4 col-form-label">
+          {{ 'shared.components.form.tipoCalculo.cuota' | translate }}
+        </label>
+        <div class="col-md-6">
+          <p-slider [step]="0.01" formControlName="valorCuota" [min]="this.porcentajeCuota.porcentajeMinimo"
+            [max]="this.porcentajeCuota.porcentajeMaximo" (onSlideEnd)="alMoverSlider($event)"
+            (onChange)="alCambiarSlider($event)"></p-slider>
+        </div>
+        <span class="text--16pts text--600wt pl-2 col-md-2">{{ porcentajeValorCuota || 0 }} %</span>
+        <span
+          class="text--16pts text--600wt col-md-2 text-right">{{ mimCotizacion.totalValorCuota | customCurrency | emptyPipe }}</span>
+      </div>
+    </div>
+  </div>
+
+  <app-admin-coberturas [formControl]="controlContainer.control['controls'].mimCotizacionDetalleSet"
+    [dataInitCoberturas]="dataInitCoberturas">
+  </app-admin-coberturas>
+
+  <app-mim-input-error class="col-sm-12" [control]="controlContainer.control['controls'].mimCotizacionDetalleSet"
+    errorKey="required">
+    {{ 'global.required' | translate : { campo: 'shared.components.form.adminCoberturas.coberturas' | translate } }}
+  </app-mim-input-error>
+</div>

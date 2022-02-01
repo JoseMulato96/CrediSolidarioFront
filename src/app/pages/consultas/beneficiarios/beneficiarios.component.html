@@ -1,0 +1,11 @@
+<div class="row mx-0 w-100 pb-5">
+  <!-- Panel izquierdo -->
+  <div class="col-11 offset-1 col-xl-3 offset-xl-0">
+    <!-- Consultas -->
+    <app-mim-menu-vertical [configuracion]="configuracion.submenu" (clickItemEvent)="seleccionOpcion($event)">
+    </app-mim-menu-vertical>
+  </div>
+  <div class="col-11 offset-1 col-xl-9 offset-xl-0 py-5 d-block pl-0 px-xl-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

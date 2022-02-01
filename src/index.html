@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Simulador CrediSolidario</title>
+  <base href="/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <!-- FAVICON DIFERENTES RESOLUCIONES Y DISPOSITIVOS -->
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon/favicon.ico">
+  
+  <link rel="stylesheet" href="assets/css/fonts.montserrat.css">
+</head>
+
+<body>
+  <app-root>Loading…</app-root>
+
+  <script>
+    var sessionStorage_transfer = function (event) {
+      // Parche para IE.
+      if (!event) {
+        event = window.event;
+      }
+      if (!event.newValue) {
+        return;
+      }
+      if (event.key == 'getSessionStorage') {
+        // Otro tab ha slicitado el sessionStorage, asi que lo enviamos.
+        localStorage.setItem('sessionStorage', JSON.stringify(sessionStorage));
+        // En este punto el otro tab lo debe tener, asi que no lo necesitamos mas.
+        localStorage.removeItem('sessionStorage');
+      } else if (event.key == 'sessionStorage' && !sessionStorage.length) {
+        // Otro tab ha enviado el sessionStorage, asi que lo obtenemos.
+        var data = JSON.parse(event.newValue);
+        for (var key in data) {
+          sessionStorage.setItem(key, data[key]);
+        }
+      }
+    };
+
+    // Escuchamos cambios en el localStorage.
+    if (window.addEventListener) {
+      window.addEventListener("storage", sessionStorage_transfer, false);
+    } else {
+      window.attachEvent("onstorage", sessionStorage_transfer);
+    };
+
+
+    // Solicita a otros tabs el sessionStorage (Esto es solamente para lanzar el evento).
+    if (!sessionStorage.length) {
+      localStorage.setItem('getSessionStorage', 'foobar');
+      localStorage.removeItem('getSessionStorage', 'foobar');
+    };
+  </script>  
+    <script src="./assets/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="./assets/js/popper-1.14.3.min.js"></script>
+</body>
+
+</html>

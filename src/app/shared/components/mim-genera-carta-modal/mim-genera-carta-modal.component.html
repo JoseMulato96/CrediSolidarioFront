@@ -1,0 +1,81 @@
+<form [formGroup]="form" class="form--default w-100 pb-3 mb-5"  *ngIf="mostrarGuardar">
+    <!-- Inicio modal lateral -->
+    <div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarGuardar == true }"
+        *ngIf="mostrarGuardar">
+        <div class="row mx-0 w-100 justify-content-end">
+            <div class="col-xl-6 col-md-8 px-0">
+                <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+                    <div class="card-header mb-3">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-lg-10">
+                                <h1 class="text--600wt text-capitalize dist-cell-text">
+                                    {{ tituloTipoCarta }}
+                                </h1>
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="button" class="btn btn--circle btn--circle_green"
+                                    (click)="_toggleObservaciones()">
+                                    <span class="icon-cross mr-2"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- init form for add observation -->
+                    <div class="form--default w-100">
+
+
+                        <div class="card-body pb-0">
+                            <div class="text--14pts" [innerHTML]="cuerpoCarta[0]">
+                            </div>
+                            <div class="row mx-0">
+                                <!-- Observación -->
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group row align-items-center">
+                                        <label appMimLabel for="observacion" class="col-sm-12 col-form-label">
+                                            {{ 'generarCarta.texto' | translate }}
+                                        </label>
+                                        <div class="col-sm-12">
+                                            <div class="input-group" appMimInput [for]="'observacion'"
+                                                [controlName]="'observacion'">
+                                                <textarea type="text" rows="5" class="form-control" id="observacion"
+                                                    formControlName="observacion" name="observacion"
+                                                    maxlength="1000"></textarea>
+                                            </div>
+                                        </div>
+                                        <app-mim-input-error class="col-sm-12" controlName="observacion"
+                                            errorKey="required">
+                                            {{ 'global.required' | translate  : { campo: 'generarCarta.texto' | translate } }}
+                                        </app-mim-input-error>
+                                        <app-mim-input-error class="col-sm-12" controlName="observacion"
+                                            errorKey="maxlength">
+                                            {{ 'global.maxCaracteres' | translate
+                                                    :{ campo: 'generarCarta.texto' | translate, max: '1000' | translate }
+                                                }}
+                                        </app-mim-input-error>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer  w-100 border-0">
+                                    <div class="d-flex flex-row-reverse">
+                                        <button type="submit" class="btn btn--orange1 btn--md mr-2"
+                                            (click)="_guardarCarta()" [disabled]="form.pristine">
+                                            <span class="icon-checkmark mr-2"></span>
+                                            {{ 'global.save' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="text--14pts" [innerHTML]="cuerpoCarta[1]">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End form for add observation -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,14 @@
+.custom-file-label::after{
+    content: 'Examinar';
+    cursor: pointer;
+    background-color: transparent;
+    background: #2f4158;
+    color: #efeff0;
+    padding-top: 8px
+}
+.file--input{
+    top: -6px;
+}
+.custom--file{
+    height: 34px;
+}

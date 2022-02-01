@@ -1,0 +1,93 @@
+<div class="col-md-12">
+    <h1 class="my-3">
+        {{ 'administracion.aprobacionFinal.titulo' | translate }}
+    </h1>
+</div>
+
+<div class="col-md-12 mx-0 w-100 pb-5 mb-5">
+    <div class="card cards--panelLeft cards--panelLeft_beneficiarios mb-2">
+        <div class="card-body py-2 ">
+            <div class="p-4">
+                <ul class="list-group">
+                    <li class="list-group-item text--18pts">
+                        <div class="d-flex">
+                            <div class="mr-auto">
+                                {{ 'administracion.aprobacionFinal.configuracion.tecnica' | translate }}</div>
+                            <em class="text--green1 icon-check-circle pr-2"></em>
+                        </div>
+                    </li>
+                    <li class="list-group-item text--18pts">
+                        <div class="d-flex">
+                            <div class="mr-auto">
+                                {{ 'administracion.aprobacionFinal.configuracion.actuaria' | translate }}</div>
+                            <em class="text--green1 icon-check-circle pr-2"></em>
+                        </div>
+                    </li>
+                    <li class="list-group-item text--18pts">
+                        <div class="d-flex">
+                            <div class="mr-auto">
+                                {{ 'administracion.aprobacionFinal.configuracion.financiera' | translate }}</div>
+                            <em class="text--green1 icon-check-circle pr-2"></em>
+                        </div>
+                    </li>
+                </ul>
+                <div class="col-xl-12 px-0">
+                    <div class="d-flex flex-row-reverse">
+                        <p class="my-2">
+                            <a class="btn btn--circle" (click)="verDetalleConfiguracion()">
+                                {{ 'administracion.aprobacionFinal.configuracion.verDetalleConfiguracion' | translate }}
+                                <span class="icon-arrow-thin-right ml-2"></span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- devolver a -->
+    <div class="card cards--panelLeft cards--panelLeft_beneficiarios mb-2">
+        <div class="card-header py-2" id="">
+            <form class="form--default w-100" [formGroup]="form">
+                <div class="form-group row pt-3">
+                    <label for="inputPassword"
+                        class="col-sm-2 col-form-label my-0 text--18pts text--medium text--gray1 pl-5">
+                        {{ 'administracion.aprobacionFinal.devolverA' | translate | emptyPipe }}
+                    </label>
+                    <div class="col-sm-4 px-0 border">
+                        <app-mim-select class="w-100" [inputId]="'devolve'" [options]="devolveList"
+                            formControlName="devolve" [optionKey]="'nombre'" name="'devolve'" ngDefaultControl>
+                        </app-mim-select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-apueba-elimina [showForm]="showForm" tituloModal="{{tituloModal}}" [esDirector]="esDirectorTecnico"
+    [showControlsAprobacion]="showControlsAprobacion" [observaciones]="observaciones"
+    (mostrarModal)="_toggleObservaciones($event)" (apruebaRechazaSolicitud)="_apruebaRechazaSolicitud($event)"
+    (datosForm)="_guardarObservacion($event)"></app-apueba-elimina>
+
+<!--Controles -->
+<div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+    <div class="card-body py-2">
+        <div class="row mx-0 w-10 justify-content-end align-items-center">
+            <!-- Botones -->
+            <div class="col-xl-12">
+                <div class="d-flex ">
+                    <div class="col-md-3 col-sd-4">
+                        <button type="button" class="btn btn-outline-info btn--md mr-2" (click)="verObservacion()">
+                            <span class="icon-document mr-2"></span>Ver observaciones
+                        </button>
+                    </div>
+
+                    <button type="button" class="btn btn--orange1 btn--md px-4 ml-auto" (click)="terminar()">
+                        {{ 'global.ended' | translate }}
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

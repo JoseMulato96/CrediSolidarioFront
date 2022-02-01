@@ -1,0 +1,111 @@
+import { IMimPlan, MimPlan } from './mim-plan.model';
+import { IMimCobertura, MimCobertura } from './mim-cobertura.model';
+import { IMimEstadoPlanCobertura, MimEstadoPlanCobertura } from './mim-estado-plan-cobertura.model';
+import { MimTipoFecha } from './mim-tipo-fecha.model';
+import { IMimPlanCoberturaEdad, MimPlanCoberturaEdad } from './mim-plan-cobertura-edad.model';
+
+export class MimPlanCobertura {
+
+  codigo: string;
+  mimPlan: MimPlan;
+  mimCobertura: MimCobertura;
+  mimOrigenPlanCoberturaList: any;
+  nombre: string;
+  nombreCorto: string;
+  coberturaBasica: boolean;
+  mimTipoFecha: MimTipoFecha;
+  planCoberturaRequerido: boolean;
+  mimTipoIncremento: any;
+  mimPeriodoInicioIncrementoAnual: any;
+  mimPeriodoFinIncrementoAnual: any;
+  descripcionCobertura: string;
+  diasMaximoEvento: number;
+  mimEstadoPlanCobertura: MimEstadoPlanCobertura;
+  deducibles: boolean;
+  periodosCarencia: boolean;
+  exclusionesPlanCobertura: boolean;
+  enfermedadesGraves: boolean;
+  conceptoFacturacion: boolean;
+  desmembracionAccidente: boolean;
+  condicionVenta: boolean;
+  coberturasSubsistentes: boolean;
+  valorRescate: boolean;
+  valorAsegurado: boolean;
+  valorCuota: boolean;
+  limitacionCobertura: boolean;
+  beneficioPorPreexistencia: boolean;
+  reconocimientoPermanencia: boolean;
+  reglasExcepciones: boolean;
+  mimPlanCoberturaEdadList: MimPlanCoberturaEdad[];
+  tiempoAprobacionExcepciones: any;
+
+  constructor(objeto: IMimPlanCobertura) {
+    this.codigo = objeto && objeto.codigo || null;
+    this.mimPlan = objeto && objeto.mimPlan || null;
+    this.mimCobertura = objeto && objeto.mimCobertura || null;
+    this.mimOrigenPlanCoberturaList = objeto && objeto.mimOrigenPlanCoberturaList || null;
+    this.nombre = objeto && objeto.nombre || null;
+    this.nombreCorto = objeto && objeto.nombreCorto || null;
+    this.coberturaBasica = objeto && objeto.coberturaBasica || false;
+    this.mimTipoFecha = objeto && objeto.mimTipoFecha || null;
+    this.planCoberturaRequerido = objeto && objeto.planCoberturaRequerido || false;
+    this.mimTipoIncremento = objeto && objeto.mimTipoIncremento || false;
+    this.mimPeriodoInicioIncrementoAnual = objeto && objeto.mimPeriodoInicioIncrementoAnual || null;
+    this.mimPeriodoFinIncrementoAnual = objeto && objeto.mimPeriodoFinIncrementoAnual || null;
+    this.descripcionCobertura = objeto && objeto.descripcionCobertura || null;
+    this.diasMaximoEvento = objeto && objeto.diasMaximoEvento || null;
+    this.mimEstadoPlanCobertura = objeto && objeto.mimEstadoPlanCobertura || null;
+    this.deducibles = objeto.deducibles;
+    this.periodosCarencia = objeto.periodosCarencia;
+    this.exclusionesPlanCobertura = objeto.exclusionesPlanCobertura;
+    this.enfermedadesGraves = objeto.enfermedadesGraves;
+    this.conceptoFacturacion = objeto.conceptoFacturacion;
+    this.desmembracionAccidente = objeto.desmembracionAccidente;
+    this.condicionVenta = objeto.condicionVenta;
+    this.coberturasSubsistentes = objeto.coberturasSubsistentes;
+    this.valorRescate = objeto.valorRescate;
+    this.valorAsegurado = objeto.valorAsegurado;
+    this.valorCuota = objeto.valorCuota;
+    this.limitacionCobertura = objeto.limitacionCobertura;
+    this.beneficioPorPreexistencia = objeto.beneficioPorPreexistencia;
+    this.reconocimientoPermanencia = objeto.reconocimientoPermanencia;
+    this.reglasExcepciones = objeto.reglasExcepciones;
+    this.mimPlanCoberturaEdadList = objeto && objeto.mimPlanCoberturaEdadList || null;
+    this.tiempoAprobacionExcepciones = objeto && objeto.tiempoAprobacionExcepciones || null;
+  }
+}
+
+export interface IMimPlanCobertura {
+  codigo: string;
+  mimPlan: IMimPlan;
+  mimCobertura: IMimCobertura;
+  mimOrigenPlanCoberturaList: any;
+  nombre: string;
+  nombreCorto: string;
+  coberturaBasica: boolean;
+  mimTipoFecha: MimTipoFecha;
+  planCoberturaRequerido: boolean;
+  mimTipoIncremento: any;
+  mimPeriodoInicioIncrementoAnual: any;
+  mimPeriodoFinIncrementoAnual: any;
+  descripcionCobertura: string;
+  diasMaximoEvento: number;
+  mimEstadoPlanCobertura: IMimEstadoPlanCobertura;
+  deducibles: boolean;
+  periodosCarencia: boolean;
+  exclusionesPlanCobertura: boolean;
+  enfermedadesGraves: boolean;
+  conceptoFacturacion: boolean;
+  desmembracionAccidente: boolean;
+  condicionVenta: boolean;
+  coberturasSubsistentes: boolean;
+  valorRescate: boolean;
+  valorAsegurado: boolean;
+  valorCuota: boolean;
+  limitacionCobertura: boolean;
+  beneficioPorPreexistencia: boolean;
+  reconocimientoPermanencia: boolean;
+  reglasExcepciones: boolean;
+  mimPlanCoberturaEdadList: IMimPlanCoberturaEdad[];
+  tiempoAprobacionExcepciones: any;
+}

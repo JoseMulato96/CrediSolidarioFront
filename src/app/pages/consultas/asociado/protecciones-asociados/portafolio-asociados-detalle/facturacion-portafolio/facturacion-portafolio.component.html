@@ -1,0 +1,483 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination nav--pagination my-0 align-items-center justify-content-end">
+    <button class="btn btn--red1 btn--xs mr-2" disabled="disabled">
+      <span class="icon-cross mr-2"></span>
+      {{ 'asociado.protecciones.facturacion.anularCuota' | translate }}
+    </button>
+  </ul>
+</nav>
+
+<!-- Tabla de Facturacion -->
+<div class="panel--gray panel-grid pt-2">
+  <app-mim-grid [configuracion]="configuracion.gridFacturacion" (seleccionar)="_OnSeleccionar($event)"
+    (deseleccionar)="_OnDeseleccionar($event)" (clickCelda)="_OnClickCelda($event)" >
+  </app-mim-grid>
+</div>
+
+<!-- se crea un panal vacio para que ocupe mayor espacio y pueda hacer mas scroll -->
+<div class="panel-footer-vacio"></div>
+
+<div class="card cards--footer border-0 rounded-0 panel-crear-cuenta">
+  <div class="card-body p-2">
+    <div class="col-12">
+      <div class="row mx-0 justify-content-end">
+        <!-- Botones -->
+        <div class="col-12">
+          <div class="d-flex flex-row-reverse">
+            <button class="btn btn--white btn--md text--red1" [disabled]="exportarDisabled ? 'disabled' : ''"
+              (click)="_onClickExportarExcel($event)">
+              <span class="icon-export mr-2 text--red1"></span>
+              {{ 'global.exportarExcel' | translate }}
+            </button>
+            <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="activePanelRightCrearCuota(true)"
+              disabled="disabled">
+              <span class="icon-plus mr-2"></span>
+              Crear cuota
+            </button>
+          </div>
+        </div>
+        <!-- Sumatoria -->
+        <div class="col-12" *ngIf="atLeastOneSelected">
+          <div class="mx-0 w-100 row justify-content-between align-items-center">
+            <div class="col-8">
+              <div class="alert panel--alert p-0 m-0" role="alert">
+                <h5 class="my-0 text--gray2 text--600wt d-inline-flex align-items-center text--tittle_circle">
+                  <span class="icon-check bg--green2 mr-3 text--26pts"></span>
+                  {{
+                  'asociado.protecciones.facturacion.footer.mensajeSuma' | translate
+                }}
+                </h5>
+              </div>
+            </div>
+            <div class="col-4 px-0">
+              <div class="mx-0 row w-100">
+                <div class="col-7 border-right">
+                  <h3 class="my text--13pts text--600wt text--gray2 text-center">
+                    {{
+                    'asociado.protecciones.facturacion.footer.totalFacturado'
+                      | translate
+                  }}
+                  </h3>
+                  <h2 class="my text--18pts text--500wt text--gray1 text-center">
+                    {{ totalFacturado | customCurrency | emptyPipe }}
+                  </h2>
+                </div>
+                <div class="col-5">
+                  <h3 class="my text--13pts text--600wt text--gray2 text-center">
+                    {{
+                    'asociado.protecciones.facturacion.footer.totalPagado' | translate
+                  }}
+                  </h3>
+                  <h2 class="my text--18pts text--500wt text--gray1 text-center">
+                    {{ totalPagado | customCurrency | emptyPipe }}
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Crear Cuota -->
+<div class="sidebar--slide sidebar--slide_right " [ngClass]="{ open: shownPanelCrearCuota == true }">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-lg-4 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0">Crear cuota</h1>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn--circle btn--circle_green" (click)="activePanelRightCrearCuota(false)">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form class="form--default w-100">
+          <div class="card-body">
+            <div class="row mx-0 w-100">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="editarDatosAsoCiudad" class="">Tipo de cuota</label>
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="editarDatosAsoCiudad" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <span class="icon-chevron-down"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="editarDatosAsoCiudad">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label for="editarDatosAsoDireccion" class="col-sm-12 col-form-label">Periodo inicial</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" id="editarDatosAsoDireccion" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label for="editarDatosAsoBarrio" class="col-sm-12 col-form-label">Periodo Final</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" id="editarDatosAsoBarrio" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label for="editarDatosAsoDireccion" class="col-sm-12 col-form-label">Valor cuota</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" id="editarDatosAsoDireccion" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label for="editarDatosAsoBarrio" class="col-sm-12 col-form-label">Valor mora</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" id="editarDatosAsoBarrio" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label for="editarDatosAsoDireccion" class="col-sm-12 col-form-label">Mora pagada</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" id="editarDatosAsoDireccion" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label for="editarDatosAsoBarrio" class="col-sm-12 col-form-label">Valor pagado</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" id="editarDatosAsoBarrio" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group  align-items-center w-100">
+                  <label for="editarDatosAsoBarrio" class="col-form-label">Fecha de pago</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="formBucarAsociadosID" />
+                    <div class="input-group-prepend date">
+                      <div class="input-group-text">
+                        <span class="icon-calendar"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group ">
+                  <label class="col-form-label" for="nuevoBeneAsoObservaciones">Observaciones</label>
+                  <textarea class="form-control" id="nuevoBeneAsoObservaciones" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer  w-100 border-0 py-4 mt-5">
+            <div class="mx-0 w-100 row justify-content-end align-items-center">
+              <div class="col-8">
+                <button type="submit" class="btn btn--orange1 btn--lg w-100">
+                  <span class="icon-checkmark mr-2"></span>
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Detalle Cuota -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: shownPanelDetalleCuota == true }"
+  *ngIf="selectedFacProteccion">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-lg-4 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0">
+                {{
+                  'asociado.protecciones.facturacion.detalle.titulo' | translate
+                }}
+              </h1>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn--circle btn--circle_green" (click)="_OnClickCelda(undefined)">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form class="form--default w-100 overflow-y-scroll">
+          <div class="card-body">
+            <div class="card card border-bottom-0">
+              <div class="card-header px-0 py-3">
+                <div class="row w-100 mx-0 justify-content-between align-items-center">
+                  <div class="col">
+                    <h2 class="text--600wt text--gray1 my-0 text-left">
+                      {{
+                        selectedFacProteccion.prodDescripcion
+                          | emptyPipe
+                      }}
+                    </h2>
+                  </div>
+                  <div class="col-5">
+                    <h5 class="text--600wt text--gray1 my-0 text-right">
+                      {{ 'global.period' | translate }}:
+                      {{ selectedFacProteccion.periodo | emptyPipe }}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-group  nav--group_flush">
+                <li class="list-group-item first">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.valorProteccion'
+                        | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+
+                    {{
+                      productoDetalle.codigoCategoria === auxilioFunerario
+                          ? (selectedFacProteccion.valorProteccion | emptyPipe)
+                          : (selectedFacProteccion.valorProteccion
+                            | customCurrency
+                            | emptyPipe)
+                      }}
+
+                  </h4>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{ 'asociado.protecciones.facturacion.detalle.plan' | translate }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{ selectedFacProteccion.prodCodigo | emptyPipe }}
+                  </h4>
+                </li>
+                <li class="list-group-item first">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.concepto' | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{ selectedFacProteccion.concepto | emptyPipe }}
+                  </h4>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{ 'global.status' | translate }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{ selectedFacProteccion.estadoNombre | emptyPipe }}
+                  </h4>
+                </li>
+                <li class="list-group-item first">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.valorCuota' | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.valorCuota
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.valorGenerado'
+                        | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.valorGenerado
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+                <li class="list-group-item first">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.valorFacturado'
+                        | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.valorFacturado
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.valorMora' | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.valorMora
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+                <li class="list-group-item first">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.saldoMora' | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.saldoMora
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.saldoPago' | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.saldoValorFacturado
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+                <li class="list-group-item first">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.valorPagado'
+                        | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.valorPagado
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.moraPagada' | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.pagoMora
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+
+                <li class="list-group-item first">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.valorDescapitalizado'
+                        | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{
+                      selectedFacProteccion.valorDescapitalizado
+                        | customCurrency
+                        | emptyPipe
+                    }}
+                  </h4>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.fechaAjuste'
+                        | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{ selectedFacProteccion.fechaAjuste | emptyPipe }}
+                  </h4>
+                </li>
+                <li class="list-group-item first">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.usuario' | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{ selectedFacProteccion._usuarioEmpleado | emptyPipe }}
+                  </h4>
+                </li>
+                <li class="list-group-item">
+                  <h5 class="text--gray2 text--600wt my-0">
+                    {{
+                      'asociado.protecciones.facturacion.detalle.fechaPago' | translate
+                    }}
+                  </h5>
+                  <h4 class="text--gray1 text--600wt my-0">
+                    {{ selectedFacProteccion.fechaPago | emptyPipe }}
+                  </h4>
+                </li>
+              </ul>
+            </div>
+            <div class="card card mt-4">
+              <div class="ml-4 mt-3 mb-3 ml-3">
+                <h5 class="text--gray2 text--600wt my-0">
+                  {{ 'asociado.protecciones.facturacion.detalle.observaciones' | translate }}
+                </h5>
+                <h4 class="text--gray1 text--600wt my-0">
+                  {{ selectedFacProteccion.observacion  | emptyPipe }}
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer  w-100 border-0 py-4 mt-5">
+            <div class="mx-0 w-100 row justify-content-end align-items-center">
+              <div class="col-8">
+                <button type="submit" class="btn btn--orange1 btn--lg w-100" disabled="disabled">
+                  <span class="icon-checkmark mr-2"></span>
+                  {{ 'global.save' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

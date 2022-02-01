@@ -1,0 +1,133 @@
+.form-select-container {
+  background-color: #fff;
+  border-color: #d6dbe0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  color: #2f4158;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  height: 2.75rem;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.text-upper {
+  text-transform: uppercase;
+}
+.form-select {
+  background-color: transparent;
+  border-color: #d6dbe0;
+  border-style: solid;
+  border-width: 0px;
+  border-radius: 5px;
+  color: #2f4158;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  height: 2.75rem;
+  justify-content: space-between;
+  padding: 0.5rem;
+  width: 100%;
+  padding-right: 45px;
+  z-index: 99;
+  outline-color: transparent;
+  cursor: pointer;
+}
+.form-select:focus {
+  background-color: transparent;
+}
+.form-select-container span {
+  align-items: center;
+  background-color: #f6f6f6;
+  border-left: 1px solid #d6dbe0;
+  display: flex;
+  padding: 0 1rem;
+  position: absolute;
+  right: 20px;
+  height: 36px;
+  width: 40px;
+}
+.form-select-container input option {
+  align-items: center;
+  border-top: 0;
+  border-bottom: 1px solid #d6dbe0;
+  color: #2f4158;
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  height: 3rem;
+  background-color: #ff743b;
+  width: 100px;
+}
+.form--default .dropdown.show .btn {
+  border-radius: 5px;
+}
+.form--default .dropdown button:focus,
+.form--default .dropdown span:focus {
+  border-color: #ff743b !important;
+  color: #ff743b !important;
+}
+.form--default .dropdown button:hover,
+.form--default .dropdown span:hover {
+  border-color: #d6dbe0;
+  color: #2f4158;
+}
+
+.ui-select {
+  width: 100%;
+}
+/* This is to remove the arrow of select element in IE */
+input::-ms-expand {
+  display: none;
+}
+input {
+  -webkit-appearance: none;
+  appearance: none;
+}
+@-moz-document url-prefix() {
+  .ui-select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+  .ui-select select {
+    width: 110%;
+    background-position: right 30px center !important;
+    border: none !important;
+  }
+}
+.display-combobox {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.form--default .dropdown .btn {
+  max-width: 250px;
+}
+.input-focus-border label,
+.input-focus-border button {
+  color: #ff743b !important;
+}
+.input-focus-border div input {
+  border-color: #ff743b !important;
+}
+.input-error-border label,
+.input-error-border button {
+  color: #ff4352 !important;
+}
+.input-error-border div,
+.input-error-border button {
+  border-color: #ff4352 !important;
+}
+
+.cards--panelLeft .card-header [aria-expanded='true'] span.icon-chevron-down {
+  display: block;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}

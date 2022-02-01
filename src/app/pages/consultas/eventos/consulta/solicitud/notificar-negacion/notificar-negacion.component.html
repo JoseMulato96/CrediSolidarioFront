@@ -1,0 +1,191 @@
+<div class="col-md-12 d-flex justify-content-end" style="margin-bottom: -30px;">
+    <button type="button" class="btn btn--orange1 btn--md float-right" (click)="gestionar()">
+        <span class="icon-arrow-right mr-2"></span>
+        <ng-template [ngIf]="mostrarBitacora">
+            {{ 'eventos.consulta.solicitud.gestionar' | translate }}
+        </ng-template>
+        <ng-template [ngIf]="!mostrarBitacora">
+            {{ 'eventos.consulta.solicitud.bitacora' | translate }}
+        </ng-template>
+    </button>
+</div>
+
+<app-mim-bitacora [idProceso]="idProceso" *ngIf="mostrarBitacora"></app-mim-bitacora>
+<div *ngIf="!mostrarBitacora">
+
+    <div class="mx-0 w-100 align-items-center">
+        <h1 class="my-0">
+            {{ 'eventos.consulta.solicitud.notificarNegacion.titulo' | translate }}
+        </h1>
+    </div>
+
+    <form class="form--default w-100" [formGroup]="form">
+    <div class="mt-3 card bg--white border-0 rounded-0">
+            <div class="card-body">
+                <div class="row mx-0 w-100">
+                    <!-- descripción Negación -->
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="descripcionNegacion" class="col-sm-12 col-form-label">
+                                {{ 'eventos.consulta.solicitud.notificarNegacion.observacion' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'descripcionNegacion'"
+                                    [controlName]="'descripcionNegacion'">
+                                    <textarea type="text" rows="5" class="form-control" id="descripcionNegacion"
+                                        formControlName="descripcionNegacion" name="descripcionNegacion"
+                                        maxlength="1000"></textarea>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="descripcionNegacion"
+                                errorKey="required">
+                                {{ 'global.required' | translate  : { campo: 'eventos.consulta.solicitud.notificarNegacion.observacion' | translate } }}
+                            </app-mim-input-error>
+                            <app-mim-input-error class="col-sm-12" controlName="descripcionNegacion"
+                                errorKey="maxlength">
+                                {{ 'global.maxCaracteres' | translate
+                                :{ campo: 'eventos.consulta.solicitud.notificarNegacion.observacion' | translate, max: '1000' | translate }
+                            }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+                    <!-- escalado como tratamiento especial -->
+                    <div class="col-sm-12 col-md-6">
+                        <div class="d-flex justify-content-start">
+                                <div class="custom-control custom-switch custom-switch_xs row d-flex px-0 mt-2">
+                                    <span class="text--13pts text--600wt text--gray2 col">
+                                        {{ 'eventos.consulta.solicitud.notificarNegacion.escaladoComoTratamientoEspecial' | translate }}
+                                    </span>
+                                    <label class="switch my-0">
+                                        <input type="checkbox" class="cursor-point" formControlName="tratamientoEspecial"
+                                        id="tratamientoEspecial" name="tratamientoEspecial" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    <div class="mt-3 card bg--white border-0 rounded-0">
+            <div class="card-body">
+                <div class="row mx-0 w-100">
+                    <!-- Gestión pendiente por -->
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="gestionPendiente" class="col-sm-12 col-form-label">
+                                {{ 'eventos.consulta.solicitud.gestionPendientePor' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'gestionPendiente'"
+                                    [controlName]="'gestionPendiente'">
+                                    <app-mim-select class="w-100" [inputId]="'gestionPendiente'"
+                                        [options]="gestionPendientes" formControlName="gestionPendiente"
+                                        [optionKey]="'nombre'" name="'gestionPendiente'" ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="gestionPendiente" errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.gestionPendientePor' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <!-- auditores -->
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="auditores" class="col-sm-12 col-form-label">
+                                &nbsp;
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'auditores'"
+                                    [controlName]="'auditores'">
+                                    <app-mim-select class="w-100" [inputId]="'auditores'"
+                                        [options]="auditores" formControlName="auditores"
+                                        [optionKey]="'nombre'" name="'auditores'" ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="auditores" errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.auditoriaMedica.gestionPendiente' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+    </div>
+    <div class="mt-3 card bg--white border-0 rounded-0">
+            <div class="card-body">
+                <div class="row mx-0 w-100">
+
+                    <!-- Subestados -->
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="subestados" class="col-sm-12 col-form-label">
+                                {{ 'eventos.consulta.solicitud.notificarNegacion.estadoCierre' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'subestados'" [controlName]="'subestados'">
+                                    <app-mim-select class="w-100" [inputId]="'subestados'" [options]="subestados"
+                                        formControlName="subestados" [optionKey]="'nombre'" name="'subestados'"
+                                        ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="subestados" errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.notificarNegacion.estadoCierre' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <!-- Razon de insatisfacion -->
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="razonInsatisfacion" class="col-sm-12 col-form-label">
+                                {{ 'eventos.consulta.solicitud.notificarNegacion.razonInsatisfacion' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'razonInsatisfacion'" [controlName]="'razonInsatisfacion'">
+                                    <app-mim-select class="w-100" [inputId]="'razonInsatisfacion'" [options]="razonesInsatisfacion"
+                                        formControlName="razonInsatisfacion" [optionKey]="'nombre'" name="'razonInsatisfacion'"
+                                        ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="razonInsatisfacion" errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.notificarNegacion.razonInsatisfacion' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <!--Controles -->
+                    <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z_index_9">
+                        <div class="card-body py-2">
+                            <div class="row mx-0 w-10 justify-content-end align-items-center">
+                                <!-- Botones -->
+                                <div class="col-xl-12">
+                                    <div class="d-flex flex-row-reverse">
+                                        <button type="submit" class="btn btn--orange1 btn--md mr-2"
+                                            (click)="_alGuardar()" [disabled]="!activarGuardar">
+                                            <span class="icon-mail mr-2"></span>
+                                            {{ 'global.save' | translate }}
+                                        </button>
+                                        <button type="button" class="btn btn--orange1 btn--md mr-2"
+                                            (click)="_terminar()" [disabled]="!activarTerminar">
+                                            <span class="icon-archive mr-2"></span>
+                                            {{ 'global.end' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    </form>
+</div>

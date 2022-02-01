@@ -1,0 +1,257 @@
+<div class="navbar sidebar--header w-100 p-0">
+  <div class="container-fluid">
+    <div class="row mx-auto w-100 align-items-center">
+      <div class="col-lg-1 col-xl-2">
+        <a class="navbar-brand py-0 mx-auto d-block pointer" [routerLink]="['/']">
+          <picture class="mx-auto d-block w-100">
+            <source media="(min-width: 1200px)" srcset="assets/images/logos/logo-menu-coomeva-sipas-xl.png"
+              class="img-fluid mx-auto d-block" />
+            <img src="./assets/images/logos/logo-menu-coomeva-sipas-md.png" alt="Mi Mutual" class="img-fluid mx-auto d-block" />
+          </picture>
+        </a>
+      </div>
+
+      <div class="col-lg-9 col-xl-8 pl-0 borderLaterales">
+        <ul class="nav nav--main pl-3">
+          <li class="nav-item mx-2" *ngFor="let itemParentMenu of itemMenu; let i = index" [ngClass]="
+                itemParentMenu.subMenus.length > 5 ? 'position-static' :'position-relative'"
+                id="{{itemParentMenu.appObject.code}}">
+            <a class="nav-link pointer" id="{{itemParentMenu.appObject.code}}_PATH" role="button"
+              *ngIf="itemParentMenu.subMenus.length > 0" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" [ngClass]="itemParentMenu.subMenus.length > 0 ? 'dropdown-toggle' :''"
+              (click)="createSubMenu(itemParentMenu.appObject.code)">
+              {{ itemParentMenu.appObject.name }}
+            </a>
+            <a class="nav-link" id="{{itemParentMenu.appObject.code}}_PATH" role="button" *ngIf="itemParentMenu.subMenus.length == 0"
+              aria-haspopup="true" aria-expanded="false" [routerLink]="[itemParentMenu.appObject.action]">
+              <ng-container *ngIf="itemParentMenu.appObject.code != 'MM_INICIO'">
+                {{ itemParentMenu.appObject.name }}
+              </ng-container>
+              <ng-container *ngIf="itemParentMenu.appObject.code == 'MM_INICIO'">
+                <span class="icon-home-2"></span>
+              </ng-container>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownConsultas"
+              *ngIf="itemParentMenu.subMenus.length > 0">
+
+              <div class="row mx-0 w-100">
+                <ng-container *ngFor="let itemsM of itemSubmenu">
+                  <ul class="nav nav--dropdown col">
+                      <ng-container *ngFor="let itemAplicacionesDetailsProduct of itemsM">
+                    <li class="nav-item" *ngIf="itemAplicacionesDetailsProduct.code != 'MM_FLOTANTE_CONSULTA_ASOCIADO'" id="{{itemAplicacionesDetailsProduct.code}}">
+                      <a class="nav-link pointer" [routerLink]="[itemAplicacionesDetailsProduct.action]" id="{{itemAplicacionesDetailsProduct.code}}_PATH"
+                      *ngIf="itemAplicacionesDetailsProduct.code != 'MM_RADIC_RECLAMA'">
+                        {{ itemAplicacionesDetailsProduct.name }}
+                      </a>
+                      <a class="nav-link pointer" [routerLink]="" (click)="modalReclamaciones()" id="{{itemAplicacionesDetailsProduct.code}}_PATH"
+                      *ngIf="itemAplicacionesDetailsProduct.code == 'MM_RADIC_RECLAMA'">
+                          {{ itemAplicacionesDetailsProduct.name }}
+                      </a>
+                    </li>
+                  </ng-container>
+                  </ul>
+                </ng-container>
+              </div>
+
+              <!--Consultar asociado-->
+              <div id="MM_FLOTANTE_CONSULTA_ASOCIADO" class="col"
+                *ngIf="itemParentMenu.appObject.code == 'MM_CONSULTA'">
+                <div class="card cards--BtnDropdown mt-4">
+                  <div class="card-body p-0">
+                    <button class="btn w-100 text-uppercase justify-content-between w-min"
+                      (click)="activePanelRight(true)">
+                      <div class="row mx-0 w-100 align-items-center">
+                        <div class="col-1">
+                          <span class="icon-consult float-left"></span>
+                        </div>
+                        <div class="col">
+                          {{ 'header.consultarAsociado' | translate }}
+                        </div>
+                        <div class="col-1">
+                          <span class="icon-arrow-thin-right circle float-right"></span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--fIN de consultar asociado-->
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-2 px-0">
+        <a class=" dropdown-toggle_media my-0 d-flex ml-2" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="media">
+            <span class="icon-user align-self-center mr-2 text--white text--16pts"></span>
+            <div class="media-body ">
+              <div class="dropdown">
+                <span class="text--white text--500wt text--13pts d-xlg-flex">
+                  {{usuario.name}}
+                </span>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <ul class="nav nav--dropdown ">
+                    <li class="nav-item">
+                      <a class="nav-link" (click)="logout()">{{
+                        'header.salir' | translate
+                      }}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<app-lateral-reclamaciones [mostralModalReclamacion]="mostralModalReclamacion" (datosForm)="datosForm($event)"
+(ocultarModal)="modalReclamaciones()"></app-lateral-reclamaciones>
+<!-- MENU FLOTANTE IZQUIERDO-->
+<div class="sidebar--menuFloatR">
+  <ul class="nav flex-column nav--flyR">
+    <li class="nav-item">
+      <a class="nav-link" data-placement="left" data-toggle="tooltip" title="Glosario">
+        <span class="icon-article"></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-placement="left" data-toggle="tooltip" href="#" title="Xtremo digital">
+        <span class="icon-book"></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link active" data-placement="left" data-toggle="tooltip" (click)="activePanelRight(true)"
+        title="Consulta de usuarios">
+        <span class="icon-consult"></span>
+      </button>
+    </li>
+  </ul>
+  <!-- PANEL -> CONSULTA DE ASOCIADO -->
+  <div id="MM_FLOTANTE_CONSULTA_ASOCIADO" class="sidebar--slide sidebar--slide_right"
+    [ngClass]="{ open: shownPanel == true }">
+    <div class="row mx-0 w-100">
+      <div class="col-8">
+      </div>
+      <div class="col-lg-4 px-0 ">
+        <div class="card cards--panel bg--white border-0 rounded-0">
+          <div class="card-header">
+            <div class="row mx-0 w-100 align-items-center">
+              <div class="col-lg-10 px-0">
+                <h1 class="text--500wt text--gray1 my-0">
+                  {{ 'header.consultarAsociado' | translate }}
+                </h1>
+              </div>
+              <div class="col-lg-2 px-0">
+                <button class="btn btn--circle btn--circle_green" (click)="activePanelRightRadicaciones(false)">
+                  <span class="icon-cross mr-2"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="col">
+              <form class="form--default my-5" [formGroup]="form" (ngSubmit)="onConsultarAsociados()"
+                novalidate="novalidate">
+                <div class="form-group mb-4">
+                  <label appMimLabel for="formConsultaAsocuadosID">
+                    {{ 'asociado.identificacionAsociado' | translate }}
+                  </label>
+                  <div class="input-group" appMimInput [for]="'formConsultaAsocuadosID'" [controlName]="'asoNitCli'">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <span class="icon-user-id"></span>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="formConsultaAsocuadosID" formControlName="asoNitCli"
+                      name="asoNitCli" mask="a*" [patterns]="patterns" />
+                  </div>
+                </div>
+                <div class="form-group  mb-4">
+                  <label appMimLabel for="formConsultaAsocuadosNombre">
+                    {{ 'asociado.nombreApellido' | translate }}
+                  </label>
+                  <div class="input-group" appMimInput [for]="'formConsultaAsocuadosNombre'"
+                    [controlName]="'nombreAsociado'">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <span class="icon-user"></span>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="formConsultaAsocuadosNombre"
+                      formControlName="nombreAsociado" name="nombreAsociado" mask="n*" [patterns]="patterns"
+                      [dropSpecialCharacters]="false" />
+                  </div>
+                </div>
+                <button type="submit" class="btn btn--lg btn--orange1 w-100 mt-4">
+                  {{ 'global.consultar' | translate }}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- PANEL -> RADICACIONES -->
+  <div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: shownPanelRadicaciones == true }">
+    <div class="row mx-0 w-100 justify-content-end">
+      <div class="col-lg-4 px-0">
+        <div class="card cards--panel bg--white border-0 rounded-0">
+          <div class="card-header">
+            <div class="row mx-0 w-100 align-items-center">
+              <div class="col-lg-10 px-0">
+                <h1 class="text--500wt text--gray1 my-0">
+                  Consulta de asociados
+                </h1>
+              </div>
+              <div class="col-lg-2 px-0">
+                <button class="btn btn--circle btn--circle_green" (click)="activePanelRightRadicaciones(true)">
+                  <span class="icon-cross mr-2"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="col">
+              <form class="form--default my-5" (ngSubmit)="formConsultaRadicaciones()" novalidate="novalidate">
+                <div class="form-group mb-4">
+                  <label for="formConsultaAsocuadosRadID">Identificación del asociado</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <span class="icon-user-id"></span>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="formConsultaAsocuadosRadID" name="numeroId" />
+                  </div>
+                </div>
+                <div class="form-group  mb-4">
+                  <label for="formConsultaAsocuadosNombreRad">Nombre y apellido</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <span class="icon-user"></span>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" id="formConsultaAsocuadosNombreRad" name="nombreAsociado" />
+                  </div>
+                </div>
+                <button type="submit" class="btn btn--lg btn--orange1 w-100 mt-4">
+                  Consultar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

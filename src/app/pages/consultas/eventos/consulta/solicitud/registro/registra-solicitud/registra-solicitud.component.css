@@ -1,0 +1,11 @@
+.custom-checkbox .custom-control-input {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+  }
+
+.custom-control-input:disabled~.custom-control-label:before {
+  cursor: not-allowed !important;
+  background: #f6f6f6 !important;
+  color: #D6DBE1 !important;
+}

@@ -1,0 +1,114 @@
+<div class="row mx-0 w-100 pb-5">
+  <div class="col-1 col-xl-3">
+    <!-- Filtros -->
+    <app-mim-filtro-vertical>
+      <app-mim-filtro-vertical-item [label]="'global.consultar'">
+        <div class="card cards--panelLeft mb-4">
+          <div id="filtroBeneficiario" class="collapse show" aria-labelledby="headingOne"
+            data-parent="#accordionPanelLeft">
+            <div class="card-body ">
+              <form class="form--default" *ngIf="isForm | async as isForm" [formGroup]="form"
+                (ngSubmit)="onBuscar($event)">
+                <!--Liquidacion -->
+                <div class="form-group">
+                  <div class="checkbox-coomeva">
+                    <label appMimLabel for="filtroLiquidacion">
+                      {{ 'consultas.consultaPagos.filtros.liquidacionNo' | translate }}
+                    </label>
+                    <input id="filtroLiquidacion" name="tipoFiltro" type="radio" [value]="1"
+                      formControlName="tipoFiltro" />
+                    <label class="checkmark-coomeva" for="filtroLiquidacion">
+                    </label>
+                  </div>
+                  <div class="input-group" appMimInput [for]="'liquidacion'" [controlName]="'liquidacion'">
+                    <input type="text" class="form-control" id="liquidacion" formControlName="liquidacion" mask="f*"
+                      [patterns]="patterns" name="liquidacion" />
+                  </div>
+                </div>
+
+                <!--Identificacion Beneficiario -->
+                <div class="form-group">
+                  <div class="checkbox-coomeva">
+                    <label appMimLabel for="filtroIdentificacion">
+                      {{ 'consultas.consultaPagos.filtros.identificacionBenPago' | translate }}
+                    </label>
+                    <input id="filtroIdentificacion" name="tipoFiltro" type="radio" [value]="2"
+                      formControlName="tipoFiltro" />
+                    <label class="checkmark-coomeva" for="filtroIdentificacion">
+                    </label>
+                  </div>
+                  <div class="input-group" appMimInput [for]="'identificacion'" [controlName]="'identificacion'">
+                    <input type="text" class="form-control" id="identificacion" formControlName="identificacion"
+                      name="identificacion" mask="f*" [patterns]="patterns" />
+                  </div>
+                </div>
+
+                <!-- Nombre Beneficiario -->
+                <div class="form-group">
+                  <div class="checkbox-coomeva">
+                    <label appMimLabel for="filtroNombre">
+                      {{ 'consultas.consultaPagos.filtros.nombreBenPago' | translate }}
+                    </label>
+                    <input id="filtroNombre" name="tipoFiltro" type="radio" [value]="3" formControlName="tipoFiltro" />
+                    <label class="checkmark-coomeva" for="filtroNombre"> </label>
+                  </div>
+                  <div class="input-group" appMimInput [for]="'nombre'" [controlName]="'nombre'">
+                    <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre" mask="n*"
+                      [patterns]="patterns" [dropSpecialCharacters]="false" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row mx-auto w-100">
+                    <div class="col-md-6 pl-md-0">
+                      <button type="button" class="btn btn--gray2 btn--md w-100 justify-content-md-start
+                          " (click)="onLimpiar()">
+                        {{ 'global.clean' | translate }}
+                        <span class="icon-cross ml-3"></span>
+                      </button>
+                    </div>
+                    <div class="col-md-6 pr-md-0">
+                      <button class="btn btn--border_green1 btn--md w-100" type="submit">
+                        {{ 'global.search' | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </app-mim-filtro-vertical-item>
+    </app-mim-filtro-vertical>
+  </div>
+
+  <!-- Consulta Pagos -->
+  <div class="col-11 col-xl-9 offset-1 offset-xl-0 d-block py-5 px-0 m-0">
+    <div class="row mx-0 w-100 ">
+      <!-- Titulo -->
+      <div class="col-md-12">
+        <h1>{{ 'consultas.consultaPagos.titulo' | translate }}</h1>
+      </div>
+      <div class="col-md-12">
+        <app-mim-grid [configuracion]="configuracion.gridPagos"> </app-mim-grid>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card cards--footer border-0 rounded-0">
+  <div class="card-body p-2">
+    <div class="col-12">
+      <div class="d-flex flex-row mx-0 justify-content-end">
+        <!-- Exportar -->
+        <div class="col-md-2 d-flex justify-content-end">
+          <button class="btn btn--white btn--md text--red1" [disabled]="exportarDisabled ? 'disabled' : ''"
+            (click)="onExportar($event)">
+            <span class="icon-export mr-2 text--red1"></span>
+            {{ 'global.exportarExcel' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

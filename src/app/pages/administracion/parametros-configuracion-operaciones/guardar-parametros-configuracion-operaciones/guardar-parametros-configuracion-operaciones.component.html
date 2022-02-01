@@ -1,0 +1,152 @@
+<div class="col-12">
+    <div class="noprint row pl-2 pr-4 mt-2">
+        <!-- Botón salir-->
+        <div class="col-md-6">
+            <a class="btn btn--circle justify-content-start" (click)="onAtras()">
+                <span class="icon-arrow-thin-left mr-2"></span>
+                {{ 'header.salir' | translate }}
+            </a>
+        </div>
+    </div>
+
+    <div class="enable-print col-md-12 mx-0 w-100 mb-5 pt-3">
+
+        <div class="row mx-0 w-100 align-items-center pb-4">
+            <div class="col-md-12 px-0">
+                <h1 class="my-0" *ngIf="creacionGeneral">
+                    {{ 'administracion.configuracionOperaciones.tituloCrear' | translate }}
+                </h1>
+                <h1 class="my-0" *ngIf="!creacionGeneral">
+                    {{ 'administracion.configuracionOperaciones.tituloEditar' | translate }}
+                </h1>
+            </div>
+        </div>
+
+
+        <form class="form--default pl-1" [formGroup]="form" *ngIf="isForm | async as isForm">
+            <div class="card border-0 col-md-12 p-3">
+                <fieldset class="fieldset_mm pb-3">
+                    <legend class="legend_mm">
+                        <span class="text--16pts text--600wt">
+                            {{ 'administracion.configuracionOperaciones.form.tipoConfiguracion' | translate }}
+                        </span>
+                    </legend>
+                    <div class="d-flex px-3">
+                        <div class="p-2 pr-5 text--14pts text--600wt form-check col text-center">
+                            <input class="form-check-input" type="radio" value="1" formControlName="tipoConfiguracion">
+                            <label class="form-check-label pt-0">
+                                {{ 'administracion.configuracionOperaciones.form.general' | translate }}
+                            </label>
+                        </div>
+                        <div class="p-2 text--14pts text--600wt form-check col text-center">
+                            <input class="form-check-input" type="radio" value="2" checked
+                                formControlName="tipoConfiguracion">
+                            <label class="form-check-label pt-0">
+                                {{ 'administracion.configuracionOperaciones.form.especifica' | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="card border-0 p-3 mt-2">
+                <div class="col-md-12" [ngSwitch]="tipoConfiguracion">
+                    <div class="" *ngSwitchCase="true">
+                        <app-general formGroupName="formGeneral" [dataInit]="dataInit"></app-general>
+                    </div>
+                    <div class="" *ngSwitchCase="false">
+                        <app-especifica formGroupName="formEspecifica" [dataInit]="dataInit">
+                        </app-especifica>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 p-3 mt-2 pb-3">
+                <fieldset class="fieldset_mm pb-3">
+                    <legend class="legend_mm">
+                        <span class="text--16pts text--600wt">
+                            {{ 'administracion.configuracionOperaciones.detalle.grid.CantidadCasosGeolocalizacion' | translate }}
+                        </span>
+                    </legend>
+                    <div class="d-flex flex-row-reverse">
+                        <button class="btn btn--orange1 btn--md mr-2" type="button"
+                            (click)="agregarCasosPorGeolocalizacion()" [disabled]="notNational">
+                            <span class="icon-plus mr-2"></span>
+                            {{ 'global.add' | translate }}
+                        </button>
+                    </div>
+                    <div class="mt-3">
+                        <app-mim-grid
+                            [configuracion]="configuracion.gridListarDetalleGeolocalizacion"
+                            (clickCeldaElement)="onClickCeldaElement($event)">
+                        </app-mim-grid>
+                    </div>
+                </fieldset>
+            </div>
+            <br />
+
+            <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+                <div class="card-body py-2">
+                    <div class="row mx-0 w-10 justify-content-end align-items-center">
+                        <!-- Botones -->
+                        <div class="col-xl-12">
+                            <div class="d-flex flex-row-reverse">
+                                <button class="btn btn--orange1 btn--md mr-2" type="button" (click)="guardar()">
+                                    <span class="icon-plus mr-2"></span>
+                                    {{ 'global.save' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<!--Modulo de crear y editar geolocalizacion-->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarGuardar == true }" *ngIf="mostrarGuardar">
+    <div class="row mx-0 w-100 justify-content-end">
+        <div class="col-xl-4 col-md-6 px-0">
+            <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+                <div class="card-header">
+                    <div class="row mx-0 w-100 align-items-center">
+                        <div class="col-lg-10">
+                            <h1 class="text--500wt text--gray1 my-0" *ngIf="esCreacion">
+                                {{ 'administracion.configuracionOperaciones.detalle.form.tituloCrear' | translate }}
+                            </h1>
+                            <h1 class="text--500wt text--gray1 my-0" *ngIf="!esCreacion">
+                                {{ 'administracion.configuracionOperaciones.detalle.form.tituloEditar' | translate }}
+                            </h1>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn--circle btn--circle_green" (click)="cerrarModal()">
+                                <span class="icon-cross mr-2"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form class="form--default w-100" [formGroup]="formGeolocalizacion"
+                        *ngIf="isFormGeolocalizacion | async as isFormGeolocalizacion">
+                        <app-cantidad-casos-geolocalizacion formGroupName="geolocalizacion"
+                            [dataInitGeolocalizacion]="dataInitGeolocalizacion">
+                        </app-cantidad-casos-geolocalizacion>
+                        <div class="card-footer  w-100 border-0 py-4 mt-5 pr-0">
+                            <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn--orange1 btn--md mr-2"
+                                    (click)="guardarGeolocalizacion()">
+                                    <span class="icon-checkmark mr-2"></span>
+                                    {{ 'global.save' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Fin modulo crear y editar gelolocalizacion-->

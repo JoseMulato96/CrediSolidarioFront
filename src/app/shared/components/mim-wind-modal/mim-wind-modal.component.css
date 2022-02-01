@@ -1,0 +1,33 @@
+.win-show {
+  display: block;
+  z-index: 1059;
+}
+.win-modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.modal-dialog-100w {
+  max-width: 100%;
+}
+
+.text--tittle_circle-xl span {
+  height: 32px;
+  width: 32px;
+}
+
+.modal-title {
+  text-align: center;
+  width: 100%;
+  font-size: 15px;
+  display: table-cell;
+  margin: auto;
+}
+
+.max-heigth {
+  overflow-y: scroll;
+  max-height: 80vh;
+}

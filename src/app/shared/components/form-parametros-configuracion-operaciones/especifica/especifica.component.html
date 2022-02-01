@@ -1,0 +1,181 @@
+<div class="form--default w-100" [formGroup]="controlContainer.control">
+    <div class="row">
+        <div class="col-sm-4 col-xl-4 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="plan" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.plan' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'plan'" [controlName]="'plan'">
+                        <app-mim-select class="w-100" [inputId]="'plan'" [options]="planes" formControlName="plan"
+                            [optionKey]="'planes.nombre'" name="'plan'" ngDefaultControl>
+                        </app-mim-select>
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="plan" errorKey="required">
+                    {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.form.plan' | translate } }}
+                </app-mim-input-error>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xl-4 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="cobertura" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.cobertura' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'cobertura'" [controlName]="'cobertura'">
+                        <app-mim-select class="w-100" [inputId]="'cobertura'" [options]="coberturas"
+                            [optionKey]="'mimCobertura.nombre'" name="'cobertura'" ngDefaultControl
+                            formControlName="cobertura">
+                        </app-mim-select>
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="cobertura" errorKey="required">
+                    {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.form.cobertura' | translate } }}
+                </app-mim-input-error>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xl-4 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="cobertura" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.tipoSolicitud' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'tipoMovimiento'" [controlName]="'tipoMovimiento'">
+                        <app-mim-select class="w-100" [inputId]="'tipoMovimiento'" [options]="tiposMovimientos"
+                            [optionKey]="'mimTipoMovimiento.nombre'" name="'tipoMovimiento'" ngDefaultControl
+                            formControlName="tipoMovimiento">
+                        </app-mim-select>
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="tipoMovimiento" errorKey="required">
+                    {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.form.tipoSolicitud' | translate } }}
+                </app-mim-input-error>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xl-4 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="nivelesRiesgos" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.nivelRiesgo' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'nivelesRiesgos'" [controlName]="'nivelesRiesgos'">
+                        <app-mim-multiselect class="w-100" [inputId]="'nivelesRiesgos'" [options]="nivelesRiesgos"
+                            formControlName="nivelesRiesgos" [optionKey]="'nombre'" name="'nivelesRiesgos'"
+                            ngDefaultControl>
+                        </app-mim-multiselect>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xl-2 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="valorMinimoProteccion" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.valorMinimoProteccion' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'valorMinimoProteccion'"
+                        [controlName]="'valorMinimoProteccion'">
+                        <input type="text" class="form-control" id="valorMinimoProteccion"
+                            formControlName="valorMinimoProteccion" name="valorMinimoProteccion" maxlength="10"
+                            mask="separator.2" thousandSeparator="." prefix="$ " />
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="valorMinimoProteccion" errorKey="required">
+                    {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.form.valorMinimoProteccion' | translate } }}
+                </app-mim-input-error>
+
+                <app-mim-input-error class="col-sm-12" controlName="valorMinimoProteccion" errorKey="maxlength">
+                    {{ 'administracion.configuracionOperaciones.validaciones.maxLenghtProteccion' | translate : {numero: 10} }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="valorMinimoProteccion" errorKey="range">
+                    {{ 'administracion.configuracionOperaciones.validaciones.proteccionMinimanMenorIngresoMaxima' | translate  }}
+                </app-mim-input-error>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xl-2 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="valorMaximoProteccion" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.valorMaximoProteccion' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'valorMaximoProteccion'"
+                        [controlName]="'valorMaximoProteccion'">
+                        <input type="text" class="form-control" id="valorMaximoProteccion"
+                            formControlName="valorMaximoProteccion" name="valorMaximoProteccion" maxlength="10"
+                            mask="separator.2" thousandSeparator="." prefix="$ " />
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="valorMaximoProteccion" errorKey="required">
+                    {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.form.valorMaximoProteccion' | translate } }}
+                </app-mim-input-error>
+
+                <app-mim-input-error class="col-sm-12" controlName="valorMaximoProteccion" errorKey="range">
+                    {{ 'administracion.configuracionOperaciones.validaciones.proteccionMinimanMenorIngresoMaxima' | translate  }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="valorMaximoProteccion" errorKey="maxlength">
+                    {{ 'administracion.configuracionOperaciones.validaciones.maxLenghtProteccion' | translate : {numero: 10} }}
+                </app-mim-input-error>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xl-2 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="rangoMinimoEdad" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.rangoMinimoEdad' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'rangoMinimoEdad'" [controlName]="'rangoMinimoEdad'">
+                        <input type="text" class="form-control" id="rangoMinimoEdad" formControlName="rangoMinimoEdad"
+                            name="rangoMinimoEdad" maxlength="3" mask="b*" [patterns]="patterns" />
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="rangoMinimoEdad" errorKey="max">
+                    {{ 'administracion.configuracionOperaciones.validaciones.edadMaxima' | translate : {numero: 100} }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="rangoMinimoEdad" errorKey="min">
+                    {{ 'administracion.configuracionOperaciones.validaciones.edadMinima' | translate : {numero: 0} }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="rangoMinimoEdad" errorKey="range">
+                    {{ 'administracion.configuracionOperaciones.validaciones.edadMinimanMenorEdadMaxima' | translate  }}
+                </app-mim-input-error>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xl-2 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="rangoMaximoEdad" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.rangoMaximoEdad' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'rangoMaximoEdad'" [controlName]="'rangoMaximoEdad'">
+                        <input type="text" class="form-control" id="rangoMaximoEdad" formControlName="rangoMaximoEdad"
+                            name="rangoMaximoEdad" maxlength="3" mask="b*" [patterns]="patterns" />
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="rangoMaximoEdad" errorKey="max">
+                    {{ 'administracion.configuracionOperaciones.validaciones.edadMaxima' | translate : {numero: 100} }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="rangoMaximoEdad" errorKey="min">
+                    {{ 'administracion.configuracionOperaciones.validaciones.edadMinima' | translate : {numero: 0} }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="rangoMaximoEdad" errorKey="range">
+                    {{ 'administracion.configuracionOperaciones.validaciones.edadMinimanMenorEdadMaxima' | translate  }}
+                </app-mim-input-error>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xl-4 px-2">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="cicloFacturacion" class="col-sm-12 col-form-label">
+                    {{ 'administracion.configuracionOperaciones.form.cicloFacturacion' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'cicloFacturacion'" [controlName]="'cicloFacturacion'">
+                        <app-mim-multiselect class="w-100" [inputId]="'cicloFacturacion'" [options]="ciclosFacturacion"
+                            formControlName="cicloFacturacion" [optionKey]="'nombre'" name="'cicloFacturacion'"
+                            ngDefaultControl>
+                        </app-mim-multiselect>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

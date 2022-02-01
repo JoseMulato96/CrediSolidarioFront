@@ -1,0 +1,157 @@
+<div class="col-md-12">
+  <h1 class="my-2">
+    {{ 'administracion.financiera.titulo' | translate }}
+  </h1>
+</div>
+
+<div class="col-md-12 mx-0 w-100 pb-5 mb-5">
+  <div class="accordion w-100">
+    <!-- Inicio maestro cuenta-->
+    <div class="card cards--panelLeft cards--panelLeft_beneficiarios mb-2">
+      <div class="card-header py-2 " id="headingOne">
+        <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
+          class="w-100 cursor-point text" (click)="dropdownOne = !dropdownOne">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-md-11 px-0 py-3">
+              <div class="row mx-0 w-100 justify-content-start">
+                <div class="col-md-11 px-0">
+                  <h5 class="my-0 text--18pts text--medium text--gray1">
+                    <span class="bg--green3 rounded-circle mx-2" style="padding: .5rem .6rem;">
+                      <em
+                        [ngClass]="(dataRedux?.maestroCuentas?.length)?'text--green1 icon-check-circle':'text--gray1 icon-circle'"></em>
+                    </span>
+                    {{ 'administracion.financiera.maestroCuenta.titulo' | translate | emptyPipe }}
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1 p-0">
+              <div class="row justify-content-end">
+                <div class="col-md-2 px-0 pt-2 pr-5 text--15pts text--green1 float-right">
+                  <span [ngClass]="{'icon-chevron-up': dropdownOne, 'icon-chevron-down': !dropdownOne}"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="collapse" aria-labelledby="headingCategoriaDetalle" [ngClass]="{ show: dropdownOne }"
+        data-parent="#accordionPortafolioAsociados">
+        <app-maestro-cuentas></app-maestro-cuentas>
+      </div>
+    </div>
+
+    <!-- Inicio Maestro usuo loca-->
+    <div class="card cards--panelLeft cards--panelLeft_beneficiarios mb-2">
+      <div class="card-header py-2 " id="headingPortafolioAsociadosOne">
+        <a data-toggle="collapse" data-target="#collapsePortafolioAsociadosOne" aria-expanded="false"
+          aria-controls="collapsePortafolioAsociadosOne" class="w-100 cursor-point text"
+          (click)="dropdownTwo = !dropdownTwo">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-md-11 px-0 py-3">
+              <div class="row mx-0 w-100 justify-content-start">
+                <div class="col-md-11 px-0">
+                  <h5 class="my-0 text--18pts text--medium text--gray1">
+                    <span class="bg--green3 rounded-circle mx-2" style="padding: .5rem .6rem;">
+                      <em
+                        [ngClass]="(dataRedux?.maestroUsoLocal?.length)?'text--green1 icon-check-circle':'text--gray1 icon-circle'"></em>
+                    </span>
+                    {{ 'administracion.financiera.maestroUsoLocal.titulo' | translate | emptyPipe }}
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1 p-0">
+              <div class="row justify-content-end">
+                <div class="col-md-2 px-0 pt-2 pr-5 text--15pts text--green1 float-right">
+                  <span [ngClass]="{'icon-chevron-up': dropdownTwo, 'icon-chevron-down': !dropdownTwo}"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="collapse" aria-labelledby="headingCategoriaDetalle" [ngClass]="{ show: dropdownTwo }"
+        data-parent="#accordionPortafolioAsociados">
+        <app-maestro-uso-local></app-maestro-uso-local>
+      </div>
+    </div>
+
+    <!-- relacion concepto de distribucion Cuenta -->
+    <div class="card cards--panelLeft cards--panelLeft_beneficiarios mb-2">
+      <div class="card-header py-2 " id="headingRelacion">
+        <a data-toggle="collapse" data-target="#collapseRelacion" aria-expanded="false" aria-controls="collapseRelacion"
+          class="w-100 cursor-point text" (click)="dropdownThree = !dropdownThree">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-md-11 px-0 py-3">
+              <div class="row mx-0 w-100 justify-content-start">
+                <div class="col-md-11 px-0">
+                  <h5 class="my-0 text--18pts text--medium text--gray1">
+                    <span class="bg--green3 rounded-circle mx-2" style="padding: .5rem .6rem;">
+                      <em
+                        [ngClass]="(dataRedux?.relacionConceptosDeDistribucionCuenta?.length)?'text--green1 icon-check-circle':'text--gray1 icon-circle'"></em>
+                    </span>
+                    {{ 'administracion.financiera.relacionConceptoDistribucionCuenta.titulo' | translate | emptyPipe }}
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1 p-0">
+              <div class="row justify-content-end">
+                <div class="col-md-2 px-0 pt-2 pr-5 text--15pts text--green1 float-right">
+                  <span [ngClass]="{'icon-chevron-up': dropdownThree, 'icon-chevron-down': !dropdownThree}"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="collapse" aria-labelledby="headingCategoriaDetalle" [ngClass]="{ show: dropdownThree }"
+        data-parent="#accordionPortafolioAsociados">
+        <app-relacion-conceptos-distribucion-cuenta></app-relacion-conceptos-distribucion-cuenta>
+      </div>
+    </div>
+
+    <div class="cards--panelLeft cards--panelLeft_beneficiarios mb-2 mb-5">
+      <div class="card-header py-2">
+        <form class="form--default w-100" [formGroup]="form">
+          <div class="form-group row py-2 mb-0">
+            <label for="inputPassword" class="col-sm-2 col-form-label my-0 text--18pts text--medium text--gray1 pl-4">
+              {{ 'administracion.financiera.devolverA' | translate | emptyPipe }}
+            </label>
+            <div class="col-sm-4 px-0 border">
+              <app-mim-select class="w-100" [inputId]="'devolve'" [options]="devolveList" formControlName="devolve"
+                [optionKey]="'nombre'" name="'devolve'" ngDefaultControl>
+              </app-mim-select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="w-100 pb-5"></div>
+  </div>
+</div>
+
+<app-apueba-elimina [showForm]="showForm" tituloModal="{{tituloModal}}" tipoProceso="{{tipoProceso}}"
+  *ngIf="isShowForm | async as isShowForm" [esDirector]="esDirectorTecnico"
+  [showControlsAprobacion]="showControlsAprobacion" [observaciones]="observaciones"
+  (mostrarModal)="_toggleObservaciones($event)" (apruebaRechazaSolicitud)="_apruebaRechazaSolicitud($event)"
+  (datosForm)="_guardarObservacion($event)" class="w-100"></app-apueba-elimina>
+
+<!--Controles -->
+<div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+  <div class="card-body py-2">
+    <div class="row mx-0 w-10 justify-content-end align-items-center">
+      <!-- Botones -->
+      <div class="col-xl-12">
+        <div class="d-flex flex-row-reverse">
+          <button type="button" class="btn btn--orange1 btn--md px-4" (click)="terminar()" *ngIf="!esDirectorTecnico"
+            [disabled]="!habilitarTerminar">
+            {{ 'global.ended' | translate }}
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+<div class="row  mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      <ng-template [ngIf]="_esCreacion">
+        {{ 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.guardar.crear' | translate }}
+      </ng-template>
+      <ng-template [ngIf]="!_esCreacion">
+        {{ 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.guardar.actualizar' | translate }}
+      </ng-template>
+    </h1>
+  </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+  <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+    <div class="card-body">
+      <div class="row mx-0 w-100">
+
+        <!-- Fondo -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="fondo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.grid.fondo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fondo'" [controlName]="'fondo'">
+                <app-mim-select class="w-100" [inputId]="'fondo'" [options]="fondos" formControlName="fondo"
+                  [optionKey]="'nombre'" name="'fondo'" (blur)="_changeFondo()" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fondo" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.grid.fondo' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Planes -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="plan" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.grid.plan' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'plan'" [controlName]="'plan'">
+                <app-mim-select class="w-100" [inputId]="'plan'" [options]="planes" formControlName="plan"
+                  [optionKey]="'nombre'" name="'plan'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="plan" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.grid.plan' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Canal de venta -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="canalVenta" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.guardar.canalVenta' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'canalVenta'" [controlName]="'canalVenta'">
+                <app-mim-select class="w-100" [inputId]="'canalVenta'" [options]="canalesVentas"
+                  formControlName="canalVenta" [optionKey]="'nombre'" name="'canalVenta'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="canalVenta" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.guardar.canalVenta' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Tipo de movimiento -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="tipoMovimiento" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.guardar.tipoMovimiento' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'tipoMovimiento'" [controlName]="'tipoMovimiento'">
+                <app-mim-multiselect class="w-100" [inputId]="'tipoMovimiento'" [options]="tiposMovientos"
+                  formControlName="tipoMovimiento" [optionKey]="'nombre'" name="'tipoMovimiento'" ngDefaultControl>
+                </app-mim-multiselect>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="tipoMovimiento" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.guardar.tipoMovimiento' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- fecha inicio y fecha fin -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+              {{ 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.guardar.fechaInicioYFin' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'" [controlName]="'fechaInicioFechaFin'">
+                <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'" formControlName="fechaInicioFechaFin"
+                  [selectionMode]="'range'" [disabled] = "estadoFecha" ngDefaultControl>
+                </app-mim-date-picker>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionPlanes.canalesVentasMovimientos.guardar.fechaInicio' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!--Controles -->
+        <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+          <div class="card-body py-2">
+            <div class="row mx-0 w-10 justify-content-end align-items-center">
+              <!-- Botones -->
+              <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                    [disabled]="form.pristine">
+                    <span class="icon-checkmark mr-2"></span>
+                    {{ 'global.save' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

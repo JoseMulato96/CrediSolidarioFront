@@ -1,0 +1,15 @@
+.custom-file-label::after {
+    content: "Seleccionar";
+    cursor: pointer;
+    background-color: transparent;
+    background: #2f4158;
+    color: #efeff0;
+    padding-top: 8px;
+  }
+  .custom-file-label {
+    z-index: 9;
+  }
+
+  .custom-file-load, .custom-file-load-input{
+    height: auto !important;
+  }

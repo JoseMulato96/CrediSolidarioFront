@@ -1,0 +1,27 @@
+.active_border_bottom{
+    border-bottom: solid 2px;
+}
+
+.nav .nav-tabs .nav-item button:focus,
+  .nav .nav-tabs .nav-item button:active,
+  .nav .nav-tabs .nav-item button:hover
+  .nav .nav-tabs .nav-item button.active {
+      border: none;
+  }
+.bg_buttom_tab{
+    background-color: #f6f6f6 !important;
+}
+
+.figure{
+    font-size: 4.5rem;
+}
+
+.posicionBtnCerrar{
+    position: absolute;
+    right: -12px;
+    top: -12px;
+}
+.border--btn{
+    border: 1px solid #ff743b;
+}
+

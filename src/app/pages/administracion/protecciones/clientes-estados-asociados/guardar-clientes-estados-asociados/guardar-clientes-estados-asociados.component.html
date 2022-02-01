@@ -1,0 +1,124 @@
+<div class="row  mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      <ng-template [ngIf]="_esCreacion">
+        {{ 'administracion.protecciones.clienteEstadoAsociado.guardar.crear' | translate }}
+      </ng-template>
+      <ng-template [ngIf]="!_esCreacion">
+        {{ 'administracion.protecciones.clienteEstadoAsociado.guardar.actualizar' | translate }}
+      </ng-template>
+    </h1>
+  </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+  <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+    <div class="card-body">
+      <div class="row mx-0 w-100">
+
+        <!-- Cliente -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="cliente" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.clienteEstadoAsociado.grid.cliente' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'cliente'" [controlName]="'cliente'">
+                <app-mim-select class="w-100" [inputId]="'cliente'" [options]="clientes" formControlName="cliente"
+                  [optionKey]="'nombre'" name="'cliente'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="cliente" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.clienteEstadoAsociado.grid.cliente' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Código estado asociado-->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="codigoEstadoAsociado" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.clienteEstadoAsociado.grid.estadoAsociado' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'codigoEstadoAsociado'"
+                [controlName]="'codigoEstadoAsociado'">
+                <input type="text" class="form-control" id="codigoEstadoAsociado"
+                  formControlName="codigoEstadoAsociado" name="codigoEstadoAsociado" min="1" mask="09" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="codigoEstadoAsociado" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.clienteEstadoAsociado.grid.estadoAsociado' | translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="codigoEstadoAsociado" errorKey="min">
+              {{ 'administracion.protecciones.clienteEstadoAsociado.alertas.valorMinimo' | translate : {numero: 1} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="codigoEstadoAsociado" errorKey="max">
+              {{ 'administracion.protecciones.clienteEstadoAsociado.alertas.valorMaximo' | translate : {numero: 99} }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Nombre estado asociado-->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="nombreEstadoAsociado" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.clienteEstadoAsociado.grid.nombreEstadoAsociado' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'nombreEstadoAsociado'"
+                [controlName]="'nombreEstadoAsociado'">
+                <input type="text" class="form-control" id="nombreEstadoAsociado" formControlName="nombreEstadoAsociado"
+                  name="nombreEstadoAsociado" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="nombreEstadoAsociado" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.clienteEstadoAsociado.grid.nombreEstadoAsociado' | translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="nombreEstadoAsociado" errorKey="vacio">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.clienteEstadoAsociado.grid.nombreEstadoAsociado' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- fecha inicio y fecha fin -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+              {{ 'administracion.protecciones.categoriasHomologacion.crear.fechaInicioYFin' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'" [controlName]="'fechaInicioFechaFin'">
+                <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'" formControlName="fechaInicioFechaFin"
+                  [selectionMode]="'range'" [disabled]="estadoFecha" ngDefaultControl></app-mim-date-picker>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.categoriasHomologacion.crear.fechaInicio' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+
+        <!--Controles -->
+        <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+          <div class="card-body py-2">
+            <div class="row mx-0 w-10 justify-content-end align-items-center">
+              <!-- Botones -->
+              <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()" [disabled]="form.pristine">
+                    <span class="icon-edit-3 mr-2"></span>
+                    {{ 'global.save' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+@media print {
+
+  .noprint {
+    display: none;
+  }
+
+  .enable-print {
+    display: block;
+  }
+
+  .card {
+    display: block !important;
+  }
+
+  .page-break {
+    display: block;
+    page-break-inside:auto;
+  }
+  .page-break-detail {
+    display: block;
+    page-break-inside:avoid !important;
+    page-break-after:auto !important;
+  }
+}
+

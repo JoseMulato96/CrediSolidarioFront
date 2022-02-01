@@ -1,0 +1,281 @@
+<div class="row mx-0 w-100 align-items-center">
+  <!-- Titulo -->
+  <div class="col-md-9">
+    <h1 class="my-0">
+      {{ 'asociado.protecciones.portafolioProductos' | translate }}
+    </h1>
+  </div>
+  <!-- Registrar proteccion -->
+  <div class="col-md-3 px-0">
+    <a class="btn btn--orange1 btn--md" disabled>
+      <span class="icon-plus mr-2"></span>
+      {{ 'asociado.protecciones.register' | translate }}
+    </a>
+  </div>
+</div>
+
+<!-- Acumulados. -->
+<div class="row mx-0 w-100 mt-4">
+  <div class="col-4">
+    <div class="media sidebar--media_portafolio bg--blue1 pl-4 pr-3 py-2">
+      <div class="media-body">
+        <h5 class="my-0 text--18pts text--600wt text--white">
+          {{ 'asociado.protecciones.acumVida' | translate }}
+        </h5>
+        <h5 class="my-0 text--18pts text--400wt text--white">
+          {{ datosAsociado?.proAcuVida | customCurrency | emptyPipe }}
+        </h5>
+      </div>
+      <figure class="my-0">
+        <span class="icon-Vida"></span>
+      </figure>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="media sidebar--media_portafolio bg--green2 pl-4 pr-3 py-2">
+      <div class="media-body">
+        <h5 class="my-0 text--18pts text--600wt text--white">
+          {{ 'asociado.protecciones.acumPerseverancia' | translate }}
+        </h5>
+        <h5 class="my-0 text--18pts text--400wt text--white">
+          {{ datosAsociado?.proAcuPersevenrancia | customCurrency | emptyPipe }}
+        </h5>
+      </div>
+      <figure class="my-0">
+        <span class="icon-Perseverancia"></span>
+      </figure>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="media sidebar--media_portafolio bg--yellow1 pl-4 pr-3 py-2">
+      <div class="media-body">
+        <h5 class="my-0 text--18pts text--600wt text--white">
+          {{ 'asociado.protecciones.acumRentaDiaria' | translate }}
+        </h5>
+        <h5 class="my-0 text--18pts text--400wt text--white">
+          {{ datosAsociado?.proAcuRenta | customCurrency | emptyPipe }}
+        </h5>
+      </div>
+      <figure class="my-0">
+        <span class="icon-Renta-diaria"></span>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!-- Control de activos -->
+<div class="d-flex justify-content-end pt-4" *ngIf="configuracionProtecciones && configuracionProtecciones.length > 0">
+  <form class="form--default">
+    <div class="custom-control custom-switch custom-switch_xs row d-flex px-0 mt-2">
+      <label class="switch my-0">
+        <input type="checkbox" checked (click)="_onToggleStatus()" class="cursor-point" />
+        <span class="slider round"></span>
+      </label>
+      <span class="text--13pts text--600wt text--gray2 col">
+        {{ 'asociado.protecciones.mostrarActivos' | translate }}
+      </span>
+    </div>
+  </form>
+</div>
+
+<!-- Categorias -->
+<div class="plan-width100" *ngFor="let configuracionProteccion of configuracionProtecciones">
+  <ng-template [ngIf]="_mostrarCategoria(configuracionProteccion)">
+    <app-mim-categoria [configuracion]="configuracionProteccion" (selectAllEmitter)="_onSelectAll($event)">
+      <!-- Detalles de categoria. -->
+      <div class="card cards--panelLeft cards--panelLeft_beneficiarios "
+        [ngClass]="{ 'mb-2': mostrarCategoria(configuracionDetalle.estadoConf.param), 'active': configuracionDetalle._dropdown}"
+        *ngFor="let configuracionDetalle of configuracionProteccion.detalles">
+        <ng-template [ngIf]="mostrarCategoria(configuracionDetalle.estadoConf.param)">
+          <app-mim-categoria-detalle [configuracion]="configuracionDetalle" (selectEmitter)="_onSelectRow($event)"
+            (dropdownEmitter)="_onToogleDetalleCategoriaDetalle($event)">
+
+            <!-- Inicio datos adicionales de proteccion -->
+            <div class="additional-data row" *ngIf="configuracionDetalle.subTitleDetail.length > 0">
+              <div class="col-md-4 px-0" *ngFor="let detail of configuracionDetalle.subTitleDetail">
+                <h5 class="text--600wt text--gray2">
+                  {{ detail.titulo | translate}} :
+                  <span class="text--500wt text--gray1">
+                    {{ detail.valor || ''}}
+                  </span>
+                </h5>
+              </div>
+            </div>
+            <!-- Fin datos adicionales de proteccion -->
+
+            <!-- Detalle del detalle de las categorias. -->
+            <div class="card cards--panel_gray4 border-0 rounded mb-2"
+              *ngFor="let detalle of  _getDetalleProducto(configuracionProteccion.codigoCategoria, configuracionDetalle.key)">
+
+              <div class="card-body bg--gray4">
+                <div class="row mx-0 w-100 justify-content-between">
+                  <div class="col-1">
+                    <span class="icon-arrow-thin-up text--green2" *ngIf="detalle.proteccion >= 0"></span>
+                    <span class="icon-arrow-thin-down text--red1" *ngIf="detalle.proteccion < 0"></span>
+                  </div>
+                  <div class="col">
+                    <h5 class="text--13pts text--gray2 text--600wt my-0 text-center">
+                      {{ 'asociado.protecciones.proteccion' | translate }}
+                    </h5>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0 text-center">
+                      {{ esAuxilioFunerario(configuracionProteccion.codigoCategoria) ?
+                        (detalle.proteccion | emptyPipe) : (detalle.proteccion | customCurrency | emptyPipe) }}
+                    </h4>
+                  </div>
+                  <div class="col">
+                    <h5 class="text--13pts text--gray2 text--600wt my-0 text-center">
+                      {{ 'global.fee' | translate }}
+                    </h5>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0 text-center">
+                      {{ detalle.cuota | customCurrency | emptyPipe }}
+                    </h4>
+                  </div>
+                  <div class="col">
+                    <h5 class="text--13pts text--gray2 text--600wt my-0 text-center">
+                      {{ 'asociado.protecciones.historico.factor' | translate }}
+                    </h5>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0 text-center">
+                      {{ detalle.factor || 0 }}
+                    </h4>
+                  </div>
+                  <div class="col">
+                    <h5 class="text--13pts text--gray2 text--600wt my-0 text-center">
+                      {{ 'asociado.edad' | translate }}
+                    </h5>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0 text-center">
+                      {{ detalle.edad | emptyPipe }}
+                    </h4>
+                  </div>
+                  <div class="col">
+                    <h5 class="text--13pts text--gray2 text--600wt my-0 text-center">
+                      {{ 'global.status' | translate }}
+                    </h5>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0 text-center">
+                      {{ detalle.estadoProteccion | emptyPipe }}
+                    </h4>
+                  </div>
+                  <div class="col">
+                    <h5 class="text--13pts text--gray2 text--600wt my-0 text-center">
+                      {{ 'asociado.protecciones.aprobacion' | translate }}
+                    </h5>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0 text-center">
+                      {{ detalle.fechaAprobacion | emptyPipe }}
+                    </h4>
+                  </div>
+                  <div class="col-1">
+                    <div class="btn-group btn--group" role="group">
+                      <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="icon-dots-3"></span>
+                        </button>
+                        <div class="dropdown-menu border-0 " aria-labelledby="btnGroupDrop1">
+                          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle bg--green1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="icon-cross"></span>
+                          </button>
+                          <ul class="nav flex-column nav--btnGroup">
+                            <li class="nav-item cursor-point">
+                              <a class="nav-link active" (click)="
+                                      onClickDetalle(
+                                        detalle,
+                                        configuracionProteccion.codigoCategoria,
+                                        configuracionDetalle.key
+                                      )
+                                    ">
+                                <span class="icon-document mr-2"></span>
+                                {{ 'asociado.protecciones.detalle.detalle' | translate }}
+                              </a>
+                            </li>
+                            <li class="nav-item cursor-point">
+                              <a class="nav-link" (click)="
+                                      onClickFacturacion(
+                                        detalle,
+                                        configuracionProteccion.codigoCategoria,
+                                        configuracionDetalle.key
+                                      )
+                                    ">
+                                <span class="icon-money mr-2"></span>
+                                {{ 'asociado.protecciones.facturacion.titulo' | translate }}
+                              </a>
+                            </li>
+                            <li class="nav-item cursor-point">
+                              <a class="nav-link" (click)="
+                                      onClickInactividades(
+                                        detalle,
+                                        configuracionProteccion.codigoCategoria,
+                                        configuracionDetalle.key
+                                      )
+                                    ">
+                                <span class="icon-hourglass mr-2"></span>
+                                {{ 'asociado.protecciones.inactividades.inactividades' | translate }}
+                              </a>
+                            </li>
+                            <li class="nav-item cursor-point">
+                              <a class="nav-link" (click)="
+                                      onClickHistoricos(
+                                        detalle,
+                                        configuracionProteccion.codigoCategoria,
+                                        configuracionDetalle.key
+                                      )
+                                    ">
+                                <span class="icon-archive mr-2"></span>
+                                {{ 'asociado.protecciones.historico.historico' | translate }}
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </app-mim-categoria-detalle>
+        </ng-template>
+      </div>
+    </app-mim-categoria>
+  </ng-template>
+</div>
+<!-- Footer -->
+<div class="card cards--footer border-0 rounded-0" *ngIf="atLeastOneSelected">
+  <div class="card-body">
+    <div class="col-11 offset-1 col-xl-12 offset-xl-0">
+      <!-- SUMATORIA -->
+      <div class="mx-0 w-100 row justify-content-between align-items-center">
+        <div class="col-8">
+          <div class="alert panel--alert p-0 m-0" role="alert">
+            <h5 class="my-0 text--gray2 text--600wt d-inline-flex align-items-center text--tittle_circle">
+              <span class="icon-check bg--green2 mr-3 text--26pts"></span>
+              {{
+                    'asociado.protecciones.sumatoriaProteccionesMensaje'
+                      | translate
+                  }}
+            </h5>
+          </div>
+        </div>
+        <div class="col-4 px-0">
+          <div class="mx-0 row w-100">
+            <div class="col-7 border-right">
+              <h3 class="my text--13pts text--600wt text--gray2 text-center">
+                Total Productos
+              </h3>
+              <h2 class="my text--18pts text--500wt text--gray1 text-center">
+                {{ totalProductos | customCurrency | emptyPipe }}
+              </h2>
+            </div>
+            <div class="col-5">
+              <h3 class="my text--13pts text--600wt text--gray2 text-center">
+                Total Cuota
+              </h3>
+              <h2 class="my text--18pts text--500wt text--gray1 text-center">
+                {{ totalCuota | customCurrency | emptyPipe }}
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

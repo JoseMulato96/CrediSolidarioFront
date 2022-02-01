@@ -1,0 +1,177 @@
+/*26*/
+h1
+  font-size 1.625rem
+/*18*/
+h2
+  font-size 1.125rem
+/*16*/
+h3
+  font-size 1rem
+/*14*/
+h4
+  font-size 0.875rem
+/*13*/
+h5
+  font-size 0.8125rem
+/*10*/
+h6
+  font-size 0.625rem
+.text
+    color gray
+    font-family 'Montserrat', sans-serif
+    font-size responsive
+    font-weight normal
+    line-height 120%
+
+    //TAMAÑO LETRA
+    &--100pts
+      font-size 6.25rem
+    &--36pts
+      font-size 2.25rem   
+    &--26pts
+      font-size 1.625rem
+    &--20pts
+      font-size 1.25rem     
+    &--18pts
+      font-size 1.125rem
+    &--16pts
+      font-size 1rem
+    &--15pts
+      font-size 0.9375rem   
+    &--14pts
+      font-size 0.875rem
+    &--13pts
+      font-size 0.8125rem
+    &--10pts
+      font-size 0.625rem
+
+    //ANCHO LETRA 
+    //+ Thing
+    &--100wt
+      font-weight 100
+    //+ Extra light
+    &--200wt
+      font-weight 200
+    //+ Light
+    &--300wt
+      font-weight 300
+    //+ Regular
+    &--400wt
+      font-weight 400
+    //+ Medium
+    &--500wt
+      font-weight 500
+    //+ SemiBold
+    &--600wt
+      font-weight 600
+    //+ Bold
+    &--700wt
+      font-weight 700
+    //+ Extra Bold
+    &--800wt
+      font-weight 800
+    //+ Black
+    &--900wt
+      font-weight 900
+
+    //COLOR LETRA
+    &--gray1
+      color gray1
+    &--gray2
+      color gray2
+    &--gray3
+      color gray3
+    &--gray4
+      color gray4
+    &--green1
+      color green1
+    &--green2
+      color green2
+    &--green3
+      color green3
+    &--yellow1
+      color yellow1
+    &--yellow2
+      color yellow2
+    &--orange1
+      color orange1
+    &--orange2
+      color orange2
+    &--red1
+      color red1
+    &--red2
+      color red2
+    &--blue1
+      color blue1
+    &--blue2
+      color blue2
+    &--black
+      color black
+    &--white
+      color white
+
+    //TÍTULOS
+    &--tittle
+      &_statusPlan
+        color gray2
+        & span
+          background-color gray2
+          height 13px
+          width 13px
+        &.active
+          color green2
+          & span
+            background-color green2
+      &_circle
+        & span
+          align-items center
+          border-radius 100%
+          color white
+          display flex
+          height 32px
+          justify-content center
+          width 32px
+        &-xl
+          & span
+            height 75px
+            width 75px
+          &.success
+            & span
+              background-color green3 
+              color green2
+          &.danger
+            & span
+              background-color red2 
+              color red1
+    
+
+.link
+    background none
+    font-weight 400
+    outline none
+    line-height 1.2em
+    margin .5em 0
+    &--none
+        text-decoration none
+        &:hover, &:active, &:focus
+            text-decoration none
+    &--underline
+      text-decoration underline
+    &--line-through
+      text-decoration line-through
+
+.icon
+  &--circle
+    &_lg
+      height 70px
+      width 70px
+
+.border
+  &--green1
+    border-color green1 !important
+  &--2px
+    border-width 2px !important
+
+
+
+

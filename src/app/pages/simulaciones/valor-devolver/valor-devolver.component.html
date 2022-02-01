@@ -1,0 +1,9 @@
+<!-- Titulo -->
+<div class="col-md-12">
+    <h1>{{ 'simulaciones.valorDevolver.titulo' | translate }}</h1>
+</div>
+<!-- Grid -->
+<div class="col-md-12">
+    <app-mim-grid (clickCelda)="_onClickLink($event)" [configuracion]="configuracion.gridValorDevolver">
+    </app-mim-grid>
+</div>

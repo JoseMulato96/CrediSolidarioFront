@@ -1,0 +1,35 @@
+
+    <div class="form--default w-100" [formGroup]="addForm" *ngIf="isAddForm | async as isAddForm">
+        <div class="d-flex">
+            <div class="d-flex justify-content-start pl-0 col-4">
+                <span class="btn btn--icon bg--blue2">
+                    <span class="icon-mail text--orange1"></span>
+                </span>
+                <label appMimLabel class="col-form-label pl-3">
+                    {{ 'generarCarta.generarCarta' | translate }}
+                </label>
+            </div>
+            <div class="flex-grow-1 col-8 pl-0">
+                <div class="form-group row align-items-center mb-0">
+                    <div class="col-sm-8">
+                        <div class="input-group" appMimInput [for]="'tipoCarta'" [controlName]="'tipoCarta'">
+                            <app-mim-select class="w-100" [inputId]="'tipoCarta'" [options]="tiposCartas"
+                                formControlName="tipoCarta" [optionKey]="'nombre'" name="'tipoCarta'" id="tipoCarta"
+                                [disabled]="cartaExistente" ngDefaultControl>
+                            </app-mim-select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn--orange1 btn--md mr-2" (click)="diligenciar()"
+                            [disabled]="cartaExistente">
+                            <span class="icon-checkmark mr-2"></span>
+                            {{ 'generarCarta.botonDiligenciar' | translate }}
+                        </button>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="tipoCarta" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'generarCarta.tipoCarta' | translate } }}
+                    </app-mim-input-error>
+                </div>
+            </div>
+        </div>
+    </div>

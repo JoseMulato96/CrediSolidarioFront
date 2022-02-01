@@ -1,0 +1,49 @@
+<div class="row mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      {{ 'asociado.facturacion.multiactiva.titulo' | translate }}
+    </h1>
+  </div>
+</div>
+<div class="row mx-0 w-100 mt-4 mb-5">
+  <div class="col-md-12">
+    <div class="panel--gray panel-grid">
+      <app-mim-grid [configuracion]="configuracion.gridMultiactiva" (atras)="_OnAtras($event)"
+        (siguiente)="_OnSiguiente($event)"></app-mim-grid>
+      <div class="card cards--footer border-0 rounded-0" *ngIf="this.configuracion.panelCalculoMultiactiva.datos">
+        <div class="card-body">
+          <div class="col-11 offset-1 col-xl-12 offset-xl-0">
+            <div class="row mx-0 w-10 justify-content-end align-items-center">
+              <div class="col-xl-12">
+                <div class="mx-0 w-100 row justify-content-between align-items-center">
+                  <div class="col-xl-7 col-md-12 pb-3">
+                    <div class="alert panel--alert p-0 m-0" role="alert">
+                      <h5 class="my-0 text--gray2 text--600wt d-inline-flex align-items-center text--tittle_circle">
+                        <span class="icon-check bg--green2 mr-3 text--26pts"></span>
+                        {{ this.configuracion.panelCalculoMultiactiva.titulo | translate }}
+                      </h5>
+                    </div>
+                  </div>
+                  <div class="col-xl-1 col-md-2 border-left"
+                    *ngFor="let bloque of this.configuracion.panelCalculoMultiactiva.bloques">
+                    <div class="mx-0 row w-100">
+                      <div class="col mx-0 px-0">
+                        <h3 class="my text--13pts text--600wt text--gray2 text-center text-capitalize">
+                          {{ bloque.titulo | translate }}
+                        </h3>
+                        <h2 class="my text--13pts text--500wt text--gray1 text-center">
+                          <!-- {{ this.configuracion.panelCalculoMultiactiva.datos[bloque.key] | customCurrency | emptyPipe }} -->
+                          {{ this.configuracion.panelCalculoMultiactiva.datos[bloque.key] | currency: 'COP' : 'symbol':'0.0' }}
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

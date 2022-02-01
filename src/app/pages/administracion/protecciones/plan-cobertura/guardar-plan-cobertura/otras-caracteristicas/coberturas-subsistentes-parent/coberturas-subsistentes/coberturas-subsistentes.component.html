@@ -1,0 +1,271 @@
+<div class="col-xl-12">
+  <div class="ml  d-flex flex-row-reverse">
+    <button class="btn btn--orange1 btn--md mr-2" (click)="_toggleGuardar(true)">
+      <span class="icon-plus mr-2"></span>
+      {{ 'global.add' | translate }}
+    </button>
+  </div>
+</div>
+
+
+<div class="">
+  <app-mim-grid [configuracion]="configuracion.gridConfig" (siguiente)="_onSiguiente($event)"
+    (atras)="_onAtras($event)" (clickCeldaElement)="_onClickCeldaElement($event)"></app-mim-grid>
+  <!-- Control de activos -->
+  <div class="d-flex position_check">
+    <div class="form--default">
+      <div class="custom-control custom-switch custom-switch_xs row d-flex px-0 mt-2">
+        <label class="switch my-0">
+          <input type="checkbox" checked (click)="_onToggleStatus($event)" class="cursor-point" />
+          <span class="slider round"></span>
+        </label>
+        <span class="text--13pts text--600wt text--gray2 col">
+          {{ 'global.mostrarActivos' | translate }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Inicio guardar coberturas subsistentes -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarGuardar == true }" *ngIf="mostrarGuardar">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-xl-4 col-md-6 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0" *ngIf="_esCreacion">
+                {{
+                'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.crear'
+                | translate }}
+                <h3>{{nombrePlan}} - {{nombreCobertura}}</h3>
+              </h1>
+              <h1 class="text--500wt text--gray1 my-0" *ngIf="!_esCreacion">
+                {{
+                'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.actualizar'
+                | translate }}
+                <h3>{{nombrePlan}} - {{nombreCobertura}}</h3>
+              </h1>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn--circle btn--circle_green" (click)="_toggleGuardar(false)">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <form class="form--default w-100" [formGroup]="cabeceraForm" *ngIf="isCabeceraForm | async as isCabeceraForm;">
+          <div class="card-body pb-0">
+            <div class="row mx-0">
+
+              <!-- planes-->
+              <div class="col-sm-12 col-md-12">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="plan" class="col-sm-12 col-form-label">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.plan'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'plan'" [controlName]="'plan'">
+                      <app-mim-select class="w-100" [inputId]="'plan'" [options]="planes" formControlName="plan"
+                        [optionKey]="'nombre'" name="'plan'" ngDefaultControl>
+                      </app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="plan" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.plan'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Cobertura indemnizada-->
+              <div class="col-sm-12 col-md-12">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="coberturaIndemnizada" class="col-sm-12 col-form-label">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.coberturaIndemnizada'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'coberturaIndemnizada'"
+                      [controlName]="'coberturaIndemnizada'">
+                      <app-mim-select class="w-100" [inputId]="'coberturaIndemnizada'"
+                        [options]="coberturasIndemnizadas " formControlName="coberturaIndemnizada"
+                        [optionKey]="'mimCobertura.nombre'" name="'coberturaIndemnizada'" ngDefaultControl>
+                      </app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="coberturaIndemnizada" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.coberturaIndemnizada'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Vigente -->
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class="col-form-label" appMimLabel for="vigente">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.vigente'
+                    | translate }}
+                  </label>
+                  <div class="custom-control custom-switch p-0">
+                    <label class="switch">
+                      <input type="checkbox" formControlName="vigente" id="vigente" name="vigente">
+                      <span class="slider round">
+                        <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                        <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-footer  w-100 border-0 pr-0">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_guardarCabecera()"
+                    [disabled]="isPristine(cabeceraForm)">
+                    <span class="icon-checkmark mr-2"></span>
+                    {{ 'global.save' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <ng-template [ngIf]="subsistentePlanCobertura">
+          <form class="form--default w-100" [formGroup]="detalleForm" *ngIf="isDetalleForm | async as isDetalleForm;">
+            <div class="card-body pb-0">
+              <div class="row mx-0">
+                <!-- Subsistente cobertura -->
+                <div class="col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <label class="col-form-label" appMimLabel for="subsistenteCobertura">
+                      {{
+                      'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.subsistenteCobertura'
+                      | translate }}
+                    </label>
+                    <div class="custom-control custom-switch p-0">
+                      <label class="switch">
+                        <input type="checkbox" formControlName="subsistenteCobertura" id="subsistenteCobertura"
+                          name="subsistenteCobertura">
+                        <span class="slider round">
+                          <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                          <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tipo subsistencia -->
+                <div class="col-sm-12 col-md-12">
+                  <div class="form-group row align-items-center">
+                    <label appMimLabel for="tipoSubsistencia" class="col-sm-12 col-form-label">
+                      {{
+                      'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.tipoSubsistencia'
+                      | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                      <div class="input-group" appMimInput [for]="'tipoSubsistencia'"
+                        [controlName]="'tipoSubsistencia'">
+                        <app-mim-select class="w-100" [inputId]="'tipoSubsistencia'" [options]="tiposSubsistencias"
+                          formControlName="tipoSubsistencia" [optionKey]="'nombre'" name="'tipoSubsistencia'"
+                          ngDefaultControl>
+                        </app-mim-select>
+                      </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="tipoSubsistencia" errorKey="required">
+                      {{ 'global.required' | translate : { campo:
+                      'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.tipoSubsistencia'
+                      | translate } }}
+                    </app-mim-input-error>
+                  </div>
+                </div>
+                <!-- Fecha inicio y fecha fin -->
+                <div class="col-sm-12 col-md-12">
+                  <div class="form-group row align-items-center">
+                    <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+                      {{
+                      'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.fechaInicioFechaFin'
+                      | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                      <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'"
+                        [controlName]="'fechaInicioFechaFin'">
+                        <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'"
+                          formControlName="fechaInicioFechaFin" [selectionMode]="'range'" [disabled]="estadoFecha"
+                          ngDefaultControl>
+                        </app-mim-date-picker>
+                      </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+                      {{ 'global.required' | translate : { campo:
+                      'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasSubsistentes.guardar.fechaInicio'
+                      | translate } }}
+                    </app-mim-input-error>
+                  </div>
+                </div>
+
+                <!-- Vigente -->
+               <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class="col-form-label" appMimLabel for="vigenteDetalle">
+                    {{ 'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.coberturasAdicionales.guardar.vigente' | translate }}
+                  </label>
+                  <div class="custom-control custom-switch p-0">
+                    <label class="switch">
+                      <input type="checkbox" formControlName="vigenteDetalle" id="vigenteDetalle" name="vigenteDetalle">
+                      <span class="slider round">
+                        <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                        <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+            </div>
+            <div class="card-footer  w-100 border-0">
+              <div class="d-flex flex-row-reverse">
+                <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_guardarDetalle()"
+                  [disabled]="isPristine(detalleForm)">
+                  <span class="icon-checkmark mr-2"></span>
+                  {{ 'global.save' | translate }}
+                </button>
+
+                <button type="button" class="btn btn--gray2 btn--md mr-2" (click)="limpiarFormularioDetalle()">
+                  <span class="icon-cross mr-2"></span>
+                  {{ 'global.clean' | translate }}
+                </button>
+              </div>
+            </div>
+            <div class="card-body pt-0">
+              <app-mim-grid #gridDetalle [configuracion]="configuracion.gridDetalleConfig"
+                (clickCelda)="_onClickCeldaDetalle($event)">
+              </app-mim-grid>
+            </div>
+          </form>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin crear coberturas subsistentes. -->
+
+
+
+
+
+
+
+

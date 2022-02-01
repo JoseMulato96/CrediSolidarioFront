@@ -1,0 +1,98 @@
+<div class="row mx-0" [formGroup]="controlContainer.control">
+    <div class="col-sm-12 col-xl-12 px-2">
+        <div class="form-group row align-items-center">
+            <label appMimLabel for="geolocalizacion" class="col-sm-12 col-form-label">
+                {{ 'administracion.configuracionOperaciones.detalle.form.geolocalizacion' | translate }}
+            </label>
+            <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'geolocalizacion'" [controlName]="'geolocalizacion'">
+                    <app-mim-select class="w-100" [inputId]="'geolocalizacion'" [options]="geolocalizaciones"
+                        [optionKey]="'nombre'" name="'geolocalizacion'" ngDefaultControl
+                        formControlName="geolocalizacion">
+                    </app-mim-select>
+                </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="geolocalizacion" errorKey="required">
+                {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.detalle.form.geolocalizacion' | translate } }}
+            </app-mim-input-error>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xl-12 px-2">
+        <div class="form-group row align-items-center">
+            <label appMimLabel for="ubicacion" class="col-sm-12 col-form-label">
+                {{ 'administracion.configuracionOperaciones.detalle.form.ubicacion' | translate }}
+            </label>
+            <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'ubicacion'" [controlName]="'ubicacion'">
+                    <app-mim-select class="w-100" [inputId]="'ubicacion'" [options]="ubicacion" [optionKey]="'codNom'"
+                        name="'ubicacion'" ngDefaultControl formControlName="ubicacion">
+                    </app-mim-select>
+                </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="ubicacion" errorKey="required">
+                {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.detalle.form.ubicacion' | translate } }}
+            </app-mim-input-error>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xl-12 px-2">
+        <div class="form-group row align-items-center">
+            <label appMimLabel for="tipoCantidadCasos" class="col-sm-12 col-form-label">
+                {{ 'administracion.configuracionOperaciones.detalle.form.tipoCantidadCasos' | translate }}
+            </label>
+            <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'tipoCantidadCasos'" [controlName]="'tipoCantidadCasos'">
+                    <app-mim-select class="w-100" [inputId]="'tipoCantidadCasos'" [options]="tipoCantidadesCasos"
+                        [optionKey]="'nombre'" name="'tipoCantidadCasos'" ngDefaultControl
+                        formControlName="tipoCantidadCasos">
+                    </app-mim-select>
+                </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="tipoCantidadCasos" errorKey="required">
+                {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.detalle.form.tipoCantidadCasos' | translate } }}
+            </app-mim-input-error>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xl-12 px-2">
+        <div class="form-group row align-items-center">
+            <label appMimLabel for="valorCantidadCasos" class="col-sm-12 col-form-label">
+                {{ 'administracion.configuracionOperaciones.detalle.form.valorCantidadCasos' | translate }}
+            </label>
+            <div class="col-sm-12" *ngIf="showInput">
+                <div class="input-group" appMimInput [for]="'valorCantidadCasos'" [controlName]="'valorCantidadCasos'">
+                    <input type="text" class="form-control" id="valorCantidadCasos" formControlName="valorCantidadCasos"
+                        name="valorCantidadCasos" mask="percent" thousandSeparator="." decimalMarker=","
+                        separatorLimit="100" suffix=" %" />
+                </div>
+            </div>
+
+            <div class="col-sm-12" *ngIf="!showInput">
+                <div class="input-group" appMimInput [for]="'valorCantidadCasos'" [controlName]="'valorCantidadCasos'">
+                    <input type="text" class="form-control" id="valorCantidadCasos" formControlName="valorCantidadCasos"
+                        name="valorCantidadCasos" maxlength="5" mask="b*" [patterns]="patterns"/>
+                </div>
+            </div>
+
+            <app-mim-input-error class="col-sm-12" controlName="valorCantidadCasos" errorKey="required">
+                {{ 'global.required' | translate  : { campo: 'administracion.configuracionOperaciones.detalle.form.valorCantidadCasos' | translate } }}
+            </app-mim-input-error>
+        </div>
+    </div>
+    <!-- Fecha inicio y fecha fin. -->
+    <div class="col-sm-12 col-xl-12 px-2">
+        <div class="form-group row align-items-center">
+            <label appMimLabel for="horaCorte" class="col-sm-12 col-form-label">
+                {{ 'administracion.configuracionOperaciones.detalle.form.horaCorte' | translate }}
+            </label>
+            <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'horaCorte'" [controlName]="'horaCorte'">
+                    <app-mim-date-picker [showButtonBar]="false" [timeOnly]="true" [showSeconds]="true" class="w-100" [inputId]="'horaCorte'"
+                        formControlName="horaCorte" ngDefaultControl>
+                    </app-mim-date-picker>
+                </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="horaCorte" errorKey="required">
+                {{ 'global.alertas.rangoObligatorio' | translate  }}
+            </app-mim-input-error>
+        </div>
+    </div>
+</div>

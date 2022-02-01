@@ -1,0 +1,12 @@
+<div class="row mx-0 w-100 pb-5">
+    <!-- PANEL DERECHO -->
+    <div class="col-xl-3 index-z">
+      <!-- CONSULTAS -->
+      <app-mim-menu-vertical [configuracion]="configuracion" (clickItemEvent)="seleccionOpcion($event)"></app-mim-menu-vertical>
+  
+    </div>
+    <!-- PANEL DERECHO -->
+    <div class="col-11 offset-1 col-xl-9 offset-xl-0 pb-5 pt-2 d-block px-xl-3">
+        <router-outlet></router-outlet>
+    </div>
+  </div>

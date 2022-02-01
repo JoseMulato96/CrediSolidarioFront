@@ -1,0 +1,61 @@
+<!-- Title -->
+<div class="row mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      {{ 'asociado.facturacion.capitalPagado.title' | translate }}
+    </h1>
+  </div>
+</div>
+<!-- Control de activos -->
+<div class="d-flex justify-content-end pt-4" *ngIf="configuracionProtecciones">
+  <form class="form--default">
+    <div class="custom-control custom-switch custom-switch_xs row d-flex px-0 mt-2">
+      <label class="switch my-0">
+        <input type="checkbox" checked (click)="_onToggleStatus()" class="cursor-point" />
+        <span class="slider round"></span>
+      </label>
+      <span class="text--13pts text--600wt text--gray2 col">
+        {{ 'asociado.protecciones.mostrarActivos' | translate }}
+      </span>
+    </div>
+  </form>
+</div>
+<!-- Categorias -->
+<div class="plan-width100" *ngFor="let configuracionProteccion of configuracionProtecciones">
+  <ng-template [ngIf]="_mostrarCategoria(configuracionProteccion)">
+    <app-mim-categoria [configuracion]="configuracionProteccion" (selectAllEmitter)="_onSelectAll($event)">
+      <div class="card cards--panelLeft cards--panelLeft_beneficiarios "
+        [ngClass]="{ 'mb-2': mostrarCategoria(configuracionDetalle.estadoConf.param)}"
+        *ngFor="let configuracionDetalle of configuracionProteccion.detalles">
+        <ng-template [ngIf]="mostrarCategoria(configuracionDetalle.estadoConf.param)">
+          <app-mim-categoria-detalle [configuracion]="configuracionDetalle" (selectEmitter)="_onSelectRow($event)">
+          </app-mim-categoria-detalle>
+        </ng-template>
+      </div>
+    </app-mim-categoria>
+  </ng-template>
+</div>
+<!-- Footer -->
+<div class="card cards--footer border-0 rounded-0" *ngIf="atLeastOneSelected">
+  <div class="card-body">
+    <div class="col-11 offset-1 col-xl-12 offset-xl-0">
+      <div class="mx-0 w-100 row justify-content-between align-items-center">
+        <div class="col-10">
+          <div class="alert panel--alert p-0 m-0" role="alert">
+            <h5 class="my-0 text--gray2 text--600wt d-inline-flex align-items-center text--tittle_circle">
+              <span class="icon-check bg--green2 mr-3 text--26pts"></span>
+              {{ 'asociado.facturacion.capitalPagado.sumatoriaProteccionesSeleccionadasMensaje' | translate }}
+            </h5>
+          </div>
+        </div>
+        <div class="col-2 px-0">
+          <h3 class="my-0 text--13pts text--600wt text--gray2 text-center">
+            {{ 'asociado.facturacion.capitalPagado.totalProteccionesSeleccionadas' | translate }}
+          </h3>
+          <h2 class="my-0 text--18pts text--500wt text--gray1 text-center">
+            {{ totalProteccionesSeleccionadas | customCurrency}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

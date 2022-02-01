@@ -1,0 +1,283 @@
+<div class="row  mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      <ng-template [ngIf]="_esCreacion">
+        {{ 'administracion.protecciones.exclusiones.guardar.crear' | translate }}
+      </ng-template>
+      <ng-template [ngIf]="!_esCreacion">
+        {{ 'administracion.protecciones.exclusiones.guardar.actualizar' | translate }}
+      </ng-template>
+    </h1>
+  </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+  <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+    <div class="card-body">
+      <div class="row mx-0 w-100">
+        <!-- Codigo -->
+        <div class="col-sm-12 col-md-6" *ngIf="!_esCreacion">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="codigo" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.exclusiones.grid.codigo' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'codigo'" [controlName]="'codigo'">
+                  <input type="text" class="form-control" id="codigo" formControlName="codigo"
+                    name="codigo" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Fondo -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="fondo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.exclusiones.grid.fondo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fondo'" [controlName]="'fondo'">
+                <app-mim-select class="w-100" [inputId]="'fondo'" [options]="fondos" formControlName="fondo"
+                  [optionKey]="'nombre'" name="'fondo'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fondo" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.exclusiones.grid.fondo' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- exclusiones -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="exclusion" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.exclusiones.grid.descripcion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'exclusion'" [controlName]="'exclusion'">
+                  <textarea type="text" rows="5" class="form-control" id="exclusion" formControlName="exclusion"
+                  name="exclusion"></textarea>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="exclusion" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.exclusiones.grid.descripcion' | translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="exclusion" errorKey="vacio">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.exclusiones.grid.descripcion' | translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="exclusion" errorKey="pattern">
+              {{ 'global.pattern' | translate : { campo: 'administracion.protecciones.exclusiones.grid.descripcion' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!--Vigencia-->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group">
+              <label class="col-form-label" appMimLabel for="vigente">
+                  {{ 'administracion.protecciones.enfermedadesGraves.grid.vigente' | translate }}
+              </label>
+              <div class="custom-control custom-switch p-0">
+                  <label class="switch">
+                      <input type="checkbox" formControlName="vigente" id="vigente" name="vigente">
+                      <span class="slider round">
+                        <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                        <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                      </span>
+                    </label>
+              </div>
+          </div>
+        </div>
+
+        <!--Controles -->
+        <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+          <div class="card-body py-2">
+            <div class="row mx-0 w-10 justify-content-end align-items-center">
+              <!-- Botones -->
+              <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()" [disabled]="form.pristine">
+                    <span class="icon-checkmark mr-2"></span>
+                    {{ 'global.save' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+  <!-- Sección diagnosticos relacionados -->
+  <div class="card-body" *ngIf="isForm | async as isForm;">
+    <div class="col-12 mb-3" *ngIf="!_esCreacion">
+      <fieldset class="fieldset_mm pb-3 w-100">
+        <legend class="legend_mm">
+          <span class="text--16pts text--600wt">
+            {{ 'administracion.protecciones.exclusiones.diagnosticos.titulo' | translate }}
+          </span>
+        </legend>
+
+        <!-- Agregar Diagnostico -->
+        <div class="col-sm-12 col-md-12">
+          <div class="form-group row align-items-center">
+              <div class="col-sm-12">
+                  <div class="d-flex flex-row-reverse">
+                    <button type="button" class="btn btn--orange1 btn--md mr-2" (click)="abrirModal(true)">
+                      <span class="icon-plus mr-2"></span>
+                      {{ 'global.add' | translate }}
+                    </button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <!--Contenedor para la tabla de valores fijos-->
+        <div class="position-relative mr-3 ml-3 mb-2">
+                                  
+          <app-mim-grid [configuracion]="configuracion.gridConfig" (clickCeldaElement)="_onClickCeldaElement($event)">
+          </app-mim-grid>                    
+
+          <!-- Control de activos -->
+          <div class="d-flex position_check mt-n5">
+            <div class="form--default">
+              <div class="custom-control custom-switch custom-switch_xs row d-flex px-0 mt-2">
+                <label class="switch my-0">
+                  <input type="checkbox" checked class="cursor-point" (click)="_onToggleStatus($event)" />
+                    <span class="slider round"></span>
+                </label>
+                <span class="text--13pts text--600wt text--gray2 col">
+                  {{ 'global.mostrarActivos' | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  
+</div>
+
+<!-- Inicio guardar diagnostico para exclusion -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarDiagnostico == true }" *ngIf="mostrarDiagnostico">
+  <div class="row mx-0 w-100 justify-content-end">
+      <div class="col-xl-4 col-md-6 px-0">
+          <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+              <div class="card-header">
+                  <div class="row mx-0 w-100 align-items-center">
+                      <div class="col-lg-10">
+                          <h1 class="text--500wt text--gray1 my-0" *ngIf="esCreacionDiagnostico">
+                              {{'administracion.protecciones.exclusiones.diagnosticos.guardar.crear' | translate }}
+                          </h1>
+                          <h1 class="text--500wt text--gray1 my-0" *ngIf="!esCreacionDiagnostico">
+                              {{'administracion.protecciones.exclusiones.diagnosticos.guardar.actualizar' | translate }}
+                          </h1>
+                      </div>
+                      <div class="col-lg-2">
+                          <button class="btn btn--circle btn--circle_green" (click)="abrirModal(false)">
+                              <span class="icon-cross mr-2"></span>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+              <form class="form--default w-100" [formGroup]="formDiagnostico" *ngIf="isFormDiagnostico | async as isFormDiagnostico;">
+                  <div class="card-body">
+                      <div class="row mx-0">
+
+                          <!-- Diagnostico -->
+                          <div class="col-sm-12 com-md-12">
+                            <div class="form-group row align-items-center">
+                                <label appMimLabel for="diagnostico" class="col-sm-12 col-form-label">
+                                    {{'administracion.protecciones.exclusiones.diagnosticos.guardar.diagnostico' | translate }}
+                                </label>
+                                <div class="col-sm-12">
+                                    <!-- AutoComplete para creación de Diagnostico-->
+                                    <div class="input-group" appMimInput [for]="'diagnostico'"
+                                        [controlName]="'diagnostico'" *ngIf="esCreacionDiagnostico">
+                                        <app-mim-autocomplete class="w-100" [inputId]="'diagnostico'" [optionKey]="'diagCod'"
+                                          [optionField]="'diagDesc'" [suggestions]="listDiagnosticos" formControlName="diagnostico"
+                                          [minLength]="3" (completeMethod)="getDiagnosticos($event)" name="'diagnostico'" ngDefaultControl>
+                                        </app-mim-autocomplete>
+                                    </div>
+
+                                    <!-- Input para edicion de Diagnostico-->
+                                    <div class="input-group" appMimInput [for]="'diagnostico'"
+                                        [controlName]="'diagnostico'" *ngIf="!esCreacionDiagnostico">
+                                        <input type="text" class="form-control" id="diagnostico"
+                                          formControlName="diagnostico" name="diagnostico"/>
+                                    </div>
+
+                                </div>
+                                <app-mim-input-error class="col-sm-12" controlName="diagnostico" errorKey="required">
+                                    {{ 'global.required' | translate : { campo: 'administracion.protecciones.exclusiones.diagnosticos.guardar.diagnostico' | translate } }}
+                                </app-mim-input-error>
+                            </div>
+                          </div>  
+
+                          <!-- Fecha inicio y fecha fin -->
+                          <div class="col-sm-12 com-md-12">
+                              <div class="form-group row align-items-center">
+                                  <label appMimLabel for="fechaInicioFechaFin" class="col-sm-12 col-form-label">
+                                      {{'administracion.protecciones.exclusiones.diagnosticos.guardar.fechaInicioYFin' | translate }}
+                                  </label>
+                                  <div class="col-sm-12">
+                                      <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'"
+                                          [controlName]="'fechaInicioFechaFin'">
+                                          <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'" formControlName="fechaInicioFechaFin" [selectionMode]="'range'"
+                                              ngDefaultControl>
+                                          </app-mim-date-picker>
+                                      </div>
+                                  </div>
+                                  <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+                                      {{ 'global.required' | translate : { campo: 'administracion.protecciones.exclusiones.diagnosticos.guardar.fechaInicioYFin' | translate } }}
+                                  </app-mim-input-error>
+                                  <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="minlength">
+                                    {{ 'global.required' | translate : { campo: 'administracion.protecciones.exclusiones.diagnosticos.guardar.fechaInicioYFin' | translate } }}
+                                </app-mim-input-error>
+                              </div>
+                          </div>
+
+                          <!-- Disponible -->
+                          <div class="col-sm-12 col-md-6" *ngIf="!esCreacionDiagnostico">
+                              <div class="form-group row align-items-center">
+                                  <label appMimLabel for="diagnosticoVigente" class="col-sm-12 col-form-label">
+                                      {{ 'administracion.protecciones.exclusiones.diagnosticos.grid.disponible' | translate }}
+                                  </label>
+                                  <div class="col-sm-12">
+                                      <div class="custom-control custom-switch p-0">
+                                          <label class="switch">
+                                              <input type="checkbox" formControlName="diagnosticoVigente" id="diagnosticoVigente" name="diagnosticoVigente">
+                                              <span class="slider round">
+                                                  <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                                                  <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                                              </span>
+                                          </label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Boton para agregar el registro -->
+                  <div class="card-footer  w-100 border-0 py-4 mt-5">
+                      <div class="d-flex flex-row-reverse">
+                          <button type="submit" class="btn btn--orange1 btn--md mr-2" [disabled]="isPristine(formDiagnostico)" (click)="validarFormularioDiagnostico()">
+                              <span class="icon-checkmark mr-2"></span>
+                              {{ 'global.save' | translate }}
+                          </button>
+                      </div>
+                  </div>
+
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Fin guardar valor fijo destinado fondo garantia -->

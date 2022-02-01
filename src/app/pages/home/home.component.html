@@ -1,0 +1,22 @@
+<div class="row mx-0 w-100 ">
+  <!-- Bandeja de entrada -->
+  <div class="col-12 col-xl-12 d-block px-0 m-0 mt-2">
+    <div class="row  mx-0 w-100 align-items-center">
+      <div class="col-md-12">
+        <h1 class="my-0">
+          {{ 'Bandeja de entrada' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="row mx-0 w-100 pb-4">
+      <div class="col-md-12">
+        <app-mim-grid [configuracion]="configuracion.gridListar"
+          (clickCeldaElement)="_onClickOpciones($event)"
+          (selectDropdown)="_obtenerTareas($event)">
+        </app-mim-grid>
+      </div>
+    </div>
+  </div>
+</div>
+
+

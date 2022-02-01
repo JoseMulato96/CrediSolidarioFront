@@ -1,0 +1,98 @@
+<div class="col-12 col-xl-12 py-3 d-block px-0">
+
+    <div class="row mx-0 w-100 align-items-center">
+        <div class="col-md-12">
+            <h1 class="mb-3">
+                {{ 'reportes.procesosAutomaticos.titulo' | translate }}
+            </h1>
+        </div>
+    </div>
+
+    <div class="col-md-12 w-100 pt-2">
+        <div class="card border-0 rounded-0 p-3">
+            <form class="form--default col-md-12 w-100" [formGroup]="form" *ngIf="isForm | async as isForm">
+                <div class="row">
+                    <!-- Proceso automático -->
+                    <div class="col-sm-4 col-xl-4">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="procesoAutomatico" class="col-sm-12 col-form-label">
+                                {{ 'reportes.procesosAutomaticos.procesoAutomatico' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'procesoAutomatico'"
+                                    [controlName]="'procesoAutomatico'">
+                                    <app-mim-select [disabled]="_tipoProceso" class="w-100"
+                                        [inputId]="'procesoAutomatico'" [options]="tipoProcesoAutomatico"
+                                        formControlName="procesoAutomatico" [optionKey]="'nombre'"
+                                        name="'procesoAutomatico'" ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="procesoAutomatico" errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'reportes.procesosAutomaticos.procesoAutomatico' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <!-- Fecha inicio - fin -->
+                    <div class="col-sm-4 col-xl-4">
+                        <div class="form-group row align-items-center mb-0">
+                            <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFin">
+                                {{ 'reportes.procesosAutomaticos.fechaInicialFechaFinal' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'fechaInicioFin'"
+                                    [controlName]="'fechaInicioFin'">
+                                    <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFin'"
+                                        formControlName="fechaInicioFin" [selectionMode]="'range'" ngDefaultControl>
+                                    </app-mim-date-picker>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="fechaInicioFin" errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'reportes.procesosAutomaticos.fechaInicialFechaFinal' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <div class="row col-sm-4 col-xl-4">
+                        <div class="col-md-6 pr-0">
+                            <button type="submit" class="btn btn--green1 btn--md col-md-12 mt-4" (click)="buscar()">
+                                {{ 'global.search' | translate }}
+                            </button>
+                        </div>
+                        <div class="col-md-6 pr-0">
+                            <button type="submit" class="btn btn--border_green1 btn--md col-md-12 mt-4"
+                                (click)="limpiar()">
+                                {{ 'global.limpiar' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-12 w-100 pt-2 pb-5 mb-5">
+        <div class="card border-0 rounded-0 p-3">
+            <app-mim-grid [configuracion]="configuracion.gridConfig" (siguiente)="onSiguiente($event)"
+                (atras)="onAtras($event)" (ordenar)="ordenar($event)" (clickCeldaElement)="onClickCeldaElement($event)">
+            </app-mim-grid>
+        </div>
+    </div>
+</div>
+
+<div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+    <div class="card-body py-2">
+        <div class="row mx-0 w-10 justify-content-end align-items-center">
+            <!-- Botones -->
+            <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                    <button type="button" class="btn btn--orange1 btn--md mr-2" (click)="onClickExportarExcel()">
+                        <span class="icon-checkmark mr-2"></span>
+                        {{ 'global.exportarExcel' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

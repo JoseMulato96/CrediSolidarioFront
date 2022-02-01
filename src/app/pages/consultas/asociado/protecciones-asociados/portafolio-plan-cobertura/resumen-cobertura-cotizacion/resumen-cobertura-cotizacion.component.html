@@ -1,0 +1,325 @@
+<div class="col-sm-9 col-xl-9">
+  <div style="position: relative;">
+    <app-mim-asociado-detalle-config [configuracion]="detalleCardSuperior" (clickCeldaElement)="onClickElement($event)">
+    </app-mim-asociado-detalle-config>
+  </div>
+</div>
+
+<div class="row" style="margin-top: -10px;">
+  <div class="col-sm-12 col-xl-3 posicion_top_consultas">
+    <div class="col-sm-2 col-xl-12 altoVolverAtras pl-xl-0">
+      <span class="text-left mr-2">
+        <a class="btn btn--circle justify-content-start pl-xl-0" (click)="atras()">
+          <span class="icon-arrow-thin-left mr-2"></span>
+          {{'global.back' | translate}}
+        </a>
+      </span>
+    </div>
+    <div class="col-12 px-xl-0">
+      <app-mim-persona-detalle [configuracion]="configuracion.detalle"></app-mim-persona-detalle>
+    </div>
+  </div>
+  <div class="col-sm-12 col-xl-9">
+    <div class="col-md-12">
+      <div class="d-flex">
+        <h1 class="mb-0 my-0 d-inline-flex align-items-center text--tittle_circle mr-auto">
+          <span class="icon-bar-chart-2 bg--green1 mr-3 p-4 text--26pts"></span>
+          
+          <p *ngIf="cotizacion && cotizacion.mimPlan.nombre">
+            {{ 'asociado.protecciones.portafolio.resumenCotizacion.titulo' | translate: {nombrePlan: cotizacion?.mimPlan.nombre | translate} }}
+          </p>
+          <p *ngIf="!(cotizacion && cotizacion.mimPlan.nombre)">
+            {{ 'asociado.protecciones.portafolio.resumenCotizacion.titulo2' | translate}}
+          </p>
+        </h1>
+        <div class="col-4 pr-0">
+          <div class="card">
+            <div class="card-header bg--green1 badge-primary text--16pts p-2 d-flex align-items-center">
+              <span class="icon-money text--26pts px-2"></span>
+              {{ 'asociado.protecciones.portafolio.resumen.valorTotal.titulo' | translate }}
+            </div>
+            <div class="col-12 py-1">
+              <div class="row">
+                <div class="col text-center">
+                  <p class="text--green1 text--16pts text--600wt m-0">
+                    {{ cotizacion?.totalValorProteccion | customCurrency | emptyPipe }}</p>
+                  <p class="text--gray2 text--14pts text--600wt m-0">
+                    {{ 'asociado.protecciones.portafolio.resumen.valorTotal.proteccion' | translate }}</p>
+                </div>
+                <div class="col border-left text-center">
+                  <p class="text--green1 text--16pts text--600wt m-0">
+                    {{ cotizacion?.totalValorCuota | customCurrency | emptyPipe }}</p>
+                  <p class="text--gray2 text--14pts text--600wt m-0">
+                    {{ 'asociado.protecciones.portafolio.resumenCotizacion.contribucion' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex pr-3">
+        <div class="">
+          <a class="nav-link active pt-3 border-0 bg_buttom_tab cursor-point" (click)="clickMenu(1)">
+            <h3 [className]=" itemMenu === 1 ? 'text--orange1 mb-0' : 'text--gray2 mb-0'">
+              {{ 'asociado.protecciones.portafolio.resumenCotizacion.planes.titulo' | translate }}
+              <div class="w-100 pt-1" [class.active_border_bottom]="itemMenu === 1"></div>
+            </h3>
+          </a>
+        </div>
+        <div>
+          <a class="nav-link  pt-3 border-0 bg_buttom_tab cursor-point" (click)="clickMenu(2)">
+            <h3 [className]="itemMenu === 2 ? 'text--orange1 mb-0' : 'text--gray2 mb-0'">
+              {{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.titulo' | translate}}
+              <div class="w-100 pt-1" [class.active_border_bottom]="itemMenu === 2"></div>
+            </h3>
+          </a>
+        </div>
+        <div>
+          <a class="nav-link  pt-3 border-0 bg_buttom_tab cursor-point" (click)="clickMenu(3)">
+            <h3 [className]="itemMenu === 3 ? 'text--orange1 mb-0' : 'text--gray2 mb-0'">
+              {{'asociado.protecciones.portafolio.resumenCotizacion.resumen.titulo' | translate}}
+              <div class="w-100 pt-1" [class.active_border_bottom]="itemMenu === 3"></div>
+            </h3>
+          </a>
+        </div>
+        <div>
+          <a class="nav-link  pt-3 border-0 bg_buttom_tab cursor-point" (click)="clickMenu(4)">
+            <h3 [className]="itemMenu === 4 ? 'text--orange1 mb-0' : 'text--gray2 mb-0'">
+              {{'asociado.protecciones.portafolio.resumenCotizacion.estadisticas.titulo' | translate}}
+              <div class="w-100 pt-1" [class.active_border_bottom]="itemMenu === 4"></div>
+            </h3>
+          </a>
+        </div>
+        <div class="ml-auto align-self-center">
+          <button type="button" class="btn btn--white btn--md text--red1" (click)="descargar()" [disabled]="habilitarBotones">
+            <span class="icon-export mr-2 text--red1"></span>
+            {{ 'global.exportarPDF' | translate }}
+          </button>
+        </div>
+      </div>
+      <container-element [ngSwitch]="itemMenu">
+        <div *ngSwitchCase="1">
+          <app-mim-grid-items [configuracion]="configuracion.gridListar"></app-mim-grid-items>
+        </div>
+        <div *ngSwitchCase="2">
+          <table class="w-100">
+            <thead>
+              <tr>
+                <th colspan="3"></th>
+                <ng-container *ngFor="let cabecera of configCabecera">
+                  <th [attr.colspan]="cabecera.colspan" class="text-center"
+                    [ngStyle]="{ 'border-bottom': cabecera.codigoColor ? '2px solid '+ cabecera.codigoColor : null}">
+                    <h3 class="font-weight-bold"
+                      [ngStyle]="{ 'color': cabecera.codigoColor ? ''+cabecera.codigoColor : null}">{{cabecera.titulo}}
+                    </h3>
+                  </th>
+                </ng-container>
+              </tr>
+              <tr class="grid-head-column">
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.edad' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.anio' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.mesesPagar' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.contribucionMes' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.contribucionAnio' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.valorProteccion' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.valorRescate' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.contribucionMes' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.valorCapitalizado' | translate}}</span>
+                </th>
+                <th class="p-2 text-center"><span
+                    class="my-0 text-uppercase">{{'asociado.protecciones.portafolio.resumenCotizacion.proyeccion.tabla.valorRescate' | translate}}</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="ui-table-tbody">
+              <ng-container *ngFor="let item of datosTabla">
+                <tr class="grid-space-row"></tr>
+                <tr class="grid-body-column">
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-center text--gray1 text--600wt">{{item.edad}}</h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-center text--gray1 text--600wt">{{item.anio}}</h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-center text--gray1 text--600wt">{{item.mes}}</h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-right text--gray1 text--600wt">
+                      <!-- mensualAporte -->
+                      {{item.valorCuota | currency: 'COP' : 'symbol':'0.0'}}</h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-right text--gray1 text--600wt">
+                      <!-- contribucionAnio -->
+                      {{item.valorContribucionAnio | currency: 'COP' : 'symbol':'0.0'}}</h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-right text--gray1 text--600wt">
+                      {{item.valorProteccion | currency: 'COP' : 'symbol':'0.0'}}</h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-right text--gray1 text--600wt">
+                      <!-- FFFF -->
+                      {{item.valorRescateParaMuerte | currency: 'COP' : 'symbol':'0.0'}} </h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-right text--gray1 text--600wt">
+                      <!-- === -->
+                      {{item.mensualAporte | currency: 'COP' : 'symbol':'0.0'}}</h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-right text--gray1 text--600wt">
+                      {{item.capitalAcomulado | currency: 'COP' : 'symbol':'0.0'}}</h5>
+                  </td>
+                  <td class="py-3 px-2 mt-2">
+                    <h5 class="my-0 text-right text--gray1 text--600wt" *ngIf="item.mostrarValorRescatePerseverancia">
+                      {{item.valorRescate | currency: 'COP' : 'symbol':'0.0'}}
+                    </h5>
+                    <h5 class="my-0 text-right text--gray1 text--600wt" *ngIf="!item.mostrarValorRescatePerseverancia">
+                      -
+                    </h5>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <div *ngSwitchCase="3">
+          <div class="d-flex">
+            <div class="col-6 pl-0 d-flex align-items-stretch">
+              <div class="px-3 w-100 py-2 card cards--panelLeft flex-grow-">
+                <p class="px-2 pt-2 text--16pts text--600wt">
+                  {{ 'asociado.protecciones.portafolio.resumenCotizacion.resumen.valoresPagados' | translate }}</p>
+
+                <ng-container *ngFor="let item of datosResumen.pagos.protecciones; let i = index">
+                  <div [ngClass]="{'px-2': (i+1)%2 !== 0, 'bg--gray3 p-2 my-2 rounded': (i+1)%2 === 0}" class="d-flex">
+                    <span class="flex-grow-1 text--13pts text--600wt text--gray2 d-flex align-items-center">
+                      {{ item.label }}
+                    </span>
+                    <span
+                      class="text--13pts text--600wt text--gray2 d-flex align-items-center pl-2">{{ item.valor | customCurrency | emptyPipe }}</span>
+                  </div>
+                </ng-container>
+
+                <div class="d-flex px-2 pb-2">
+                  <span class="flex-grow-1 text--13pts text--600wt text--orange1">
+                    {{ datosResumen.pagos.total.label }}
+                  </span>
+                  <span
+                    class="text--13pts text--600wt text--orange1 pl-2">{{ datosResumen.pagos.total.valor | customCurrency | emptyPipe }}</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-6 px-0 d-flex align-items-stretch">
+              <div class="px-3 w-100 py-2 card cards--panelLeft flex-grow">
+                <p class="px-2 pt-2 text--16pts text--600wt">
+                  {{ 'asociado.protecciones.portafolio.resumenCotizacion.resumen.valoresEstimadosRescateFinalizarPlan' | translate }}
+                </p>
+
+                <ng-container *ngFor="let item of datosResumen.estimados.protecciones; let i = index">
+                  <div [ngClass]="{'px-2': (i+1)%2 !== 0, 'bg--gray3 p-2 my-2 rounded': (i+1)%2 === 0}" class="d-flex">
+                    <span class="flex-grow-1 text--13pts text--600wt text--gray2">
+                      {{ item.label }}
+                    </span>
+                    <span
+                      class="text--13pts text--600wt text--gray2 d-flex align-items-center pl-2">{{ item.valor | customCurrency | emptyPipe }}</span>
+                  </div>
+                </ng-container>
+
+                <div class="d-flex px-2 pb-2">
+                  <span class="flex-grow-1 text--13pts text--600wt text--orange1">
+                    {{ datosResumen.estimados.total.label | translate }}
+                  </span>
+                  <span
+                    class="text--13pts text--600wt text--orange1 d-flex align-items-center">{{ datosResumen.estimados.total.valor | customCurrency | emptyPipe }}</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div *ngSwitchCase="4" class="w-100">
+          <h5 class="text-center text--18pts text--500wt text--gray1">
+            {{ 'asociado.protecciones.portafolio.resumenCotizacion.estadisticas.tituloGrafica' | translate }}
+          </h5>
+          <div class="col-12 card cards--panelLeft pt-3">
+            <p-toast></p-toast>
+            <p-chart type="line" class="pl-5" [data]="data" [options]="options" [height]="350"
+              (onDataSelect)="selectData($event)"></p-chart>
+            <p class=" text--16pts text--500wt text--gray1 verical--text pl-3">
+              {{ 'asociado.protecciones.portafolio.resumenCotizacion.estadisticas.cifrasExpresadasMillonesPesos' | translate }}
+            </p>
+            <p class="text-center text--16pts text--500wt text--gray1 mt-n4 pb-2">
+              {{ 'asociado.protecciones.portafolio.resumenCotizacion.estadisticas.CuotasPagadas' | translate }}</p>
+
+          </div>
+
+        </div>
+
+      </container-element>
+      <div class="w-100 pr-3 pb-3">
+
+      </div>
+
+      <!-- Footer -->
+      <div class="card cards--footer border-0 rounded-0">
+        <div class="card-body py-2">
+          <div class="col-11 offset-1 col-xl-12 offset-xl-0">
+
+            <div class="mx-0 w-100 d-flex flex-row-reverse">
+
+              <button type="button" class="btn btn--green1 btn--md px-4 ml-2" (click)="continuarVenta()" [disabled]="habilitarBotones">
+                <span class="icon-arrow-thin-right mr-2"></span>
+                {{ 'asociado.protecciones.portafolio.resumenCotizacion.botones.continuarVenta' | translate }}
+              </button>
+              <button type="button" class="btn btn--orange1 btn--md px-4 ml-2" (click)="editarCotizacion()" [disabled]="habilitarBotones">
+                {{ 'asociado.protecciones.portafolio.resumenCotizacion.botones.modificar' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="sidebar--slide sidebar--slide_right d-flex align-items-center" [ngClass]="{ open: mostrarModal == true }"
+  *ngIf="mostrarModal">
+  <div class="row mx-0 w-100 justify-content-center">
+    <div class="col-xl-5 col-md-7 px-0">
+      <div class="card  bg--white">
+        <div class="card-body">
+          <h5 class="my-0 text--gray2 text--600wt d-block text--tittle_circle text--tittle_circle-xl text-center mx-auto info blue blue-icon span">
+            <span class="text--36pts text-center mx-auto icon-info" ng-reflect-klass="text--36pts text-center mx-aut" ng-reflect-ng-class="icon-info"></span>
+          </h5>
+          <h2 class="text--gray1 text--500wt text-center my-4">
+            {{ 'asociado.protecciones.portafolio.resumenCotizacion.alertas.generandoProyeccion' | translate }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

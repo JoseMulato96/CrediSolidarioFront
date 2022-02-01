@@ -1,0 +1,182 @@
+<div class="sidebar--slide sidebar--slide_right" *ngIf="asoNumInt" [ngClass]="{'open': open}">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-lg-5 col-xl-4 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0  overflow-y-scroll">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0">
+                {{ 'asociado.preexistencias.ingresar.title' | translate }}
+              </h1>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn--circle btn--circle_green" (click)="onOpen()">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+          <div class="card-body">
+            <div class="row mx-0 w-100">
+              <div class="col-12">
+
+                <!-- Diagnostico -->
+                <div class="form-group mb-4">
+                  <label appMimLabel for="diagnostico" class="col-form-label">
+                    {{ 'asociado.preexistencias.descripcionDiagnostico' | translate }}
+                  </label>
+                  <div class="input-group" appMimInput [for]="'diagnostico'" [controlName]="'diagnostico'">
+                    <app-mim-autocomplete class="w-100" [inputId]="'diagnostico'" [optionKey]="'diagCod'"
+                      [optionField]="'diagDesc'" [suggestions]="diagnosticos" formControlName="diagnostico"
+                      [minLength]="3" (completeMethod)="getDiagnosticos($event)" name="'diagnostico'" ngDefaultControl>
+                    </app-mim-autocomplete>
+                  </div>
+                  <app-mim-input-error controlName="diagnostico" errorKey="required">
+                    {{ 'asociado.preexistencias.ingresar.diagnosticoRequerido' | translate }}
+                  </app-mim-input-error>
+                </div>
+
+              </div>
+              <div class="col-sm-12 col-md-6">
+
+                <!-- Causa -->
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="causa" class="col-sm-12 col-form-label">
+                    {{ 'asociado.preexistencias.causa' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'causa'" [controlName]="'causa'">
+                      <app-mim-select class="w-100" [inputId]="'causa'" [options]="causas" formControlName="causa"
+                        [optionKey]="'nombre'" name="'causa'" ngDefaultControl></app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="causa" errorKey="required">
+                    {{ 'asociado.preexistencias.ingresar.causaRequerida' | translate }}
+                  </app-mim-input-error>
+                </div>
+
+              </div>
+              <div class="col-sm-12 col-md-6">
+
+                <!-- Examen -->
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="examen" class="col-sm-12 col-form-label">
+                    {{ 'asociado.preexistencias.ingresar.examen' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'examen'" [controlName]="'examen'">
+                      <app-mim-select class="w-100" [inputId]="'examen'" [options]="examenes" formControlName="examen"
+                        [optionKey]="'nombre'" name="'examen'" ngDefaultControl></app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="examen" errorKey="required">
+                    {{ 'asociado.preexistencias.ingresar.examenRequerido' | translate }}
+                  </app-mim-input-error>
+                </div>
+
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <!-- Calificacion -->
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="calificacion" class="col-sm-12 col-form-label">
+                    {{ 'asociado.preexistencias.calificacion' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'calificacion'" [controlName]="'calificacion'">
+                      <input type="number" class="form-control" id="calificacion" formControlName="calificacion"
+                        name="calificacion" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="calificacion" errorKey="required">
+                    {{ 'asociado.preexistencias.ingresar.calificacionRequerida' | translate }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="calificacion" errorKey="max">
+                    {{ 'global.maxValue' | translate :
+                    { campo: 'asociado.preexistencias.calificacion' | translate,
+                      max: 8
+                    }
+                  }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="calificacion" errorKey="min">
+                    {{ 'global.minValue' | translate :
+                    { campo: 'asociado.preexistencias.calificacion' | translate,
+                      min: 1
+                    }
+                  }}
+                </app-mim-input-error>
+                </div>
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <!-- Fecha Inicio -->
+                <div class="form-group row align-items-center">
+                  <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicio">
+                    {{ 'asociado.preexistencias.ingresar.fechaInicio' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'fechaInicio'" [controlName]="'fechaInicio'">
+                      <app-mim-date-picker class="w-100" [inputId]="'fechaInicio'" [minDate]="minDateValue"
+                        [maxDate]="maxDateValue" formControlName="fechaInicio" ngDefaultControl></app-mim-date-picker>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="fechaInicio" errorKey="required">
+                    {{ 'asociado.preexistencias.ingresar.fechaInicioRequerida' | translate }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+              <div class="col-12">
+                <!-- Permite cobertura -->
+                <div class="form-group">
+                  <label class="col-form-label" appMimLabel for="cobertura">
+                    {{ 'asociado.preexistencias.ingresar.permiteCobertura' | translate }}
+                  </label>
+                  <div class="custom-control custom-switch p-0">
+                    <label class="switch">
+                      <input type="checkbox" formControlName="cobertura" id="cobertura" name="cobertura">
+                      <span class="slider round">
+                        <span class="text--white text--14pts text--500wt">SI</span>
+                        <span class="text--white text--14pts text--500wt">NO</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-12">
+
+                <!-- Observaciones -->
+                <div class="form-group ">
+                  <label class="col-form-label" appMimLabel for="observaciones">
+                    {{ 'global.observations' | translate }}
+                  </label>
+                  <div class="input-group" appMimInput [for]="'observaciones'" [controlName]="'observaciones'">
+                    <textarea class="form-control" id="observaciones" formControlName="observaciones"
+                      rows="3"></textarea>
+                  </div>
+                  <app-mim-input-error controlName="observaciones" errorKey="required">
+                    {{ 'asociado.preexistencias.ingresar.observacionesRqueridas' | translate }}
+                  </app-mim-input-error>
+                  <app-mim-input-error controlName="observaciones" errorKey="maxlength">
+                    {{ 'asociado.preexistencias.ingresar.observacionesMaxLength' | translate }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer  w-100 border-0 py-4">
+            <div class="mx-0 w-100 row justify-content-end align-items-center">
+              <div class="col-8">
+                <button type="submit" class="btn btn--orange1 btn--lg w-100" (click)="_onSavePreexistencia()">
+                  <span class="icon-checkmark mr-2"></span>
+                  {{ 'asociado.preexistencias.ingresar.agregarPreexistencia' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

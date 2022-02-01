@@ -1,0 +1,108 @@
+<div class="row  mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+        <h1 class="my-0">
+            <ng-template [ngIf]="_esCreacion">
+                {{ 'administracion.cofiguracionCotizadores.gestionNotas.notasAclaratorias.guardar.crear' | translate }}
+            </ng-template>
+            <ng-template [ngIf]="!_esCreacion">
+                {{ 'administracion.cofiguracionCotizadores.gestionNotas.notasAclaratorias.guardar.actualizar' | translate }}
+            </ng-template>
+        </h1>
+    </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+    <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+        <div class="card-body">
+            <div class="row mx-0 w-100">
+                <!-- Tipo de movimiento -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="tipoMovimiento" class="col-sm-12 col-form-label">
+                            {{ 'administracion.cofiguracionCotizadores.gestionNotas.notasAclaratorias.grid.tipoSolicitud' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'tipoMovimiento'"
+                                [controlName]="'tipoMovimiento'">
+                                <app-mim-select class="w-100" [inputId]="'tipoMovimiento'" [options]="tipoMovimientos"
+                                    formControlName="tipoMovimiento" [optionKey]="'nombre'" name="'tipoMovimiento'"
+                                    ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="tipoMovimiento" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.cofiguracionCotizadores.gestionNotas.notasAclaratorias.grid.tipoSolicitud' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Nombre-->
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="nombre" class="col-sm-12 col-form-label">
+                            {{ 'administracion.cofiguracionCotizadores.gestionNotas.notasAclaratorias.grid.nombreNota' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'nombre'" [controlName]="'nombre'">
+                                <input type="text" class="form-control" id="nombre" formControlName="nombre"
+                                    name="nombre" maxlength="100" />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.cofiguracionCotizadores.gestionNotas.notasAclaratorias.grid.nombreNota' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="maxlength">
+                            {{ 'administracion.cofiguracionCotizadores.gestionNotas.notasAclaratorias.alertas.maxlenth' | translate : {numero: 100} }}
+
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- descripcion-->
+                <div class="col-sm-12 col-md-12">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="descripcion" class="col-sm-12 col-form-label">
+                            {{ 'administracion.cofiguracionCotizadores.proyectoVida.grid.descripcion' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'descripcion'" [controlName]="'descripcion'">
+                                <p-editor [(ngModel)]="text" formControlName="descripcion" class="w-100"
+                                    [style]="{'height':'220px'}" [modules]="_modules"
+                                    (onTextChange)="textChanged($event)">
+                                    <p-header></p-header>
+                                </p-editor>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="descripcion" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.cofiguracionCotizadores.proyectoVida.grid.descripcion' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="descripcion" errorKey="maxlength">
+                            {{ 'global.maxCaracteres' | translate 
+                                                :{ campo: 'administracion.cofiguracionCotizadores.proyectoVida.grid.descripcion' | translate, max: '1000' | translate }
+                                            }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!--Controles -->
+                <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+                    <div class="card-body py-2">
+                        <div class="row mx-0 w-10 justify-content-end align-items-center">
+                            <!-- Botones -->
+                            <div class="col-xl-12">
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                                        [disabled]="form.pristine">
+                                        <span class="icon-edit-3 mr-2"></span>
+                                        {{ 'global.save' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

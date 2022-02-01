@@ -1,0 +1,131 @@
+<div class="barra-asociado" *ngIf="configuracion.nomCli">
+  <div class="row mx-0 w-100">
+    <div class="col-xl-3 barra-asociado-hide">
+      <!-- Nothing here... -->
+      <!-- Se agrega este espacio para cuadrar con la configuracion principal de menu lateral -contenido de la pagina. -->
+    </div>
+    <div class="col-11 offset-1 col-xl-9 offset-xl-0 d-block pl-0 px-xl-3">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12 padding-lr">
+          <div class="card cards--headerFooter w-100">
+            <div class="card-header py-0 barra-asociado-header">
+              <div class="barra-asociado-header-container">
+                <div class="d-flex flex-row">
+                  <div class="d-flex justify-content-start">
+                    <div class="d-flex flex-row">
+                      <span class="icon-user-check text--20pts text--orange1"></span>
+                      <span class="pl-2 pr-2 text-truncate barra-asociado-nombre">{{ configuracion.nomCli }}</span>
+                      <button (click)="irADatosBasicos()" class="btn btn--icon bg--blue2 mt--15 mt-2">
+                        <span class="icon-external-link text--blue1"></span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end w-100">
+                    <div class="d-flex flex-row mr-3">
+                      <h5 class="text--600wt text--gray2 text-left mr-2" *ngIf="configuracion.nitCli">
+                        {{ 'asociado.cedula' | translate }}:
+                      </h5>
+                      <h4 class="text--500wt text--gray1 text-left mr-2">
+                        {{ configuracion.nitCli }}
+                      </h4>
+                      <button class="btn btn--icon bg--blue2 mt--15" (click)="_onClickCopiar(configuracion.nitCli)">
+                        <span class="icon-copy-2 text--orange1"></span>
+                      </button>
+                    </div>
+                    <div class="d-flex flex-row mr-3">
+                      <h5 class="text--600wt text--gray2 text-left mr-2" *ngIf="configuracion.fecNac">
+                        {{ 'asociado.fechaNacimiento' | translate }}:
+                      </h5>
+                      <h4 class="text--500wt text--gray1 text-left ">
+                        {{ configuracion.fecNac }}
+                        <span [ngClass]="calcularIndFecNac(configuracion.vinIndFechaNacimiento)" class="ml-1"></span>
+                      </h4>
+                    </div>
+                    <div class="d-flex flex-row ml-3">
+                      <a data-toggle="collapse" data-target="#collapseAsociadoDetalle" aria-expanded="false"
+                        aria-controls="collapseAsociadoDetalle"
+                        class="text--15pts text--green1 float-right cursor-point" (click)="_toggle()">
+                        <span class="icon-chevron-up" *ngIf="this.configuracion._dropdown"></span>
+                        <span class="icon-chevron-down" *ngIf="!this.configuracion._dropdown"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" [ngClass]="{ show: this.configuracion._dropdown }"
+              aria-labelledby="headingCategoriaDetalle" data-parent="#accordionAsociadoDetalle">
+              <div class="card-body bt-1px pt-3 pb-2">
+                <div class="barra-asociado-body-container my-0 py-0">
+                  <div class="d-flex flex-row">
+                    <div class="row">
+                      <div class="d-flex flex-row mr-2 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <h5 class="text--600wt text--gray2 text-left mr-3">
+                          {{ 'asociado.edadIngreso' | translate }}:
+                        </h5>
+                        <h4 class="text--500wt text--gray1 text-left mr-3">
+                          {{ configuracion.edadIng | emptyPipe }} </h4>
+                      </div>
+                      <div class="d-flex flex-row mr-2 col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                        <h5 class="text--600wt text--gray2 text-left mr-3">
+                          {{ 'asociado.edadActual' | translate }}:
+                        </h5>
+                        <h4 class="text--500wt text--gray1 text-left mr-3">
+                          {{ configuracion.edadAct | emptyPipe }} </h4>
+                      </div>
+                      <div class="d-flex flex-row mr-2 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <h5 class="text--600wt text--gray2 text-left mr-3" *ngIf="configuracion.nitCli">
+                          {{ 'asociado.nivelRiesgo' | translate }}:
+                        </h5>
+                        <h4 class="text--500wt text--gray1 text-left mr-3">
+                          {{ configuracion.nivelRiesgo | emptyPipe }}
+                        </h4>
+                      </div>
+                      <div class="d-flex flex-row mr-2 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <h5 class="text--600wt text--gray2 text-left mr-3" *ngIf="configuracion.nitCli">
+                          {{ 'asociado.corte' | translate }}:
+                        </h5>
+                        <h4 class="text--500wt text--gray1 text-left mr-3">
+                          {{ configuracion.desCorte | emptyPipe }}
+                        </h4>
+                      </div>
+                      <div class="d-flex flex-row mr-2 col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                        <h5 class="text--600wt text--gray2 text-left mr-3">
+                          {{ 'asociado.regional' | translate }}:
+                        </h5>
+                        <h4 class="text--500wt text--gray1 text-left mr-3">
+                          {{ configuracion.regionalAso | emptyPipe }} </h4>
+                      </div>
+                      <div class="d-flex flex-row mr-2 col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                        <h5 class="text--600wt text--gray2 text-left mr-3" *ngIf="configuracion.nitCli">
+                          {{ 'asociado.fechaIngresoCompleto' | translate }}:
+                        </h5>
+                        <h4 class="text--500wt text--gray1 text-left mr-3">
+                          {{ configuracion.fecIngreso | emptyPipe }}
+                        </h4>
+                      </div>
+                      <div class="d-flex flex-row mr-2 col-lg-3 col-md-2 col-sm-6 col-xs-12">
+                        <h5 class="text--600wt text--gray2 text-left mr-3">
+                          {{ 'asociado.estado' | translate }}:
+                        </h5>
+                        <h4 class="text--500wt text--gray1 text-left mr-3">
+                          {{ configuracion.desEstado | emptyPipe }} </h4>
+                      </div>
+                      <div class="d-flex flex-row mr-2 col-lg-6 col-md-3 col-sm-6 col-xs-12">
+                        <h5 class="text--600wt text--gray2 text-left mr-3">
+                          {{ 'asociado.oficinaVin' | translate }}:
+                        </h5>
+                        <h4 class="text--500wt text--gray1 text-left mr-3">
+                          {{ configuracion.desOficina | emptyPipe }} </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="mx-0 w-100 " *ngIf="detalleLiquidacion">
+  <!-- Panel derecho -->
+  <div class="row pt-5">
+    <!-- Boton atras -->
+    <p class="col-3 text-left">
+      <a class="btn btn--circle justify-content-start" (click)="_onAtras()">
+        <span class="icon-arrow-thin-left mr-2"></span>
+        {{ 'global.back' | translate }}
+      </a>
+    </p>
+
+    <div class="col-6 mx-0 w-100 align-items-center">
+      <!-- Titulo -->
+      <div class="col-md-10">
+        <h1 class="my-0">
+          {{ 'liquidaciones.detalleLiquidacion.titulo' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="col-1 mx-0 w-100"></div>
+    <!-- Boton exportar PDF -->
+    <div class="col-2 mx-0 w-100 pr-5">
+      <button class="btn btn--white btn--md text--red1 float-right" (click)="exportarPdf()">
+        <span class="icon-export mr-2 text--red1"></span>
+        {{ 'liquidaciones.detalleLiquidacion.exportarPDF' | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-xl-3">
+      <app-mim-persona-detalle [configuracion]="configuracion.datosAsociado"></app-mim-persona-detalle>
+      <app-mim-persona-detalle *ngIf="configuracion.mostrarDatosBeneficiario"
+        [configuracion]="configuracion.datosBeneficiario"></app-mim-persona-detalle>
+    </div>
+    <!-- Panel izquierdo -->
+    <div class="col-12 col-xl-9 pr-5">
+
+      <!-- Abono a credito. -->
+      <div class="mb-4" *ngIf="configuracion.mostrarAbonoCredito">
+        <app-mim-accordion-section [configuracion]="configuracion.configuracionAccordionAbonoCredito">
+          <app-mim-grid [configuracion]="configuracion.gridAbonoCredito"></app-mim-grid>
+        </app-mim-accordion-section>
+      </div>
+
+      <!-- Forma de pago. -->
+      <div class="mb-4">
+        <app-mim-accordion-section [configuracion]="configuracion.configuracionAccordionFormaPago">
+          <div
+            *ngIf="detalleLiquidacion.formaPago === formaPagoGiro || detalleLiquidacion.formaPago === formaPagoDeposito">
+            <div class="row">
+              <div class="col" *ngFor="let atributo of configuracion.configuracionFormPago">
+                <h5 class="text--13pts text--medium d-flex">
+                  <span class="text--gray2">{{ atributo.titulo | translate }} </span>
+                </h5>
+                <div class="mt-2 text--13pts text--medium d-flex">
+                  {{ atributo.valor  | emptyPipe}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-mim-accordion-section>
+      </div>
+
+      <!-- Coberturas -->
+      <div class="mb-4">
+        <app-mim-grid [configuracion]="configuracion.gridCoberturas"></app-mim-grid>
+        <!-- Footer de la tabla -->
+        <div class="card-footer border bg--white py-2 my-3 rounded">
+          <div class="row">
+
+            <div class="col-8">
+              <ng-template [ngIf]="detalleLiquidacion.mostrarAlerta">
+                <div class="d-flex justify-content-start">
+                  <div class="bg--circle bg--yellow2 text-center">
+                    <span class="icon-warning text--yellow1"></span>
+                  </div>
+                  <h5 class="text--600wt text--gray2 px-3 py-2 my-0">
+                    {{ detalleLiquidacion.alerta | translate }}</h5>
+                </div>
+              </ng-template>
+            </div>
+
+            <div class="col-4 pr-2">
+              <div class="d-flex justify-content-end">
+                <h2 class="text--500wt text--gray2 pl-3 py-2 my-0 text-right">
+                  {{ 'liquidaciones.detalleLiquidacion.grid.valorTotalPago' | translate }}:
+                  <span class="text--green1">
+                    {{ configuracion.totalPago | customCurrency | emptyPipe }}
+                  </span></h2>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Dstribuciones: Se muestra solo si es forma de pago distribuida o distribuida rentas -->
+      <div *ngIf="configuracion.mostrarFormaPagoDistribucion">
+        <div class="mb-4">
+          <app-mim-grid [configuracion]="configuracion.gridFormaPagoDistribucion"></app-mim-grid>
+        </div>
+      </div>
+
+      <!-- Deducciones -->
+      <div *ngIf="!configuracion.mostrarFormaPagoDistribucion">
+        <div class="mb-4">
+          <app-mim-deducciones-card [configuracion]="configuracion.deduccionesCard"></app-mim-deducciones-card>
+        </div>
+      </div>
+
+      <!-- Observaciones -->
+      <div class="mb-4">
+        <div class="card cards--headerFooter w-100 mb-5 ">
+          <div class="card-header">
+            <div class="row mx-0 w100 align-items-center">
+              <div class="col-12 pl-0">
+                <h2 class="text--500wt text--gray1 my-0"><span
+                    class="icon-message text--18pts mr-2 text--orange1"></span>
+                  {{ 'global.observations' | translate }}
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <ng-template [ngIf]="configuracion.mostrarObservaciones">
+              <h4 class="text--500wt text--gray1 mt-2 mb-0 text-justify"
+                *ngFor="let observacion of configuracion.observaciones">
+                {{observacion | emptyPipe }}
+              </h4>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!--Fin columna pagos-->
+
+  </div>
+  <!--fin fila-->
+</div>

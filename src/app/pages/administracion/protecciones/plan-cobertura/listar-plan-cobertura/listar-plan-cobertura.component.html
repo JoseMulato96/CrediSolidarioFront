@@ -1,0 +1,45 @@
+<div class="row  mx-0 w-100 align-items-center">
+  <!-- Boton atras -->
+  <p class="text-left mb-2">
+    <a class="btn btn--circle justify-content-start" (click)="anAtras()">
+      <span class="icon-arrow-thin-left mr-2"></span>
+      {{ 'header.regresar' | translate }}
+    </a>
+  </p>
+
+  <div class="col-md-12">
+    <h1 class="my-0">
+      {{ 'administracion.protecciones.planCobertura.tituloDetalle' | translate }}
+    </h1>
+  </div>
+</div>
+
+<div class="mt-3">
+  <app-mim-grid [configuracion]="configuracion.gridConfig" (clickCeldaElement)="_onClickCeldaElement($event)"
+    (siguiente)="_onSiguiente($event)" (atras)="_onAtras($event)" (ordenar)="_ordenar($event)"
+    (filtroHeader)="filtroHeader($event)">
+  </app-mim-grid>
+</div>
+
+<app-apueba-elimina [showForm]="showForm" tituloModal="{{tituloModal}}" tipoProceso="{{tipoProceso}}"
+  [esDirector]="esDirectorTecnico" [showControlsAprobacion]="showControlsAprobacion" [observaciones]="observaciones"
+  (mostrarModal)="_toggleObservaciones($event)" (apruebaRechazaSolicitud)="_apruebaRechazaSolicitud($event)"
+  (datosForm)="_guardarObservacion($event)" class="w-100">
+</app-apueba-elimina>
+
+<div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+  <div class="card-body py-2">
+    <div class="row mx-0 w-10 justify-content-end align-items-center">
+      <!-- Botones -->
+      <div class="col-xl-12">
+        <div class="d-flex flex-row-reverse">
+          <button class="btn btn--orange1 btn--md mr-2" (click)="irCrear()" *ngIf="!idTarea">
+            <span class="icon-plus mr-2"></span>
+            {{ 'global.add' | translate }}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

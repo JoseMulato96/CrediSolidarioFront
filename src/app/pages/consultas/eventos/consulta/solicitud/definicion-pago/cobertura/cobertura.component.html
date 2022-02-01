@@ -1,0 +1,25 @@
+<div class="w-100 mt-2 mb-3">
+
+    <form class="form--default w-100 pb-5" [formGroup]="form" *ngIf="isForm | async as isForm;">
+
+      <ng-container *ngFor="let _detalle of this.definicionPago.solicitudEvento.mimSolicitudEventoDetalleList;">
+        <!-- Datos cobertura -->
+        <app-mim-cobertura-evento [eventoDetalle]="_detalle" [faseFlujo]="this.definicionPago.codFaseFlujo" (datoCoberturaEvento)="datoCoberturaEvento($event)" ></app-mim-cobertura-evento>
+      </ng-container>
+
+      <!-- Generación de la carta -->
+      <app-mim-genera-carta [disabled]="_envioCarta" [asoNumInt]="this.definicionPago.asoNumInt" [faseFlujo]="this.definicionPago.codFaseFlujo" [idProceso]="this.definicionPago.procesoId" (cartaGenerada)="cartaGenerada($event)"></app-mim-genera-carta>
+
+      <!-- Devolución por error -->
+      <app-mim-devolucion-por-error formGroupName="devolverPorError" [dataInit]="dataInitDevolverPorError"></app-mim-devolucion-por-error>
+
+      <!-- Gestion pendiente por -->
+      <app-mim-gestion-pendiente-por formGroupName="gestionPendientePor" [dataInit]="dataInitGestionPendientePor"></app-mim-gestion-pendiente-por>
+
+      <!-- Observación -->
+      <app-mim-observacion-evento [disabled]="_disabledObservacion" [descripcionObserva]="this.definicionPago.observacion" (datoObservacion)="datoObservacion($event)"></app-mim-observacion-evento>
+
+
+    </form>
+
+</div>

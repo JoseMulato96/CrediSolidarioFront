@@ -1,0 +1,590 @@
+<div class="form--default w-100 mt-2" [formGroup]="controlContainer.control">
+    <div class="card border-0 col-md-12 p-3">
+      <div class="row">
+
+        <!-- Nombre del plan-->
+        <div class="col-md-6 mb-2">
+            <h3 class="mt-2 text--gray2">
+              {{ nombrePlan }}
+            </h3>
+        </div>
+
+        <!-- Opciones de eliminar y ocultar -->
+        <div class="col-md-6 mb-2 d-flex justify-content-end">
+            <button type="button" class="btn btn--icon bg--red2" (click)="clickEliminar()">
+                <span class="icon-trash-3 text--red1"></span>
+            </button>
+            <div class="col-md-2 mt-2">                
+                <a data-toggle="collapse" class="text--15pts text--green1 float-right cursor-point mr-3" (click)="ocultarMostrar()">
+                    <span class="icon-chevron-up" *ngIf="blnMostrar"></span>
+                    <span class="icon-chevron-down" *ngIf="!blnMostrar"></span>
+                </a>
+            </div>
+        </div>
+  
+        <!-- Frecuencia Facturación -->
+        <div class="col-md-4">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="frecuenciaFacturacion" class="col-sm-12 col-form-label">
+              {{ 'shared.components.form.agregarPlanes.frecuenciaFacturacion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'frecuenciaFacturacion'" [controlName]="'frecuenciaFacturacion'">
+                <app-mim-select class="w-100" [inputId]="'frecuenciaFacturacion'" [options]="listFrecuenciasFacturacion" formControlName="frecuenciaFacturacion"
+                  [optionKey]="'nombre'" name="'frecuenciaFacturacion'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="frecuenciaFacturacion" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'shared.components.form.agregarPlanes.frecuenciaFacturacion' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+  
+        <!-- Medios Facturación -->
+        <div class="col-md-4">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="mediosFacturacion" class="col-sm-12 col-form-label">
+              {{ 'shared.components.form.agregarPlanes.medioFacturacion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'mediosFacturacion'" [controlName]="'mediosFacturacion'">
+                <app-mim-select class="w-100" [inputId]="'mediosFacturacion'" [options]="listMediosFacturacion" formControlName="mediosFacturacion"
+                  [optionKey]="'nombre'" name="'mediosFacturacion'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="mediosFacturacion" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'shared.components.form.agregarPlanes.medioFacturacion' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- total Cuota -->
+        <div class="col-md-4">
+            <div class="form-group row align-items-center">
+                <label appMimLabel for="totalCuota" class="col-sm-12 col-form-label">
+                    {{'shared.components.form.agregarPlanes.totalCuota' | translate }}
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'totalCuota'" [controlName]="'totalCuota'">
+                        <input type="text" class="form-control" id="totalCuota" formControlName="totalCuota" name="totalCuota" currencyMask
+                            [options]="customCurrencyMaskConfig" maxlength="12" />
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="totalCuota" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'shared.components.form.agregarPlanes.totalCuota' | translate } }}
+                </app-mim-input-error>
+            </div>
+        </div>
+
+        <div class="w-100 mt-2 mb-2 ml-2 mr-2" *ngIf="blnMostrar">
+          <div class="card cards--headerFooter mr-3">
+            <div class="card-body">
+
+              <div class="row">
+                <!-- Nombre del plan-->
+                <div class="col-md-6 mb-2">
+                  <h3 class="mt-2 text--gray2">
+                    {{ 'shared.components.form.agregarPlanes.asegurados' | translate }}
+                  </h3>
+                </div>
+                <!-- Opciones de eliminar y ocultar -->
+                <div class="col-md-6 mb-2 d-flex justify-content-end">
+                    <div class="col-md-2 mt-2">                
+                        <a data-toggle="collapse" class="text--15pts text--green1 float-right cursor-point mr-3" (click)="ocultarMostrarTabla()">
+                            <span class="icon-chevron-up" *ngIf="blnMostrarTabla"></span>
+                            <span class="icon-chevron-down" *ngIf="!blnMostrarTabla"></span>
+                        </a>
+                    </div>
+                </div>            
+              </div>
+
+              <!-- Lista Asegurados -->
+              <div class="col-md-12" *ngIf="blnMostrarTabla">
+                <app-mim-grid [configuracion]="configuracion.gridListar" (clickCeldaElement)="_onClickCeldaElement($event)" (siguiente)="_onSiguiente($event)"
+                              (atras)="_onAtras($event)" (ordenar)="_ordenar($event)">
+                </app-mim-grid>
+                <div style="height: 50px;" class="mr-3">
+                  <button type="button" class="btn btn--green1 btn--md mt-3" (click)="_toggleGuardar(true)">
+                    <span class="icon-plus-2 mr-2"></span>
+                    {{ 'global.add' | translate }}
+                  </button>
+              </div>
+              
+            </div>
+          </div>  
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Inicio guardar -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarGuardar == true }" *ngIf="mostrarGuardar">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-xl-4 col-md-6 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0" *ngIf="_esCreacion">
+                {{'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.crear' | translate }}
+              </h1>
+              <h1 class="text--500wt text--gray1 my-0" *ngIf="!_esCreacion">
+                {{
+                'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.actualizar' | translate }}
+              </h1>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn--circle btn--circle_green" (click)="_toggleGuardar(false)">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <form class="form--default w-100" [formGroup]="formListaAsegurados"
+          *ngIf="isFormListaAsegurados | async as isFormListaAsegurados">
+          <div class="card-body pb-0">
+            <div class="row mx-0">
+
+              <!-- Tipo Identificacion -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="tipoId" class="col-sm-12 col-form-label">
+                    {{'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.tipoId' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'tipoId'" [controlName]="'tipoId'">
+                      <app-mim-select class="w-100" [inputId]="'tipoId'" [options]="tiposId" formControlName="tipoId"
+                        [optionKey]="'nombre'" name="'tipoId'" ngDefaultControl>
+                      </app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="tipoId" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.tipoId'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Numeor Identificacion -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="numeroIdentificacion" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.numeroId' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'numeroIdentificacion'"
+                      [controlName]="'numeroIdentificacion'">
+                      <input type="number" class="form-control" id="numeroIdentificacion"
+                        formControlName="numeroIdentificacion" name="numeroIdentificacion" maxlength="10"
+                        (change)="getConsultarAsociados()" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="numeroIdentificacion" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.numeroId' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Primer Nombre -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="primerNombre" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.primerNombre' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'primerNombre'" [controlName]="'primerNombre'">
+                      <input type="text" class="form-control" id="primerNombre" formControlName="primerNombre"
+                        name="primerNombre" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="primerNombre" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.primerNombre' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Segundo Nombre -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="segundoNombre" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.segundoNombre' | translate
+                    }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'segundoNombre'" [controlName]="'segundoNombre'">
+                      <input type="text" class="form-control" id="segundoNombre" formControlName="segundoNombre"
+                        name="segundoNombre" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="segundoNombre" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.segundoNombre' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Primer Apellido -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="primerApellido" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.primerApellido' | translate
+                    }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'primerApellido'" [controlName]="'primerApellido'">
+                      <input type="text" class="form-control" id="primerApellido" formControlName="primerApellido"
+                        name="primerApellido" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="primerApellido" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.primerApellido' | translate }
+                    }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Segundo Apellido -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="segundoApellido" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.segundoApellido' | translate
+                    }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'segundoApellido'" [controlName]="'segundoApellido'">
+                      <input type="text" class="form-control" id="segundoApellido" formControlName="segundoApellido"
+                        name="segundoApellido" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="segundoApellido" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.segundoApellido' | translate }
+                    }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+
+              <!-- fecha de nacimiento -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="fechaNacimiento" class="col-sm-12 col-form-label">
+                    {{
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.fechaNacimiento'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'fechaNacimiento'" [controlName]="'fechaNacimiento'">
+                      <app-mim-date-picker class="w-100" [inputId]="'fechaNacimiento'" formControlName="fechaNacimiento"
+                        ngDefaultControl [maxDate]="_maxDate" [disabled]="formListaAsegurados.controls.fechaNacimiento.disabled"></app-mim-date-picker>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="fechaNacimiento" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.fechaNacimiento'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+
+              <!-- Tipo Parentescos -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="parentesco" class="col-sm-12 col-form-label">
+                    {{
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.parentesco'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'parentesco'" [controlName]="'parentesco'">
+                      <app-mim-select class="w-100" [inputId]="'parentesco'" [options]="parentescos"
+                        formControlName="parentesco" [optionKey]="'nombre'" name="'parentesco'" ngDefaultControl>
+                      </app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="parentesco" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.parentesco'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Genero -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="genero" class="col-sm-12 col-form-label">
+                    {{
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.genero'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'genero'" [controlName]="'genero'">
+                      <app-mim-select class="w-100" [inputId]="'genero'" [options]="generos" formControlName="genero"
+                        [optionKey]="'nombre'" name="'genero'" ngDefaultControl>
+                      </app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="genero" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.genero'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Telefono -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="telefono" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.telefono' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'telefono'" [controlName]="'telefono'">
+                      <input type="number" class="form-control" id="telefono" formControlName="telefono" name="telefono"
+                        maxlength="10" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="telefono" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.telefono' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Correo electrónico -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="correoElectronico" class="col-sm-12 col-form-label">
+                    {{ 'administracion.protecciones.promotores.grid.correoElectronico' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'correoElectronico'"
+                      [controlName]="'correoElectronico'">
+                      <input type="email" class="form-control" id="correoElectronico"
+                        formControlName="correoElectronico" name="correoElectronico" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="correoElectronico" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.promotores.grid.correoElectronico' | translate } }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="correoElectronico" errorKey="vacio">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.promotores.grid.correoElectronico' | translate } }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="correoElectronico" errorKey="email">
+                    {{ 'global.pattern' | translate : { campo:
+                    'administracion.protecciones.promotores.grid.correoElectronico' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Celular -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="celular" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.celular' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'celular'" [controlName]="'celular'">
+                      <input type="number" class="form-control" id="celular" formControlName="celular" name="celular"
+                        maxlength="10" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="celular" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.celular' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Direccion -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="direccion" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.direccion' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'direccion'" [controlName]="'direccion'">
+                      <input type="text" class="form-control" id="direccion" formControlName="direccion"
+                        name="direccion" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="direccion" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.direccion' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Ciudad -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="ciudad" class="col-sm-12 col-form-label">
+                    {{
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.ciudad'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'ciudad'" [controlName]="'ciudad'">
+                      <app-mim-select class="w-100" [inputId]="'ciudad'" [options]="ciudades" formControlName="ciudad"
+                        [optionKey]="'codNom'" name="'ciudad'" ngDefaultControl>
+                      </app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="ciudad" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.ciudad'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Ingresos Mensuales -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="ingresoMensual" class="col-sm-12 col-form-label">
+                    {{
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.ingresoMensual'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'ingresoMensual'" [controlName]="'ingresoMensual'">
+                      <input type="text" class="form-control" id="ingresoMensual" formControlName="ingresoMensual"
+                        name="ingresoMensual" currencyMask [options]="customCurrencyMaskConfig" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="ingresoMensual" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.ingresoMensual'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Nivel Riesgo -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="nivelRiesgo" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.nivelRiesgo' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'nivelRiesgo'" [controlName]="'nivelRiesgo'">
+                      <input type="number" class="form-control" id="nivelRiesgo" formControlName="nivelRiesgo"
+                        name="nivelRiesgo" maxlength="1" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="nivelRiesgo" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.nivelRiesgo' | translate } }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="nivelRiesgo" errorKey="max">
+                    {{ 'global.maxValue' | translate : {campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.nivelRiesgo'
+                    | translate, max: 1} }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Tipo Asegurado -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="tipoAsegurado" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.tipoAsegurado' | translate
+                    }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'tipoAsegurado'" [controlName]="'tipoAsegurado'">
+                      <input type="text" class="form-control" id="tipoAsegurado" formControlName="tipoAsegurado"
+                        name="tipoAsegurado" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="tipoAsegurado" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.tipoAsegurado' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Autorizo tratamiento datos -->
+              <div class="col-sm-12 com-md-6">
+                <div class="form-group">
+                  <label class="col-form-label" appMimLabel for="autorizoTratamiento">
+                    {{
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.autorizoTratamiento'
+                    | translate }}
+                  </label>
+                  <div class="custom-control custom-switch p-0">
+                    <label class="switch">
+                      <input type="checkbox" formControlName="autorizoTratamiento" id="autorizoTratamiento"
+                        name="autorizoTratamiento">
+                      <span class="slider round">
+                        <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                          translate }}</span>
+                        <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                          translate }}</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Presenta Invalidez -->
+              <div class="col-sm-12 com-md-6">
+                <div class="form-group">
+                  <label class="col-form-label" appMimLabel for="presentaInvalidez">
+                    {{
+                    'asociado.protecciones.portafolio.cotizacion.listaAsegurados.guardar.presentaInvalidez'
+                    | translate }}
+                  </label>
+                  <div class="custom-control custom-switch p-0">
+                    <label class="switch">
+                      <input type="checkbox" formControlName="presentaInvalidez" id="presentaInvalidez"
+                        name="presentaInvalidez">
+                      <span class="slider round">
+                        <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                          translate }}</span>
+                        <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                          translate }}</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-footer  w-100 border-0">
+            <div class="d-flex flex-row-reverse">
+              <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                [disabled]="isPristine(formListaAsegurados)">
+                <span class="icon-checkmark mr-2"></span>
+                {{ 'global.save' | translate }}
+              </button>
+              <button type="button" class="btn btn--gray2 btn--md mr-2" (click)="limpiarFormularioDetalle()">
+                <span class="icon-cross mr-2"></span>
+                {{ 'global.clean' | translate }}
+              </button>
+            </div>
+          </div>
+
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin crear. -->
+  

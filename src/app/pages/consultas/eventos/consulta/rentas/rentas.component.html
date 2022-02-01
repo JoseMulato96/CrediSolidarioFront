@@ -1,0 +1,20 @@
+<div class="row mx-0 w-100 ">
+  <div class="col-1 col-xl-3 py-5">
+    <p class="text-left">
+      <a class="btn btn--circle justify-content-start" (click)="_onAtras()">
+        <span class="icon-arrow-thin-left mr-2"></span>
+        {{ 'global.back' | translate }}
+      </a>
+    </p>
+
+    <app-mim-persona-detalle *ngIf="asociado && reclamacion && detalleReclamacion"
+      [configuracion]="configuracion.personaRentas"></app-mim-persona-detalle>
+  </div>
+
+  <div class="col-11 offset-1 col-xl-9 offset-xl-0 py-5 d-block pl-0 px-xl-3">
+    <h1>{{ 'eventos.consulta.rentas.titulo' | translate }}</h1>
+    <app-mim-grid (atras)="_OnAtras($event)" (siguiente)="_OnSiguiente($event)"
+      [configuracion]="configuracion.gridRentas">
+    </app-mim-grid>
+  </div>
+</div>

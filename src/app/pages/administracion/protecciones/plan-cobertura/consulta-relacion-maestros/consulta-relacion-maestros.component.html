@@ -1,0 +1,87 @@
+<div class="row mx-0 w-100 ">
+    <div class="col-md-5">
+        <h1>{{ 'administracion.protecciones.consultaRelacionMaestros.titulo' | translate }}</h1>
+    </div>
+</div>
+<div class="row mx-0 w-100 mt-4">
+    <div class="col-md-12 mb-3">
+        <div class="card cards--panelLeft mt-4 mb-4">
+            <div id="filtroBeneficiario" class="collapse show" aria-labelledby="headingOne"
+                data-parent="#accordionPanelLeft">
+                <div class="card-body ">
+                    <form class="form--default form-height" [formGroup]="isForm" *ngIf="isForm | async as isForm;">
+                        <div class="row">
+
+                            <!-- Filtro Maestro -->
+                            <div class="col-md-4 form-group mb-0">
+                                <div class="form-group row align-items-center">
+                                    <label appMimLabel for="maestro" class="col-sm-12 col-form-label">
+                                        {{ 'administracion.protecciones.consultaRelacionMaestros.guardar.maestros' | translate }}
+                                    </label>
+                                    <div class="col-md-12 form-group mb-0">
+                                        <div class="input-group" appMimInput [for]="'maestro'"
+                                            [controlName]="'maestro'">
+                                            <app-mim-select class="w-100" [inputId]="'maestro'" [options]="maestros"
+                                                formControlName="maestro" [optionKey]="'nombre'" name="'maestro'"
+                                                ngDefaultControl>
+                                            </app-mim-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Filtro Descripcion -->
+                            <div class="col-md-4 form-group mb-0">
+                                <div class="form-group row align-items-center">
+                                    <label appMimLabel for="descripcion" class="col-sm-12 col-form-label">
+                                        {{ 'administracion.protecciones.consultaRelacionMaestros.guardar.descripcion' | translate }}
+                                    </label>
+                                    <div class="col-md-12 form-group mb-0">
+                                        <div class="input-group" appMimInput [for]="'descripcion'"
+                                            [controlName]="'descripcion'">
+                                            <app-mim-select class="w-100" [inputId]="'descripcion'"
+                                                [options]="descripciones" formControlName="descripcion"
+                                                [optionKey]="'nombre'" name="'descripcion'" ngDefaultControl>
+                                            </app-mim-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Controles del formulario -->
+                            <div class="col d-flex flex-row align-self-end justify-content-end">
+                                <button type="button" class="btn btn--gray2 btn--md w-100 mr-3" (click)="_onLimpiar()">
+                                    {{ 'global.clean' | translate }}
+                                    <span class="icon-cross ml-3"></span>
+                                </button>
+                                <button class="btn btn--border_green1 btn--md w-100" type="submit"
+                                    (click)="_onBuscar()">
+                                    {{ 'global.search' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <app-mim-grid [configuracion]="configuracion.gridConfig"
+             (clickCelda)="onClickLink($event)"></app-mim-grid>
+
+        <!-- Control de activos -->
+        <div class="d-flex pt-5 mt-4 position--check">
+            <div class="form--default">
+                <div class="custom-control custom-switch custom-switch_xs row d-flex px-0 mt-2">
+                    <label class="switch my-0">
+                        <input type="checkbox" checked (click)="_onToggleStatus($event)" class="cursor-point" />
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="text--13pts text--600wt text--gray2 col">
+                        {{ 'global.mostrarActivos' | translate }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

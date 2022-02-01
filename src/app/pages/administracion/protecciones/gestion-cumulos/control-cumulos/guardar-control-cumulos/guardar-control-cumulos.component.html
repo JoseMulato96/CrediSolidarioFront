@@ -1,0 +1,382 @@
+<div class="row  mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+        <h1 class="my-0">
+            <ng-template [ngIf]="_esCreacion">
+                {{ 'administracion.protecciones.controlCumulo.guardar.crear' | translate }}
+            </ng-template>
+            <ng-template [ngIf]="!_esCreacion">
+                {{ 'administracion.protecciones.controlCumulo.guardar.actualizar' | translate }}
+            </ng-template>
+        </h1>
+    </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+    <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+        <div class="card-body">
+            <div class="row mx-0 w-100">
+
+                <!-- Codigo -->
+                <div class="col-sm-12 col-md-6" *ngIf="!_esCreacion">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="codigoControlCumulo" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.codigo' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'codigoControlCumulo'"
+                                [controlName]="'codigoControlCumulo'">
+                                <input type="number" class="form-control" id="codigoControlCumulo"
+                                    formControlName="codigoControlCumulo" name="codigoControlCumulo" />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="codigoControlCumulo" errorKey="required">
+                            {{ 'global.required' | translate }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Fondo -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="fondo" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.fondo' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'fondo'" [controlName]="'fondo'">
+                                <app-mim-select class="w-100" [inputId]="'fondo'" [options]="fondos"
+                                    formControlName="fondo" [optionKey]="'nombre'" name="'fondo'"
+                                    ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="tipoTope" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.grid.fondo' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Tipo tope -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="tipoTope" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.tipoTope' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'tipoTope'" [controlName]="'tipoTope'">
+                                <app-mim-select class="w-100" [inputId]="'tipoTope'" [options]="tipoTopes"
+                                    formControlName="tipoTope" [optionKey]="'nombre'" name="'tipoTope'"
+                                    ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="tipoTope" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.grid.tipoTope' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Nombre-->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="nombreCumulo" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.nombre' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'nombreCumulo'" [controlName]="'nombreCumulo'">
+                                <app-mim-select class="w-100" [inputId]="'nombreCumulo'" [options]="cumulos"
+                                    formControlName="nombreCumulo" [optionKey]="'nombre'" name="'nombreCumulo'"
+                                    ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="nombreCumulo" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.grid.nombre' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Categoria asociado -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="categoriaAsociado" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.categoriaAsociado' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'categoriaAsociado'"
+                                [controlName]="'categoriaAsociado'">
+                                <app-mim-select class="w-100" [inputId]="'categoriaAsociado'"
+                                    [options]="categoriasAsociados" formControlName="categoriaAsociado"
+                                    [optionKey]="'nombre'" name="'categoriaAsociado'" ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="categoriaAsociado" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.grid.categoriaAsociado' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Edad minima -->
+                <div class="col-sm-12 col-md-3">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="edadMinima" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.edadMinimaAsociado' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'edadMinima'" [controlName]="'edadMinima'">
+                                <input type="text" class="form-control" id="edadMinima" min="18" max="100"
+                                    formControlName="edadMinima" name="edadMinima" mask="b*" [patterns]="patterns" />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.guardar.edadMinima' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="max">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.valorMaximo' | translate : {numero: 100} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="min">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.valorMinimo' | translate : {numero: 18} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="range">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.MinimaYMaximaEdad' | translate  }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Edad máxima -->
+                <div class="col-sm-12 col-md-3">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="edadMaxima" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.edadMaximaAsociado' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'edadMaxima'" [controlName]="'edadMaxima'">
+                                <input type="text" class="form-control" id="edadMaxima" min="18" max="100"
+                                    formControlName="edadMaxima" name="edadMaxima" mask="b*" [patterns]="patterns" />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.guardar.edadMaxima' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="max">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.valorMaximo' | translate : {numero: 100} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="min">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.valorMinimo' | translate : {numero: 18} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="range">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.MinimaYMaximaEdad' | translate  }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Ingresos minimos del asociado -->
+                <div class="col-sm-12 col-md-3">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="ingresosMinimos" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.ingresosMinimosAsociado' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'ingresosMinimos'"
+                                [controlName]="'ingresosMinimos'">
+                                <div class="input-group-prepend-default">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" id="ingresosMinimos"
+                                    formControlName="ingresosMinimos" name="ingresosMinimos" mask="separator.0"
+                                    thousandSeparator="." />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="ingresosMinimos" errorKey="min">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.valorMinimo' | translate : {numero: 1} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="ingresosMinimos" errorKey="max">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.nombreCaracteresMaxima' | translate : {numero: 15} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="ingresosMinimos" errorKey="range">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.MinimaYMaximaIngresos' | translate  }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- ingresos máxima del asociado-->
+                <div class="col-sm-12 col-md-3">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="ingresosMaximos" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.ingresosMaximosAsociado' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'ingresosMaximos'"
+                                [controlName]="'ingresosMaximos'">
+                                <div class="input-group-prepend-default">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" id="ingresosMaximos"
+                                    formControlName="ingresosMaximos" name="ingresosMaximos" min="1" mask="separator"
+                                    thousandSeparator="." />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="ingresosMaximos" errorKey="min">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.valorMinimo' | translate : {numero: 1} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="ingresosMaximos" errorKey="max">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.nombreCaracteresMaxima' | translate : {numero: 15} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="ingresosMaximos" errorKey="range">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.MinimaYMaximaIngresos' | translate  }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Nivel riesgo -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="nivelRiesgo" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.nivelRiesgo' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'nivelRiesgo'" [controlName]="'nivelRiesgo'">
+                                <app-mim-select class="w-100" [inputId]="'nivelRiesgo'" [options]="nivelesRiesgo"
+                                    formControlName="nivelRiesgo" [optionKey]="'nombre'" name="'nivelRiesgo'"
+                                    ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="nivelRiesgo" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.grid.nivelRiesgo' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Unidad -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="unidad" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.unidad' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'unidad'" [controlName]="'unidad'">
+                                <app-mim-select class="w-100" [inputId]="'unidad'" [options]="unidades"
+                                    formControlName="unidad" [optionKey]="'nombre'" name="'unidad'"
+                                    ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="unidad" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.grid.unidad' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Valor minima de tope -->
+                <div class="col-sm-12 col-md-3">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="valorMinimoTope" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.valorMinimoTope' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'valorMinimoTope'"
+                                [controlName]="'valorMinimoTope'">
+                                <div class="input-group-prepend-default" *ngIf="!signoPesoPorcentaje">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" id="valorMinimoTope"
+                                    formControlName="valorMinimoTope" name="valorMinimoTope" min="0" mask="separator"
+                                    thousandSeparator="." />
+                                <div class="input-group-append-default" *ngIf="signoPesoPorcentaje">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMinimoTope" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.guardar.valorMinimoTope' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMinimoTope" errorKey="min">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.valorMinimo' | translate : {numero: 1} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMinimoTope" errorKey="max">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.nombreCaracteresMaxima' | translate : {numero: 15} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMinimoTope" errorKey="range">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.MinimaYMaximaTope' | translate  }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Valor máxima de tope-->
+                <div class="col-sm-12 col-md-3">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="valorMaximoTope" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.controlCumulo.grid.valorMaximoTope' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'valorMaximoTope'"
+                                [controlName]="'valorMaximoTope'">
+                                <div class="input-group-prepend-default" *ngIf="!signoPesoPorcentaje">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" id="valorMaximoTope"
+                                    formControlName="valorMaximoTope" name="valorMaximoTope" min="1" mask="separator"
+                                    thousandSeparator="." />
+                                <div class="input-group-append-default" *ngIf="signoPesoPorcentaje">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMaximoTope" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.controlCumulo.guardar.valorMaximoTope' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMaximoTope" errorKey="min">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.valorMinimo' | translate : {numero: 1} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMaximoTope" errorKey="max">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.nombreCaracteresMaxima' | translate : {numero: 15} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMaximoTope" errorKey="range">
+                            {{ 'administracion.protecciones.controlCumulo.alertas.MinimaYMaximaTope' | translate  }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Fecha inicio y fecha fin -->
+                <div class="col-sm-6 com-md-6">
+                    <div class="form-group row align-items-center">
+                        <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+                            {{ 'administracion.protecciones.controlCumulo.grid.fechaInicioYFin' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'"
+                                [controlName]="'fechaInicioFechaFin'">
+                                <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'"
+                                    formControlName="fechaInicioFechaFin" [selectionMode]="'range'"
+                                    [disabled]="estadoFecha" ngDefaultControl>
+                                </app-mim-date-picker>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.deducibles.guardar.fechaInicio' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!--Controles -->
+                <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+                    <div class="card-body py-2">
+                        <div class="row mx-0 w-10 justify-content-end align-items-center">
+                            <!-- Botones -->
+                            <div class="col-xl-12">
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                                        [disabled]="form.pristine">
+                                        <span class="icon-edit-3 mr-2"></span>
+                                        {{ 'global.save' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

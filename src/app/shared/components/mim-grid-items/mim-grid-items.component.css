@@ -1,0 +1,31 @@
+.centrar--texto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .border-left-div{ 
+    border-left-width: .25rem !important;
+    border-radius: .25rem;
+    background-color: #FFF;
+  }
+
+  .default-background-icono{
+    background-color: #d6dbe0;
+  }
+  
+  .default-border-left{
+    border-left: 1px solid #d6dbe0;
+  }
+
+  .orange-border-left{
+    border-left: 1px solid #FF743B;
+  }
+  
+  .green-border-left{
+    border-left: 1px solid #80D203;
+  }
+  
+  .blue-border-left{
+    border-left: 1px solid #0064F7;
+  }

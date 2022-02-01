@@ -1,0 +1,8 @@
+<div [class]="cssData ? cssData + ' link-container w-100' : 'link-container w-100'">
+  <button class="btn link-button w-100" (click)="onClick()">
+    <span> {{ texto | emptyPipe }}</span>
+  </button>
+  <button class="btn link-copy" (click)="onCopiar()">
+    <span class="icon-copy-2"> </span>
+  </button>
+</div>

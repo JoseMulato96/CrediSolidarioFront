@@ -1,0 +1,447 @@
+<!-- TÍTULO Y PAGINADOR-->
+<div class="row mx-0 w-100 align-items-center">
+    <div class="col-md-6  pl-0">
+        <h1 class="my-0">{{ 'asociado.facturacion.ajusteFacturacion' | translate }}</h1>
+    </div>
+    <div class="col-md-6">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination nav--pagination my-0 align-items-center justify-content-end">
+                <h4 class="text--gray1 text--500wt my-0 mr-3">15 de 536 resultados</h4>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="card cards--table cards--table_facturacion mt-4 border-0">
+    <div class="card-header">
+        <div class="row mx-0 w-100 align-items-center justify-content-between">
+            <div class="col-4 px-0">
+                <div class="row mx-0 w-100 align-items-center justify-content-between">
+                    <div class="col-5">
+                        <h5 class="my-0 text-left text-uppercase text--gray2 text--700wt">{{ 'asociado.facturacion.concepto' | translate }}</h5>
+                    </div>
+                    <div class="col-7 pl-0">
+                        <h5 class="text-left my-0 text-left text-uppercase text--gray2 text--700wt">{{ 'asociado.facturacion.plan' | translate }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 px-0">
+                <div class="row mx-0 w-100 align-items-center justify-content-between">
+                    <div class="col px-0">
+                        <h5 class="text-left my-0 text-left text-uppercase text--gray2 text--700wt">{{ 'global.periods' | translate }}</h5>
+                    </div>
+                    <div class="col px-0">
+                        <h5 class="text-left my-0 text-uppercase text--gray2 text--700wt">{{ 'global.value' | translate }}</h5>
+                    </div>
+                    <div class="col px-0">
+                        <h5 class="text-left my-0 text-left text-uppercase text--gray2 text--700wt">{{ 'global.fees' | translate }}</h5>
+                    </div>
+                    <div class="col px-0">
+                        <h5 class="text-left my-0 text-left text-uppercase text--gray2 text--700wt">{{ 'asociado.facturacion.fechaAjuste' | translate }}</h5>
+                    </div>
+                    <div class="col-2">
+                        <h5 class="my-0 text-left text-uppercase text--gray2 text--700wt">{{ 'global.status' | translate }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-0 ">
+        <!-- LISTADO FACTURACIÓN -->
+        <div class="card cards--panel_facturacion border-0 rounded py-3 mb-2 active">
+            <div class="row mx-0 w-100 align-items-center justify-content-between">
+                <div class="col-4 px-0">
+                    <div class="row mx-0 w-100 align-items-center justify-content-between">
+                        <div class="col-5">
+                            <button class="btn btn--orange1 btn--xs"
+                                [routerLink]="['/pages','asociado','facturacion-asociados','ajuste-facturacion-detalle',1]">
+                                AJUSOLI
+                            </button>
+                        </div>
+                        <div class="col-7 pl-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">Plan 65 años antiguo</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 px-0">
+                    <div class="row mx-0 w-100 align-items-center justify-content-between">
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                <span class="icon-calendar text--orange1 mr-1"></span>
+                                {{ 'asociado.facturacion.ajuste.inicio' | translate }}: 2018/09
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt ml-3">
+                                    {{ 'asociado.facturacion.ajuste.fin' | translate }}: 2018/09</h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.ajuste' | translate }}: $13.715
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.cuota' | translate }} : $13.715
+                            </h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.pactadas' | translate }}: 1
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.facturadas' | translate }}: 1
+                            </h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                <span class="icon-calendar text--orange1 mr-1"></span>26/12/2018
+                            </h5>
+                        </div>
+                        <div class="col-2">
+                            <h6
+                                class="badge bg--green2 text--10pts text--700wt my-0 w-100 py-1 text text--white d-flex justify-content-center">
+                                ACTIVO
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card cards--panel_facturacion border-0 rounded py-3 mb-2">
+            <div class="row mx-0 w-100 align-items-center justify-content-between">
+                <div class="col-4 px-0">
+                    <div class="row mx-0 w-100 align-items-center justify-content-between">
+                        <div class="col-5">
+                            <button class="btn btn--border_orange1 btn--xs"
+                                [routerLink]="['/pages','asociado','facturacion-asociados','ajuste-facturacion-detalle',1]">
+                                AJUSOLI
+                            </button>
+                        </div>
+                        <div class="col-7 pl-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">Plan 65 años antiguo</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 px-0">
+                    <div class="row mx-0 w-100 align-items-center justify-content-between">
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                <span class="icon-calendar text--orange1 mr-1"></span>
+                                {{ 'asociado.facturacion.ajuste.inicio' | translate }}: 2018/09
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt ml-3">
+                                    {{ 'asociado.facturacion.ajuste.fin' | translate }}: 2018/09</h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.ajuste' | translate }}: $13.715
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.cuota' | translate }}: $13.715
+                            </h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.pactadas' | translate }}: 1
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.facturadas' | translate }}: 1
+                            </h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                <span class="icon-calendar text--orange1 mr-1"></span>26/12/2018
+                            </h5>
+                        </div>
+                        <div class="col-2">
+                            <h6
+                                class="badge bg--green2 text--10pts text--700wt my-0 w-100 py-1 text text--white d-flex justify-content-center">
+                                ACTIVO
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card cards--panel_facturacion border-0 rounded py-3 mb-2">
+            <div class="row mx-0 w-100 align-items-center justify-content-between">
+                <div class="col-4 px-0">
+                    <div class="row mx-0 w-100 align-items-center justify-content-between">
+                        <div class="col-5">
+                            <button class="btn btn--border_orange1 btn--xs"
+                                [routerLink]="['/pages','asociado','facturacion-asociados','ajuste-facturacion-detalle',1]">
+                                AJUSOLI
+                            </button>
+                        </div>
+                        <div class="col-7 pl-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">Plan 65 años antiguo</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 px-0">
+                    <div class="row mx-0 w-100 align-items-center justify-content-between">
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                <span class="icon-calendar text--orange1 mr-1"></span>
+                                {{ 'asociado.facturacion.ajuste.inicio' | translate }}: 2018/09
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt ml-3">
+                                    {{ 'asociado.facturacion.ajuste.fin' | translate }}: 2018/09</h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.ajuste' | translate }}: $13.715
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.cuota' | translate }}: $13.715
+                            </h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.pactadas' | translate }}: 1
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.facturadas' | translate }}: 1
+                            </h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                <span class="icon-calendar text--orange1 mr-1"></span>26/12/2018
+                            </h5>
+                        </div>
+                        <div class="col-2">
+                            <h6
+                                class="badge bg--green2 text--10pts text--700wt my-0 w-100 py-1 text text--white d-flex justify-content-center">
+                                ACTIVO
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card cards--panel_facturacion border-0 rounded py-3 mb-2">
+            <div class="row mx-0 w-100 align-items-center justify-content-between">
+                <div class="col-4 px-0">
+                    <div class="row mx-0 w-100 align-items-center justify-content-between">
+                        <div class="col-5">
+                            <button class="btn btn--border_orange1 btn--xs"
+                                [routerLink]="['/pages','asociado','facturacion-asociados','ajuste-facturacion-detalle',1]">
+                                AJUSOLI
+                            </button>
+                        </div>
+                        <div class="col-7 pl-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">Plan 65 años antiguo</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 px-0">
+                    <div class="row mx-0 w-100 align-items-center justify-content-between">
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                <span class="icon-calendar text--orange1 mr-1"></span>
+                                {{ 'asociado.facturacion.ajuste.inicio' | translate }}: 2018/09
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt ml-3">
+                                    {{ 'asociado.facturacion.ajuste.fin' | translate }}: 2018/09</h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.ajuste' | translate }}: $13.715
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.cuota' | translate }}: $13.715
+                            </h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.pactadas' | translate }}: 1
+                            </h5>
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                    {{ 'asociado.facturacion.ajuste.facturadas' | translate }}: 1
+                            </h5>
+                        </div>
+                        <div class="col px-0">
+                            <h5 class="my-0 text-left text--gray1 text--600wt">
+                                <span class="icon-calendar text--orange1 mr-1"></span>26/12/2018
+                            </h5>
+                        </div>
+                        <div class="col-2">
+                            <h6
+                                class="badge bg--green2 text--10pts text--700wt my-0 w-100 py-1 text text--white d-flex justify-content-center">
+                                ACTIVO
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card cards--footer border-0 rounded-0">
+    <div class="card-body">
+        <div class="row mx-0 w-10 justify-content-end align-items-center">
+            <div class="col-xl-9">
+                <!-- AGREGA NUEVO -->
+                <div class="mx-0 w-100 row justify-content-end align-items-center">
+                    <div class="col-3">
+                        <button type="submit" class="btn btn--orange1 btn--lg w-100">
+                            <span class="icon-plus mr-2"></span>
+                            {{ 'global.add' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PANEL -> AGREGAR NUEVO AJUSTE-->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{'open':shownPanelCrearFacturacion == true}">
+    <div class="row mx-0 w-100 justify-content-end">
+        <div class="col-lg-4 px-0">
+            <div class="card cards--panel bg--white border-0 rounded-0">
+                <div class="card-header">
+                    <div class="row mx-0 w-100 align-items-center">
+                        <div class="col-lg-10">
+                            <h1 class="text--500wt text--gray1 my-0">{{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.titulo' | translate }}</h1>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn--circle btn--circle_green"
+                                (click)="activePanelRightCrearFacturacion(false)">
+                                <span class="icon-cross mr-2"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <form class="form--default w-100">
+                    <div class="card-body">
+                        <div class="row mx-0 w-100">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="editarDatosAsoCiudad" class="">
+                                        {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.plan' | translate }}
+                                    </label>
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" id="editarDatosAsoCiudad"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="icon-chevron-down"></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="editarDatosAsoCiudad">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group row align-items-center">
+                                    <label for="editarDatosAsoDireccion" class="col-sm-12 col-form-label">
+                                            {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.periodoInicial' | translate }}
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="editarDatosAsoDireccion"
+                                            >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group row align-items-center">
+                                    <label for="editarDatosAsoBarrio" class="col-sm-12 col-form-label">
+                                            {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.valorAjuste' | translate }}
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="editarDatosAsoBarrio"
+                                            >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group row align-items-center">
+                                    <label for="editarDatosAsoDireccion" class="col-sm-12 col-form-label">
+                                            {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.cuotasPactadas' | translate }}
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" id="editarDatosAsoDireccion"
+                                            >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="editarDatosAsoCiudad" class="">
+                                        {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.tipo' | translate }}
+                                    </label>
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" id="editarDatosAsoCiudad"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="icon-chevron-down"></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="editarDatosAsoCiudad">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card bg--gray4 border-0 mb-2">
+                                    <div class="card-body">
+                                        <div class="mx-0 w-100 row">
+                                            <div class="col-6 border-right">
+                                                <h5 class="my-0 text-center text--600wt text--gray2">
+                                                        {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.valorCuota' | translate }}
+                                                </h5>
+                                                <h4 class="my-0 text-center text--600wt text--gray1">
+                                                        {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.calcular' | translate }}
+                                                    </h4>
+                                            </div>
+                                            <div class="col-6">
+                                                <h5 class="my-0 text-center text--600wt text--gray2">
+                                                    {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.periodoFina' | translate }}</h5>
+                                                <h4 class="my-0 text-center text--600wt text--gray1">(AAAAMM)</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group ">
+                                    <label class="col-form-label" for="nuevoBeneAsoObservaciones">
+                                            {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.observaciones' | translate }}
+                                        </label>
+                                    <textarea class="form-control" id="nuevoBeneAsoObservaciones"
+                                        rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer  w-100 border-0 py-4 mt-5">
+                        <div class="mx-0 w-100 row justify-content-end align-items-center">
+                            <div class="col-8">
+                                <button type="submit" class="btn btn--orange1 btn--lg w-100">
+                                    <span class="icon-checkmark mr-2"></span>
+                                    {{ 'asociado.facturacion.ajuste.agregarNuvoAjuste.formulario.botonGuardar' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

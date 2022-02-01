@@ -1,0 +1,666 @@
+<div class="col-12">
+    <div class="d-flex flex-row">
+        <!-- Botón salir-->
+        <a class="btn btn--circle justify-content-start" (click)="atras()">
+            <span class="icon-arrow-thin-left mr-2"></span>
+            {{ 'header.salir' | translate }}
+        </a>
+        <h1 class="pt-3 pl-4">
+            {{ 'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.titulo' | translate }}
+        </h1>
+    </div>
+</div>
+
+
+<div class="col-12 pb-5 mb-5">
+
+    <div class="col-md-12 pb-5 ">
+        <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+            <p-table #dt [value]="preventas" (onEditInit)="onEditInit($event)" (onEditCancel)="onEditCancel()"
+                (onEditComplete)="onEditComplete(dt, $event)" dataKey="codigoCargue" class="grid-scroll-x grid-table ">
+
+                <ng-template pTemplate="caption">
+                    <div class="d-flex flex-row">
+                        <div class="justify-content-end w-100">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination nav--pagination my-0 align-items-center justify-content-end">
+                                    <!-- Muestra el numero de registro y la cantidad que esta mostrado -->
+                                    <h4 class="text--gray1 text--500wt my-0 mr-3">
+                                        {{ this.regVisto }}
+                                        de
+                                        {{ totalRegistros }}
+                                        resultados
+                                    </h4>
+                                    <!-- Boton inicio -->
+                                    <li class="page-item">
+                                        <a aria-label="Previous" class="page-link" (click)="clickInicio()"><span
+                                                aria-hidden="true">
+                                                <span class="page-arrows icon-chevrons-left"></span></span><span
+                                                class="sr-only">Previous</span></a>
+                                    </li>
+                                    <!-- Boton anterior -->
+                                    <li class="page-item">
+                                        <a aria-label="Previous" class="page-link" (click)="clickAtras()"><span
+                                                aria-hidden="true"><span
+                                                    class="page-arrows icon-chevron-left-2"></span></span><span
+                                                class="sr-only">Previous</span></a>
+                                    </li>
+                                    <!-- Nmero a mostrar -->
+                                    <li class="page-item">
+                                        <a class="page-link">{{ paginas + 1 }}</a>
+                                    </li>
+                                    <!-- Boton siguiente -->
+                                    <li class="page-item">
+                                        <a aria-label="Next" class="page-link" (click)="clickSiguiente()"><span
+                                                aria-hidden="true"><span
+                                                    class="page-arrows icon-chevron-right-2"></span></span><span
+                                                class="sr-only">Next</span></a>
+                                    </li>
+                                    <!-- Boton final -->
+                                    <li class="page-item">
+                                        <a aria-label="Next" class="page-link" (click)="clickFin()"><span
+                                                aria-hidden="true">
+                                                <span class="page-arrows icon-chevrons-right"></span></span><span
+                                                class="sr-only">Next</span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr class="grid-head-columns grid-head-column text-uppercase">
+                        <th class="grid-check-column sticky-col" id="" style="left:0; width: 40px; background-color: #d4d4d4 !important; border-right: solid 1px #f7f5f5 !important;
+                                border-bottom-left-radius: 0px !important;">
+                            <!-- Check para seleccionar todos -->
+                            <form class="form--default">
+                                <div class="custom-control custom-checkbox custom-checkbox_box justify-content-center">
+                                    <!-- Check -->
+                                    <input type="checkbox" class="custom-control-input" id="checkedSelectTodos"
+                                        [formControl]="checkedSelectTodos" name="customRadio" />
+                                    <label class="custom-control-label icon-" for="checkedSelectTodos"></label>
+                                </div>
+                            </form>
+                        </th>
+
+                        <th scope="col" *ngFor="let columnas of scrollableCols; index as i" [ngClass]="{ 'sticky-col': i === 0 }"
+                            [ngStyle]="{'background-color': (i <= 0) ? '#d4d4d4' : '#dfe3e6'}"
+                            [style]="{width:columnas.width + 'px'}">
+                            {{ columnas.header | translate }}
+                        </th>
+                    </tr>
+
+                    <!-- Filtros -->
+                    <tr class="grid-filter-column">
+                        <th scope="col" class="sticky-col"
+                            style="left:0; width: 40px; background-color: #d4d4d4 !important; border-right: solid 1px #f7f5f5 !important;">
+                        </th>
+                        <th *ngFor="let col of scrollableCols; index as i" [ngClass]="{ 'sticky-col': i === 0 }"
+                            [ngStyle]="{'background-color': (i === 0) ? '#d4d4d4' : '#f4f4f4'}"
+                            [ngSwitch]="col.typeFilter" id="">
+                            <app-mim-select class="w-100 grid-filter-column-select" *ngSwitchCase="'select'"
+                                [options]="proyectoVida" [optionKey]="'nombre'"
+                                (changeValue)="filterTable(dt, $event, col.field)" ngDefaultControl>
+                            </app-mim-select>
+
+                            <input class="grid-filter-column-input" *ngSwitchCase="'text'" pInputText type="text"
+                                (input)="filterTable(dt, $event.target.value, col.field)" />
+                        </th>
+                    </tr>
+
+                </ng-template>
+
+                <ng-template pTemplate="body" let-product>
+                    <tr class="grid-space-row"><!-- Espacio en transparente --> </tr>
+                    <tr class="grid-body-column">
+
+                        <td class="grid-check-column sticky-col"
+                            style="left:0; background-color: #d4d4d4 !important; border-right: solid 1px #f7f5f5 !important;">
+                            <form class="form--default">
+                                <div class="custom-control custom-checkbox custom-checkbox_box justify-content-center ">
+                                    <!-- Check -->
+                                    <input type="checkbox" class="custom-control-input" [attr.id]="'c' + product.codigo"
+                                        name="seleccionaRow" [attr.checked]="product.modificado"
+                                        (click)="rowSeleccionado(product)" />
+                                    <label class="custom-control-label icon-" for="seleccionaRow"></label>
+                                </div>
+                            </form>
+                        </td>
+
+                        <td class="grid-body-column padding--td sticky-col"
+                            style="background-color: #d4d4d4 !important; ">
+                            <div class="row">
+
+                                <button title="" class="btn btn--icon bg--orange2 mx-auto tamanioIcono"
+                                    [disabled]="!(product.mimCargueSolicitudDetalleDto.mimTipoError || product.mimCargueSolicitudDetalleDto.mimCargueSolicitudDto.mensajeSalida)"
+                                    (click)="exportarLogErrores(product)">
+                                    <span class="icon-download text--orange1"></span>
+                                </button>
+                                <button title="" class="btn btn--icon bg--green3 tamanioIcono"
+                                    (click)="aplicar(product)">
+                                    <span class="icon-check text--green1"></span>
+                                </button>
+                                <button title="" class="btn btn--icon bg--red2 mx-auto tamanioIcono"
+                                    (click)="rechazar(product)">
+                                    <span class="icon-cross text--red1"></span>
+                                </button>
+                            </div>
+
+                        </td>
+
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'numeroIdentificacion'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" formControlName="numeroIdentificacion" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.numeroIdentificacion}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'fechaSolicitud'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="input-group" appMimInput [for]="'fechaSolicitud'"
+                                        [controlName]="'fechaSolicitud'">
+                                        <input pInputText type="text" formControlName="fechaSolicitud"
+                                            class="form-control" required>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.fechaSolicitud}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'correoElectronico'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input type="email" class="form-control" id="correoElectronico"
+                                        formControlName="correoElectronico" name="correoElectronico" />
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.correoElectronico}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'promotorComercial'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input type="text" class="form-control" id="promotorComercial"
+                                        formControlName="promotorComercial" name="promotorComercial" />
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.promotorComercial}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'autorizaDatosPersonales'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input type="text" class="form-control" id="autorizaDatosPersonales"
+                                        formControlName="autorizaDatosPersonales" name="autorizaDatosPersonales" />
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.autorizaDatosPersonales}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'codigoPlan'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input type="text" class="form-control" id="codigoPlan" formControlName="codigoPlan"
+                                        name="codigoPlan" />
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.codigoPlan}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'proyectoVida'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="input-group" appMimInput [for]="'proyectoVida'"
+                                        [controlName]="'proyectoVida'">
+                                        <input pInputText type="text" formControlName="proyectoVida"
+                                            class="form-control" required>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.proyectoVida}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'otroProyectoVida'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" formControlName="otroProyectoVida"
+                                        class="form-control" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.otroProyectoVida}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'ingresosMensuales'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="input-group" appMimInput [for]="'ingresosMensuales'"
+                                        [controlName]="'ingresosMensuales'">
+                                        <input type="text" class="form-control" id="ingresosMensuales" prefix="$ "
+                                            mask="separator.0" thousandSeparator="." formControlName="ingresosMensuales"
+                                            name="ingresosMensuales" maxlength="21" />
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.ingresosMensuales}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'codigoPlanCobertura'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" formControlName="codigoPlanCobertura"
+                                        class="form-control" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.codigoPlanCobertura}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'valorProteccion'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="input-group" appMimInput [for]="'valorProteccion'"
+                                        [controlName]="'valorProteccion'">
+                                        <input type="text" class="form-control" id="valorProteccion" prefix="$ "
+                                            mask="separator.0" thousandSeparator="." formControlName="valorProteccion"
+                                            name="ingresosMensuales" maxlength="21" />
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.valorProteccion}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td class="grid-body-colum" [pEditableColumn]="product" [pEditableColumnField]="'preguntaUno'"
+                            class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="custom-control custom-switch p-0 d-flex justify-content-center">
+                                        <label class="switch">
+                                            <input type="checkbox" formControlName="preguntaUno" id="preguntaUno"
+                                                name="preguntaUno">
+                                            <span class="slider round">
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                                                    translate }}</span>
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                                                    translate }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.preguntaUno}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'preguntaDos'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="custom-control custom-switch p-0 d-flex justify-content-center">
+                                        <label class="switch">
+                                            <input type="checkbox" formControlName="preguntaDos" id="preguntaDos"
+                                                name="preguntaDos">
+                                            <span class="slider round">
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                                                    translate }}</span>
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                                                    translate }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.preguntaDos}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'preguntaTres'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="custom-control custom-switch p-0 d-flex justify-content-center">
+                                        <label class="switch">
+                                            <input type="checkbox" formControlName="preguntaTres" id="preguntaTres"
+                                                name="preguntaTres">
+                                            <span class="slider round">
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                                                    translate }}</span>
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                                                    translate }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.preguntaTres}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'preguntaCuatro'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="custom-control custom-switch p-0 d-flex justify-content-center">
+                                        <label class="switch">
+                                            <input type="checkbox" formControlName="preguntaCuatro" id="preguntaCuatro"
+                                                name="preguntaCuatro">
+                                            <span class="slider round">
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                                                    translate }}</span>
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                                                    translate }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.preguntaCuatro}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'preguntaCinco'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="custom-control custom-switch p-0 d-flex justify-content-center">
+                                        <label class="switch">
+                                            <input type="checkbox" formControlName="preguntaCinco" id="preguntaCinco"
+                                                name="preguntaCinco">
+                                            <span class="slider round">
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                                                    translate }}</span>
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                                                    translate }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.preguntaCinco}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'preguntaSeis'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="custom-control custom-switch p-0 d-flex justify-content-center">
+                                        <label class="switch">
+                                            <input type="checkbox" formControlName="preguntaSeis" id="preguntaSeis"
+                                                name="preguntaSeis">
+                                            <span class="slider round">
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                                                    translate }}</span>
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                                                    translate }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.preguntaSeis}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'preguntaSiete'"
+                            class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="custom-control custom-switch p-0 d-flex justify-content-center">
+                                        <label class="switch">
+                                            <input type="checkbox" formControlName="preguntaSiete" id="preguntaSiete"
+                                                name="preguntaSiete">
+                                            <span class="slider round">
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.si' |
+                                                    translate }}</span>
+                                                <span class="text--white text--14pts text--500wt">{{ 'global.no' |
+                                                    translate }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.preguntaSiete}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'diagnostico'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" formControlName="diagnostico" class="form-control"
+                                        required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.diagnostico}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'fechaDiagnostico'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="input-group" appMimInput [for]="'fechaDiagnostico'"
+                                        [controlName]="'fechaDiagnostico'">
+                                        <input pInputText type="text" formControlName="fechaDiagnostico"
+                                            class="form-control" required>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.fechaDiagnostico}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'descripcionSecuela'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" formControlName="descripcionSecuela"
+                                        class="form-control" required>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.descripcionSecuela}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'estatura'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="input-group" appMimInput [for]="'estatura'" [controlName]="'estatura'">
+                                        <input type="text" class="form-control" id="estatura" formControlName="estatura"
+                                            name="estatura" appMimInputDecimales="1,2" />
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.estatura}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'peso'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="input-group" appMimInput [for]="'peso'" [controlName]="'peso'">
+                                        <input type="text" class="form-control" id="peso" formControlName="peso"
+                                            name="peso" appMimInputDecimales="3" />
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.peso}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td [pEditableColumn]="product" [pEditableColumnField]="'observacionSalud'"
+                            [pFocusCellSelector]="'input, .custom-edit-control'" class="grid-body-column">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <div class="input-group" appMimInput [for]="'observacionSalud'"
+                                        [controlName]="'observacionSalud'">
+                                        <input type="text" class="form-control" id="observacionSalud"
+                                            formControlName="observacionSalud" name="observacionSalud" />
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{product.observacionSalud}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                    </tr>
+                </ng-template>
+
+            </p-table>
+
+            <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+                <div class="card-body py-2">
+                    <div class="row mx-0 w-10 justify-content-end align-items-center">
+                        <!-- Botones -->
+                        <div class="col-xl-12">
+                            <div class="d-flex flex-row-reverse">
+                                <button class="btn btn--border_red btn--md mr-2" [disabled]="!habilitarBotonRechazar"
+                                    (click)="rechazar()">
+                                    <span class="icon-cross mr-2"></span>
+                                    {{ 'Rechazar' | translate }}
+                                </button>
+                                <button class="btn btn--border_green1 btn--md mr-2" [disabled]="!habilitarBotonAplicar"
+                                    (click)="aplicar()">
+                                    <span class="icon-check mr-2"></span>
+                                    {{ 'Aplicar' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+<!-- Modal lateral -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarModal == true }" *ngIf="mostrarModal">
+    <div class="row mx-0 w-100 justify-content-end">
+        <div class="col-xl-4 col-md-6 px-0">
+            <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+                <div class="card-header">
+                    <div class="row mx-0 w-100 align-items-center">
+                        <div class="col-lg-10">
+                            <h1 class="text--500wt text--gray1 my-0">
+                                {{
+                                'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.titulo'
+                                | translate}}
+                            </h1>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn--circle btn--circle_green" (click)="toggleModal()">
+                                <span class="icon-cross mr-2"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form class="form--default w-100" [formGroup]="formRechazar">
+                        <!-- Causa de negación -->
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group row align-items-center">
+                                <label appMimLabel for="causaNegacion" class="col-sm-12 col-form-label">
+                                    {{
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.titulo'
+                                    | translate }}
+                                </label>
+                                <div class="col-sm-12">
+                                    <div class="input-group" appMimInput [for]="'causaNegacion'"
+                                        [controlName]="'causaNegacion'">
+                                        <app-mim-select class="w-100" [inputId]="'causaNegacion'"
+                                            [options]="causaNegaciones" formControlName="causaNegacion"
+                                            [optionKey]="'nombre'" name="'causaNegacion'" ngDefaultControl>
+                                        </app-mim-select>
+                                    </div>
+                                </div>
+                                <app-mim-input-error class="col-sm-12" controlName="causaNegacion" errorKey="required">
+                                    {{ 'global.required' | translate : { campo:
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.titulo'
+                                    | translate } }}
+                                </app-mim-input-error>
+                            </div>
+                        </div>
+
+                        <!-- Observación -->
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group row align-items-center">
+                                <label appMimLabel for="observacion" class="col-sm-12 col-form-label">
+                                    {{
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.observacion'
+                                    | translate }}
+                                </label>
+                                <div class="col-sm-12">
+                                    <div class="input-group" appMimInput [for]="'observacion'"
+                                        [controlName]="'observacion'">
+                                        <textarea type="text" rows="7" class="form-control" id="observacion"
+                                            formControlName="observacion" name="observacion" maxlength="1000" mask="a*"
+                                            [patterns]="patterns" [dropSpecialCharacters]="false">
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <app-mim-input-error class="col-sm-12" controlName="observacion" errorKey="required">
+                                    {{ 'global.required' | translate : { campo:
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.observacion'
+                                    | translate } }}
+                                </app-mim-input-error>
+                                <app-mim-input-error class="col-sm-12" controlName="observacion" errorKey="maxlength">
+                                    {{ 'global.maxCaracteres' | translate
+                                    :{ campo:
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.observacion'
+                                    | translate, max: '1000' | translate }
+                                    }}
+                                </app-mim-input-error>
+                            </div>
+                        </div>
+
+                        <div class="card-footer  w-100 border-0 px-0">
+                            <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn--orange1 btn--md" (click)="guardarRechazar()"
+                                    [disabled]="formRechazar.invalid">
+                                    <span class="icon-checkmark  mr-2"></span>
+                                    {{ 'global.save' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

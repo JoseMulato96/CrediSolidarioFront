@@ -1,0 +1,15 @@
+<div class="row mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+      <h1 class="my-0">
+        {{ 'asociado.responsablePago.titulo' | translate }}
+      </h1>
+    </div>
+  </div>
+  <div class="row mx-0 w-100 mt-4">
+    <div class="col-md-12">
+      <div class="panel--gray panel-grid">
+        <app-mim-grid [configuracion]="configuracion.gridListarResponsablePago" (atras)="_OnAtras($event)"
+          (siguiente)="_OnSiguiente($event)" (clickCelda)="_OnDetalle($event)"></app-mim-grid>
+      </div>
+    </div>
+  </div>

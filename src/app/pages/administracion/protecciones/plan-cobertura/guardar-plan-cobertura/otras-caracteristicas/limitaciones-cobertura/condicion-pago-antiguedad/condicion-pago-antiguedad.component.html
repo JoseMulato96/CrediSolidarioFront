@@ -1,0 +1,252 @@
+<div class="d-flex flex-row-reverse">
+  <button class="btn btn--orange1 btn--md mr-2" (click)="_toggleGuardar(true)">
+    <span class="icon-plus mr-2"></span>
+    {{ 'global.add' | translate }}
+  </button>
+</div>
+
+<div class="">
+
+  <app-mim-grid [configuracion]="configuracion.gridConfig" (siguiente)="_onSiguiente($event)" (atras)="_onAtras($event)"
+    (clickCeldaElement)="_onClickCeldaElement($event)"></app-mim-grid>
+
+  <!-- Control de activos -->
+  <div class="d-flex position_check">
+    <div class="form--default">
+      <div class="custom-control custom-switch custom-switch_xs row d-flex px-0 mt-2">
+        <label class="switch my-0">
+          <input type="checkbox" checked (click)="_onToggleStatus($event)" class="cursor-point" />
+          <span class="slider round"></span>
+        </label>
+        <span class="text--13pts text--600wt text--gray2 col">
+          {{ 'global.mostrarActivos' | translate }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+<!-- Inicio guardar condicion pago antiguedad -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarGuardar == true }" *ngIf="mostrarGuardar">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-xl-4 col-md-6 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+        <div class="card-header" id="bl-0">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0" *ngIf="_esCreacion">
+                {{
+                'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.crear'
+                | translate }}
+                <h3>{{nombrePlan}} - {{nombreCobertura}}</h3>
+              </h1>
+              <h1 class="text--500wt text--gray1 my-0" *ngIf="!_esCreacion">
+                {{
+                'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.actualizar'
+                | translate }}
+                <h3>{{nombrePlan}} - {{nombreCobertura}}</h3>
+              </h1>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn--circle btn--circle_green" (click)="_toggleGuardar(false)">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+          <div class="card-body" id="bl-0">
+            <div class="row mx-0">
+
+
+              <!-- Antiguedad mínima (Años) -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="antiguedadMinima" class="col-sm-12 col-form-label height_auto">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.antiguedadMinima'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'antiguedadMinima'" [controlName]="'antiguedadMinima'">
+                      <input type="number" class="form-control" id="antiguedadMinima" formControlName="antiguedadMinima"
+                        name="antiguedadMinima" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="antiguedadMinima" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.antiguedadMinima'
+                    | translate } }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="antiguedadMinima" errorKey="min">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.alertas.valorMinimo'
+                    | translate : {numero: 0} }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="antiguedadMinima" errorKey="max">
+                    {{ 'administracion.protecciones.planCobertura.guardar.alertas.nombreCaracteresMaxima' | translate :
+                    {numero: 2} }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="antiguedadMaxima" errorKey="range">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.alertas.maxMinCondicionPagoAntiguedad'
+                    | translate }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Antiguedad maxima (Años) -->
+              <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="antiguedadMaxima" class="col-sm-12 height_auto col-form-label">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.antiguedadMaxima'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'antiguedadMaxima'" [controlName]="'antiguedadMaxima'">
+                      <input type="number" class="form-control" id="antiguedadMaxima" formControlName="antiguedadMaxima"
+                        name="antiguedadMaxima" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="antiguedadMaxima" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.antiguedadMaxima'
+                    | translate } }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="antiguedadMaxima" errorKey="min">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.alertas.valorMinimo'
+                    | translate : {numero: 0} }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="antiguedadMaxima" errorKey="max">
+                    {{ 'administracion.protecciones.planCobertura.guardar.alertas.nombreCaracteresMaxima' | translate :
+                    {numero: 2} }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="antiguedadMaxima" errorKey="range">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.alertas.maxMinCondicionPagoAntiguedad'
+                    | translate }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Tipo limitación -->
+              <div class="col-sm-12 col-md-12">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="tipoLimitacion" class="col-sm-12 col-form-label">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.tipoLimitacion'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'tipoLimitacion'" [controlName]="'tipoLimitacion'">
+                      <app-mim-select class="w-100" [inputId]="'tipoLimitacion'" [options]="tiposLimitaciones"
+                        formControlName="tipoLimitacion" [optionKey]="'nombre'" name="'tipoLimitacion'"
+                        ngDefaultControl>
+                      </app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="tipoLimitacion" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.tipoLimitacion'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- valor -->
+              <div class="col-sm-12 col-md-12">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="valor" class="col-sm-12 col-form-label">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.valor'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'valor'" [controlName]="'valor'">
+                      <input type="text" class="form-control" id="valor" formControlName="valor" name="valor"
+                        currencyMask [options]="optionsMask"  />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="valor" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.valor'
+                    | translate } }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="valor" errorKey="max">
+                    {{
+                      'global.maxValue' | translate : {campo:
+                          'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.valor'
+                          | translate, max: valorMaximoLimitacion} }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Fecha inicio y fecha fin -->
+              <div class="col-sm-12 col-md-12">
+                <div class="form-group row align-items-center">
+                  <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.fechaCondicionInicioFin'
+                    | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'"
+                      [controlName]="'fechaInicioFechaFin'">
+                      <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'"
+                        formControlName="fechaInicioFechaFin" [selectionMode]="'range'" [disabled]="estadoFecha"
+                        ngDefaultControl>
+                      </app-mim-date-picker>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+                    {{ 'global.required' | translate : { campo:
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.guardarAntiguedad.fechaCondicionInicioFin'
+                    | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Vigente -->
+              <div class="col-sm-12 col-md-6" *ngIf="!_esCreacion">
+                <div class="form-group">
+                  <label class="col-form-label" appMimLabel for="vigente">
+                    {{
+                    'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.limitacionCobertura.gridAntiguedad.vigente'
+                    | translate }}
+                  </label>
+                  <div class="custom-control custom-switch p-0">
+                    <label class="switch">
+                      <input type="checkbox" formControlName="vigente" id="vigente" name="vigente">
+                      <span class="slider round">
+                        <span class="text--white text--14pts text--500wt">SI</span>
+                        <span class="text--white text--14pts text--500wt">NO</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-footer  w-100 border-0 py-4">
+            <div class="d-flex flex-row-reverse">
+              <button type="submit" class="btn btn--orange1 btn--md mr-2" [disabled]="isPristine(form)"
+                (click)="_guardar()">
+                <span class="icon-checkmark mr-2"></span>
+                {{ 'global.save' | translate }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin crear condicion pago antiguedad -->

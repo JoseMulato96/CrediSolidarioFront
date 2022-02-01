@@ -1,0 +1,134 @@
+<div class="form--default w-100" [formGroup]="controlContainer.control">
+    <div class="card border-0 col-md-12 p-3">
+        <div class="row">
+            <!-- Fecha de solicitud -->
+            <div class="col-md-3">
+                <div class="form-group row align-items-center">
+                    <label appMimLabel for="fechaSolicitud" class="col-sm-12 col-form-label">
+                        {{ 'shared.components.form.validarDatos.validarDatos.fechaSolicitud' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'fechaSolicitud'" [controlName]="'fechaSolicitud'">
+                            <app-mim-date-picker class="w-100" [inputId]="'fechaSolicitud'"
+                                [formGroup]="controlContainer.control" formControlName="fechaSolicitud" ngDefaultControl
+                                [disabled]="bloquearFechaSolicitud">
+                            </app-mim-date-picker>
+                        </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="fechaSolicitud" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'shared.components.form.validarDatos.validarDatos.fechaSolicitud' | translate } }}
+                    </app-mim-input-error>
+                </div>
+            </div>
+
+            <!-- Fecha de nacimiento -->
+            <div class="col-md-3" *ngIf="esVenta">
+                <div class="form-group row align-items-center">
+                    <label appMimLabel for="fechaNacimiento" class="col-sm-12 col-form-label">
+                        {{ 'shared.components.form.validarDatos.validarDatos.fechaNacimiento' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'fechaNacimiento'"
+                            [controlName]="'fechaNacimiento'">
+                            <input type="text" class="form-control" id="fechaNacimiento"
+                                formControlName="fechaNacimiento" name="maifechaNacimientol" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Correo electronico -->
+            <div class="col-md-6" *ngIf="esVenta">
+                <div class="form-group row align-items-center">
+                    <label appMimLabel for="mail" class="col-sm-12 col-form-label">
+                        {{ 'shared.components.form.validarDatos.validarDatos.correoElectronico' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'mail'" [controlName]="'mail'">
+                            <input type="email" class="form-control" id="mail" formControlName="mail" name="mail" />
+                        </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="mail" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'shared.components.form.validarDatos.validarDatos.correoElectronico' | translate } }}
+                    </app-mim-input-error>
+                    <app-mim-input-error class="col-sm-12" controlName="mail" errorKey="email">
+                        {{ 'global.pattern' | translate : { campo: 'shared.components.form.validarDatos.validarDatos.correoElectronico' | translate } }}
+                    </app-mim-input-error>
+                </div>
+            </div>
+
+            <!-- Canal ventas -->
+            <div class="col-md-3">
+                <div class="form-group row align-items-center">
+                    <label appMimLabel for="canalVenta" class="col-sm-12 col-form-label">
+                        {{ 'shared.components.form.validarDatos.validarDatos.canalVenta' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'canalVenta'" [controlName]="'canalVenta'">
+                            <app-mim-select class="w-100" [inputId]="'canalVenta'" [options]="canalVentas"
+                                formControlName="canalVenta" [optionKey]="'nombre'" name="'canalVenta'"
+                                ngDefaultControl>
+                            </app-mim-select>
+                        </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="canalVenta" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'shared.components.form.validarDatos.validarDatos.canalVenta' | translate } }}
+                    </app-mim-input-error>
+                </div>
+            </div>
+
+            <!-- Promotor comercial -->
+            <div class="col-md-3">
+                <div class="form-group row align-items-center">
+                    <label appMimLabel for="promotorComercial" class="col-sm-12 col-form-label">
+                        {{ 'shared.components.form.validarDatos.validarDatos.promotosComercial' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'promotorComercial'"
+                            [controlName]="'promotorComercial'">
+                            <app-mim-select class="w-100" [inputId]="'promotorComercial'"
+                                [options]="promotoresComerciales" formControlName="promotorComercial"
+                                [optionKey]="'nombre'" name="'promotorComercial'" ngDefaultControl>
+                            </app-mim-select>
+                        </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="promotorComercial" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'shared.components.form.validarDatos.validarDatos.promotosComercial' | translate } }}
+                    </app-mim-input-error>
+                </div>
+            </div>
+
+            <!-- Tratamiento de datos sensibles-->
+            <div class="col-12">
+                <div class="form-check-inline">
+                    <label class="pt-0 pr-5">
+                        {{'shared.components.form.validarDatos.validarDatos.tratamientoDatosSensibles'| translate}}
+                    </label>
+                    <div class="checkbox-coomeva form-check form-check-inline pl-4 pr-3">
+                        <label appMimLabel for="autorizoTratamientoDatosSi">
+                            {{'global.si'| translate}}
+                        </label>
+                        <input class="form-check-input" type="radio" id="autorizoTratamientoDatosSi" value="1"
+                            name="aceptaTratamientoDatosPersonales"
+                            formControlName="aceptaTratamientoDatosPersonales" />
+                        <label class="checkmark-coomeva" for="autorizoTratamientoDatosSi"></label>
+                    </div>
+                    <div class="checkbox-coomeva form-check form-check-inline pl-4">
+                        <label appMimLabel for="autorizoTratamientoDatosNo">
+                            {{'global.no'| translate}}
+                        </label>
+                        <input class="form-check-input" type="radio" id="autorizoTratamientoDatosNo" value="2"
+                            name="aceptaTratamientoDatosPersonales"
+                            formControlName="aceptaTratamientoDatosPersonales" />
+                        <label class="checkmark-coomeva" for="autorizoTratamientoDatosNo"></label>
+                    </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="aceptaTratamientoDatosPersonales" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'shared.components.form.validarDatos.validarDatos.tratamientoDatosSensibles' | translate } }}
+                </app-mim-input-error>
+            </div>
+
+
+        </div>
+    </div>
+</div>

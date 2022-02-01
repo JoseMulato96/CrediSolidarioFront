@@ -1,0 +1,30 @@
+<div class="row mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      {{ 'asociado.facturacion.solidaridad.title' | translate }}
+    </h1>
+  </div>
+</div>
+<div class="row mx-0 w-100 mt-4">
+  <div class="col-md-12">
+    <div class="panel--gray panel-grid">
+      <app-mim-grid [configuracion]="configuracion.gridSolidaridad" (clickCelda)="_OnOpenMora($event)"></app-mim-grid>
+    </div>
+  </div>
+</div>
+<!-- Detalle del recaudo -->
+<app-solidaridad-facturacion-detalle></app-solidaridad-facturacion-detalle>
+<div class="card cards--footer border-0 rounded-0">
+  <div class="card-body p-2">
+    <div class="col-11 offset-1 col-xl-12 offset-xl-0">
+      <div class="d-flex flex-row mx-0 justify-content-end">
+        <!-- Exportar -->
+          <button class="btn btn--white btn--md text--red1 mx-3" (click)="_onClickExportarExcel($event)"
+            [disabled]="exportarDisabled ? 'disabled' : ''">
+            <span class="icon-export mr-2 text--red1"></span>
+            {{ 'global.exportarExcel' | translate }}
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

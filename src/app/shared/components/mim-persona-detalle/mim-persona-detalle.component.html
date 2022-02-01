@@ -1,0 +1,65 @@
+<ng-template [ngIf]="configuracion">
+  <div class="d-none d-lg-block d-xl-none">
+    <div class="card cards--headerFooter w-100 mb-3 ">
+      <div class="card-header">
+        <div class="row mx-0 w100 align-items-center">
+          <div class="col-12 pl-0">
+            <h2 class="text--500wt text--gray1 my-0">
+              <span class="icon-user-check text--18pts mr-2 text--orange1"></span>
+              {{ configuracion.title | translate }}
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div *ngFor="let item of _datos" class="col-sm-12 col-lg-3 py-2">
+            <h5 class="text--600wt text--gray2 text-left my-0">
+              {{ item.label | translate }}
+            </h5>
+            <h4 class="text--500wt text--gray1 text-left mt-2 mb-0">
+              {{ item.value | emptyPipe }}
+              <ng-template appMimAdDirective></ng-template>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion d-none d-md-none d-xl-block" [id]="'accordionPanelLeft'+_id">
+    <div class="card cards--panelLeft mb-4">
+      <div class="card-header" [id]="'headingOne'+_id">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne'+_id"
+            aria-expanded="false" [attr.aria-controls]="'collapseOne'+_id">
+            <span class="icon-user-check text--20pts text--orange1"></span>
+            <span class="pl-2 pr-2 text-truncate">{{ configuracion.title | translate }}</span>
+            <span class="icon-chevron-down"></span>
+          </button>
+        </h5>
+      </div>
+      <div [id]="'collapseOne'+_id" class="collapse" [ngClass]="{'show' :  configuracion.collapsable }"
+        [attr.aria-labelledby]="'headingOne'+_id" [attr.data-parent]="'#accordionPanelLeft'+_id">
+        <div class="card-body">
+          <div *ngFor="let item of _datos">
+            <h5 class="text--600wt text--gray2 text-left mt-3 mb-0">
+              {{ item.label | translate }}
+            </h5>
+            <h4 class="text--500wt text--gray1 text-left mt-2 mb-0">
+              {{ item.value | emptyPipe }}
+              <ng-template appMimAdDirective [key]="item.key"></ng-template>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer" *ngIf="configuracion.footer">
+        <div class="d-flex flex-row">
+          <h4 class="text--500wt text--gray1 mt-2 mr-2">{{ configuracion.footer.title | translate }}</h4>
+          <button (click)="irADatosEvento()" class="btn btn--icon bg--blue2 mt--15">
+            <span class="icon-external-link text--blue1"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

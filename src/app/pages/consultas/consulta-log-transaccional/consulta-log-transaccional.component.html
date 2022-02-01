@@ -1,0 +1,120 @@
+<div class="py-5">
+  <!-- Title -->
+  <div class="row  mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+      <h1 class="my-0">
+        {{ 'consultaTransaccional.consultaLogTransaccional.titulo' | translate }}
+      </h1>
+    </div>
+  </div>
+
+  <div class="mt-4 mb-4">
+    <form class="form--default" [formGroup]="form" *ngIf="isForm | async as isForm;"
+      (ngSubmit)="guardar()">
+      <div class="card cards--headerFooter w-100 mb-3">
+        <div class="card-body px-4 pt-4 pb-4">
+          <div class="row ">
+
+            <!-- numero de identificacion -->
+            <div class="form-group align-items-center col-xl-3 col-md-6">
+              <label appMimLabel for="formNumeroId">
+                {{ 'consultaTransaccional.consultaLogTransaccional.usuario.titulo' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'formNumeroId'" [controlName]="'numeroId'">
+                <input type="text" class="form-control" id="formNumeroId" placeholder="" formControlName="numeroId" />
+              </div>              
+            </div>
+            <!-- funcionalidad -->
+            <div class="form-group col-xl-3 col-md-6">
+              <label class="col-form-label" appMimLabel for="codigo">
+                {{ 'consultaTransaccional.consultaLogTransaccional.funcionalidad' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'codigo'" [controlName]="'nombreFuncionalidad'">
+                <app-mim-select class="w-100" [inputId]="'codigo'" [options]="dataFuncionalidad"
+                  [optionKey]="'nombreFuncionalidad'" formControlName="nombreFuncionalidad" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+
+            <!-- fecha de inicio -->
+            <div class="form-group col-xl-3 col-md-6">
+              <label appMimLabel for="formFechaBeneficiario">
+                {{ 'consultaTransaccional.consultaLogTransaccional.fechaInicio.titulo' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'formFechaInicio'" [controlName]="'fechaInicio'">
+                <app-mim-date-picker class="w-100" [inputId]="'formFechaInicio'" formControlName="fechaInicio"
+                  ngDefaultControl></app-mim-date-picker>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="fechaInicio" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'consultaTransaccional.consultaLogTransaccional.fechaInicio.titulo' | translate } }}
+              </app-mim-input-error>
+            </div>
+            <!-- fecha de fin -->
+            <div class="form-group col-xl-3 col-md-6">
+              <label appMimLabel for="formFechaBeneficiario">
+                {{ 'consultaTransaccional.consultaLogTransaccional.fechaFin.titulo' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'formFechaFin'" [controlName]="'fechaFin'">
+                <app-mim-date-picker class="w-100" [inputId]="'formFechaFin'" formControlName="fechaFin"
+                  ngDefaultControl>
+                </app-mim-date-picker>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="fechaFin" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'consultaTransaccional.consultaLogTransaccional.fechaFin.titulo' | translate } }}
+              </app-mim-input-error>
+            </div>
+
+
+            <!-- Usuario de aplicacióon o/ Usuario del sistema -->
+            <div class="form-group align-items-center col-xl-3 col-md-6">
+              <label appMimLabel for="formUsuarioSistema">
+                {{ 'consultaTransaccional.consultaLogTransaccional.usuariAplicacion' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'formUsuarioSistema'" [controlName]="'usuarioSistema'">
+                <input type="text" class="form-control" id="formUsuarioSistema" placeholder=""
+                  formControlName="usuarioSistema" />
+              </div>
+            </div>
+
+            <!-- ID Asociado o Benef. -->
+            <div class="form-group align-items-center col-xl-3 col-md-6">
+              <label appMimLabel for="formAsociado">
+                {{ 'consultaTransaccional.consultaLogTransaccional.idAsociado' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'formAsociado'" [controlName]="'asociado'">
+                <input type="text" class="form-control" id="formAsociado" placeholder="" formControlName="asociado" />
+              </div>
+            </div>
+            <!-- IP de la maquina. -->
+            <div class="form-group align-items-center col-xl-3 col-md-6">
+              <label appMimLabel for="formIPMaquina">
+                {{ 'consultaTransaccional.consultaLogTransaccional.ipMaquina' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'formIPMaquina'" [controlName]="'ipMaquina'">
+                <input type="text" class="form-control" id="formIPMaquina" placeholder="" formControlName="ipMaquina" />
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Contrles -->
+          <div class="form-group">
+            <div class="row mx-auto col-4">
+              <div class="col-md-6 pl-md-0">
+                <button class="btn btn--gray2 btn--md w-100 justify-content-md-center" (click)="_onLimpiar()">
+                  {{ 'consultaTransaccional.consultaLogTransaccional.botonLimpiar' | translate }}
+                  <span class="icon-cross ml-3"></span>
+                </button>
+              </div>
+              <div class="col-md-6 pr-md-0">
+                <button class="btn btn--orange1 btn--md w-100" type="submit">
+                  {{ 'consultaTransaccional.consultaLogTransaccional.botonDescargar' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

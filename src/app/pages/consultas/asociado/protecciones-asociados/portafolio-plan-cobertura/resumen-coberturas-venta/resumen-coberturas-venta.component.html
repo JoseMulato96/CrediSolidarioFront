@@ -1,0 +1,84 @@
+<div class="row" style="margin-top: -10px;">
+  <div class="col-md-3" *ngIf="datosAsociado">
+    <app-mim-persona-detalle [configuracion]="configuracion.detalle"></app-mim-persona-detalle>
+  </div>
+  <div class="col-md-9">
+    <div class="col-md-12">
+      <div class="d-flex">
+        <h1 class="mb-0 my-0 d-inline-flex align-items-center text--tittle_circle mr-auto">
+          <span class="icon-bar-chart-2 bg--green2 mr-3 p-4 text--26pts"></span>
+          
+          <p *ngIf="venta && venta.mimPlan.nombre">
+            {{ 'asociado.protecciones.portafolio.resumen.titulo' | translate: {nombrePlan: venta.mimPlan.nombre | translate} }}
+          </p>
+          <p *ngIf="!(venta && venta.mimPlan.nombre)">
+            {{ 'asociado.protecciones.portafolio.resumen.titulo2' | translate }}
+          </p>
+        </h1>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-header bg--green1 badge-primary text--16pts p-2 d-flex align-items-center">
+              <span class="icon-money text--26pts px-2"></span>
+              {{ 'asociado.protecciones.portafolio.resumen.valorTotal.titulo' | translate }}
+            </div>
+            <div class="col-12 py-1">
+              <div class="row">
+                <div class="col text-center">
+                  <p class="text--green1 text--16pts text--600wt m-0">{{ venta?.totalValorProteccion | customCurrency | emptyPipe }}</p>
+                  <p class="text--gray2 text--14pts text--600wt m-0">{{ 'asociado.protecciones.portafolio.resumen.valorTotal.proteccion' | translate }}</p>
+                </div>
+                <div class="col border-left text-center">
+                  <p class="text--green1 text--16pts text--600wt m-0">{{ venta?.totalValorCuota | customCurrency | emptyPipe }}</p>
+                  <p class="text--gray2 text--14pts text--600wt m-0">{{ 'asociado.protecciones.portafolio.resumen.valorTotal.cuota' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex pr-3">
+        <div class="">
+          <a class="nav-link active pt-3 border-0 bg_buttom_tab cursor-point" (click)="listarPlanCobertura(true)">
+            <h3 [className]="mostrarLista ? 'text--orange1 mb-0' : 'text--gray2 mb-0'">
+              {{ 'asociado.protecciones.portafolio.resumen.botones.listadoVentas' | translate }}
+              <div class="w-100 pt-1" [class.active_border_bottom]="mostrarLista"></div>
+            </h3>
+          </a>
+        </div>
+        <div *ngIf="mostrarListaRestrictivas">
+          <a class="nav-link  pt-3 border-0 bg_buttom_tab cursor-point" (click)="listarPlanCobertura(false)">
+            <h3 [className]="!mostrarLista ? 'text--orange1 mb-0' : 'text--gray2 mb-0'">
+              {{'asociado.protecciones.portafolio.resumen.botones.listasRestrictivas' | translate}}
+              <div class="w-100 pt-1" [class.active_border_bottom]="!mostrarLista"></div>
+            </h3>
+          </a>
+        </div>
+        <div class="ml-auto align-self-center">
+          <a type="button" class="text--600wt text--18pts" (click)="descargar()">
+            <span class="icon-download-2 mr-2 text--orange1"></span>
+            {{ 'asociado.protecciones.portafolio.resumen.botones.descargar' | translate }}
+          </a>
+        </div>
+      </div>
+
+      <div class="w-100 pr-3 pb-3">
+        <app-mim-grid-items [configuracion]="configuracion.gridListar"></app-mim-grid-items>
+      </div>
+
+      <!-- Footer -->
+      <div class="card cards--footer border-0 rounded-0">
+        <div class="card-body py-2">
+          <div class="col-11 offset-1 col-xl-12 offset-xl-0">
+
+            <div class="mx-0 w-100 d-flex flex-row-reverse">
+              <button type="button" class="btn btn--border_green1 btn--md px-4" (click)="cerrar()">
+                {{ 'asociado.protecciones.portafolio.resumen.botones.cerrar' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

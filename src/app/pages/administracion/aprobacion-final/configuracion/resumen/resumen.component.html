@@ -1,0 +1,1835 @@
+<div class="noprint row pl-2 pr-4 mt-2">
+  <!-- Botón salir-->
+  <div class="col-md-6">
+    <a class="btn btn--circle justify-content-start" (click)="_onAtras()">
+      <span class="icon-arrow-thin-left mr-2"></span>
+      {{ 'header.salir' | translate }}
+    </a>
+  </div>
+  <!-- Botón imprimir-->
+  <div class="col-md-6">
+    <button type="button" class="btn btn--orange1 btn--md float-right justify-content-end" (click)="imprimirPagina()">
+      <span class="icon-file-text mr-2"></span>
+      {{ 'global.imprimir' | translate }}
+    </button>
+  </div>
+</div>
+
+<div class="enable-print col-md-12 mx-0 w-100 mb-5 pt-3">
+
+  <!-- Plan -->
+  <div class="card cards--headerFooter w-100 mb-3">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-article text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.plan.titulo' | translate }}
+      </h2>
+    </div>
+
+    <div class="card-body px-2 pt-3 pb-4">
+
+      <div class="row mx-0 w-100">
+        <!-- Nombre del plan -->
+        <div class="col-md-2">
+          <h5 class="text--600wt text--gray2 mt-2 mb-0">
+            {{ 'administracion.aprobacionFinal.plan.nombrePlan' | translate }}
+          </h5>
+          <h4 class="text--500wt text--gray1 mt-2 mb-0">
+            {{ plan.nombre | noAplicaPipe }}
+          </h4>
+        </div>
+        <!-- Tipo de plan -->
+        <div class="col-md-2">
+          <h5 class="text--600wt text--gray2 mt-2 mb-0">
+            {{ 'administracion.aprobacionFinal.plan.tipoPlan' | translate }}
+          </h5>
+          <h4 class="text--500wt text--gray1 mt-2 mb-0">
+            {{ plan.mimTipoPlan?.nombre | noAplicaPipe }}
+          </h4>
+        </div>
+        <!-- Fondo -->
+        <div class="col-md-2">
+          <h5 class="text--600wt text--gray2 mt-2 mb-0">
+            {{ 'administracion.aprobacionFinal.plan.fondo' | translate }}
+          </h5>
+          <h4 class="text--500wt text--gray1 mt-2 mb-0">
+            {{ plan.mimFondo?.nombre | noAplicaPipe }}
+          </h4>
+        </div>
+        <!-- Estado -->
+        <div class="col-md-2">
+          <h5 class="text--600wt text--gray2 mt-2 mb-0">
+            {{ 'administracion.aprobacionFinal.plan.estado' | translate }}
+          </h5>
+          <h4 class="text--500wt text--gray1 mt-2 mb-0">
+            {{ plan.mimEstadoPlan?.nombre | noAplicaPipe }}
+          </h4>
+        </div>
+        <!-- Edad miníma -->
+        <div class="col-md-2">
+          <h5 class="text--600wt text--gray2 mt-2 mb-0">
+            {{ 'administracion.aprobacionFinal.plan.edadMinima' | translate }}
+          </h5>
+          <h4 class="text--500wt text--gray1 mt-2 mb-0">
+            {{ plan.edadMinIngreso | noAplicaPipe }} años
+          </h4>
+        </div>
+        <!-- Edad máxima -->
+        <div class="col-md-2">
+          <h5 class="text--600wt text--gray2 mt-2 mb-0">
+            {{ 'administracion.aprobacionFinal.plan.edadMaxima' | translate }}
+          </h5>
+          <h4 class="text--500wt text--gray1 mt-2 mb-0">
+            {{ plan.edadMaxIngreso | noAplicaPipe }} años
+          </h4>
+        </div>
+
+      </div>
+
+      <div class="row mx-0 w-100">
+        <!-- Edad permanencia -->
+        <div class="col-md-2">
+          <h5 class="text--600wt text--gray2 mt-3 mb-0">
+            {{ 'administracion.aprobacionFinal.plan.edadPermanencia' | translate }}
+          </h5>
+          <h4 class="text--500wt text--gray1 mt-2 mb-0">
+            {{ plan.edadMaxPermanencia | noAplicaPipe }} años
+          </h4>
+        </div>
+        <!-- Fecha inicio y fin de vigencia -->
+        <div class="col-md-3">
+          <h5 class="text--600wt text--gray2 mt-3 mb-0">
+            {{ 'administracion.aprobacionFinal.plan.fechaInicioFin' | translate }}
+          </h5>
+          <h4 class="text--500wt text--gray1 mt-2 mb-0">
+            {{ plan.fechaInicio | noAplicaPipe }}
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuración técnica -->
+  <div class="col-md-12 p-0 m-0 pb-2">
+    <div class="row mx-0 w-100 align-items-center">
+      <div class="col-3 p-0">
+        <h5 class="badge--title my-0 badge badge-primary text-uppercase text--13pts p-2 text-title-badge bg--orange1">
+          {{ 'administracion.aprobacionFinal.configuracionTecnica.titulo' | translate }}
+        </h5>
+      </div>
+      <div class="col-9 p-0 pl-3">
+        <hr class="mt-4">
+      </div>
+    </div>
+  </div>
+
+  <!-- Datos principales condiciones -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarCondiciones">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let condicion of condiciones; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ condicion.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.origen' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicion.origen | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.edadMinima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicion.edadMinima | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.edadMaxima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.edadMaxima | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.edadPermanencia' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.edadPermanencia | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.planFamiliar' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.planFamiliar | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.renunciaAmparo' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.renunciaAmparo | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.incrementoProteccion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.incrementoProteccion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.disminucionProteccion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.disminucionProteccion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.requisitosMedicos' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.requisitosMedicos | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.tieneFacturacion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.tieneFacturacion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.disponibleGarantia' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.disponibleGarantia | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.aplicaReactivacion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.aplicaReactivacion | noAplicaPipe }}
+                      </h5>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.aplicaRevocatoria' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.aplicaRevocatoria | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.aplicaHabilitacion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.aplicaHabilitacion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.aplicaReceso' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.aplicaReceso | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.aplicaReingreso' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.aplicaReingreso | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.cancelar' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.cancelar | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.devolucionRetiro' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.devolucionRetiro | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.prorroga' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.prorroga | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.tieneRescate' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.tieneRescate | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.exoneracionPago' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.exoneracionPago | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.disminucionAnticipo' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.disminucionAnticipo | noAplicaPipe }}
+                      </h5>
+                    </div>
+
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.beneficioPreexistencia' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.beneficioPreexistencia | noAplicaPipe }}
+                      </h5>
+                    </div>
+
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condiciones.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ condicion.fechaInicioFin | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deducibles -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarDeducibles">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.deducibles.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let deducible of deducibles; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ deducible.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.deducibles.tipoDeducible' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ deducible.tipoDeducible | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.deducibles.tipoPago' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ deducible.tipoPago | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.deducibles.cantidad' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ deducible.cantidad | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.deducibles.aplicaProrroga' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ deducible.aplicaProrroga | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.deducibles.discontinuidad' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ deducible.discontinuidad | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.deducibles.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ deducible.fechaInicioFin | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Periodos de carencia -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarPeriodosCarencia">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.periodosCarencia.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let periodo of periodosCarencia; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ periodo.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.periodosCarencia.nroContribucciones' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ periodo.contribuciones | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.periodosCarencia.periodoCarencia' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ periodo.periodoCarencia | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.periodosCarencia.unidadCarencia' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ periodo.unidadCarencia | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.periodosCarencia.causa' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ periodo.causa | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.periodosCarencia.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ periodo.fechaInicioFin | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exclusiones -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarExclusiones">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.exclusiones.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let exclusion of exclusiones; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ exclusion.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.exclusiones.exclusion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 text-justify mt-2 mb-0">
+                        {{ exclusion.nombreExclusion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.exclusiones.periodoDefinido' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ exclusion.periodoDefinido | noAplicaPipe }} -
+                        {{ exclusion.unidadPeriodoDefinido.nombre | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.exclusiones.contribuciones' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ exclusion.contribuciones | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.exclusiones.transaccion'| translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ exclusion.nombresTransacciones | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.exclusiones.canal' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ exclusion.nombresCanales | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.exclusiones.fechaInicio' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ exclusion.fechaInicio | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.exclusiones.fechaFinal' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ exclusion.fechaFin | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2"></div>
+                    <div class="col px-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cobertura subsistente -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarCoberturasSubsistentes">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.coberturaSubsistente.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let coberturaSubsistente of coberturasSubsistentes; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ coberturaSubsistente.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.coberturaSubsistente.coberturaIndemnizada' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 text-justify mt-2 mb-0">
+                        {{ coberturaSubsistente.coberturaIndemnizada | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.coberturaSubsistente.subsisteCobertura' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ coberturaSubsistente.subsisteCobertura | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.coberturaSubsistente.contribuccionAsociado' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ coberturaSubsistente.contribuccionAsociado | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.coberturaSubsistente.fechaInicioFin'| translate }}
+                      </h5>
+                      <h5 class="text--600wt text--black my-0">
+                        {{ coberturaSubsistente.fechaInicioFin | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cubrimientos adicionales -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarCoberturasAdicionales">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.cubrimientosAdicionales.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let coberturaAdicional of coberturasAdicionales; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ coberturaAdicional.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.cubrimientosAdicionales.coberturaIndemnizada' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ coberturaAdicional.coberturaIndemnizada | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.cubrimientosAdicionales.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ coberturaAdicional.fechaInicioFin | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Valores rescate -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarValoresRescate">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let valorRescate of valoresRescate; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ valorRescate.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.causaRescate' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorRescate.causaRescate | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.tipoRescate' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorRescate.tipoRescate | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.contribuccionMimina' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorRescate.contribuccionMimina | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.contribuccionMaxima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorRescate.contribuccionMaxima | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.valor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorRescate.valor | customCurrency | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.rentabilidad' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorRescate.rentabilidad | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.anticipoCobertura' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorRescate.anticipoCobertura | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valoresRescate.cobertura' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorRescate.cobertura | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desmembración por accidente -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarDesmembracionAccidentes">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.desmembracionAccidental.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let desmembracion of desmembracionAccidentes; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ desmembracion.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.desmembracionAccidental.tipoValor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ desmembracion.tipoValor | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.desmembracionAccidental.cobertura' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ desmembracion.cobertura | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.desmembracionAccidental.desmembracionPorAccidente' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ desmembracion.desmembracionAccidente | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.desmembracionAccidental.porcentajePagoDesmembracion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ desmembracion.porcentajePagoDesmembracion | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.desmembracionAccidental.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ desmembracion.fechaInicioFin | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Valor asegurado -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarValoresAsegurados">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let valorAsegurado of valoresAsegurados; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ valorAsegurado.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.tipoValor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.tipoValor | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.cobertura' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.cobertura | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.rango' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.rango | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.asegurado' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.asegurado | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.unidad' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.unidad | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.valorAsegurado' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.valorAsegurado | customCurrency | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.tieneSublimite' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.tieneSublimite | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.tipoRestitucion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.tipoRestitucion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.vitalicio' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.vitalicio | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.pagoAdicional' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.pagoAdicional | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.renta' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.renta | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.rentasPago' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.rentasPago | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.periocidad' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.periocidad | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.valorAsegurado.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ valorAsegurado.fechaInicioFin | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Limitaciones por cobertura -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarLimitacionesCobertura">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let limitacion of limitacionesCobertura; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ limitacion.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.diasPagoEvento' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ limitacion.diasPagoEvento | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.dxEspecifico' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ limitacion.dxEspecifico | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.condicionCobertura' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.condicionCobertura | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.diasPago' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.diasPago | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.fechaInicioFin | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.antiguedadMinima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.antiguedadMinima | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.antiguedadMaxima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.antiguedadMaxima | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.tipoLimitacion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.tipoLimitacion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.valor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.valor | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.fechaInicioFinPA' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.fechaInicioFinPA | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.nombreSublimite'| translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.nombreSublimite | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.tipoSublimite' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.tipoSublimite | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.valorSublimite' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.valorSublimite | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.fechaDesdeSublimite' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.fechaDesdeSublimite | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.limitacionesCobertura.fechaHastaSublimite' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ limitacion.fechaHastaSublimite  | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enfermedades graves -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarEnfermedadesGraves">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.enfermedadesGraves.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let enfermedadGrave of enfermedadesGraves; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ enfermedadGrave.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.enfermedadesGraves.tratamiento' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ enfermedadGrave.tratamiento | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.enfermedadesGraves.tipoValor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ enfermedadGrave.tipoValor | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.enfermedadesGraves.valor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        <span *ngIf="enfermedadGrave.tipoValorCodigo == 2;else valorSinPuntos">
+                          {{ enfermedadGrave.valor | customCurrency  | noAplicaPipe }}
+                        </span>
+                        <ng-template #valorSinPuntos>
+                          {{ enfermedadGrave.valor | noAplicaPipe }}
+                        </ng-template>
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.enfermedadesGraves.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ enfermedadGrave.fechaInicioFin | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beneficios por preexistencia -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarBeneficiosPreexistencia">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.beneficiosPreexistencia.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let beneficio of beneficiosPreexistencia; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ beneficio.mimPlanCobertura.mimCobertura.nombre | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.beneficiosPreexistencia.antiguedadMinima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ beneficio.antiguedadMinima | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.beneficiosPreexistencia.antiguedadMaxima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ beneficio.antiguedadMaxima | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.beneficiosPreexistencia.tipoValor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ beneficio.mimTipoValorDevolver.nombre | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.beneficiosPreexistencia.valor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ beneficio.valor | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.beneficiosPreexistencia.fechaDesdeBeneficio' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ beneficio.fechaInicio | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.beneficiosPreexistencia.fechaHastaBeneficio' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ beneficio.fechaFin | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conceptos de facturación -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarConceptosFacturacion">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.conceptosFacturacion.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let conceptoFacturacion of conceptosFacturacion; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ conceptoFacturacion.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.conceptosFacturacion.tipoConcepto' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ conceptoFacturacion.nombreTipoConcepto | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.conceptosFacturacion.concepto' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ conceptoFacturacion.descripcion | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Datos principales - condiciones de asistencia -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarCondicionesAsistencia">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let condicionAsistencia of condicionesAsistencia; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ condicionAsistencia.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.edadMinima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.edadMinima | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.edadMaxima' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.edadMaxima | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.edadPermanencia' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.edadPermanencia | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.origen' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.origen | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.nombreServicio' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.nombreServicio | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.proveedor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.proveedor | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.aplicaPara' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.aplicaPara | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.servicioIlimitado' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.servicioIlimitado | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.numeroEventos' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.numeroEventos | noAplicaPipe  }} -
+                        {{ condicionAsistencia.unidadTiempo | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionTecnica.condicionesAsistencia.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ condicionAsistencia.fechaInicioFin | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuración actuaria -->
+  <div class="col-md-12 p-0 m-0 pb-2">
+    <div class="row mx-0 w-100 align-items-center" *ngIf="mostrarCargueFactores">
+      <div class="col-3 p-0">
+        <h5 class="badge--title my-0 badge badge-primary text-uppercase text--13pts p-2 text-title-badge bg--green1">
+          {{ 'administracion.aprobacionFinal.configuracionActuaria.titulo' | translate }}
+        </h5>
+      </div>
+      <div class="col-9 p-0 pl-3">
+        <hr class="mt-4">
+      </div>
+    </div>
+  </div>
+
+  <!-- Cargue factores -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarCargueFactores">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionActuaria.cargueFactores.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let cargue of cargueFactores; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ cargue.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionActuaria.cargueFactores.codigoCargue' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ cargue.codigoCargue | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionActuaria.cargueFactores.descripcion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ cargue.descripcion | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionActuaria.cargueFactores.tipoFactor' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ cargue.nombreTipoFactor | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionActuaria.cargueFactores.totalDatos' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ cargue.totalDatos | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionActuaria.cargueFactores.fechaInicioFin' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ cargue.fechaInicioFin | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Configuración financiera -->
+  <div class="col-md-12 p-0 m-0 pb-2">
+    <div class="row mx-0 w-100 align-items-center" *ngIf="mostrarConceptosDistribucionCuenta">
+      <div class="col-3 p-0">
+        <h5 class="badge--title my-0 badge badge-primary text-uppercase text--13pts p-2 text-title-badge bg--yellow1">
+          {{ 'administracion.aprobacionFinal.configuracionFinanciera.titulo' | translate }}
+        </h5>
+      </div>
+      <div class="col-9 p-0 pl-3">
+        <hr class="mt-4">
+      </div>
+    </div>
+  </div>
+
+  <!-- Relación conceptos de distribucción y cuenta -->
+  <div class="page-break card cards--headerFooter w-100 mb-3" *ngIf="mostrarConceptosDistribucionCuenta">
+    <div class="card-header">
+      <h2 class="text--500wt text--gray1 my-0">
+        <span class="icon-file-text text--18pts mr-2 text--orange1"></span>
+        {{ 'administracion.aprobacionFinal.configuracionFinanciera.conceptosDistribucionCuenta.titulo' | translate }}
+      </h2>
+    </div>
+    <div class="card-body px-2 pt-2 pb-2">
+
+      <div class="row mx-0 w-100">
+        <div class="col-md-12">
+          <!-- PANELES DE INFORMACIÓN -->
+          <div class="row mx-0 w-100 mt-0">
+            <div class="page-break-detail w-100 mb-2 select-no-border"
+              *ngFor="let conceptoDistribucion of conceptosDistribucionCuenta; index as i;">
+              <div class="card cards--headerFooter w-100">
+                <div class="card-header py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col-md-12 col-md-12 col-ms-12 pl-0">
+                      <h4 class="text--500wt text--black my-0">
+                        <span class="icon-chevron-right-2 text--18pts mr-2 text--orange1"></span>
+                        {{ conceptoDistribucion.nombreAmparo | uppercase }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionFinanciera.conceptosDistribucionCuenta.conceptoDistribucion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ conceptoDistribucion.nombreConceptoDistribucion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionFinanciera.conceptosDistribucionCuenta.cuentaContable' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ conceptoDistribucion.codigoCuenta | noAplicaPipe  }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionFinanciera.conceptosDistribucionCuenta.usoLocal' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ conceptoDistribucion.nombreUsoLocal | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionFinanciera.conceptosDistribucionCuenta.cuentaTransaccion' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ conceptoDistribucion.codigoCuentaTransaccion | noAplicaPipe }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body py-2">
+                  <div class="row mx-0 w100 align-items-center">
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionFinanciera.conceptosDistribucionCuenta.partidaContraPartida' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ conceptoDistribucion.codigoSistema | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionFinanciera.conceptosDistribucionCuenta.cuentaColgaap' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--gray1 mt-2 mb-0">
+                        {{ conceptoDistribucion.codigoColgaap | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2">
+                      <h5 class="text--600wt text--gray2 mt-2 mb-0">
+                        {{ 'administracion.aprobacionFinal.configuracionFinanciera.conceptosDistribucionCuenta.cuentaNiff' | translate }}
+                      </h5>
+                      <h5 class="text--500wt text--black my-0">
+                        {{ conceptoDistribucion.codigoNiif | noAplicaPipe }}
+                      </h5>
+                    </div>
+                    <div class="col px-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

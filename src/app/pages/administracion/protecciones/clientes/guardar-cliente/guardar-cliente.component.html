@@ -1,0 +1,187 @@
+<div *ngIf="isForm | async as isForm;">
+  <div class="row  mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+      <h1 class="my-0">
+        <ng-template [ngIf]="_esCreacion">
+          {{ 'administracion.protecciones.clientes.guardar.crear' | translate }}
+        </ng-template>
+        <ng-template [ngIf]="!_esCreacion">
+          {{ 'administracion.protecciones.clientes.guardar.actualizar' | translate }}
+        </ng-template>
+      </h1>
+    </div>
+  </div>
+
+  <div class="mt-3 card bg--white border-0 rounded-0">
+    <form class="form--default w-100" [formGroup]="form">
+      <div class="card-body">
+        <div class="row mx-0 w-100">
+
+          <!-- Codigo -->
+          <div class="col-sm-12 col-md-6" *ngIf="!_esCreacion">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="codigoCliente" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.clientes.guardar.codigoCliente' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'codigoCliente'" [controlName]="'codigoCliente'">
+                  <input type="text" class="form-control" id="codigoCliente" formControlName="codigoCliente"
+                    name="codigoCliente" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tipo -->
+          <div class="col-sm-12 col-md-6">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="tipoCliente" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.clientes.guardar.tipoCliente' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'tipoCliente'" [controlName]="'tipoCliente'">
+                  <app-mim-select class="w-100" [inputId]="'tipoCliente'" [options]="tiposClientes"
+                    formControlName="tipoCliente" [optionKey]="'nombre'" name="'tipoCliente'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="tipoCliente" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.clientes.guardar.tipoCliente' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Tipo Documento -->
+          <div class="col-sm-12 col-md-6">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="tipoDocumento" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.clientes.guardar.tipoIdentificacion' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'tipoDocumento'" [controlName]="'tipoDocumento'">
+                  <app-mim-select class="w-100" [inputId]="'tipoDocumento'" [options]="tiposDocumentos"
+                    formControlName="tipoDocumento" [optionKey]="'nombre'" name="'tipoDocumento'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="tipoDocumento" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.clientes.guardar.tipoIdentificacion' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <!-- Numero identificacion -->
+              <div
+                [ngClass]="{'col-sm-12 col-md-12': !mostrarDigitoVerificacion, 'col-sm-8 col-md-8': mostrarDigitoVerificacion}">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="numeroIdentificacion" class="col-sm-12 col-form-label">
+                    {{ 'administracion.protecciones.clientes.guardar.numeroIdentificacion' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'numeroIdentificacion'"
+                      [controlName]="'numeroIdentificacion'">
+                      <input type="text" class="form-control" id="numeroIdentificacion"
+                        formControlName="numeroIdentificacion" name="numeroIdentificacion" mask="a*"
+                        [patterns]="patterns" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="numeroIdentificacion" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'administracion.protecciones.clientes.guardar.numeroIdentificacion' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- CV -->
+              <div class="col-sm-4 col-md-4" *ngIf="mostrarDigitoVerificacion">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="digitoVerificacion" class="col-sm-12 col-form-label">
+                    {{ 'administracion.protecciones.clientes.guardar.digitoVerificacion' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'digitoVerificacion'"
+                      [controlName]="'digitoVerificacion'">
+                      <input type="text" class="form-control" id="digitoVerificacion"
+                        formControlName="digitoVerificacion" name="digitoVerificacion" mask="a*"
+                        [patterns]="patterns" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="digitoVerificacion" errorKey="required">
+                    {{ 'global.required' | translate  : { campo: 'administracion.protecciones.clientes.guardar.digitoVerificacion' | translate } }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="digitoVerificacion" errorKey="maxlength">
+                    {{ 'global.minCaracteres' | translate : { campo: 'administracion.protecciones.clientes.guardar.digitoVerificacion' | translate, min : 1} }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nombre -->
+          <div class="col-sm-12 col-md-6">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="nombre" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.clientes.guardar.nombre' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'nombre'" [controlName]="'nombre'">
+                  <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre" />
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.clientes.guardar.nombre' | translate } }}
+              </app-mim-input-error>
+              <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="vacio">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.clientes.guardar.nombre' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Estado Cliente -->
+          <div class="col-sm-12 col-md-6">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="estadoCliente" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.clientes.guardar.estadoCliente' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'estadoCliente'" [controlName]="'estadoCliente'">
+                  <app-mim-select class="w-100" [inputId]="'estadoCliente'" [options]="estadosClientes"
+                    formControlName="estadoCliente" [optionKey]="'nombre'" name="'estadoCliente'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="estadoCliente" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.clientes.guardar.estadoCliente' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <app-apueba-elimina [showForm]="showForm" [esDirector]="esDirectorTecnico"
+            [showControlsAprobacion]="showControlsAprobacion" [observaciones]="observaciones"
+            (mostrarModal)="_toggleObservaciones($event)" (apruebaRechazaSolicitud)="_apruebaRechazaSolicitud($event)"
+            (datosForm)="_guardarObservacion($event)" class="w-100"></app-apueba-elimina>
+
+          <!--Controles -->
+          <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+            <div class="card-body py-2">
+              <div class="row mx-0 w-10 justify-content-end align-items-center">
+                <!-- Botones -->
+                <div class="col-xl-12">
+                  <div class="d-flex flex-row-reverse">
+                    <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardarCliente()"
+                      [disabled]="isPristine(form)" *ngIf="!idTarea">
+                      <span class="icon-edit-3 mr-2"></span>
+                      {{ 'global.save' | translate }}
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

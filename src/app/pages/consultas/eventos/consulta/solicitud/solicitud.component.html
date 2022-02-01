@@ -1,0 +1,19 @@
+<app-mim-asociado-detalle [configuracion]="datosAsociado" *ngIf="datosAsociado" ></app-mim-asociado-detalle>
+<div class="row mx-0 w-100 pb-5">
+  <!-- PANEL DERECHO -->
+  <div class="col-xl-3 pt-4 index-z">
+      <!-- Boton atras -->
+      <p class="text-left">
+        <a class="btn btn--circle justify-content-start" (click)="_onAtras()">
+          <span class="icon-arrow-thin-left mr-2"></span>
+          {{ 'header.salir' | translate }}
+        </a>
+      </p>
+      <app-mim-persona-detalle *ngIf="mostrarDatosEvento" [configuracion]="gestionarConfig.detalleEvento"></app-mim-persona-detalle>
+
+  </div>
+  <!-- PANEL DERECHO -->
+  <div class="col-11 offset-1 col-xl-9 offset-xl-0 py-5 d-block px-xl-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

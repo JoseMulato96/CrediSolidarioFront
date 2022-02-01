@@ -1,0 +1,60 @@
+<div class="col-md-12 d-flex justify-content-end" style="margin-bottom: -30px;">
+  <button type="button" class="btn btn--orange1 btn--md float-right" (click)="gestionar()">
+      <span class="icon-arrow-right mr-2"></span>
+      <ng-template [ngIf]="mostrarBitacora">
+          {{ 'eventos.consulta.solicitud.gestionar' | translate }}
+      </ng-template>
+      <ng-template [ngIf]="!mostrarBitacora">
+          {{ 'eventos.consulta.solicitud.bitacora' | translate }}
+      </ng-template>
+  </button>
+</div>
+
+<app-mim-bitacora [idProceso]="idProceso" *ngIf="mostrarBitacora"></app-mim-bitacora>
+
+<div *ngIf="!mostrarBitacora">
+
+  <div class="row mx-0 w-100 align-items-center mt-2">
+    <div class="col-md-12">
+        <h1 class="my-0">
+            {{ 'eventos.consulta.solicitud.radicar.titulo' | translate }}
+        </h1>
+    </div>
+  </div>
+
+  <div class="w-100 mt-2 mb-4 pb-5">
+    <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+
+      <!-- Valores Evento -->
+      <app-mim-valores-evento (formGroupChange)="onFormGroupChangeEvent($event)" [datosValores]="solicitudEvento" [faseFlujo]="faseFlujo" [asoNumInt]="asoNumInt"></app-mim-valores-evento>
+
+      <!-- Gestion pendiente por -->
+      <app-mim-gestion-pendiente-por formGroupName="gestionPendientePor" [dataInit]="dataInitGestionPendientePor"></app-mim-gestion-pendiente-por>
+
+      <!-- Observación -->
+      <app-mim-observacion-evento (datoObservacion)="datoObservacion($event)"></app-mim-observacion-evento>
+
+      <!-- Generación de la carta -->
+      <app-mim-genera-carta [disabled]="envioCarta" [asoNumInt]="asoNumInt" [faseFlujo]="faseFlujo" [conceptoFlujo]="conceptoFlujo" [idProceso]="idProceso" (cartaGenerada)="cartaGenerada($event)"></app-mim-genera-carta>
+
+      <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+        <div class="card-body py-2">
+            <div class="row mx-0 w-10 justify-content-end align-items-center">
+              <!-- Botones -->
+              <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_guardar()" [disabled]="_disabledForm">
+                      <span class="icon-checkmark mr-2"></span> {{ 'global.save' | translate }}
+                  </button>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    </form>
+  </div>
+
+</div>
+

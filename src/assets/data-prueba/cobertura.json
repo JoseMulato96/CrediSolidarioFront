@@ -1,0 +1,261 @@
+{
+    "protecciones": [
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830125,
+            "factor": 1.57,
+            "cuota": 15700,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 14761949,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 5,
+                "nombre": "Plan Básico 60 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Muerte 60 años"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan medicamentos (no tocar)",
+                "tipoPlan": "Complementario",
+                "codigoColor": "#0E8652"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+
+
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        },
+        {
+            "asoNumint": "11123015232305001",
+            "consecutivo": 1830126,
+            "factor": 358.57,
+            "cuota": 120525,
+            "fechaAprobacion": "30-12-2011",
+            "valorProteccion": 31316007,
+            "estadoProteccion": "Activo",
+            "plan": {
+                "codigo": 12,
+                "nombre": "Plan básico 65 (No tocar)",
+                "tipoPlan": "Básico",
+                "codigoColor": "#FFB63A"
+            },
+            "cobertura": {
+                "codigo": 2,
+                "coberturaBasica": 1,
+                "codigoColor": "#FFFFF"
+            },
+            "planCobertura": {
+                "nombre": "Perseverancia (no tocar)"
+            }
+        }
+    ],
+    "totalCuota": 1000000,
+    "totalProtecciones": 1000
+}

@@ -1,0 +1,78 @@
+<div class="card-header py-2 " id="headingPortafolioAsociadosOne">
+  <div class="row mx-0 w-100 align-items-center">
+    <div class="col-md-5 px-0 py-3">
+      <div class="row mx-0 w-100 justify-content-start">
+        <!-- For de los planes -->
+        <div class="col-md-1 px-0" *ngIf="configuracion.seleccionado">
+          <form class="form--default">
+            <div class="custom-control custom-checkbox custom-checkbox_box justify-content-center">
+              <input type="checkbox" class="custom-control-input" id="checkedSelectTodos" name="customRadio"
+                [(ngModel)]="configuracion._seleccionado" (ngModelChange)="_onSelectRow(configuracion)" />
+              <label class="custom-control-label icon-" for="checkedSelectTodos"></label>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-11">
+          <h5 class="my-0 text--14pts text--medium">
+            {{ configuracion.titulo | translate | emptyPipe }}
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="row">
+        <ng-container *ngFor="let atributo of configuracion.atributos">
+          <div class="col-4 p-0" *ngIf="atributo.tipo != 'icono'">
+            <h5 class="my-0 text--13pts text--medium d-flex">
+              <span class="text--gray2 mr-1">{{ atributo.titulo | translate }}: </span>
+            </h5>
+            <div class="my-0 text--13pts text--medium d-flex" [ngSwitch]="atributo.tipo">
+              <ng-container *ngSwitchCase="'currency'">
+                {{ atributo.valor | customCurrency | emptyPipe }}
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                {{ atributo.valor }}
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="col-4 p-0" *ngIf="atributo.tipo == 'icono'">
+            <button type="button" class="{{ atributo.boton }}" tooltipPosition="top" pTooltip="{{atributo.tooltip | translate }}">
+              <span class="{{ atributo.icono }}" ng-reflect-klass="ml-1"></span>
+            </button>
+          </div>
+        </ng-container>
+
+
+      </div>
+    </div>
+    <div class="col-md-2 p-0">
+      <div class="row justify-content-end">
+        <div [ngClass]="configuracion.dropdown ? 'col-md-10' : 'col-md-12'" class="p-0"
+          *ngIf="configuracion.estadoConf">
+          <h5 class="my-0 text--13pts text--medium text-uppercase text--tittle_statusPlan d-inline-flex"
+            [ngClass]="executeCssFun()">
+            <span class="rounded-circle d-flex mr-2"></span>
+            {{ configuracion.estadoConf.titulo | translate | emptyPipe }}
+          </h5>
+        </div>
+
+        <div class="col-md-2 px-0 pt-2 pr-3" *ngIf="configuracion.dropdown">
+          <a data-toggle="collapse" data-target="#collapsePortafolioAsociadosOne" aria-expanded="false"
+            aria-controls="collapsePortafolioAsociadosOne" class="text--15pts text--green1 float-right cursor-point"
+            (click)="_toggle()">
+            <span class="icon-chevron-up" *ngIf="this.configuracion._dropdown"></span>
+            <span class="icon-chevron-down" *ngIf="!this.configuracion._dropdown"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="collapse" [ngClass]="{ show: this.configuracion._dropdown }" aria-labelledby="headingCategoriaDetalle"
+  data-parent="#accordionPortafolioAsociados">
+  <div class="card-body">
+    <!-- Aqui va el detalle -->
+    <ng-content></ng-content>
+  </div>
+</div>

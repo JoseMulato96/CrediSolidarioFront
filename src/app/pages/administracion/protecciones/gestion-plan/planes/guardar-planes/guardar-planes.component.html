@@ -1,0 +1,795 @@
+<div class="row  mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      <ng-template [ngIf]="_esCreacion">
+        {{ 'administracion.protecciones.planes.guardar.crear' | translate }}
+      </ng-template>
+      <ng-template [ngIf]="!_esCreacion">
+        {{ 'administracion.protecciones.planes.guardar.actualizar' | translate }}
+      </ng-template>
+    </h1>
+  </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+  <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+    <div class="card-body">
+      <div class="row mx-0 w-100">
+
+        <!-- Codigo -->
+        <div class="col-sm-12 col-md-6" *ngIf="!_esCreacion">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="codigo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.grid.codigo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'codigo'" [controlName]="'codigo'">
+                <input type="number" class="form-control" id="codigo" formControlName="codigo" name="codigo" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nombre Plan-->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="nombre" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.grid.nombre' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'nombre'" [controlName]="'nombre'">
+                <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.planes.grid.nombre' | translate }
+              }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="maxlength">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.planes.alertas.maxlenth' |
+              translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="vacio">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.planes.grid.nombre' | translate }
+              }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Tipo plan -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="tipoPlan" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.tipoPlan' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'tipoPlan'" [controlName]="'tipoPlan'">
+                <app-mim-select class="w-100" [inputId]="'tipoPlan'" [options]="tipoPlanes" formControlName="tipoPlan"
+                  [optionKey]="'nombre'" name="'tipoPlan'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="tipoPlan" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.planes.guardar.tipoPlan' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- fondo -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="fondo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.fondo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fondo'" [controlName]="'fondo'">
+                <app-mim-select class="w-100" [inputId]="'fondo'" [options]="fondos" formControlName="fondo"
+                  [optionKey]="'nombre'" name="'fondo'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fondo" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.fondo' | translate
+              } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Estados -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="estado" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.estado' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'estado'" [controlName]="'estado'">
+                <app-mim-select class="w-100" [inputId]="'estado'" [options]="estadosPlanes" formControlName="estado"
+                  [optionKey]="'nombre'" name="'estado'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="estado" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.estado' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Tipo de cotización -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="tipoCotizacion" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.tipoCotizacion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'tipoCotizacion'" [controlName]="'tipoCotizacion'">
+                <app-mim-select class="w-100" [inputId]="'tipoCotizacion'" [options]="tipoCotizaciones"
+                  formControlName="tipoCotizacion" [optionKey]="'nombre'" name="'tipoCotizacion'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="tipoCotizacion" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.tipoCotizacion' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Valor minimo contribucion -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="valorMinimoContribucion" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.valorMinimoContribucion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'valorMinimoContribucion'"
+                [controlName]="'valorMinimoContribucion'">
+                <input type="text" class="form-control" id="valorMinimoContribucion"
+                  formControlName="valorMinimoContribucion" name="valorMinimoContribucion" currencyMask
+                  [options]="optionsMask" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="valorMinimoContribucion" errorKey="required">
+              {{ 'global.required' | translate : { campo:
+              'administracion.protecciones.planes.guardar.valorMinimoContribucion' | translate }
+              }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="valorMinimoContribucion" errorKey="min">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMinimo' | translate : {numero: 0} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="valorMinimoContribucion" errorKey="maxlength">
+              {{ 'global.maxCaracteres' | translate
+              :{ campo:
+              'administracion.protecciones.planes.guardar.valorMinimoContribucion'
+              | translate, max: '13' | translate }
+              }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Tipo de cuota total/valor asegurado global -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="cuotaTotalVlrAsegurado" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.cuotaTotalVlrAsegurado' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'cuotaTotalVlrAsegurado'"
+                [controlName]="'cuotaTotalVlrAsegurado'">
+                <app-mim-select class="w-100" [inputId]="'cuotaTotalVlrAsegurado'" [options]="tipoCuotasGlobal"
+                  formControlName="cuotaTotalVlrAsegurado" [optionKey]="'nombre'" name="'cuotaTotalVlrAsegurado'"
+                  ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="cuotaTotalVlrAsegurado" errorKey="required">
+              {{ 'global.required' | translate: { campo :
+              'administracion.protecciones.planes.guardar.cuotaTotalVlrAsegurado' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+
+
+
+        <app-apueba-elimina [showForm]="showForm" [showControlsAprobacion]="showControlsAprobacion"
+          [observaciones]="observaciones" (mostrarModal)="_toggleObservaciones($event)"
+          (apruebaRechazaSolicitud)="_apruebaRechazaSolicitud($event)" (datosForm)="_guardarObservacion($event)"
+          class="w-100"></app-apueba-elimina>
+
+        <!--Controles -->
+        <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+          <div class="card-body py-2">
+            <div class="row mx-0 w-10 justify-content-end align-items-center">
+              <!-- Botones -->
+              <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                    [disabled]="form.pristine" *ngIf="!solicitud">
+                    <span class="icon-edit-3 mr-2"></span>
+                    {{ 'global.save' | translate }}
+                  </button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenedor para edades y fechas de vigencia-->
+      <div class="row mx-0 w-100">
+
+        <!-- Venta Parcial -->
+        <div class="col-sm-12 col-md-4">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="ventaParcial" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.ventaParcial' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="ventaParcial" id="ventaParcial" name="ventaParcial">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                    <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="ventaParcial" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.ventaParcial' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+
+        <!-- Edad minima -->
+        <div class="col-sm-12 col-md-4">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="edadMinima" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.edadMinima' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'edadMinima'" [controlName]="'edadMinima'">
+                <input type="number" class="form-control" id="edadMinima" min="18" max="100"
+                  formControlName="edadMinima" name="edadMinima" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.planes.guardar.edadMinima' |
+              translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="max">
+              {{ 'administracion.protecciones.planes.alertas.valorMaximo' | translate : {numero: 100} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="min">
+              {{ 'administracion.protecciones.planes.alertas.valorMinimo' | translate : {numero: 18} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="range">
+              {{ 'administracion.protecciones.planes.alertas.MinimaYMaxima' | translate }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Edad máxima -->
+        <div class="col-sm-12 col-md-4">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="edadMaxima" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.edadMaxima' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'edadMaxima'" [controlName]="'edadMaxima'">
+                <input type="number" class="form-control" id="edadMaxima" min="18" max="100"
+                  formControlName="edadMaxima" name="edadMaxima" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.planes.guardar.edadMaxima' |
+              translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="max">
+              {{ 'administracion.protecciones.planes.alertas.valorMaximo' | translate : {numero: 150} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="min">
+              {{ 'administracion.protecciones.planes.alertas.valorMinimo' | translate : {numero: 18} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="range">
+              {{ 'administracion.protecciones.planes.alertas.MinimaYMaxima' | translate }}
+            </app-mim-input-error>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mx-0 w-100">
+
+        <!-- fecha inicio y fecha fin -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+              {{ 'administracion.protecciones.planes.guardar.fechaInicioYFin' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'" [controlName]="'fechaInicioFechaFin'">
+                <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'"
+                  formControlName="fechaInicioFechaFin" [selectionMode]="'range'" [disabled]="estadoFecha"
+                  ngDefaultControl>
+                </app-mim-date-picker>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.planes.guardar.fechaInicio' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+
+        <!-- Plan automatico perseverante -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="planAutomaticoPerseverante" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.planAutomaticoPerseverante' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="planAutomaticoPerseverante" id="planAutomaticoPerseverante"
+                    name="planAutomaticoPerseverante">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                    <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="planAutomaticoPerseverante" errorKey="required">
+              {{ 'global.required' | translate: { campo :
+              'administracion.protecciones.planes.guardar.planAutomaticoPerseverante' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+        <!-- Condiciones -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="condiciones" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.condiciones' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="condiciones" id="condiciones" name="condiciones">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                    <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="condiciones" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.condiciones' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+        <!-- Responsable de pago -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="responsablePago" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.responsablePago' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="responsablePago" id="responsablePago" name="responsablePago">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                    <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="responsablePago" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.responsablePago' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+        <!-- Asegurado tercero -->
+        <div class="col-sm-12 col-md-4">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="aseguradoTercero" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.aseguradoTercero' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="aseguradoTercero" id="aseguradoTercero"
+                    name="aseguradoTercero">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                    <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="aseguradoTercero" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.aseguradoTercero'
+              |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Asegurado repetido -->
+        <div class="col-sm-12 col-md-4">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="aseguradoRepetido" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.aseguradoRepetido' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="aseguradoRepetido" id="aseguradoRepetido"
+                    name="aseguradoRepetido">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                    <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="aseguradoRepetido" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.aseguradoRepetido'
+              |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+
+        <!-- ingresos mensuales obligatorios -->
+        <div class="col-sm-12 col-md-4">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="ingresosMensuales" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.ingresosMensuales' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="ingresosMensuales" id="ingresosMensuales"
+                    name="ingresosMensuales">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                    <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="ingresosMensuales" errorKey="required">
+              {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.guardar.ingresosMensuales'
+              |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- parentesco -->
+        <div class="col-sm-12 col-md-6" *ngIf="mostrarParentescos">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="parentesco" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.planes.guardar.parentesco' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'parentesco'" [controlName]="'parentesco'">
+                <app-mim-multiselect class="w-100" [inputId]="'parentesco'" [options]="parentescos"
+                  formControlName="parentesco" [optionKey]="'nombre'" name="'parentesco'" ngDefaultControl>
+                </app-mim-multiselect>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="parentesco" errorKey="required">
+              {{ 'global.required' | translate: { campo :
+              'administracion.protecciones.planes.guardar.parentesco' |
+              translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+      </div>
+      <!-- Sección plan Automatico -->
+      <div class="col-12 mb-3" *ngIf="controlAutomaticoPerseverante">
+        <fieldset class="fieldset_mm pb-3 w-100">
+          <legend class="legend_mm">
+            <span class="text--16pts text--600wt">
+              {{ 'administracion.protecciones.planes.planAutomatico.titulo' | translate }}
+            </span>
+          </legend>
+          <div class="row mx-0 w-100">
+            <!-- Plan -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group row align-items-center">
+                <label appMimLabel for="mimPlanAutomaticoPerseverante" class="col-sm-12 col-form-label">
+                  {{ 'administracion.protecciones.planes.planAutomatico.plan' | translate }}
+                </label>
+                <div class="col-sm-12">
+                  <div class="input-group" appMimInput [for]="'mimPlanAutomaticoPerseverante'"
+                    [controlName]="'mimPlanAutomaticoPerseverante'">
+                    <app-mim-multiselect class="w-100" [inputId]="'mimPlanAutomaticoPerseverante'"
+                      [options]="listPlanes" formControlName="mimPlanAutomaticoPerseverante" [optionKey]="'nombre'"
+                      name="'mimPlanAutomaticoPerseverante'" ngDefaultControl>
+                    </app-mim-multiselect>
+                  </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="mimPlanAutomaticoPerseverante" errorKey="required">
+                  {{ 'global.required' | translate: { campo : 'administracion.protecciones.planes.planAutomatico.plan' |
+                  translate
+                  } }}
+                </app-mim-input-error>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group row align-items-center">
+                <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFinPerseverante">
+                  {{ 'administracion.protecciones.planes.guardar.fechaInicioYFin' | translate }}
+                </label>
+                <div class="col-sm-12">
+                  <div class="input-group" appMimInput [for]="'fechaInicioFechaFinPerseverante'"
+                    [controlName]="'fechaInicioFechaFinPerseverante'">
+                    <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFinPerseverante'"
+                      formControlName="fechaInicioFechaFinPerseverante" [selectionMode]="'range'"
+                      [disabled]="estadoFecha" ngDefaultControl>
+                    </app-mim-date-picker>
+                  </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFinPerseverante"
+                  errorKey="required">
+                  {{ 'global.required' | translate : { campo: 'administracion.protecciones.planes.guardar.fechaInicio' |
+                  translate } }}
+                </app-mim-input-error>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="col-12 mb-3" *ngIf="mostrarCondiciones">
+        <fieldset class="fieldset_mm pb-3 w-100">
+          <legend class="legend_mm">
+            <span class="text--16pts text--600wt">
+              {{ 'administracion.protecciones.planes.condiciones.titulo' | translate }}
+            </span>
+          </legend>
+          <div class="row mx-0 w-100">
+            <p-table [value]="arrayCondiciones.controls" class="grid-table tabla--editable col-12 px-0">
+              <ng-template pTemplate="caption">
+                <div class="d-flex flex-row">
+                  <div class="d-flex flex-row-reverse w-100">
+                    <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="addNewRowCondiciones()"
+                      [disabled]="validarEstadoPlan()">
+                      <span class="icon-plus mr-2"></span> {{ 'global.add' | translate }}
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+
+              <ng-template pTemplate="header">
+                <tr class="grid-head-columns grid-head-column text-uppercase">
+                  <th scope="col">{{'administracion.protecciones.planes.condiciones.tipo' | translate }}</th>
+                  <th scope="col">{{'administracion.protecciones.planes.condiciones.valor' | translate }}</th>
+                  <th scope="col">{{'administracion.protecciones.planes.condiciones.estado'| translate }}
+                  </th>
+                  <th scope="col" style="width:24em">
+                    {{'administracion.protecciones.planes.condiciones.plan'| translate }}</th>
+                  <th scope="col" style="width:6em">{{'administracion.protecciones.planes.condiciones.accion' |
+                    translate }}</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-i="rowIndex">
+                <ng-container formArrayName="arrayCondiciones">
+                  <tr class="grid-space-row">
+                    <!-- Espacio en transparente -->
+                  </tr>
+                  <tr [formGroupName]="i" [pEditableRow]="rowData" class="grid-body-column ng-star-inserted">
+                    <td>
+                      <div class="form-group tooltipError">
+                        <div class="input-group"
+                          [ngClass]="getControlsCondiciones(i)?.mimTipoCondicion.errors ? 'border--red1': ''">
+                          <app-mim-select class="w-100" [options]="listCondicionesTipo"
+                            formControlName="mimTipoCondicion" [optionKey]="'nombre'" ngDefaultControl>
+                          </app-mim-select>
+                        </div>
+                        <span class="tooltiptext" *ngIf="getControlsCondiciones(i)?.mimTipoCondicion.errors">
+                          <p *ngIf="getControlsCondiciones(i)?.mimTipoCondicion.errors?.required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.planes.condiciones.tipo' | translate } }}
+                          </p>
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group tooltipError">
+                        <div class="input-group"
+                          [ngClass]="getControlsCondiciones(i)?.valor.errors ? 'border--red1': ''">
+                          <input type="text" class="form-control" id="valor" formControlName="valor" name="valor"
+                            currencyMask [options]="configurarMascaraValores()" maxlength="12" />
+                        </div>
+                        <span class="tooltiptext" *ngIf="getControlsCondiciones(i)?.valor.errors">
+                          <p *ngIf="getControlsCondiciones(i)?.valor.errors?.required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.planes.condiciones.valor' | translate } }}
+                          </p>
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group tooltipError">
+                        <div class="input-group"
+                          [ngClass]="getControlsCondiciones(i)?.mimEstado.errors ? 'border--red1': ''">
+                          <app-mim-select class="w-100" [options]="estadosPlanes" formControlName="mimEstado"
+                            [optionKey]="'nombre'" ngDefaultControl>
+                          </app-mim-select>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group tooltipError">
+                        <div class="input-group"
+                          [ngClass]="getControlsCondiciones(i)?.mimPlanCondicion.errors ? 'border--red1': ''">
+                          <app-mim-select class="w-100" [options]="listPlanes" formControlName="mimPlanCondicion"
+                            [optionKey]="'nombre'" ngDefaultControl>
+                          </app-mim-select>
+                        </div>
+                      </div>
+                    </td>
+                    <td style="text-align:center" class="d-flex flex-row px-1">
+                      <button type="button" pInitEditableRow class="btn btn--icon bg--blue2 mx-auto"
+                        (click)="onDeleteRowCondiciones(i)" [disabled]="validarEstadoPlan()">
+                        <span class="icon-trash-3 text--red1"></span>
+                      </button>
+                    </td>
+                  </tr>
+                </ng-container>
+              </ng-template>
+            </p-table>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Sección planes obligatorios -->
+      <div class="col-12 mb-3">
+        <fieldset class="fieldset_mm pb-3 w-100">
+          <legend class="legend_mm">
+            <span class="text--16pts text--600wt">
+              {{ 'administracion.protecciones.planes.planObligatorio.titulo' | translate }}
+            </span>
+          </legend>
+          <div class="row mx-0 w-100">
+
+            <p-table [value]="arrayPlanesObligatorios.controls" class="grid-table tabla--editable col-12 px-0">
+              <ng-template pTemplate="caption">
+
+                <div class="d-flex flex-row">
+                  <div class="d-flex flex-row-reverse w-100">
+                    <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="addNewRow()"
+                      [disabled]="validarEstadoPlan()">
+                      <span class="icon-plus mr-2"></span> {{ 'global.add' | translate }}
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+
+              <ng-template pTemplate="header">
+                <tr class="grid-head-columns grid-head-column text-uppercase">
+                  <th scope="col">{{'administracion.protecciones.planes.planObligatorio.tipoPlan' | translate }}</th>
+                  <th scope="col">{{'administracion.protecciones.planes.planObligatorio.plan' | translate }}</th>
+                  <th scope="col">{{'administracion.protecciones.planes.planObligatorio.tipoSolicitud'| translate }}
+                  </th>
+                  <th scope="col" style="width:24em">
+                    {{'administracion.protecciones.planes.planObligatorio.fechaVigencia'| translate }}</th>
+                  <th scope="col" style="width:8em">{{'administracion.protecciones.planes.planObligatorio.estado' |
+                    translate }}</th>
+                  <th scope="col" style="width:6em">{{'administracion.protecciones.planes.planObligatorio.accion' |
+                    translate }}</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-i="rowIndex">
+                <ng-container formArrayName="arrayPlanesObligatorios">
+                  <tr class="grid-space-row">
+                    <!-- Espacio en transparente -->
+                  </tr>
+                  <tr [formGroupName]="i" [pEditableRow]="rowData" class="grid-body-column ng-star-inserted">
+                    <td>
+                      <div class="form-group tooltipError">
+                        <div class="input-group" [ngClass]="getControls(i)?.tipoPlan.errors ? 'border--red1': ''">
+                          <app-mim-select class="w-100" [options]="tipoPlanes" formControlName="tipoPlan"
+                            [optionKey]="'nombre'" ngDefaultControl>
+                          </app-mim-select>
+                        </div>
+                        <span class="tooltiptext" *ngIf="getControls(i)?.tipoPlan.errors">
+                          <p *ngIf="getControls(i)?.tipoPlan.errors?.required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.planes.planObligatorio.tipoPlan' | translate } }}
+                          </p>
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group tooltipError">
+                        <div class="input-group" [ngClass]="getControls(i)?.plan.errors ? 'border--red1': ''">
+                          <app-mim-select class="w-100" [options]="getControls(i)?.planesObliglatorios.value"
+                            formControlName="plan" [optionKey]="'nombre'" ngDefaultControl>
+                          </app-mim-select>
+                        </div>
+                        <span class="tooltiptext" *ngIf="getControls(i)?.plan.errors">
+                          <p *ngIf="getControls(i)?.plan.errors?.required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.planes.planObligatorio.plan' | translate } }}
+                          </p>
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group tooltipError">
+                        <div class="input-group" [ngClass]="getControls(i)?.tipoSolicitud.errors ? 'border--red1': ''">
+                          <app-mim-select class="w-100" [options]="tipoMovimientos" formControlName="tipoSolicitud"
+                            [optionKey]="'nombre'" ngDefaultControl>
+                          </app-mim-select>
+                        </div>
+                        <span class="tooltiptext" *ngIf="getControls(i)?.tipoSolicitud.errors">
+                          <p *ngIf="getControls(i)?.tipoSolicitud.errors?.required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.planes.planObligatorio.tipoSolicitud' | translate } }}
+                          </p>
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group tooltipError">
+                        <div class="input-group"
+                          [ngClass]="getControls(i)?.fechaInicioFechaFin.errors ? 'border--red1': ''">
+                          <app-mim-date-picker class="w-100" formControlName="fechaInicioFechaFin"
+                            [selectionMode]="'range'" ngDefaultControl [disabled]="validarEstadoPlan()">
+                          </app-mim-date-picker>
+                        </div>
+                        <span class="tooltiptext" *ngIf="getControls(i)?.fechaInicioFechaFin.errors">
+                          <p *ngIf="getControls(i)?.fechaInicioFechaFin.errors?.required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.planes.planObligatorio.fechaVigencia' | translate } }}
+                          </p>
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="custom-control custom-switch p-0">
+                        <label class="switch">
+                          <input type="checkbox" formControlName="estado" id="estado" name="estado">
+                          <span class="slider round">
+                            <span class="text--white text--14pts text--500wt">SI</span>
+                            <span class="text--white text--14pts text--500wt">NO</span>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td style="text-align:center" class="d-flex flex-row px-1">
+                      <button type="button" pInitEditableRow class="btn btn--icon bg--blue2 mx-auto"
+                        (click)="onDeleteRow(i)" [disabled]="validarEstadoPlan()">
+                        <span class="icon-trash-3 text--red1"></span>
+                      </button>
+                    </td>
+                  </tr>
+                </ng-container>
+              </ng-template>
+            </p-table>
+
+
+          </div>
+        </fieldset>
+      </div>
+
+    </div>
+  </form>
+</div>

@@ -1,0 +1,580 @@
+.nav
+	&--pagination
+		& .page-item
+			& .page-link
+				border-color gray3
+				color gray1
+				font-size 0.875rem
+				font-weight 500
+				& span
+					color gray1
+					font-size 0.875rem
+					font-weight 500
+			&:nth-child(2)
+				margin 0
+				& .page-link
+					border-radius 10px 0 0 10px
+			&:last-child
+				margin 0
+				& .page-link
+					border-radius 0 10px 10px 0
+					
+	&--flyR
+		margin-top 24rem
+		& .nav-item
+			margin-bottom .1rem
+			& .nav-link
+				align-items center
+				background-color white
+				border 0px
+				border-radius 0
+				box-shadow 0 2px 4px 0 rgba(111, 110, 110, 0.15)
+				color gray2
+				cursor pointer
+				display flex
+				font-size 1.3rem
+				justify-content center
+				padding .7rem .5rem
+				&:hover, &:focus, &:active, &.active
+					color orange1
+					outline none !important
+			&:first-child
+				& .nav-link
+					border-radius 10px 0 0 0
+			&:last-child
+				& .nav-link
+					border-radius 0 0 0 10px
+					
+	&--main
+		align-items center
+		border-left 1px solid rgba(255, 255, 255, 0.15)
+		border-right 1px solid rgba(255, 255, 255, 0.15)
+		height 82px
+		justify-content space-around
+		&  > .nav-item
+			align-items center
+			display flex
+			height 100%
+			& .nav-link
+				color white
+				font-size 0.875rem
+				font-weight 500
+			&:first-child
+				margin 0
+				& .nav-link
+					align-items center
+					border 2px solid white
+					border-radius 100%
+					color white
+					display flex
+					justify-content center
+					height 26px
+					padding 0
+					width 26px
+			&.active
+				border-bottom 3px solid green2
+				& .nav-link
+					color green2
+				&:first-child
+					& .nav-link
+						border-color green2
+			& .dropdown-menu
+				background #FFFFFF
+				border 0
+				box-shadow -4px 5px 11px 0 rgba(221,221,221,0.50)
+				padding 1rem 
+			&.show
+				&:before
+					background-color white
+					bottom -1rem
+					border-radius 3px
+					content ""
+					height 25px
+					position absolute
+					transform rotate(45deg)
+					width 25px
+		& .nav-item:nth-child(2)
+			&.show
+				&:before
+					left 10rem 
+		& .nav-item:nth-child(3)
+			&.show
+				&:before
+					left 4rem 					
+		& .nav-item:nth-child(4)
+			&.show
+				&:before
+					left 4rem 	
+		& .nav-item:nth-child(5)
+			&.show
+				&:before
+					left 40rem 	
+		& .nav-item:nth-child(6)
+			&.show
+				&:before
+					left 50rem 
+		& .nav-item:nth-child(7)
+			&.show
+				&:before
+					left 4rem 																					
+	&--dropdown
+		align-items center
+		border-left 1px solid rgba(255, 255, 255, 0.15)
+		border-right 1px solid rgba(255, 255, 255, 0.15)
+		& .nav-item
+			display inline-block
+			width 100%
+			& .nav-link
+				background-color white
+				border 0px
+				color gray1
+				font-size 0.875rem
+				font-weight 500
+				position relative
+				&:before
+					background-color orange1
+					border-radius 100%
+					content ''
+					height 5px
+					left 0
+					position absolute
+					top 12px
+					width 5px	
+	&--panelLeft
+		& .nav-item
+			margin-bottom .1rem
+			& .nav-link
+				background-color white
+				align-items center
+				background-color white
+				border 0px
+				border-radius 0
+				color gray2
+				display  inline-flex
+				font-size 1.125rem
+				font-weight 400
+				justify-content space-between
+				padding 1.5rem 1rem
+				transition all 0.3s ease 
+				width 100%
+				& .text
+					color gray2
+					font-size 1.125rem
+					font-weight 400		
+					& span
+						font-size 1.325rem	
+				& .active-icon
+					color orange1
+					display none
+					font-size .8rem
+					float right
+			
+				&.active
+					background-color orange2
+					border-left 3px solid orange1
+					color orange1
+					padding 1.5rem 1rem
+					& .text
+						color orange1
+					& .active-icon
+						display block
+			& a[aria-expanded="true"]
+				background-color orange2
+				border-left 3px solid orange1
+				color orange1
+				padding 1.5rem 1rem
+				& .text
+					color orange1
+				& .active-icon
+					display block				
+		&_submenu
+			& .nav-item
+				margin-bottom 0
+				& .nav-link
+					align-items center
+					background-color white
+					border 0px
+					border-radius 0
+					color gray2
+					display  inline-flex
+					font-size 0.8125rem
+					font-weight 400
+					justify-content space-between
+					padding .5rem 0 .5rem 3.5rem
+					transition all 0.3s ease 
+					width 100%	
+					&:hover, &:focus, &:active
+						color orange1	
+						font-weight 700	
+					&.active
+						background-color white
+						border-left 0
+						font-weight 700	
+						padding .5rem 0 .5rem 3.5rem
+
+	
+	&--muesca 
+		align-items flex-end
+		position fixed
+		height 80px
+		top 5.7rem
+		transform-origin left top
+		transform rotate(-90deg) translateX(-100%)
+		width 65% 
+		& .nav-item
+			float right
+			height 100%
+			line-height 45px
+			width initial
+			& .nav-link
+				align-items center
+				background-color white
+				border-left 0
+				border-top 0
+				border-bottom 0
+				border-right 1px solid gray3
+				display flex
+				height 100%
+				justify-content center
+				padding-right 2rem
+				text-transform uppercase
+				outline none !important
+				transition all 0.3s ease 	
+				width auto
+				&:hover, &:focus, &:active, &.active
+					outline none !important
+				&.active
+					background-color orange1
+					color white													
+				& span
+					color green1
+					font-size 1rem	
+					&[class^="icon-"], &[class*=" icon-"] 
+						transform rotate(90deg)
+					&.text
+						color gray2
+						font-size 0.8125rem
+						font-weight 700
+				&[aria-expanded=true] 
+					& span.text--orange1
+						color orange1
+			&:nth-child(1)
+				order 5
+				width 4rem
+			&:nth-child(2)
+				order 3
+			&:nth-child(3)
+				order 2
+			&:nth-child(4)
+				order 4						
+		&_xs
+			transform rotate(-90deg) translateX(-150%)
+			width 11%
+			& .nav-item
+				width 100%
+		&_two
+			transform rotate(-90deg) translateX(-270%)
+			width 10%
+			& .nav-item
+				width 100%
+				&:nth-child(1)
+					width 5rem
+				& .cards--accordion_transform
+					left -20.5rem
+					top -11.9rem
+		&_xl
+			transform rotate(-90deg) translateX(-775%)
+			width 7%
+			& .nav-item
+				width 100%
+				& .cards--accordion_transform
+					left -2.3rem
+					top -11.9rem			
+			& .nav-item:nth-child(1)
+				order 8			
+			& .nav-item:nth-child(2)
+				order 7		
+			& .nav-item:nth-child(3)
+				order 6
+			& .nav-item:nth-child(4)
+				order 5    
+			& .nav-item:nth-child(5)
+				order 4     
+			& .nav-item:nth-child(6)
+				order 3  
+			& .nav-item:nth-child(7)
+				order 2   
+			& .nav-item:nth-child(8)
+				order 1  
+					
+		&_sm
+			width 40%
+
+		& ul.nav--panelLeft_submenu
+			margin 0
+			& .nav-item
+				display  block !important 
+				height auto
+				width 100%
+				& .nav-link
+					border-right 0
+					font-weight 400
+					height auto
+					justify-content start
+					padding 0
+		& .nav--panelLeft
+			& .nav-item
+				margin-bottom .1rem
+				& .nav-link
+					background-color white
+					align-items center
+					background-color white
+					border 0px
+					border-radius 0
+					color gray2
+					display  inline-flex
+					font-size 1.125rem
+					font-weight 400
+					justify-content space-between
+					padding 1.5rem 1rem
+					transition all 0.3s ease 
+					width 100%
+					& .text
+						color gray2
+						font-size 1.125rem
+						font-weight 400		
+						& span
+							font-size 1.325rem	
+					& .active-icon
+						color orange1
+						display none
+						font-size .8rem
+						float right
+				
+					&.active
+						background-color orange2
+						border-left 3px solid orange1
+						color orange1
+						padding 1.5rem 1rem
+						& .text
+							color orange1
+						& .active-icon
+							display block
+				& a[aria-expanded="true"]
+					background-color orange2
+					border-left 3px solid orange1
+					color orange1
+					padding 1.5rem 1rem
+					& .text
+						color orange1
+					& .active-icon
+						display block				
+	&--panelLeft
+		& .nav-item
+			margin-bottom .1rem
+			& .nav-link
+				background-color white
+				align-items center
+				background-color white
+				border 0px
+				border-radius 0
+				color gray2
+				display  inline-flex
+				font-size 1.125rem
+				font-weight 400
+				justify-content space-between
+				padding 1.5rem 1rem
+				transition all 0.3s ease 
+				width 100%
+				& .text
+					color gray2
+					font-size 1.125rem
+					font-weight 400		
+					& span
+						font-size 1.325rem	
+				& .active-icon
+					color orange1
+					display none
+					font-size .8rem
+					float right
+			
+				&.active
+					background-color orange2
+					border-left 3px solid orange1
+					color orange1
+					padding 1.5rem 1rem
+					& .text
+						color orange1
+					& .active-icon
+						display block
+			& a[aria-expanded="true"]
+				background-color orange2
+				border-left 3px solid orange1
+				color orange1
+				padding 1.5rem 1rem
+				& .text
+					color orange1
+				& .active-icon
+					display block				
+	&--muescaLeft
+		margin-top 5.7rem
+		& .nav-item
+			& .nav-link
+				align-items center
+				background-color white
+				border-left 0
+				border-top 0
+				border-bottom 1px solid gray3
+				border-right 0px
+				color gray2
+				display flex
+				font-size 0.8125rem
+				font-weight 700
+				height 70px
+				justify-content center
+				text-transform uppercase
+				outline none !important
+				transition all 0.3s ease 	
+				width 100%
+				&:hover, &:focus, &:active, &.active
+					outline none !important
+				&.active
+					background-color orange1
+					color white
+				& span
+					font-size 1.25rem 
+					// &[class^="icon-"], &[class*=" icon-"] , &.icons
+					&.icons
+						font-size 1rem	
+			&:nth-child(1)
+				& .nav-link
+					height 54px
+	&--btnGroup
+		& .nav-item
+			margin 0
+			& .nav-link
+				color gray1
+				font-size 0.875rem
+				font-weight 600
+				& span
+					color gray2
+				&.active
+					background-color gray4
+					color gray1
+					& span 
+						color orange1
+				&:hover, &:focus, &:active
+					background-color gray4
+					color gray1
+					& span 
+						color orange1
+	&--tabs
+		border none 
+		justify-content start
+		& .nav-item
+			margin 0
+			& .nav-link
+				background-color transparent
+				border none
+				border-bottom 1px solid transparent
+				color gray2
+				font-size 0.875rem
+				font-weight 400
+				padding .5rem 1rem .5rem 0
+				& span
+					color gray2
+				&.active
+					background-color transparent
+					border none 
+					border-bottom 1px solid orange1
+					color orange1
+					font-weight 600
+					& span 
+						color orange1
+					&:hover, &:focus, &:active
+						color orange1
+						font-weight 600
+						& span
+							color orange1
+				&:hover, &:focus, &:active
+					background-color gray4
+					color gray1
+					font-weight 400
+					& span 
+						color orange1		
+	&--group
+		&_flush
+			display inline-block
+			flex-direction row
+			width 100%
+			& .list-group-item
+				border 0px
+				border-bottom 1px solid gray3
+				display inline-block
+				margin-bottom 0
+				width 50%
+				&.first
+					border-right 1px solid gray3
+			&:last-child
+				& .list-group-item
+					&:last-child
+						border-radius 0 !important
+	&--btnGroupBadge
+		& .nav-item
+			align-items center
+			display flex
+			font-size 0.875rem
+			font-weight 500
+			padding .5rem 1rem
+			&.desactivado
+				color gray3
+			&.activo
+				color orange1
+			&.pendiente
+				color green1
+			& span 
+				font-size 0.625rem
+		&:after
+			background-color gray3
+			content ""
+			height 12rem
+			left 1.217rem
+			position absolute
+			top 1.25rem
+			width 1px
+			z-index -1
+	&--dropdownMenu
+		border 1px solid gray4
+		padding 0
+		width 17rem
+		& .dropdown-item
+			border-bottom 1px solid gray4
+			color gray1
+			font-size 0.875rem
+			font-weight 500
+			padding .5rem 1rem
+	&--accordionPanelLeft
+		position fixed
+		height 85px
+		width 60%  
+		transform-origin left top
+		transform rotate(-90deg) translateX(-100%)		
+		& .nav-item
+			& .nav-link
+				align-items center
+				background-color white
+				border 0px 
+				border-bottom 1px solid gray3 
+				border-radius  5px 5px 0 0 
+				display flex
+				color gray2
+				font-size 0.8125rem
+            	font-weight 700
+				justify-content space-between
+				text-transform uppercase
+				padding 1.2rem 1.5rem
+				width 100%
+				& span
+					color green1
+					&.text--orange1
+						color orange1   

@@ -1,0 +1,197 @@
+<div class="row  mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+        <h1 class="my-0">
+            <ng-template [ngIf]="_esCreacion">
+                {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.guardar.crear' | translate }}
+            </ng-template>
+            <ng-template [ngIf]="!_esCreacion">
+                {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.guardar.actualizar' | translate }}
+            </ng-template>
+        </h1>
+    </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+    <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+        <div class="card-body">
+            <div class="row mx-0 w-100">
+
+                <!-- Tipo Vinculacion -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="tipoVinculacion" class="col-sm-12 col-form-label">
+                            {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.tipoVinculacion' |
+                            translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'tipoVinculacion'"
+                                [controlName]="'tipoVinculacion'">
+                                <app-mim-select class="w-100" [inputId]="'tipoVinculacion'"
+                                    [options]="tiposVinculaciones" formControlName="tipoVinculacion"
+                                    [optionKey]="'nombre'" name="'tipoVinculacion'" ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="tipoVinculacion" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.tipoVinculacion'
+                            | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Tipo Aporte -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="tipoAporte" class="col-sm-12 col-form-label">
+                            {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.tipoAporte' | translate
+                            }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'tipoAporte'" [controlName]="'tipoAporte'">
+                                <app-mim-select class="w-100" [inputId]="'tipoAporte'" [options]="tiposAportes"
+                                    formControlName="tipoAporte" [optionKey]="'nombre'" name="'tipoAporte'"
+                                    ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="tipoAporte" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.tipoAporte'
+                            | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Valor minimo -->
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="valorMinimo" class="col-sm-12 col-form-label">
+                            {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorMinimo' | translate
+                            }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'valorMinimo'" [controlName]="'valorMinimo'">
+                                <input type="number" class="form-control" id="valorMinimo" formControlName="valorMinimo"
+                                    name="valorMinimo"/>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMinimo" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorMinimo' | translate }
+                            }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMinimo" errorKey="range">
+                            {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.alertas.MinimaYMaxima' |
+                            translate }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMinimo" errorKey="max">
+                            {{
+                            'global.maxValue' | translate : {campo:
+                                'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorMaximo'
+                                | translate, max: 999999999999} }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Valor maximo -->
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="valorMaximo" class="col-sm-12 col-form-label">
+                            {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorMaximo' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'valorMaximo'" [controlName]="'valorMaximo'">
+                                <input type="number" class="form-control" id="valorMaximo" formControlName="valorMaximo"
+                                    name="valorMaximo"/>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMaximo" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorMaximo' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMaximo" errorKey="range">
+                            {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.alertas.MinimaYMaxima' |
+                            translate }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorMaximo" errorKey="max">
+                            {{
+                            'global.maxValue' | translate : {campo:
+                                'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorMaximo'
+                                | translate, max: 999999999999} }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Valor sugerido -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="valorSugerido" class="col-sm-12 col-form-label">
+                            {{
+                            'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorSugerido'
+                            | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'valorSugerido'"
+                                [controlName]="'valorSugerido'">
+                                <input type="number" class="form-control" id="valorSugerido"
+                                    formControlName="valorSugerido" name="valorSugerido" />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="valorSugerido" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorSugerido'
+                            | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorSugerido" errorKey="rangeBetenn">
+                            {{ 'administracion.cofiguracionCotizadores.aportesEstatutarios.alertas.beetwenRangue' |
+                            translate }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="valorSugerido" errorKey="max">
+                            {{
+                            'global.maxValue' | translate : {campo:
+                                'administracion.cofiguracionCotizadores.aportesEstatutarios.grid.valorSugerido'
+                                | translate, max: 999999999999} }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <label class="col-form-label" appMimLabel for="vigente">
+                        {{ 'administracion.protecciones.planCobertura.guardar.otrasCaracteristicas.exclusiones.grid.vigente' | translate }}
+                      </label>
+                      <div class="custom-control custom-switch p-0">
+                        <label class="switch">
+                          <input type="checkbox" formControlName="vigente" id="vigente" name="vigente">
+                          <span class="slider round">
+                            <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                            <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                <!--Controles -->
+                <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+                    <div class="card-body py-2">
+                        <div class="row mx-0 w-10 justify-content-end align-items-center">
+                            <!-- Botones -->
+                            <div class="col-xl-12">
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                                        [disabled]="form.pristine">
+                                        <span class="icon-edit-3 mr-2"></span>
+                                        {{ 'global.save' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

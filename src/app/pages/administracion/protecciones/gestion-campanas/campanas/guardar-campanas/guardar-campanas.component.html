@@ -1,0 +1,178 @@
+<div class="row  mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+        <h1 class="my-0">
+            <ng-template [ngIf]="_esCreacion">
+                {{ 'administracion.protecciones.campanas.guardar.crear' | translate }}
+            </ng-template>
+            <ng-template [ngIf]="!_esCreacion">
+                {{ 'administracion.protecciones.campanas.guardar.actualizar' | translate }}
+            </ng-template>
+        </h1>
+    </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+
+    <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+        <div class="card-body">
+            <div class="row mx-0 w-100">
+
+                <!-- Codigo -->
+                <div class="col-sm-12 col-md-6" *ngIf="!_esCreacion">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="codigo" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.campanas.grid.codigoCampana' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'codigo'" [controlName]="'codigo'">
+                                <input type="number" class="form-control" id="codigo" formControlName="codigo"
+                                    name="codigo" />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="codigo" errorKey="required">
+                            {{ 'global.required' | translate }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Nombre Campaña-->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="nombre" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.campanas.guardar.nombre' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'nombre'" [controlName]="'nombre'">
+                                <input type="text" class="form-control" id="nombre" formControlName="nombre"
+                                    name="nombre" />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.campanas.guardar.nombre' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="maxlength">
+                            {{ 'administracion.protecciones.campanas.alertas.maxlenth' | translate: {numero: 100} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="vacio">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.campanas.guardar.nombre' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Descripcion Campaña-->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="descripcion" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.campanas.guardar.descripcion' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'descripcion'" [controlName]="'descripcion'">
+                                <textarea type="text" rows="5" class="form-control" id="descripcion"
+                                    formControlName="descripcion" name="descripcion"></textarea>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="descripcion" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.campanas.guardar.descripcion' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="descripcion" errorKey="maxlength">
+                            {{ 'global.maxCaracteres' | translate :{ campo:
+                            'administracion.protecciones.campanas.guardar.descripcion' | translate, max: '250' |
+                            translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- Nombre Beneficiario-->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="nombreBeneficiario" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.campanas.guardar.nombreBeneficiario' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'nombreBeneficiario'"
+                                [controlName]="'nombreBeneficiario'">
+                                <input type="text" class="form-control" id="nombreBeneficiario"
+                                    formControlName="nombreBeneficiario" name="nombreBeneficiario" />
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="nombreBeneficiario" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.campanas.guardar.nombreBeneficiario' | translate } }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="nombreBeneficiario" errorKey="maxlength">
+                            {{ 'administracion.protecciones.campanas.alertas.maxlenth' | translate: {numero: 100} }}
+                        </app-mim-input-error>
+                        <app-mim-input-error class="col-sm-12" controlName="nombreBeneficiario" errorKey="vacio">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.campanas.guardar.nombreBeneficiario' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!-- fecha inicio y fecha fin -->
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group row align-items-center">
+                        <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+                            {{ 'administracion.protecciones.campanas.guardar.fechaInicioYFin' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'"
+                                [controlName]="'fechaInicioFechaFin'">
+                                <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'"
+                                    formControlName="fechaInicioFechaFin" [selectionMode]="'range'" ngDefaultControl>
+                                </app-mim-date-picker>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+                            {{ 'global.required' | translate : { campo:
+                            'administracion.protecciones.campanas.guardar.fechaInicioYFin' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+                <!--Disponible-->
+                <div class="col-sm-12 col-md-6" *ngIf="!_esCreacion">
+                    <div class="form-group row align-items-center">
+                        <label appMimLabel for="vigente" class="col-sm-12 col-form-label">
+                            {{ 'administracion.protecciones.campanas.guardar.vigente' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="custom-control custom-switch p-0">
+                                <label class="switch">
+                                    <input type="checkbox" formControlName="vigente" id="vigente" name="vigente">
+                                    <span class="slider round">
+                                        <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                                        <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Controles -->
+                <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+                    <div class="card-body py-2">
+                        <div class="row mx-0 w-10 justify-content-end align-items-center">
+                            <!-- Botones -->
+                            <div class="col-xl-12">
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                                        [disabled]="form.pristine">
+                                        <span class="icon-edit-3 mr-2"></span>
+                                        {{ 'global.save' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</div>

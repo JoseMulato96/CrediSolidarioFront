@@ -1,0 +1,332 @@
+<div class="row  mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      <ng-template [ngIf]="_esCreacion">
+        {{ 'administracion.protecciones.requisitosControlMedico.guardar.crear' | translate }}
+      </ng-template>
+      <ng-template [ngIf]="!_esCreacion">
+        {{ 'administracion.protecciones.requisitosControlMedico.guardar.actualizar' | translate }}
+      </ng-template>
+    </h1>
+  </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+  <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+    <div class="card-body">
+      <div class="row mx-0 w-100">
+
+
+        <!-- Codigo -->
+        <div class="col-sm-12 col-md-6" *ngIf="!_esCreacion">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="codigo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.codigo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'codigo'" [controlName]="'codigo'">
+                <input type="text" class="form-control" id="codigo" formControlName="codigo" name="codigo" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="codigo" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.codigo' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Plan Cobertura -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="planCobertura" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.grid.planCobertura' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'planesCobertura'" [controlName]="'planesCobertura'">
+                <app-mim-multiselect class="w-100" [inputId]="'planesCobertura'" [options]="planesCobertura"
+                  formControlName="planesCobertura" [optionKey]="'_nombre'" name="'planesCobertura'"
+                  ngDefaultControl>
+                </app-mim-multiselect>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="planesCobertura" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.grid.planCobertura' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Requisitos solicitados -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="requisitosSolicitados" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.requisitosSolicitados' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'requisitosSolicitados'"
+                [controlName]="'requisitosSolicitados'">
+                <app-mim-multiselect class="w-100" [inputId]="'requisitosSolicitados'" [options]="requisitosSolicitados"
+                  formControlName="requisitosSolicitados" [optionKey]="'nombre'" name="'requisitosSolicitados'"
+                  ngDefaultControl>
+                </app-mim-multiselect>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="requisitosSolicitados" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.requisitosSolicitados' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Tipo transacción -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="tipoTransaccion" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.tipoTransaccion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'tipoTransaccion'" [controlName]="'tipoTransaccion'">
+                <app-mim-multiselect class="w-100" [inputId]="'tipoTransaccion'" [options]="tipoTransaccion"
+                  formControlName="tipoTransaccion" [optionKey]="'nombre'" name="'tipoTransaccion'" ngDefaultControl>
+                </app-mim-multiselect>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="tipoTransaccion" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.tipoTransaccion' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Valor protección mínimo -->
+        <div class="col-sm-12 col-md-3">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="valorProtecionMinimo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.valorProteccionMinimo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'valorProtecionMinimo'"
+                [controlName]="'valorProtecionMinimo'">
+                <input type="text" class="form-control" id="valorProtecionMinimo" min="0"
+                  formControlName="valorProtecionMinimo" name="valorProtecionMinimo" mask="separator.0" thousandSeparator="." />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="valorProtecionMinimo" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.valorProteccionMinimo' | translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="valorProtecionMinimo" errorKey="range">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.maxMinProteccion' | translate  }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="valorProtecionMinimo" errorKey="min">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMinimo' | translate : {numero: 0} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="valorProtecionMinimo" errorKey="max">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMaximo' | translate : {numero: 1000000000} }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Valor protección máximo -->
+        <div class="col-sm-12 col-md-3">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="valorProtecionMaximo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.valorProteccionMaximo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'valorProtecionMaximo'"
+                [controlName]="'valorProtecionMaximo'">
+                <input type="text" class="form-control" id="valorProtecionMaximo" min="0"
+                  formControlName="valorProtecionMaximo" name="valorProtecionMaximo" mask="separator.0" thousandSeparator="." />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="valorProtecionMaximo" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.valorProteccionMaximo' | translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="valorProtecionMaximo" errorKey="range">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.maxMinProteccion' | translate  }}
+            </app-mim-input-error>            
+            <app-mim-input-error class="col-sm-12" controlName="valorProtecionMaximo" errorKey="min">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMinimo' | translate : {numero: 0} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="valorProtecionMaximo" errorKey="max">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMaximo' | translate : {numero: 1000000000} }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+         <!-- Edad minima -->
+         <div class="col-sm-12 col-md-3">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="edadMinima" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.edadMinima' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'edadMinima'" [controlName]="'edadMinima'">
+                <input type="number" class="form-control" id="edadMinima" min="0" max="100" formControlName="edadMinima"
+                  name="edadMinima" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.edadMinima' | translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="range">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.MinimaYMaxima' | translate  }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="max">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMaximo' | translate : {numero: 100} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="min">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMinimo' | translate : {numero: 0} }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Edad máxima -->
+        <div class="col-sm-12 col-md-3">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="edadMaxima" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.edadMaxima' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'edadMaxima'" [controlName]="'edadMaxima'">
+                <input type="number" class="form-control" id="edadMaxima" min="0" max="100" formControlName="edadMaxima"
+                  name="edadMaxima" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.edadMaxima' | translate } }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="max">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMaximo' | translate : {numero: 100} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="min">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMinimo' | translate : {numero: 0} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="range">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.MinimaYMaxima' | translate  }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Genero -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="genero" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.genero' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'genero'" [controlName]="'genero'">
+                <app-mim-multiselect class="w-100" [inputId]="'genero'" [options]="generos"
+                  formControlName="genero" [optionKey]="'nombre'" name="'genero'" ngDefaultControl>
+                </app-mim-multiselect>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="genero" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.genero' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- IMC_minimo -->
+        <div class="col-sm-12 col-md-3">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="IMCMinimo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.IMCMinimo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'IMCMinimo'" [controlName]="'IMCMinimo'">
+                <input type="number" class="form-control" id="IMCMinimo" min="0" formControlName="IMCMinimo"
+                  name="IMCMinimo" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="IMCMinimo" errorKey="min">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMinimo' | translate : {numero: 0} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="IMCMinimo" errorKey="max">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMaximo' | translate : {numero: 100} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="IMCMinimo" errorKey="range">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.maxMinIMC' | translate  }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- IMC_maximo -->
+        <div class="col-sm-12 col-md-3">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="IMCMaximo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.IMCMaximo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'IMCMaximo'" [controlName]="'IMCMaximo'">
+                <input type="number" class="form-control" id="IMCMaximo" min="0" formControlName="IMCMaximo"
+                  name="IMCMaximo" />
+              </div>
+            </div>           
+            <app-mim-input-error class="col-sm-12" controlName="IMCMaximo" errorKey="range">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.maxMinIMC' | translate  }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="IMCMaximo" errorKey="min">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMinimo' | translate : {numero: 0} }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="IMCMaximo" errorKey="max">
+              {{ 'administracion.protecciones.requisitosControlMedico.alertas.valorMaximo' | translate : {numero: 100} }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- fecha inicio y fecha fin -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.fechaInicioYFin' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'" [controlName]="'fechaInicioFechaFin'">
+                <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'" formControlName="fechaInicioFechaFin"
+                  [selectionMode]="'range'" [disabled]="estadoFecha" ngDefaultControl></app-mim-date-picker>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.requisitosControlMedico.guardar.fechaInicio' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Requiere auditoria médica... -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group">
+            <label class="col-form-label" appMimLabel for="requiereAuditoriaMedica">
+              {{ 'administracion.protecciones.requisitosControlMedico.guardar.requiereAuditoriaMedica' | translate }}
+            </label>
+            <div class="custom-control custom-switch p-0">
+              <label class="switch">
+                <input type="checkbox" formControlName="requiereAuditoriaMedica" id="requiereAuditoriaMedica"
+                  name="requiereAuditoriaMedica">
+                <span class="slider round">
+                  <span class="text--white text--14pts text--500wt">SI</span>
+                  <span class="text--white text--14pts text--500wt">NO</span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!--Controles -->
+        <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+          <div class="card-body py-2">
+            <div class="row mx-0 w-10 justify-content-end align-items-center">
+              <!-- Botones -->
+              <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                    [disabled]="form.pristine">
+                    <span class="icon-edit-3 mr-2"></span>
+                    {{ 'global.save' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

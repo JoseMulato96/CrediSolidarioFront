@@ -1,0 +1,50 @@
+
+.content-wrapper {
+    padding: 25px;
+    height: 100%;
+  }
+.content-wrapper .page-content {
+    border-top: 1px solid #d0d0d0;
+    padding-top: 25px;
+  }
+.content-wrapper--with-bg .page-content {
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #d0d0d0;
+    padding: 25px;
+  }
+ .page-title {
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+  .sidebar-is-expanded .l-main {
+    padding-left: 220px;
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
+  }
+
+  @media print {
+
+    @page {
+      size: auto;
+      margin: 0.5in;
+    }
+
+    .noprint {
+      display: none;
+    }
+
+    .container-fluid {
+      margin:0 !important;
+      padding: 0 !important;
+      background-color:#fff;
+    }
+
+  }
+
+/*datatables*/
+
+

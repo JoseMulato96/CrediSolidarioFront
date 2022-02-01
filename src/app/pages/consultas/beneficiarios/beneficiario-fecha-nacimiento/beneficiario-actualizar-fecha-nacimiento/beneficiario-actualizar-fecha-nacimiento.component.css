@@ -1,0 +1,13 @@
+.margin--top--menos{
+    margin-top: -47px;
+}
+
+.margin--top--grid--menos{
+    margin-top: -50px;
+}
+
+.position-boton-atras{
+    position: absolute;
+    left: -34%;
+    top: 0px;
+}

@@ -1,0 +1,231 @@
+<div class="w-100 mt-2 mb-3">
+
+  <form class="form--default w-100 pb-5" [formGroup]="form" *ngIf="isForm | async as isForm;">
+
+    <div class="cards--headerFooter w-100">
+        <div class="card-body justify-content-between">
+
+          <div class="col-sm-12 col-md-12">
+            <div class="row">
+
+              <div class="col-sm-6 col-md-6 pr-0">
+                <div class="row pl-4">
+                  <div class="btn btn--icon bg--blue2">
+                      <span class="icon-article text--orange1"></span>
+                  </div>
+                  <label appMimLabel class="col-form-label ml-3">
+                    {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.liquidacionGenerada' | translate }}
+                  </label>
+                </div>
+              </div>
+
+              <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                <label appMimLabel class="col-form-label mr-4" *ngIf="definicionPago.liquidacionEvento.codigo">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.liquidacionNo' | translate }}
+                  {{definicionPago.liquidacionEvento.codigo}}
+                </label>
+              </div>
+              <hr class="col-11" />
+            </div>
+          </div>
+
+
+          <!-- Reclamante -->
+          <div class="col-sm-12 col-md-12">
+            <div class="row">
+
+              <div class="col-sm-6 col-md-6 pr-0">
+                <label appMimLabel class="col-form-label ml-4">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.reclamante' | translate }}
+                </label>
+              </div>
+
+              <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                <label appMimLabel class="col-form-label mr-4">
+                  {{definicionPago.datosAsociado.nomCli}}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <hr class="col-11" />
+
+          <!-- Valor base -->
+          <div class="col-sm-12 col-md-12">
+            <div class="row">
+
+              <div class="col-sm-6 col-md-6 pr-0">
+                <label appMimLabel class="col-form-label ml-4">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.valorBase' | translate }}
+                </label>
+              </div>
+
+              <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                <label appMimLabel class="col-form-label mr-4">
+                  {{definicionPago.liquidacionEvento.valorTotalPago | customCurrency | emptyPipe}}
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <hr class="col-11" />
+
+          <!-- Retefuente -->
+          <div class="col-sm-12 col-md-12">
+          <div class="row">
+
+            <div class="col-sm-6 col-md-6 pr-0">
+              <label appMimLabel class="col-form-label ml-4">
+                {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.retefuente' | translate }}
+              </label>
+            </div>
+
+            <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+              <label appMimLabel class="col-form-label mr-4">
+                ({{definicionPago.liquidacionEvento.porcentajeRetefuente}} %)
+                {{definicionPago.liquidacionEvento.retefuente | customCurrency | emptyPipe}}
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <hr class="col-11" />
+
+          <!-- Total deducciones -->
+          <div class="col-sm-12 col-md-12">
+            <div class="border bg--gray4 py-1 my-1 rounded ml-3 mr-3">
+              <div class="row">
+                <div class="col-sm-6 col-md-6 pr-0">
+                  <label appMimLabel class="col-form-label ml-2">
+                    {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.totalDeducciones' | translate }}
+                  </label>
+                </div>
+
+                <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                  <label appMimLabel class="col-form-label mr-2">
+                    {{definicionPago.liquidacionEvento.valorTotalDeducciones | customCurrency | emptyPipe}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Valor neto pago -->
+          <div class="col-sm-12 col-md-12">
+            <div class="border bg--gray4 py-1 my-1 rounded ml-3 mr-3">
+              <div class="row">
+                <div class="col-sm-6 col-md-6 pr-0">
+                  <label appMimLabel class="col-form-label ml-2">
+                    {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.valorNeto' | translate }}
+                  </label>
+                </div>
+
+                <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                  <label appMimLabel class="col-form-label mr-2">
+                    {{definicionPago.liquidacionEvento.valorNetoPago | customCurrency | emptyPipe}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="col-11" />
+
+          <!-- Forma pago -->
+          <div class="col-sm-12 col-md-12">
+            <div class="row">
+
+              <div class="col-sm-6 col-md-6 pr-0">
+                <label appMimLabel class="col-form-label ml-4">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.formaPago' | translate }}
+                </label>
+              </div>
+
+              <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                <label appMimLabel class="col-form-label mr-4">
+                  {{definicionPago.valoresEvento.nombreFormaPago}}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tipo cuenta -->
+          <div class="col-sm-12 col-md-12" *ngIf="definicionPago.valoresEvento.esDeposito">
+            <div class="row">
+
+              <div class="col-sm-6 col-md-6 pr-0">
+                <label appMimLabel class="col-form-label ml-4">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.tipoCuenta' | translate }}
+                </label>
+              </div>
+
+              <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                <label appMimLabel class="col-form-label mr-4">
+                  {{definicionPago.valoresEvento.nombreTipoCuenta}}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banco -->
+          <div class="col-sm-12 col-md-12" *ngIf="definicionPago.valoresEvento.esDeposito">
+            <div class="row">
+
+              <div class="col-sm-6 col-md-6 pr-0">
+                <label appMimLabel class="col-form-label ml-4">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.banco' | translate }}
+                </label>
+              </div>
+
+              <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                <label appMimLabel class="col-form-label mr-4">
+                  {{definicionPago.valoresEvento.nombreBanco}}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- No. Cuenta -->
+          <div class="col-sm-12 col-md-12" *ngIf="definicionPago.valoresEvento.esDeposito">
+            <div class="row">
+
+              <div class="col-sm-6 col-md-6 pr-0">
+                <label appMimLabel class="col-form-label ml-4">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.noCuenta' | translate }}
+                </label>
+              </div>
+
+              <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                <label appMimLabel class="col-form-label mr-4">
+                  {{definicionPago.valoresEvento.numeroCuenta}}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oficina -->
+          <div class="col-sm-12 col-md-12" *ngIf="definicionPago.valoresEvento.esCheque">
+            <div class="row">
+
+              <div class="col-sm-6 col-md-6 pr-0">
+                <label appMimLabel class="col-form-label ml-4">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.liquidar.oficina' | translate }}
+                </label>
+              </div>
+
+              <div class="d-flex col-sm-6 col-md-6 justify-content-end">
+                <label appMimLabel class="col-form-label mr-4">
+                  {{definicionPago.valoresEvento.nombreOficina}}
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+  </form>
+
+</div>

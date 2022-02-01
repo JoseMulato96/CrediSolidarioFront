@@ -1,0 +1,338 @@
+.btn
+	align-items center
+	border-style solid
+	border-width 0px
+	border-radius 30px
+	box-sizing border-box
+	cursor pointer
+	display flex
+	font-family 'Montserrat', sans-serif
+	font-size 1rem
+	font-weight 600
+	line-height 120%
+	justify-content center
+	outline none
+	overflow hidden
+	position relative
+	text-align center
+	text-overflow ellipsis
+	transition .3s ease-out
+	vertical-align middle
+	white-space nowrap
+	&.text--white
+		color white
+	&:hover, &:focus, &:active, &.active
+		box-shadow none
+		outline none
+		color white
+	&:disabled , &[disabled]
+		background-color gray2
+		border-color gray2
+		color white
+		cursor not-allowed!important
+		&:hover, &:focus, &:active, &.active
+			background-color gray2
+			border-color gray2
+			color white
+	&--lg
+		font-size 1rem
+		height 3.536rem
+	&--md
+		font-size 0.8125rem
+		height 2.476rem
+	&--xs
+		font-size 0.8125rem
+		height 2.162rem	
+	&--black
+		background-color black
+		border-color black
+		color white
+		&:hover, &:focus, &:active, &.active
+			background-color white
+			border-color black
+			color black
+	&--orange1
+		background-color orange1
+		color white
+		&:hover, &:focus, &:active, &.active
+			background-color orange3
+			color white
+		&:disabled , &[disabled]
+			background-color gray4
+			color gray3
+	&--green1
+		background-color green1
+		color white
+		&:hover, &:focus, &:active, &.active
+			background-color green4
+			color white
+		&:disabled , &[disabled]
+			background-color gray2
+			color white		
+	&--red1
+		background-color red1
+		color white
+		&:hover, &:focus, &:active, &.active
+			background-color red1
+			color white
+		&:disabled , &[disabled]
+			background-color gray2
+			color white					
+	&--gray2
+		background-color transparent
+		color gray2
+		&:hover, &:focus, &:active, &.active
+			background-color gray2
+			border 1px solid gray2
+			color white
+		&:disabled , &[disabled]
+			background-color gray4
+			border 1px solid gray4
+			color gray3	
+			&:hover, &:focus, &:active, &.active	
+				background-color gray4
+				border 1px solid gray4
+				color gray3					
+	&--white
+		background-color white
+		box-shadow 0 2px 4px 0 rgba(194,194,194,0.50)
+		color red
+		&:hover, &:focus, &:active, &.active
+			background-color white
+			border 1px solid white
+			color red
+			box-shadow inset 0 2px 4px 0 rgba(194,194,194,0.50)
+		&:disabled , &[disabled]
+			background-color gray2
+			border 1px solid gray2
+			color white				
+	&--circle
+		background-color transparent
+		color gray2
+		& span:first-child
+			align-items center
+			background-color orange1
+			border 1px solid orange1
+			border-radius 100%
+			color white
+			display flex
+			height 2.375rem
+			justify-content center
+			width 2.375rem
+		&:hover, &:focus, &:active, &.active
+			background-color transparent
+			color gray2
+			& span:first-child
+				background-color white
+				border 1px solid orange1
+				color orange1
+			& span
+				background-color transparent
+				color gray1
+		&:disabled , &[disabled]
+			background-color transparent !important
+			color gray2 !important
+			& span
+				background-color gray2 !important
+				border 1px solid gray2 !important
+				color white !important
+		&_two
+			color gray1
+			& span
+				background-color transparent
+				border 1px solid orange1
+				color orange1
+			&:hover, &:focus, &:active, &.active
+				& span
+					background-color orange1
+					border 1px solid orange1
+					color white				
+		&_three
+			&:hover, &:focus, &:active, &.active
+				& span:first-child
+					background-color orange3
+					border 1px solid orange3
+					color white
+		&_four
+			color gray2
+			& span:first-child
+				background-color gray4
+				border-color gray4
+				color gray2
+			&:hover, &:focus, &:active, &.active
+				color gray2
+				& span:first-child
+					background-color gray4
+					border-color gray4
+					color gray2
+		&_green
+			& span:first-child
+				background-color green1
+				border 1px solid green1
+			&:hover, &:focus, &:active, &.active
+				& span:first-child
+					background-color white
+					border 1px solid green4
+					color green4
+		&_orange1
+			& span:first-child
+				background-color orange1
+				border 1px solid orange1
+			&:hover, &:focus, &:active, &.active
+				& span:first-child
+					background-color white
+					border 1px solid green4
+					color green4					
+	&--icon
+		align-items center
+		border-radius 100%
+		color white
+		height 2.375rem
+		justify-content center
+		width 2.375rem
+		&:disabled , &[disabled]
+			background-color gray2
+			border 1px solid gray2
+			color white
+	&--border
+		&_green1
+			background-color transparent
+			border 1px solid green1
+			color green1
+			&:hover, &:focus, &:active, &.active
+				background-color green1
+				border 1px solid green1
+				color white
+		&_orange1
+			background-color transparent
+			border 1px solid orange1
+			color orange1
+			& span
+				color gray1
+			&:hover, &:focus, &:active, &.active
+				background-color orange1
+				border 1px solid orange1
+				color white
+				& span
+					color white
+	&--group
+		& .btn-group
+			margin 0
+			& .btn
+				background-color transparent
+				color gray2
+				height 28px
+				width 28px
+				& span
+					transform rotate(90deg)
+				&:after
+					display none
+				&:hover, &:focus, &:active, &.active
+					background-color  white
+					border 0px
+					box-shadow none !important 
+					outline none !important
+			& .dropdown-menu
+				background #FFFFFF
+				box-shadow 0 2px 6px 0 rgba(0,0,0,0.15)
+				padding 1.5rem 0 1rem 0
+				margin-left -8.1rem
+				margin-top -.9rem
+				& .btn
+					background-color green1
+					border-radius 100%
+					color white
+					height 35px
+					margin-top -2.9rem
+					position absolute
+					right -.5rem
+					width 35px
+		&_xl
+			& .btn-group
+				& .dropdown-menu
+					margin-left -12.5rem
+					margin-top -0.8rem
+					min-width 14rem
+		&_badge
+			margin 0
+			& .btn-group
+				& .btn.btn--badge
+					border-radius .25rem
+					color white
+					font-size 0.8125rem
+					font-weight 700
+					height auto
+					padding .25rem
+					text-align center
+					white-space nowrap
+					vertical-align baseline
+					&:after
+						display none
+					&.bg--yellow1 
+						background-color yellow1
+					&.bg--green2
+						background-color green2
+				& .dropdown-menu
+					margin-left 0
+					margin-top .5rem
+					min-width 14rem	
+					padding-bottom .5rem
+					padding-top .5rem					
+	&--dropdown
+		margin 0
+		& .btn
+			align-items center
+			background-color transparent
+			border 0
+			border-bottom 1px solid gray2
+			border-radius 0px
+			box-shadow none
+			color gray2
+			font-size 0.8125rem
+			font-weight 600
+			outline none
+			transition transform .1s ease-in-out
+			&:after
+				display none 
+			& span
+				align-items center
+				height 22px
+				width 22px
+				&:before
+					transition transform .1s ease-in-out
+			&:hover, &:focus, &:active, &.active
+				align-items flex-start
+				background-color transparent !important
+				border 0 !important
+				border-bottom 1px solid gray2 !important
+				border-radius 0px !important
+				box-shadow none !important
+				color gray1 !important
+		&.show
+			&.btn
+				align-items flex-start
+				background-color transparent !important
+				border 0 !important
+				border-bottom 1px solid gray2 !important
+				border-radius 0px !important
+				box-shadow none !important
+				color gray1 !important	
+			& span
+				&:before
+					content "\e946"	
+	&--text
+		&_gray2
+			align-items flex-start
+			background-color transparent
+			border 0
+			border-radius 0px
+			color gray2
+			&:hover, &:focus, &:active, &.active
+				color gray1
+				& span
+					color gray1
+					&[class^="icon-"]
+						color orange1
+					
+
+

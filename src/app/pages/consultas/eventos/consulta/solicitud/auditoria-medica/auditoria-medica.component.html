@@ -1,0 +1,173 @@
+<div class="col-md-12 d-flex justify-content-end" style="margin-bottom: -35px;">
+  <button type="button" class="btn btn--orange1 btn--md float-right" (click)="gestionar()">
+      <span class="icon-arrow-right mr-2"></span>
+      <ng-template [ngIf]="mostrarBitacora">
+          {{ 'eventos.consulta.solicitud.gestionar' | translate }}
+      </ng-template>
+      <ng-template [ngIf]="!mostrarBitacora">
+          {{ 'eventos.consulta.solicitud.bitacora' | translate }}
+      </ng-template>
+  </button>
+</div>
+
+<app-mim-bitacora [idProceso]="idProceso" *ngIf="mostrarBitacora"></app-mim-bitacora>
+
+<div class="row" *ngIf="!mostrarBitacora">
+  <!-- PANEL DERECHO -->
+  <div class="col-12">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="mb-0 my-0 d-inline-flex align-items-center text--tittle_circle mb-3">
+          {{ 'eventos.consulta.solicitud.auditoriaMedica.titulo' | translate }}
+        </h1>
+        <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm">
+          <div class="card posicion_top_card cards--panelLeft col-12">
+            <div class="col-12">
+
+              <div class="row">
+                <div class="col-sm-6 col-xl-6">
+                  <div class="form-group row align-items-center">
+                    <label appMimLabel for="origenEvento" class="col-sm-12 col-form-label">
+                      {{ 'eventos.consulta.solicitud.auditoriaMedica.origenEvento' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                      <div class="input-group" appMimInput [for]="'origenEvento'"
+                        [controlName]="'origenEvento'">
+                        <app-mim-select class="w-100" [inputId]="'origenEvento'" [options]="origenEvento"
+                            formControlName="origenEvento" [optionKey]="'nombre'" name="'origenEvento'"
+                            ngDefaultControl>
+                        </app-mim-select>
+                      </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="origenEvento" errorKey="required">
+                      {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.auditoriaMedica.origenEvento' | translate } }}
+                    </app-mim-input-error>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xl-6">
+                  <div class="form-group row align-items-center">
+                    <label appMimLabel for="fechaEvento" class="col-sm-12 col-form-label">
+                      {{ 'eventos.consulta.solicitud.auditoriaMedica.fechaEvento' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                      <div class="input-group" appMimInput [for]="'fechaEvento'"
+                          [controlName]="'fechaEvento'">
+                          <app-mim-date-picker class="w-100" [inputId]="'fechaEvento'"  [maxDate]="maxDate"
+                              formControlName="fechaEvento" ngDefaultControl>
+                          </app-mim-date-picker>
+                      </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="fechaEvento" errorKey="required">
+                      {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.auditoriaMedica.fechaEvento' | translate } }}
+                    </app-mim-input-error>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6 col-xl-6">
+                  <div class="form-group row align-items-center">
+                    <label appMimLabel for="conceptoMedico" class="col-sm-12 col-form-label">
+                      {{ 'eventos.consulta.solicitud.auditoriaMedica.conceptoMedico' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                      <div class="input-group" appMimInput [for]="'conceptoMedico'"
+                          [controlName]="'conceptoMedico'">
+                          <app-mim-select class="w-100" [inputId]="'conceptoMedico'"
+                              [options]="conceptoMedico" formControlName="conceptoMedico"
+                              [optionKey]="'nombre'" name="'conceptoMedico'" ngDefaultControl>
+                          </app-mim-select>
+                      </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="conceptoMedico" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.auditoriaMedica.conceptoMedico' | translate } }}
+                    </app-mim-input-error>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-xl-6">
+                  <div class="form-group row align-items-center">
+                    <label appMimLabel for="razonesNegacion" class="col-sm-12 col-form-label">
+                      {{ 'eventos.consulta.solicitud.auditoriaMedica.razonesNegacion' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                      <div class="input-group" appMimInput [for]="'razonesNegacion'"
+                          [controlName]="'razonesNegacion'">
+                          <app-mim-select class="w-100" [inputId]="'razonesNegacion'"
+                              [options]="razonesNegacion" formControlName="razonesNegacion"
+                              [optionKey]="'nombre'" name="'razonesNegacion'" ngDefaultControl>
+                          </app-mim-select>
+                      </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="razonesNegacion" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.auditoriaMedica.razonesNegacion' | translate } }}
+                    </app-mim-input-error>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Gestion pendiente por -->
+          <app-mim-gestion-pendiente-por formGroupName="gestionPendientePor" [dataInit]="dataInitGestionPendientePor"></app-mim-gestion-pendiente-por>
+
+          <!-- Generación de la carta -->
+          <app-mim-genera-carta [disabled]="envioCarta" [asoNumInt]="asoNumInt" [faseFlujo]="faseFlujo" [idProceso]="idProceso" (cartaGenerada)="cartaGenerada($event)"></app-mim-genera-carta>
+
+          <div class="cards--headerFooter w-100 mt-2">
+            <div class="col-12">
+                <div class="card-body py-0 pb-2">
+                    <div class="row">
+                        <!-- Gestion pendiente por -->
+                        <div class="col-md-12">
+                            <div class="form-group row align-items-center">
+                              <label appMimLabel for="observacion" class="col-sm-12 col-form-label">
+                                {{ 'eventos.consulta.solicitud.observacion' | translate }}
+                              </label>
+                              <div class="col-sm-12">
+                                  <div class="input-group" appMimInput [for]="'observacion'" [controlName]="'observacion'">
+                                      <textarea type="text" rows="6" class="form-control" id="observacion"
+                                          formControlName="observacion" name="observacion" maxlength="1000"></textarea>
+                                  </div>
+                              </div>
+                              <app-mim-input-error class="col-sm-12" controlName="observacion" errorKey="required">
+                                  {{ 'global.required' | translate: { campo: 'eventos.consulta.solicitud.observacion' | translate } }}
+                              </app-mim-input-error>
+                              <app-mim-input-error class="col-sm-12" controlName="observacion" errorKey="maxlength">
+                                  {{ 'global.maxCaracteres' | translate: { campo: 'eventos.consulta.solicitud.observacion' | translate, max: '1000' | translate } }}
+                              </app-mim-input-error>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Controles -->
+        <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta">
+            <div class="card-body py-2">
+                <div class="row mx-0 w-10 justify-content-end align-items-center">
+                    <!-- Botones -->
+                    <div class="col-xl-12">
+                        <div class="d-flex flex-row-reverse">
+                            <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="guardar()">
+                                <span class="icon-mail mr-2"></span>
+                                {{ 'global.save' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+

@@ -1,0 +1,19 @@
+<div class="mb-4" *ngIf="mimFormaPagoComponentConfiguracion">
+  <app-mim-accordion-section *ngIf="datosFormaPagoMimAccordionSectionConfiguration"
+    [configuracion]="datosFormaPagoMimAccordionSectionConfiguration">
+
+    <ng-template [ngIf]="datosFormaPagoMimAccordionSectionConfiguration?.collapsable">
+      <div class="row">
+        <div class="col" *ngFor="let item of mimFormaPagoComponentConfiguracion.informacionFormaPago">
+          <h5 class="text--13pts text--medium d-flex">
+            <span class="text--gray2">{{ item.titulo | translate }} </span>
+          </h5>
+          <div class="mt-2 text--13pts text--medium d-flex">
+            {{ item.valor  | emptyPipe}}
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </app-mim-accordion-section>
+</div>

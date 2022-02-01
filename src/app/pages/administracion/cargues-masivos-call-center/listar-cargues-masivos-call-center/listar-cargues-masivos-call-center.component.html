@@ -1,0 +1,320 @@
+<div class="col-12 col-xl-12 py-3 d-block">
+
+    <div class="row mx-0 w-100 align-items-center">
+        <div class="col-md-12">
+            <h1 class="pl-1">
+                {{ 'administracion.cargueMasivoCallCenter.titulo' | translate }}
+            </h1>
+        </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="col-md-12 w-100 pt-2">
+        <div class="card bg--white border-0 rounded-0 p-2">
+            <form class="form--default col-md-12 w-100" [formGroup]="formBuscar"
+                *ngIf="isFormBuscar | async as isFormBuscar">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <!-- fecha inicio -->
+                            <div class="col-sm-4 col-md-4">
+                                <div class="form-group row align-items-center">
+                                    <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFin">
+                                        {{ 'administracion.cargueMasivoCallCenter.filtros.fechaInicio' | translate }}
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <div class="input-group" appMimInput [for]="'fechaInicioFin'"
+                                            [controlName]="'fechaInicioFin'">
+                                            <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFin'"
+                                                formControlName="fechaInicioFin" [selectionMode]="'range'"
+                                                ngDefaultControl [maxDate]="maxDateValue">
+                                            </app-mim-date-picker>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Codigo cargue -->
+                            <div class="col-sm-3 col-md-3">
+                                <div class="form-group row align-items-center">
+                                    <label appMimLabel for="codigoCargue" class="col-sm-12 col-form-label">
+                                        {{ 'administracion.cargueMasivoCallCenter.filtros.codigoCargue' | translate }}
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <div class="input-group" appMimInput [for]="'codigoCargue'"
+                                            [controlName]="'codigoCargue'">
+                                            <input type="text" class="form-control" id="codigoCargue" min="1"
+                                                formControlName="codigoCargue" name="codigoCargue" mask="09999999" />
+                                        </div>
+                                    </div>
+                                    <app-mim-input-error class="col-sm-12" controlName="codigoCargue"
+                                        errorKey="minlength">
+                                        {{ 'global.minCaracteres' | translate
+                      :{ campo: 'administracion.cargueMasivo.filtros.codigoCargue' | translate, min: '4' | translate }
+                  }}
+                                    </app-mim-input-error>
+                                </div>
+                            </div>
+                            <div class="row col-md-3">
+                                <div class="col-md-6 pr-0">
+                                    <button type="submit" class="btn btn--green1 btn--md col-md-12 mt-4"
+                                        (click)="buscar()">
+                                        {{ 'global.search' | translate }}
+                                    </button>
+                                </div>
+                                <div class="col-md-6 pr-0">
+                                    <button type="submit" class="btn btn--border_green1 btn--md col-md-12 mt-4"
+                                        (click)="limpiar()">
+                                        {{ 'global.limpiar' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="col-md-12 pb-5">
+        <app-mim-grid [configuracion]="configuracion.gridConfig" 
+            (clickCeldaElement)="onClickCeldaElement($event)">
+        </app-mim-grid>
+    </div>
+    <!--fin de la tabla-->
+</div>
+
+<!-- Inicio cargue masivo -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarActivarCargar == true }"
+    *ngIf="mostrarActivarCargar">
+    <div class="row mx-0 w-100 justify-content-end">
+        <div class="col-xl-4 col-md-6 px-0">
+            <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+                <div class="card-header">
+                    <div class="row mx-0 w-100 align-items-center">
+                        <div class="col-lg-10">
+                            <h1 class="text--500wt text--gray1 my-0">
+                                {{ 'administracion.cargueMasivoCallCenter.form.cargueMasivoTitulo' | translate }}
+                            </h1>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn--circle btn--circle_green" (click)="modalCargarArchivo(false)">
+                                <span class="icon-cross mr-2"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm">
+                    <div class="card-body pb-0">
+                        <div class="row mx-0">
+                            <!-- Tipo de transacción -->
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group row align-items-center">
+                                    <label appMimLabel for="tipoTransaccion" class="col-sm-12 col-form-label">
+                                        {{ 'administracion.cargueMasivoCallCenter.form.tipoTransaccion' | translate }}
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <div class="input-group" appMimInput [for]="'tipoTransaccion'"
+                                            [controlName]="'tipoTransaccion'">
+                                            <app-mim-select class="w-100" [inputId]="'tipoTransaccion'"
+                                                [options]="tipoTransaccion" formControlName="tipoTransaccion"
+                                                [optionKey]="'nombre'" name="'tipoTransaccion'" ngDefaultControl>
+                                            </app-mim-select>
+                                        </div>
+                                    </div>
+                                    <app-mim-input-error class="col-sm-12" controlName="tipoTransaccion"
+                                        errorKey="required">
+                                        {{ 'global.required' | translate  : { campo: 'administracion.cargueMasivoCallCenter.form.tipoTransaccion' | translate } }}
+                                    </app-mim-input-error>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group row align-items-center">
+                                    <label appMimLabel class="col-sm-12 col-form-label" for="tipoMovimiento">
+                                        {{ 'administracion.cargueMasivoCallCenter.form.tipoMovimiento' | translate }}
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <div class="input-group" appMimInput [for]="'tipoMovimiento'"
+                                            [controlName]="'tipoMovimiento'">
+                                            <app-mim-select class="w-100" [inputId]="'tipoMovimiento'"
+                                                [options]="tipoMovimiento" [optionKey]="'nombre'"
+                                                name="'tipoMovimiento'" formControlName="tipoMovimiento"
+                                                ngDefaultControl>
+                                            </app-mim-select>
+                                        </div>
+                                    </div>
+                                    <app-mim-input-error class="col-sm-12" controlName="tipoMovimiento"
+                                        errorKey="required">
+                                        {{ 'global.required' | translate  : { campo: 'administracion.cargueMasivoCallCenter.form.tipoMovimiento' | translate } }}
+                                    </app-mim-input-error>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 w-100 px-sm-1 px-xl-3 pb-4">
+                                <div class="d-flex bd-highlight">
+                                    <div class="mr-auto bd-highlight">
+                                        <button type="button" class="btn btn--border_green1 btn--md"
+                                            (click)="descargarDocumento()" [disabled]="cargarDocumento">
+                                            <span class="icon-download-2 mr-2"></span>
+                                            {{ 'administracion.cargueMasivoCallCenter.form.descargarFormato' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group row align-items-center">
+                                <label appMimLabel for="archivo" class="col-sm-12 col-form-label">
+                                  {{ 'administracion.cargueMasivoCallCenter.form.SeleccionaArchivo' | translate }}
+                                </label>
+                                <div class="col-sm-12">
+                                  <div class="custom-file" appMimInput [for]="'archivo'" [controlName]="'archivo'">
+                                    <input type="file" class="custom-file-input" id="archivo" (change)="uploadFile($event)"
+                                      [disabled]="cargarDocumento" formControlName="archivo">
+                                    <label class="custom-file-label" [for]="'archivo'">{{nombreDocumento}}</label>
+                                  </div>
+                                </div>
+                                  <app-mim-input-error class="col-sm-12" controlName="archivo" errorKey="required">
+                                    {{ 'global.required' | translate  : { campo: 'administracion.cargueMasivoCallCenter.form.SeleccionaArchivo' | translate } }}
+                                  </app-mim-input-error>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 w-100 px-sm-1 px-xl-3 pt-3">
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="submit" class="btn btn--orange1 btn--md" (click)="cargar()"
+                                        [disabled]="estadoProcesar">
+                                        <span class="icon-checkmark mr-2"></span>
+                                        {{ 'administracion.cargueMasivoCallCenter.form.procesar' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin crear cargue masivo. -->
+
+<div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+    <div class="card-body py-2">
+        <div class="row mx-0 w-10 justify-content-end align-items-center">
+            <!-- Botones -->
+            <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                    <button class="btn btn--orange1 btn--md mr-2" (click)="modalCargarArchivo(true)">
+                        <span class="icon-plus mr-2"></span>
+                        {{ 'global.cargar' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal lateral -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarModal == true }" *ngIf="mostrarModal">
+    <div class="row mx-0 w-100 justify-content-end">
+        <div class="col-xl-4 col-md-6 px-0">
+            <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+                <div class="card-header">
+                    <div class="row mx-0 w-100 align-items-center">
+                        <div class="col-lg-10">
+                            <h1 class="text--500wt text--gray1 my-0">
+                                {{
+                                'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.titulo'
+                                | translate}}
+                            </h1>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn--circle btn--circle_green" (click)="toggleModal()">
+                                <span class="icon-cross mr-2"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form class="form--default w-100" [formGroup]="formRechazar">
+                        <!-- Causa de negación -->
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group row align-items-center">
+                                <label appMimLabel for="causaNegacion" class="col-sm-12 col-form-label">
+                                    {{
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.titulo'
+                                    | translate }}
+                                </label>
+                                <div class="col-sm-12">
+                                    <div class="input-group" appMimInput [for]="'causaNegacion'"
+                                        [controlName]="'causaNegacion'">
+                                        <app-mim-select class="w-100" [inputId]="'causaNegacion'"
+                                            [options]="causaNegaciones" formControlName="causaNegacion"
+                                            [optionKey]="'nombre'" name="'causaNegacion'" ngDefaultControl>
+                                        </app-mim-select>
+                                    </div>
+                                </div>
+                                <app-mim-input-error class="col-sm-12" controlName="causaNegacion" errorKey="required">
+                                    {{ 'global.required' | translate : { campo:
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.titulo'
+                                    | translate } }}
+                                </app-mim-input-error>
+                            </div>
+                        </div>
+
+                        <!-- Observación -->
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group row align-items-center">
+                                <label appMimLabel for="observacion" class="col-sm-12 col-form-label">
+                                    {{
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.observacion'
+                                    | translate }}
+                                </label>
+                                <div class="col-sm-12">
+                                    <div class="input-group" appMimInput [for]="'observacion'"
+                                        [controlName]="'observacion'">
+                                        <textarea type="text" rows="7" class="form-control" id="observacion"
+                                            formControlName="observacion" name="observacion" maxlength="1000" mask="a*"
+                                            [patterns]="patterns" [dropSpecialCharacters]="false">
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <app-mim-input-error class="col-sm-12" controlName="observacion" errorKey="required">
+                                    {{ 'global.required' | translate : { campo:
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.observacion'
+                                    | translate } }}
+                                </app-mim-input-error>
+                                <app-mim-input-error class="col-sm-12" controlName="observacion" errorKey="maxlength">
+                                    {{ 'global.maxCaracteres' | translate
+                                    :{ campo:
+                                    'administracion.cargueMasivoCallCenter.bandejaGestionDetalladaOperaciones.modal.observacion'
+                                    | translate, max: '1000' | translate }
+                                    }}
+                                </app-mim-input-error>
+                            </div>
+                        </div>
+
+                        <div class="card-footer  w-100 border-0 px-0">
+                            <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn--orange1 btn--md" (click)="guardarCausaNegacion()"
+                                    [disabled]="formRechazar.invalid">
+                                    <span class="icon-checkmark  mr-2"></span>
+                                    {{ 'global.save' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

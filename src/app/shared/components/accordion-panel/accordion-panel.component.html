@@ -1,0 +1,26 @@
+<div class="accordion" [id]="_id">
+  <div class="card cards--panelLeft mb-4">
+    <div class="card-header d-none d-xl-inline-flex" [id]="_id +'collapseOne'">
+      <h5 class="mb-0 w-100">
+        <button
+          class="btn btn-link"
+          type="button"
+          data-toggle="collapse"
+          [attr.data-target]="'#collapseOne'+_id"
+          aria-expanded="false"
+          [attr.aria-controls]="'collapseOne'+_id"
+          (click)="_onClickOpen()"
+        >
+          <span class="pl-2 pr-2 text-truncate float-left">{{ titulo | translate }}</span>
+          <span class="icon-chevron-down float-right" [ngClass]="{'arrow-up': _showAccordion}" ></span>
+        </button>
+      </h5>
+    </div>
+    <div [id]="'collapseOne'+_id" class="collapse show-min-1200" >
+      <div class="card-body animation-display">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,120 @@
+<div class="card bg--white border-0 rounded-0">
+  <div class="card-body">
+    <form class="form--default" [formGroup]="form" *ngIf="isForm | async as isForm;" novalidate
+      (ngSubmit)="formConfiguracionSeguridad()">
+      <div class="">
+        <div class="card-body px-4 pt-4 pb-4">
+          <div class="row ">
+            <!-- Entidad -->
+            <div class="form-group col-4">
+              <label class="col-form-label" appMimLabel for="entidad">
+                {{ 'administracion.configuracion-seguridad.log-novedades.entidad.titulo' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'entidad'" [controlName]="'entidad'">
+                <app-mim-select class="w-100" [inputId]="'entidad'" formControlName="entidad" ngDefaultControl
+                  [options]="dataEntidades" [optionKey]="'nombreTabla'" (blur)="_changeEntidad()">
+                </app-mim-select>
+              </div>
+            </div>
+
+            <!--Campo Entidad -->
+            <div class="form-group col-4">
+              <label class="col-form-label" appMimLabel for="dataNombreEntidades">
+                {{ 'administracion.configuracion-seguridad.log-novedades.campoEntidad.titulo' | translate }}
+              </label>
+              <div class="input-group" appMimInput [for]="'dataNombreEntidades'" [controlName]="'campoEntidad'">
+                <app-mim-select class="w-100" formControlName="campoEntidad" ngDefaultControl
+                  [inputId]="'dataNombreEntidades'" [options]="dataNombreEntidades" [optionKey]="'columna'">
+                </app-mim-select>
+              </div>
+            </div>
+
+            <!-- Novedades -->
+            <div class="form-group col-4">
+              <label class="col-form-label" appMimLabel for="novedades">
+                {{ 'administracion.configuracion-seguridad.log-novedades.novedades.titulo' | translate }}
+              </label>
+              <div class="col-12">
+                <div class="row">
+                  <div class="input-group col-10 px-0" appMimInput [for]="'novedades'" [controlName]="'novedades'">
+                    <app-mim-select class="w-100" formControlName="novedades" ngDefaultControl [inputId]="'novedades'"
+                      [optionKey]="'descripcionNovedad'" [options]="dataNovedades">
+                    </app-mim-select>
+
+                  </div>
+                  <div class="input-group ml-0 col-2 p-0 divBtn">
+                    <button class="input-group p-0 w-100 btn borderRadius btn--white text--orange1" type="button"
+                      (click)="activePanelRight(true)" title="INGRESAR NOVEDAD">
+                      <span class="icon-plus"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <!-- Contrles -->
+          <div class="form-group">
+            <div class="row mx-auto col-2">
+              <button class="btn btn--orange1 btn--md w-100">
+                {{ 'administracion.configuracion-seguridad.log-novedades.agregar' | translate }}
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="panel--gray panel-grid pt-2">
+  <app-mim-grid [configuracion]="configuracion.gridLogNovedades" (clickCelda)="onEliminar($event)"
+    (atras)="_OnAtras($event)" (siguiente)="_OnSiguiente($event)"></app-mim-grid>
+</div>
+
+<!-- PANEL -> CONSULTA DE ASOCIADO -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: shownPanel == true }">
+  <div class="row mx-0 w-100">
+    <div class="col-8">
+    </div>
+    <div class="col-lg-4 px-0 ">
+      <div class="card cards--panel bg--white border-0 rounded-0">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10 px-0">
+              <h1 class="text--500wt text--gray1 my-0">
+                {{ 'administracion.configuracion-seguridad.log-novedades.panelLateral.titulo' | translate }}
+              </h1>
+            </div>
+            <div class="col-lg-2 px-0">
+              <button class="btn btn--circle btn--circle_green" (click)="activePanelRight(false)">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="col">
+            <div class="form--default my-5">
+              <div class="form-group mb-4">
+                <label appMimLabel for="formConsultaAsocuadosID">
+                  {{ 'administracion.configuracion-seguridad.log-novedades.panelLateral.label' | translate }}
+                </label>
+                <div class="input-group">
+                  <textarea class="form-control" #novedad id="formObservacionNovedad" placeholder="" rows="5"
+                    maxlength="2000" [(ngModel)]="textNovedad"></textarea>
+                </div>
+              </div>
+              <button type="button" class="btn btn--lg btn--orange1 w-100 mt-4" (click)="agregarNovedad(novedad.value)">
+                {{ 'administracion.configuracion-seguridad.log-novedades.panelLateral.AgregarNovedad' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

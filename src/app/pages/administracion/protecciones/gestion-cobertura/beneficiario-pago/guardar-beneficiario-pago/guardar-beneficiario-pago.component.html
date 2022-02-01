@@ -1,0 +1,92 @@
+<div class="row  mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      <ng-template [ngIf]="!_esCreacion">
+        {{ 'administracion.protecciones.beneficiarioPago.guardar.actualizar' | translate }}
+      </ng-template>
+    </h1>
+  </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+    <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+      <div class="card-body">
+        <div class="row mx-0 w-100">
+
+          <!-- Fondo -->
+          <div class="col-sm-12 col-md-6">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="fondo" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.beneficiarioPago.guardar.fondo' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'fondo'" [controlName]="'fondo'">
+                  <input type="text" class="form-control" id="fondo" formControlName="fondo" name="fondo" />
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="fondo" errorKey="required">
+                {{ 'global.required' | translate  : { campo: 'administracion.protecciones.beneficiarioPago.guardar.fondo' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Nombre -->
+          <div class="col-sm-12 col-md-6">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="nombre" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.beneficiarioPago.guardar.nombre' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'nombre'" [controlName]="'nombre'">
+                  <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre" />
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="required">
+                {{ 'global.required' | translate  : { campo: 'administracion.protecciones.beneficiarioPago.guardar.nombre' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Beneficiario Indemnización -->
+          <div class="col-sm-12 col-md-6">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="tipoBeneficiarioPago" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.beneficiarioPago.guardar.tipoBeneficiarioPago' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'tipoBeneficiarioPago'"
+                  [controlName]="'tipoBeneficiarioPago'">
+                  <app-mim-multiselect class="w-100" [inputId]="'tipoBeneficiarioPago'" [options]="listaTipoBeneficiarioPago"
+                    formControlName="tipoBeneficiarioPago" [optionKey]="'nombre'" name="'tipoBeneficiarioPago'"
+                    ngDefaultControl>
+                  </app-mim-multiselect>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="tipoBeneficiarioPago" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.beneficiarioPago.guardar.tipoBeneficiarioPago' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+          
+          <!--Controles -->
+          <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+            <div class="card-body py-2">
+              <div class="row mx-0 w-10 justify-content-end align-items-center">
+                <!-- Botones -->
+                <div class="col-xl-12">
+                  <div class="d-flex flex-row-reverse">
+                    <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                      [disabled]="form.pristine">
+                      <span class="icon-edit-3 mr-2"></span>
+                      {{ 'global.save' | translate }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>

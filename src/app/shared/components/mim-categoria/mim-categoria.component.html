@@ -1,0 +1,42 @@
+<!-- Categoria. -->
+<ng-template [ngIf]="configuracion">
+  <div class="plan-width100">
+    <div class="col-md-12 mt-2">
+      <div class="row mx-0 w-100 mb-1 align-items-center">
+        <div class="col-md-1 pl-4" *ngIf="configuracion.seleccionado">
+          <form class="form--default">
+            <div class="custom-control custom-checkbox custom-checkbox_box justify-content-center">
+              <input type="checkbox" class="custom-control-input" id="checkedSelectTodos" name="customRadio"
+                [(ngModel)]="configuracion._seleccionado" [ngModelOptions]="{ standalone: true }"
+                (click)="_onSelectAll(configuracion)" />
+              <label class="custom-control-label icon-" for="checkedSelectTodos"></label>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-11 p-0 m-0">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-4 p-0">
+              <h5 class="badge--title my-0 badge badge-primary text-uppercase text--13pts p-2 text-title-badge"
+                [ngClass]="
+                  this.configuracion.cssBgBadge
+                    ? this.configuracion.cssBgBadge
+                    : 'bg--orange1'">
+                {{ configuracion.titulo | translate }}
+              </h5>
+            </div>
+            <div class="col-8 p-0 pl-3">
+              <hr class="mt-4" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Detalle de la categoria. -->
+    <div class="plan-width100">
+      <div class="col md-12">
+        <!-- Aqui va el detalle -->
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</ng-template>

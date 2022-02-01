@@ -1,0 +1,227 @@
+<div class="w-100 mt-2 mb-3">
+
+    <form class="form--default w-100 pb-5" [formGroup]="form" *ngIf="isForm | async as isForm;">
+
+        <div class="cards--headerFooter w-100">
+
+            <div class="card-body">
+                <div class="row mx-0">
+
+                    <!-- Solicitada por -->
+                    <div class="col-sm-6 com-xl-6">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="solicitudRecibidaPor" class="col-sm-12 col-form-label">
+                                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.solicitudRecibidaPor' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'solicitudRecibidaPor'"
+                                    [controlName]="'solicitudRecibidaPor'">
+                                    <app-mim-select class="w-100" [inputId]="'solicitudRecibidaPor'"
+                                        [options]="solicitudRecibidaPor" formControlName="solicitudRecibidaPor"
+                                        [optionKey]="'nombre'" name="'solicitudRecibidaPor'" ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="solicitudRecibidaPor"
+                                errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.registro.registraSolicitud.solicitudRecibidaPor' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+
+                    </div>
+
+                    <!-- tipoReclamacion -->
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="tipoReclamacion" class="col-sm-12 col-form-label">
+                                {{ 'eventos.consulta.solicitud.registro.registraSolicitud.tipoEvento' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'tipoReclamacion'"
+                                    [controlName]="'tipoReclamacion'">
+                                    <app-mim-select class="w-100" [inputId]="'tipoReclamacion'"
+                                        [options]="tipoReclamaciones" formControlName="tipoReclamacion"
+                                        [optionKey]="'nombre'" name="'tipoReclamacion'" ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="tipoReclamacion" errorKey="required">
+                                {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.registro.registraSolicitud.tipoEvento' | translate } }}
+                            </app-mim-input-error>
+
+                        </div>
+                    </div>
+
+                    <!-- Canal -->
+                    <div class="col-sm-6 col-xl-6">
+                      <div class="form-group row align-items-center">
+                          <label appMimLabel for="canal" class="col-sm-12 col-form-label">
+                              {{ 'eventos.consulta.solicitud.registro.registraSolicitud.canal' | translate }}
+                          </label>
+                          <div class="col-sm-12">
+                              <div class="input-group" appMimInput [for]="'canal'" [controlName]="'canal'">
+                                  <app-mim-select class="w-100" [inputId]="'canal'" [options]="canales"
+                                      formControlName="canal" [optionKey]="'nombre'" name="'canal'"
+                                      ngDefaultControl>
+                                  </app-mim-select>
+                              </div>
+                          </div>
+                          <app-mim-input-error class="col-sm-12" controlName="canal" errorKey="required">
+                              {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.registro.registraSolicitud.canal' | translate } }}
+                          </app-mim-input-error>
+                      </div>
+                    </div>
+
+                    <!-- oficina registro -->
+                    <div class="col-sm-6 col-xl-6">
+                      <div class="form-group row align-items-center">
+                        <label appMimLabel for="oficina" class="col-sm-12 col-form-label">
+                            {{ 'eventos.consulta.solicitud.oficina' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                            <div class="input-group" appMimInput [for]="'oficina'" [controlName]="'oficina'">
+                                <app-mim-select class="w-100" [inputId]="'oficina'" [options]="oficinas"
+                                    formControlName="oficina" [optionKey]="'nomAgc'" name="'oficina'"
+                                    ngDefaultControl>
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="oficina" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.oficina' | translate } }}
+                        </app-mim-input-error>
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="row">
+                          <!-- fecha inicio y fecha fin -->
+                          <div class="col-sm-12 col-xl-12">
+                              <div class="form-group row align-items-center">
+                                  <label class="col-sm-12 col-form-label" appMimLabel for="fechaReclamacion">
+                                      {{ 'eventos.consulta.solicitud.registro.registraSolicitud.fechaEvento' | translate }}
+                                  </label>
+                                  <div class="col-sm-12">
+                                      <div class="input-group" appMimInput [for]="'fechaReclamacion'"
+                                          [controlName]="'fechaReclamacion'">
+                                          <app-mim-date-picker class="w-100" [inputId]="'fechaReclamacion'" [maxDate]="maxDate"
+                                              formControlName="fechaReclamacion" ngDefaultControl>
+                                          </app-mim-date-picker>
+                                      </div>
+                                  </div>
+                                  <app-mim-input-error class="col-sm-12" controlName="fechaReclamacion"
+                                      errorKey="required">
+                                      {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.registro.registraSolicitud.fechaEvento' | translate } }}
+                                  </app-mim-input-error>
+                              </div>
+                          </div>
+                          <!-- Origen -->
+                          <div class="col-sm-12 col-xl-12">
+                            <div class="form-group row align-items-center">
+                              <label appMimLabel for="origen" class="col-sm-12 col-form-label">
+                                  {{ 'eventos.consulta.solicitud.registro.registraSolicitud.origen' | translate }}
+                              </label>
+                              <div class="col-sm-12">
+                                  <div class="input-group" appMimInput [for]="'origen'"
+                                      [controlName]="'origen'">
+                                      <app-mim-select class="w-100" [inputId]="'origen'"
+                                          [options]="origenes" formControlName="origen"
+                                          [optionKey]="'nombre'" name="'origen'" ngDefaultControl>
+                                      </app-mim-select>
+                                  </div>
+                              </div>
+                              <app-mim-input-error class="col-sm-12" controlName="origen" errorKey="required">
+                                  {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.registro.registraSolicitud.origen' | translate } }}
+                              </app-mim-input-error>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <!-- Reclamo por -->
+                    <div class="col-sm-6 col-xl-6">
+                        <fieldset class="fieldset_mm pb-2 col-sm-12 col-md-12">
+                            <legend class="legend_mm">
+                                <span class="text--16pts text--600wt">
+                                    {{ 'eventos.consulta.solicitud.registro.registraSolicitud.reclamoPor' | translate }}
+                                </span>
+                            </legend>
+                            <div class="row">
+
+                              <div class="checkbox-coomeva col-sm-5 com-md-5 offset-1" *ngFor="let itemReclamo of reclamosPor; let i = index">
+                                  <label appMimLabel for="filtroLiquidacion{{i}}">
+                                      {{itemReclamo.nombre}}
+                                  </label>
+                                  <input id="filtroLiquidacion{{i}}" name="reclamoPor" type="radio" [value]="itemReclamo.codigo"
+                                      formControlName="reclamoPor" />
+                                  <label class="checkmark-coomeva" for="filtroLiquidacion{{i}}">
+                                  </label>
+                              </div>
+                              <div class="col-sm-12 com-md-12 pt-2">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-sm-12">
+                                          <div class="input-group" appMimInput [for]="'beneficiario'"
+                                              [controlName]="'beneficiario'">
+                                              <app-mim-select class="w-100 text-uppercase" [inputId]="'beneficiario'"
+                                                  [options]="beneficiarios" formControlName="beneficiario"
+                                                  [optionKey]="'nombre'" name="'beneficiario'" ngDefaultControl>
+                                              </app-mim-select>
+                                          </div>
+                                      </div>
+                                      <app-mim-input-error class="col-sm-12" controlName="beneficiario"
+                                          errorKey="required">
+                                          {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.registro.registraSolicitud.beneficiario' | translate } }}
+                                      </app-mim-input-error>
+                                  </div>
+                              </div>
+                              <app-mim-input-error class="col-sm-12" controlName="reclamoPor" errorKey="required">
+                                  {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.registro.registraSolicitud.reclamoPor' | translate } }}
+                              </app-mim-input-error>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <!-- Tratamiento especial -->
+                    <div class="col-sm-6 col-xl-6">
+                      <div class="form-group row align-items-center">
+                        <label appMimLabel for="tratamientoEspecial" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.registro.registraSolicitud.tratamientoEspecial' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                          <div class="custom-control custom-switch p-0">
+                            <label class="switch">
+                                <input type="checkbox" formControlName="tratamientoEspecial" id="tratamientoEspecial" name="tratamientoEspecial">
+                                <span class="slider round">
+                                  <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                                  <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                                </span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Asociado beneficiario declarante renta -->
+                    <div class="col-sm-6 col-xl-6">
+                      <div class="form-group row align-items-center">
+                        <label appMimLabel for="declarante" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.registro.registraSolicitud.declarante' | translate }}
+                        </label>
+                        <div class="col-sm-12">
+                          <div class="custom-control custom-switch p-0">
+                            <label class="switch">
+                              <input type="checkbox" formControlName="declarante" id="declarante" name="declarante">
+                              <span class="slider round">
+                                <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                                <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,131 @@
+<div class="row" *ngIf="venta !== undefined && venta !== null && datosAsociado !== undefined && datosAsociado !== null">
+  <!-- PANEL DERECHO -->
+  <div class="col-xl-3 mt-n5 index-z">
+    <div class="pt-2">
+      <app-mim-persona-detalle [configuracion]="mimPersonaDetalleConfiguracion"></app-mim-persona-detalle>
+    </div>
+  </div>
+  <!-- PANEL DERECHO -->
+  <div class="col-xl-9">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-md-8">
+          <h1 class="mb-0 my-0 d-inline-flex align-items-center text--tittle_circle mb-4">
+            {{ 'asociado.protecciones.portafolio.auditoriaMedicaVentas.titulo' | translate }}
+          </h1>
+          <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm">
+            <div class="card posicion_top_card cards--panelLeft col-12">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-sm-6 col-xl-6 px-0">
+                    <div class="form-group row align-items-center">
+                      <label appMimLabel for="cobertura" class="col-sm-12 col-form-label">
+                        {{ 'asociado.protecciones.portafolio.auditoriaMedicaVentas.campos.conceptoAuditor' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'conceptoAuditor'"
+                          [controlName]="'conceptoAuditor'">
+                          <app-mim-select class="w-100" [inputId]="'conceptoAuditor'" [options]="conceptoAuditorSelect"
+                            formControlName="conceptoAuditor" [optionKey]="'nombre'"
+                            name="'conceptoAuditor'" ngDefaultControl>
+                          </app-mim-select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xl-6 pr-0">
+                    <div class="form-group row align-items-center">
+                      <label appMimLabel for="razonNegacion" class="col-sm-12 col-form-label">
+                        {{ 'asociado.protecciones.portafolio.auditoriaMedicaVentas.campos.razonNegacion' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'razonNegacion'"
+                          [controlName]="'razonNegacion'">
+                          <app-mim-select class="w-100" [inputId]="'razonNegacion'"
+                            [options]="razonNegacionSelect" formControlName="razonNegacion"
+                            [optionKey]="'nombre'" name="'razonNegacion'" ngDefaultControl>
+                          </app-mim-select>
+                        </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="razonNegacion" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'asociado.protecciones.portafolio.auditoriaMedicaVentas.campos.razonNegacion' | translate } }}
+                      </app-mim-input-error>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card posicion_top_card cards--panelLeft col-12 mt-2">
+              <div class="col-12">
+
+                <div class="row">
+                  <div class="col-sm-12 col-xl-12 px-0">
+                    <div class="form-group row align-items-center">
+                      <label appMimLabel for="observacion" class="col-sm-12 col-form-label">
+                        {{ 'asociado.protecciones.portafolio.auditoriaMedicaVentas.campos.observacion' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'observacion'" [controlName]="'observacion'">
+                          <textarea type="text" rows="6" class="form-control" id="observacion"
+                            formControlName="observacion" name="'observacion'" mask="c*" [patterns]="patterns"
+                            [dropSpecialCharacters]="false" maxlength="1000">
+                                                    </textarea>
+                        </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="observacion" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'asociado.protecciones.portafolio.auditoriaMedicaVentas.campos.observacion' | translate } }}
+                      </app-mim-input-error>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="card cards--footer border-0 rounded-0">
+              <div class="card-body py-2">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mx-1" (click)="guardar()" [disabled]="bloquearBotonGuardar">
+                    <span class="icon-save mr-2"></span>
+                    {{ 'global.save' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="col-md-4">
+          <app-mim-links (customGoTo)="customGoTo($event)" [configuracion]="mimLinksConfiguracion">
+          </app-mim-links>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Bitacora-->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarBitacora == true }" *ngIf="mostrarBitacora">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-xl-6 col-md-8 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+        <div class="card-header mb-3">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0">
+                {{ 'eventos.consulta.bitacora.titulo' | translate }}
+              </h1>
+            </div>
+            <div class="col-lg-2 d-flex justify-content-end">
+              <button class="btn btn--circle btn--circle_green" (click)="cerrarModalBitacora()">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <app-mim-bitacora class="mx-3" [idProceso]="idProceso" [titulo]="''" *ngIf="mostrarBitacora">
+        </app-mim-bitacora>
+      </div>
+    </div>
+  </div>
+</div>

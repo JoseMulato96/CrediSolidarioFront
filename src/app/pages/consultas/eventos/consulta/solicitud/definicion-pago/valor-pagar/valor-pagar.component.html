@@ -1,0 +1,177 @@
+<div class="w-100 mt-2 mb-3">
+
+  <form class="form--default w-100 pb-5" [formGroup]="form" *ngIf="isForm | async as isForm;">
+
+    <!-- Cabecera valores cobertura -->
+    <div class="card bg--gray5 mb-2 rounded border-none">
+
+      <div class="card-header py-3 border-none">
+        <div class="row mx-0 w-100 align-items-center">
+          <div class="col-md-5">
+            <div class="row mx-0 w-100 justify-content-start">
+              <!-- For de los planes -->
+              <div class="col-md-11">
+                <h5 class="my-0 text-uppercase text-bold">
+                  {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.gridDetalleEvento.nombre' | translate }}
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-7">
+            <div class="row">
+                <div class="col-6 p-0">
+                  <h5 class="my-0 text-uppercase text-bold">
+                    {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.gridDetalleEvento.proteccionBase' | translate }}
+                  </h5>
+                </div>
+
+                <div class="col-6 p-0">
+                  <h5 class="my-0 text-uppercase text-bold">
+                    {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.gridDetalleEvento.valorBase' | translate }}
+                  </h5>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Detalle valores de cobertura-->
+    <ng-container *ngFor="let _detalle of definicionPago.liquidacionEvento.mimLiquidacionDetalleList;">
+      <!-- Datos cobertura -->
+      <app-mim-detalle-evento [eventoDetalle]="_detalle" [valoresAPagar]="definicionPago.valorAPagar" [codigoSublimite]="definicionPago.codigoSublimite" [faseFlujo]="definicionPago.codFaseFlujo" (datoDetalleEvento)="datoDetalleEvento($event)"></app-mim-detalle-evento>
+    </ng-container>
+
+    <!-- Footer valores cobertura -->
+    <div class="card cards--panelLeft cards--panelLeft_beneficiarios mb-2">
+
+      <div class="card-header py-3">
+        <div class="row mx-0 w-100 align-items-center">
+          <div class="col-md-5">
+            <div class="row mx-0 w-100 justify-content-start">
+              <!-- For de los planes -->
+              <div class="col-md-11"></div>
+            </div>
+          </div>
+
+          <div class="col-md-7">
+            <div class="row">
+                <div class="col-6 p-0 justify-content-end">
+                  <h4 class="my-0 text-uppercase text-bold">
+                    {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.gridDetalleEvento.valorTotalBase' | translate }}
+                    </h4>
+                </div>
+
+                <div class="col-6 p-0">
+                  <h4 class="my-0  text-bold text--green1">
+                    {{this.definicionPago.liquidacionEvento.valorTotalPago | customCurrency | emptyPipe}}
+                    </h4>
+                </div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Valores Evento -->
+    <app-mim-valores-evento [datosValores]="definicionPago.solicitudEvento" [faseFlujo]="definicionPago.codFaseFlujo" [asoNumInt]="definicionPago.asoNumInt" (vlrCuotaMensual)="vlrCuotaMensual($event)" (vlrSaldosVencidos)="vlrSaldosVencidos($event)" (vlrDeduccionesVarias)="vlrDeduccionesVarias($event)"></app-mim-valores-evento>
+
+    <div class="cards--headerFooter w-100">
+        <div class="card-body justify-content-between">
+
+          <div class="col-sm-12 col-md-12">
+            <div class="row">
+              <div class="ng-star-inserted row pl-4">
+                <div class="btn btn--icon bg--blue2">
+                    <span class="icon-graph-line text--orange1"></span>
+                </div>
+                <label appMimLabel class="col-form-label ml-3">
+                    {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.deducciones' | translate }}
+                </label>
+              </div>
+            </div>
+            <hr class="col-12" />
+          </div>
+
+          <!-- Titulos deducciones -->
+          <div class="d-flex justify-content col-sm-11 col-md-11 pr-0 pr-3">
+            <!-- Cuota mensual -->
+            <div class="col-sm-3 col-md-3 pr-0">
+              <label appMimLabel class="col-form-label ml-3">
+                {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.cuotaMensual' | translate }}
+              </label>
+            </div>
+
+            <!-- Deducciones varias -->
+            <div class="col-sm-3 col-md-3 pr-0">
+              <label appMimLabel class="col-form-label ml-3">
+                {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.deduccionesVarias' | translate }}
+              </label>
+            </div>
+
+            <!-- Saldos vencidos -->
+            <div class="col-sm-3 col-md-3 pr-0">
+              <label appMimLabel class="col-form-label ml-3">
+                {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.saldosVencidos' | translate }}
+              </label>
+            </div>
+
+            <!-- Total deducciones -->
+            <div class="col-sm-3 col-md-3 pr-0">
+              <label appMimLabel class="col-form-label ml-3">
+                {{ 'eventos.consulta.solicitud.liquidacionPago.valorPagar.totalDeducciones' | translate }}
+              </label>
+            </div>
+          </div>
+
+          <!-- Valores deducciones -->
+          <div class="d-flex justify-content col-sm-11 col-md-11 pr-0 pr-3">
+            <!-- Cuota mensual -->
+            <div class="col-sm-3 col-md-3 pr-0">
+              <label appMimLabel class="col-form-label ml-3">
+                {{definicionPago.liquidacionEvento?.valorCuotaMes | customCurrency | emptyPipe}}
+              </label>
+            </div>
+
+            <!-- Deducciones varias -->
+            <div class="col-sm-3 col-md-3 pr-0">
+              <label appMimLabel class="col-form-label ml-3">
+                {{definicionPago.liquidacionEvento?.valorDeduccionesVarias | customCurrency | emptyPipe}}
+              </label>
+            </div>
+
+            <!-- Saldos vencidos -->
+            <div class="col-sm-3 col-md-3 pr-0">
+              <label appMimLabel class="col-form-label ml-3">
+                {{definicionPago.liquidacionEvento?.valorSaldosVencidos | customCurrency | emptyPipe}}
+              </label>
+            </div>
+
+            <!-- Total deducciones -->
+            <div class="col-sm-3 col-md-3 pr-0">
+              <label appMimLabel class="col-form-label ml-3">
+                {{definicionPago.liquidacionEvento?.valorTotalDeducciones | customCurrency | emptyPipe}}
+              </label>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+    <!-- Devolución por error -->
+    <app-mim-devolucion-por-error formGroupName="devolverPorError" [dataInit]="dataInitDevolverPorError"></app-mim-devolucion-por-error>
+
+     <!-- Gestion pendiente por -->
+     <app-mim-gestion-pendiente-por formGroupName="gestionPendientePor" [dataInit]="dataInitGestionPendientePor"></app-mim-gestion-pendiente-por>
+
+    <!-- Observación -->
+    <app-mim-observacion-evento [descripcionObserva]="definicionPago.observacion" (datoObservacion)="datoObservacion($event)"></app-mim-observacion-evento>
+
+  </form>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="row mx-0 w-100 ">
+  <div class="col-12">
+    <div class="row">
+      <!-- Boton atras -->
+      <p class="text-left mr-3">
+        <a class="btn btn--circle justify-content-start" (click)="irAtras()">
+          <span class="icon-arrow-thin-left mr-2"></span>
+          {{ 'global.back' | translate }}
+        </a>
+      </p>
+      <!-- Titulo -->
+      <h1 class="mt-2">{{ 'beneficiarios.asociados.titulo' | translate }}</h1>
+    </div>
+    <app-mim-detalle-usuario-cabecera [configuracion]="configuracion.dllUsuario" class="mx-2">
+    </app-mim-detalle-usuario-cabecera>
+
+    <h1>{{ 'beneficiarios.asociados.subTitulo2' | translate }}</h1>
+    <app-mim-grid [configuracion]="configuracion.gridHistorico" (atras)="onAtras($event)"
+      (siguiente)="onSiguiente($event)"></app-mim-grid>
+  </div>
+</div>

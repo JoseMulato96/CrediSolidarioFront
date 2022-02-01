@@ -1,0 +1,197 @@
+@media (min-width: 1024px)
+    .container
+        max-width 984px  
+    .sidebar--header
+        & .container
+            max-width inherit
+    .cards--accordion_transform
+        left 7rem
+        top -12.7rem
+@media (min-width: 1200px)
+    .container
+        max-width 1140px   
+    .sidebar--header .media .dropdown .dropdown-menu
+        left 0 
+    .cards--accordion
+        position relative 
+    .nav--muesca
+        height auto
+        position relative
+        transform rotate(0deg) translateX(0)
+        width 100%
+        .nav-item
+            margin-bottom .5rem 
+            width 100%                 
+            & .nav-link
+                align-items center
+                border-right 0
+                border-radius 5px
+                color gray2
+                display flex
+                font-size  .8125rem
+                font-weight 700
+                justify-content  space-between
+                padding 1.2rem 1.5rem
+                text-transform  uppercase
+                width 100%
+                & span
+                    &[class^="icon-"], &[class*=" icon-"] 
+                        transform rotate(0)
+                &[aria-expanded=true] 
+                    border-radius 5px 5px 0 0
+                    border-bottom 1px solid gray3
+                    & span.icon-chevron-up
+                        display block
+                        transform rotate(180deg) 
+            &:nth-child(1)
+                display none 
+                order 4
+            &:nth-child(2)
+                order 2
+            &:nth-child(3)
+                order 3
+            &:nth-child(4)
+                order 4                  
+        &.nav--muesca_xs
+            top 3rem
+        &.nav--muesca_xl
+            top 2.5rem
+            & .nav-item
+                margin-bottom 0
+                & .nav-link
+                    border-radius 0
+                    justify-content  start
+                    & span
+                        &[class^="icon-"]
+                            color gray2
+                            margin-right .5rem
+                    &[aria-expanded=true]
+                        background-color  #fff8f6
+                        border-left 3px solid orange1
+                        border-bottom 0px
+                        color orange1
+                        & span
+                            &[class^="icon-"]
+                                color orange1
+                & ul.nav--panelLeft_submenu
+                    margin 0
+                    & .nav-item
+                        display  block !important 
+                        height auto
+                        width 100%
+                        & .nav-link
+                            font-weight 400
+                            height auto
+                            padding 0 0 0 3rem
+                &:nth-child(1)
+                    display none 
+                    order 1
+                    & .nav-link
+                        border-radius 5px
+                &:nth-child(2)
+                    order 2
+                    margin-bottom 0.5rem
+                    & .cards--accordion_transform
+                        display block
+                    & .nav-link
+                        justify-content  space-between
+                        padding-right .5rem
+                        &[aria-expanded=true]
+                            background-color  white
+                            border-left 0px
+                            border-bottom 1px solid gray3
+                            color gray2
+                &:nth-child(3)
+                    order 3
+                    & .nav-link
+                        border-radius 5px 5px 0 0
+                &:nth-child(4)
+                    order 4    
+                &:nth-child(5)
+                    order 5      
+                &:nth-child(6)
+                    order 6   
+                &:nth-child(7)
+                    order 7     
+                &:nth-child(8)
+                    order 8   
+                &:nth-child(9)
+                    order 9 
+                    & .nav-link
+                        border-radius  0 0 5px 5px                     
+    .cards--accordion
+        top -3rem
+        &:after
+            display none 
+        & .cards--accordion_transform 
+            border-radius 0 0 5px 5px  !important 
+            transform rotate(0) translateX(0%) translateY(0%)
+            width 100%  
+            height auto   
+            margin-top 0
+            border 0  
+            left 0
+            top 0
+            position relative
+        & .nav--muesca_xs
+            & .cards--accordion_transform
+                left 0
+        & .nav--muesca_two
+            & .cards--accordion_transform
+                left 0   
+                top 0   
+        & .nav--muesca_xl
+            & .cards--accordion_transform
+                left 0   
+                top 0   
+        &.cards--accordion_paneles
+            top 0  
+            & .cards--accordion
+                top 0                                      
+@media (min-width: 1280px)
+    .container
+        max-width 1200px    
+    //LETTER
+    .text--18pts
+        font-size 1.025rem
+    //BUTTON
+    .btn--circle
+        font-size 0.8125rem
+        & span:first-child
+            height 2.162rem
+            width 2.162rem   
+    .nav--panelLeft 
+        & .nav-item 
+            & .nav-link
+                padding 1.003rem 1.5rem 1.003rem 1.003rem  
+                &.active
+                    padding 1.003rem 1.5rem 1.003rem 1.003rem   
+    //HEADER
+    .sidebar--header
+        & .container
+            max-width 1200px       
+        & .media 
+            & span[class^="icon-"]                      
+                height 25px
+                width 25px
+            & .dropdown
+                & span
+                    white-space initial
+@media (min-width: 1366px)
+    .container
+        max-width 1280px  
+    .sidebar--header
+        & .container
+            max-width 1280px                   
+@media (min-width: 1440px)
+    .container
+        max-width 1280px   
+@media (min-width: 1680px)
+    .container
+        max-width 1440px  
+@media (min-width: 1920px)              
+    .container
+        max-width 1440px      
+    .sidebar--header
+        & .container
+            max-width 1440px           

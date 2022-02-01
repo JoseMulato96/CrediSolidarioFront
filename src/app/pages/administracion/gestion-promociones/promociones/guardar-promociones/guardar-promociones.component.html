@@ -1,0 +1,560 @@
+<div class="row  mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+        <h1 class="my-0">
+            <ng-template [ngIf]="_esCreacion">
+                {{ 'administracion.gestionPromociones.promociones.guardar.crear' | translate }}
+            </ng-template>
+            <ng-template [ngIf]="!_esCreacion">
+                {{ 'administracion.gestionPromociones.promociones.guardar.actualizar' | translate }}
+            </ng-template>
+        </h1>
+    </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+    <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+        <div class="card-body">
+          <div class="row mx-0 w-100">
+
+            <!-- Nombre de promoción -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group row align-items-center">
+                  <label appMimLabel for="nombrePromocion" class="col-sm-12 col-form-label">
+                      {{ 'administracion.gestionPromociones.promociones.guardar.nombrePromocion' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'nombrePromocion'" [controlName]="'nombrePromocion'">
+                      <input type="text" class="form-control" id="nombrePromocion" formControlName="nombrePromocion" name="nombrePromocion" />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="nombrePromocion" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.nombrePromocion' | translate }
+                    }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="nombrePromocion" errorKey="vacio">
+                    {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.nombrePromocion' | translate }
+                    }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="nombrePromocion" errorKey="maxlength">
+                    {{ 'global.maxlenth' | translate : {numero: 255} }}
+                  </app-mim-input-error>
+                </div>
+
+            </div>
+
+            <!-- Descripción -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group row align-items-center">
+                  <label appMimLabel for="descripcion" class="col-sm-12 col-form-label">
+                      {{ 'administracion.gestionPromociones.promociones.guardar.descripcion' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'descripcion'" [controlName]="'descripcion'">
+                      <textarea type="text" rows="3" class="form-control" id="descripcion" formControlName="descripcion"
+                        name="descripcion"></textarea>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="descripcion" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.descripcion' | translate }
+                    }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="descripcion" errorKey="vacio">
+                    {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.descripcion' | translate }
+                    }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="descripcion" errorKey="maxlength">
+                    {{ 'global.maxlenth' | translate : {numero: 512} }}
+                  </app-mim-input-error>
+              </div>
+            </div>
+
+            <!-- Tipo beneficio -->
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group row align-items-center">
+                    <label appMimLabel for="tipoBeneficio" class="col-sm-12 col-form-label">
+                        {{ 'administracion.gestionPromociones.promociones.guardar.tipoBeneficio' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'tipoBeneficio'" [controlName]="'tipoBeneficio'">
+                            <app-mim-select class="w-100" [inputId]="'tipoBeneficio'" [options]="tiposBeneficios"
+                                formControlName="tipoBeneficio" [optionKey]="'nombre'" name="'tipoBeneficio'"
+                                ngDefaultControl>
+                            </app-mim-select>
+                        </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="tipoBeneficio" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.tipoBeneficio' | translate } }}
+                    </app-mim-input-error>
+                </div>
+            </div>
+
+            <!-- Beneficio-->
+            <div class="col-sm-6 col-md-3">
+                <div class="form-group row align-items-center">
+                    <label appMimLabel for="beneficio" class="col-sm-12 col-form-label">
+                        {{ 'administracion.gestionPromociones.promociones.guardar.beneficio' | translate }}
+                    </label>
+                    <div class="col-sm-12">
+                      <div class="input-group" appMimInput [for]="'beneficio'" [controlName]="'beneficio'">
+                          <app-mim-select class="w-100" [inputId]="'beneficio'" [options]="beneficios"
+                              formControlName="beneficio" [optionKey]="'nombre'" name="'beneficio'"
+                              ngDefaultControl>
+                          </app-mim-select>
+                      </div>
+                    </div>
+                    <app-mim-input-error class="col-sm-12" controlName="beneficio" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.beneficio' | translate } }}
+                    </app-mim-input-error>
+                </div>
+            </div>
+
+            <!-- Valor beneficio -->
+            <div class="col-sm-6 col-md-3" *ngIf="mostrarCuotas">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="valorBeneficio" class="col-sm-12 col-form-label">
+                    {{ 'administracion.gestionPromociones.promociones.guardar.valorBeneficio'| translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'valorBeneficio'" [controlName]="'valorBeneficio'">
+                      <input type="text" class="form-control" id="valorBeneficio" formControlName="valorBeneficio" name="valorBeneficio"
+                        currencyMask [options]="optionsMask"  />
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="valorBeneficio" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.valorBeneficio' | translate } }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="valorBeneficio" errorKey="max">
+                    {{'global.maxValue' | translate : {campo: 'administracion.gestionPromociones.promociones.guardar.valorBeneficio'
+                          | translate, max: valorMaxBeneficio} }}
+                  </app-mim-input-error>
+                  <app-mim-input-error class="col-sm-12" controlName="valorBeneficio" errorKey="min">
+                    {{'global.minValue' | translate : {campo: 'administracion.gestionPromociones.promociones.guardar.valorBeneficio'
+                          | translate, min: valorMinBeneficio} }}
+                  </app-mim-input-error>
+                </div>
+            </div>
+
+            <!-- Cantidad stock -->
+            <div class="col-sm-6 col-md-3" *ngIf="!mostrarCuotas">
+              <div class="form-group row align-items-center">
+                <label appMimLabel for="cantidadStock" class="col-sm-12 col-form-label">
+                  {{ 'administracion.gestionPromociones.promociones.guardar.cantidadStock'| translate }}
+                </label>
+                <div class="col-sm-12">
+                  <div class="input-group" appMimInput [for]="'cantidadStock'" [controlName]="'cantidadStock'">
+                    <input currencyMask type="text" class="form-control" id="cantidadStock"
+                      formControlName="cantidadStock" />
+                  </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="cantidadStock" errorKey="required">
+                  {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.cantidadStock' | translate } }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="cantidadStock" errorKey="max">
+                  {{'global.maxValue' | translate : {campo: 'administracion.gestionPromociones.promociones.guardar.cantidadStock'
+                        | translate, max: 9999999999.99 } }}
+                </app-mim-input-error>
+                <app-mim-input-error class="col-sm-12" controlName="cantidadStock" errorKey="min">
+                  {{'global.minValue' | translate : {campo: 'administracion.gestionPromociones.promociones.guardar.cantidadStock'
+                        | translate, min: 1 } }}
+                </app-mim-input-error>
+              </div>
+            </div>
+
+            <!-- Tipo solicitud -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group row align-items-center">
+                  <label appMimLabel for="tipoSolicitud" class="col-sm-12 col-form-label">
+                      {{ 'administracion.gestionPromociones.promociones.guardar.tipoSolicitud' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'tipoSolicitud'" [controlName]="'tipoSolicitud'">
+                      <app-mim-multiselect class="w-100" [inputId]="'tipoSolicitud'" [options]="tiposSolicitudes"
+                        formControlName="tipoSolicitud" [optionKey]="'nombre'" name="'tipoSolicitud'" ngDefaultControl>
+                      </app-mim-multiselect>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="tipoSolicitud" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.tipoSolicitud' | translate } }}
+                  </app-mim-input-error>
+              </div>
+            </div>
+
+            <!-- Canal -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group row align-items-center">
+                  <label appMimLabel for="canal" class="col-sm-12 col-form-label">
+                      {{ 'administracion.gestionPromociones.promociones.guardar.canal' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'canal'" [controlName]="'canal'">
+                      <app-mim-multiselect class="w-100" [inputId]="'canal'" [options]="canales"
+                        formControlName="canal" [optionKey]="'nombre'" name="'canal'" ngDefaultControl>
+                      </app-mim-multiselect>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="canal" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.canal' | translate } }}
+                  </app-mim-input-error>
+              </div>
+            </div>
+
+            <!-- Plan cobertura -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group row align-items-center">
+                <label appMimLabel for="planCobertura" class="col-sm-12 col-form-label">
+                  {{ 'administracion.gestionPromociones.promociones.guardar.planCobertura' | translate }}
+                </label>
+                <div class="col-sm-12">
+                  <div class="input-group" appMimInput [for]="'planCobertura'" [controlName]="'planCobertura'">
+                    <app-mim-multiselect class="w-100" [inputId]="'planCobertura'" [options]="planesCoberturas"
+                      formControlName="planCobertura" [optionKey]="'_nombre'" name="'planCobertura'" ngDefaultControl>
+                    </app-mim-multiselect>
+                  </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="planCobertura" errorKey="required">
+                  {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.planCobertura' | translate } }}
+                </app-mim-input-error>
+              </div>
+            </div>
+
+            <!-- Fecha inicio y fin de vigencia -->
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group row align-items-center">
+                <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+                  {{ 'administracion.gestionPromociones.promociones.guardar.fechaInicioFin' | translate }}
+                </label>
+                <div class="col-sm-12">
+                  <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'" [controlName]="'fechaInicioFechaFin'">
+                    <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'" formControlName="fechaInicioFechaFin"
+                      [selectionMode]="'range'" [disabled]="estadoFecha" ngDefaultControl></app-mim-date-picker>
+                  </div>
+                </div>
+                <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+                  {{ 'global.required' | translate : { campo: 'administracion.gestionPromociones.promociones.guardar.fechaInicioFin' | translate } }}
+                </app-mim-input-error>
+
+              </div>
+            </div>
+
+            <!-- Estado -->
+            <div class="col-sm-12 com-md-12" *ngIf="!_esCreacion">
+                <div class="form-group">
+                    <label class="col-form-label" appMimLabel for="vigente">
+                        {{ 'administracion.gestionPromociones.promociones.guardar.vigente' | translate }}
+                    </label>
+                    <div class="custom-control custom-switch p-0">
+                        <label class="switch">
+                            <input type="checkbox" formControlName="vigente" id="vigente" name="vigente">
+                            <span class="slider round">
+                                <span
+                                    class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}</span>
+                                <span
+                                    class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección aplica promoción para -->
+            <div class="col-12 mb-3">
+              <fieldset class="fieldset_mm pb-3 w-100">
+                <legend class="legend_mm">
+                  <span class="text--16pts text--600wt">
+                    {{ 'administracion.gestionPromociones.promociones.guardar.aplicaPromocionPara' | translate }}
+                  </span>
+                </legend>
+                <div class="row mx-0 w-100">
+
+                  <p-table [value]="arrayCondiciones.controls" class="grid-table">
+
+                    <ng-template pTemplate="caption">
+
+                      <div class="d-flex flex-row">
+                        <div class="d-flex flex-row-reverse w-100">
+                          <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="addNewRow()" [disabled]="bloquearBotonCondicion">
+                            <span class="icon-plus mr-2"></span> {{ 'global.add' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </ng-template>
+
+                    <ng-template pTemplate="header">
+                        <tr class="grid-head-columns grid-head-column text-uppercase">
+                            <th scope="col" style="width:34em">{{'administracion.gestionPromociones.promociones.guardar.gridCondiciones.condiciones' | translate }}</th>
+                            <th scope="col">{{'administracion.gestionPromociones.promociones.guardar.gridCondiciones.valorCondiciones' | translate }}</th>
+                            <th scope="col" style="width:6em">{{'administracion.gestionPromociones.promociones.guardar.gridCondiciones.accion' | translate }}</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-i="rowIndex">
+                      <ng-container formArrayName="arrayCondiciones">
+                        <tr class="grid-space-row"><!-- Espacio en transparente --></tr>
+                        <tr [formGroupName]="i" [pEditableRow]="rowData" class="grid-body-column ng-star-inserted">
+                          <td>
+                            <div class="form-group tooltipError">
+                              <label> {{ getControls(i).nombreTipoPromocion.value }} </label>
+                              <div class="input-group" [ngClass]="getControls(i)?.condicion.errors ? 'border--red1': ''" *ngIf="!getControls(i)?.codigoTipoPromocion.value">
+                                <app-mim-select class="w-100" [options]="condiciones" formControlName="condicion"
+                                  [optionKey]="'nombre'" ngDefaultControl >
+                                </app-mim-select>
+                              </div>
+                              <span class="tooltiptext" *ngIf="getControls(i)?.condicion.errors">
+                                <p *ngIf="getControls(i)?.condicion.errors?.required">
+                                  {{ 'global.required' | translate : { campo:
+                                    'administracion.gestionPromociones.promociones.guardar.gridCondiciones.condiciones' | translate } }}
+                                </p>
+                              </span>
+                            </div>
+                          </td>
+
+                          <td>
+
+                            <div class="row mx-0 w-100" [ngSwitch]="getControls(i)?.codigoTipoPromocion.value">
+
+                              <!-- Cuotas pagadas -->
+                              <div class="col-sm-12 col-md-12" *ngSwitchCase="1">
+                                <div class="form-group tooltipError">
+                                  <div class="input-group" [ngClass]="getControls(i)?.cuotasPagadas.errors ? 'border--red1': ''">
+                                    <input type="number" class="form-control" formControlName="cuotasPagadas" min="1" max="999999999" />
+                                  </div>
+                                  <span class="tooltiptext" *ngIf="getControls(i)?.cuotasPagadas.errors">
+                                    <p *ngIf="getControls(i)?.cuotasPagadas.errors?.required">
+                                      {{ 'global.required' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate } }}
+                                    </p>
+                                    <p *ngIf="getControls(i)?.cuotasPagadas.errors?.min">
+                                      {{ 'global.minValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, min: 1 } }}
+                                    </p>
+                                    <p *ngIf="getControls(i)?.cuotasPagadas.errors?.max">
+                                      {{ 'global.maxValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, max: 999999999 } }}
+                                    </p>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- Valor máximo mora -->
+                              <div class="col-sm-12 col-md-12" *ngSwitchCase="2">
+                                <div class="form-group tooltipError">
+                                  <div class="input-group" [ngClass]="getControls(i)?.valorMaximoMora.errors ? 'border--red1': ''">
+                                    <input currencyMask type="text" class="form-control" formControlName="valorMaximoMora" min="1" max="9999999999.99" />
+                                  </div>
+                                  <span class="tooltiptext" *ngIf="getControls(i)?.valorMaximoMora.errors">
+                                    <p *ngIf="getControls(i)?.valorMaximoMora.errors?.required">
+                                      {{ 'global.required' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate } }}
+                                    </p>
+                                    <p *ngIf="getControls(i)?.valorMaximoMora.errors?.min">
+                                      {{ 'global.minValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, min: 1 } }}
+                                    </p>
+                                    <p *ngIf="getControls(i)?.valorMaximoMora.errors?.max">
+                                      {{ 'global.maxValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, max: 9999999999.99 } }}
+                                    </p>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- Estado asegurado -->
+                              <div class="col-sm-12 col-md-12" *ngSwitchCase="3">
+                                <div class="form-group tooltipError">
+                                  <div class="input-group" [ngClass]="getControls(i)?.estadoAsegurado.errors ? 'border--red1': ''">
+                                    <app-mim-select class="w-100" [options]="estadosAsegurado" formControlName="estadoAsegurado"
+                                      [optionKey]="'nombre'" ngDefaultControl>
+                                    </app-mim-select>
+                                  </div>
+                                  <span class="tooltiptext" *ngIf="getControls(i)?.estadoAsegurado.errors">
+                                    <p *ngIf="getControls(i)?.estadoAsegurado.errors?.required">
+                                      {{ 'global.required' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate } }}
+                                    </p>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <!-- Género -->
+                              <div class="col-sm-12 col-md-12" *ngSwitchCase="4">
+                                <div class="form-group tooltipError">
+                                  <div class="input-group" [ngClass]="getControls(i)?.genero.errors ? 'border--red1': ''">
+                                    <app-mim-select class="w-100" [options]="generos" formControlName="genero"
+                                      [optionKey]="'nombre'" ngDefaultControl>
+                                    </app-mim-select>
+                                  </div>
+                                  <span class="tooltiptext" *ngIf="getControls(i)?.genero.errors">
+                                    <p *ngIf="getControls(i)?.genero.errors?.required">
+                                      {{ 'global.required' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate } }}
+                                    </p>
+                                  </span>
+                                </div>
+                              </div>
+
+                              <ng-container *ngSwitchCase="5">
+                                <!-- Edad mínima -->
+                                <div class="col-sm-6 col-md-6">
+                                  <div class="form-group tooltipError">
+                                    <div class="input-group" [ngClass]="getControls(i)?.edadMinima.errors ? 'border--red1': ''">
+                                      <input type="number" class="form-control" formControlName="edadMinima" min="18" max="100" />
+                                    </div>
+                                    <span class="tooltiptext" *ngIf="getControls(i)?.edadMinima.errors">
+                                      <p *ngIf="getControls(i)?.edadMinima.errors?.required">
+                                        {{ 'global.required' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate } }}
+                                      </p>
+                                      <p *ngIf="getControls(i)?.edadMinima.errors?.min">
+                                        {{ 'global.minEdadValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, min: 18 } }}
+                                      </p>
+                                      <p *ngIf="getControls(i)?.edadMinima.errors?.max">
+                                        {{ 'global.maxEdadValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, max: 100 } }}
+                                      </p>
+                                      <p *ngIf="getControls(i)?.edadMinima.errors?.range">
+                                        {{ 'administracion.protecciones.planes.alertas.MinimaYMaxima' | translate  }}
+                                      </p>
+                                    </span>
+                                  </div>
+                                </div>
+
+                                <!-- Edad máxima -->
+                                <div class="col-sm-6 col-md-6">
+                                  <div class="form-group tooltipError">
+                                    <div class="input-group" [ngClass]="getControls(i)?.edadMaxima.errors ? 'border--red1': ''">
+                                      <input type="number" class="form-control" formControlName="edadMaxima" min="1" max="100" />
+                                    </div>
+                                    <span class="tooltiptext" *ngIf="getControls(i)?.edadMaxima.errors">
+                                      <p *ngIf="getControls(i)?.edadMaxima.errors?.required">
+                                        {{ 'global.required' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate } }}
+                                      </p>
+                                      <p *ngIf="getControls(i)?.edadMaxima.errors?.min">
+                                        {{ 'global.minEdadValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, min: 1 } }}
+                                      </p>
+                                      <p *ngIf="getControls(i)?.edadMaxima.errors?.max">
+                                        {{ 'global.maxEdadValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, max: 100 } }}
+                                      </p>
+                                      <p *ngIf="getControls(i)?.edadMaxima.errors?.range">
+                                        {{ 'administracion.protecciones.planes.alertas.MinimaYMaxima' | translate  }}
+                                      </p>
+                                    </span>
+                                  </div>
+                                </div>
+
+                              </ng-container>
+
+                              <!-- Antiguedad -->
+                              <div class="col-sm-12 col-md-12" *ngSwitchCase="7">
+                                <div class="form-group tooltipError">
+                                  <div class="input-group" [ngClass]="getControls(i)?.antiguedad.errors ? 'border--red1': ''">
+                                    <input type="number" class="form-control" formControlName="antiguedad" min="1" max="100" />
+                                  </div>
+                                  <span class="tooltiptext" *ngIf="getControls(i)?.antiguedad.errors">
+                                    <p *ngIf="getControls(i)?.antiguedad.errors?.required">
+                                      {{ 'global.required' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate } }}
+                                    </p>
+                                    <p *ngIf="getControls(i)?.antiguedad.errors?.min">
+                                      {{ 'global.minValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, min: 1 } }}
+                                    </p>
+                                    <p *ngIf="getControls(i)?.antiguedad.errors?.max">
+                                      {{ 'global.maxValue' | translate : { campo: getControls(i).nombreTipoPromocion.value | translate, max: 100 } }}
+                                    </p>
+                                  </span>
+                                </div>
+                              </div>
+
+                               <!-- Asegurado Aptos -->
+                              <div class="col-sm-12 col-md-12" *ngSwitchCase="6">
+                                <p-fileUpload  #fileInput name="archivoAseguradoApto[]" multiple="false" maxFileSize="{{maxUploadSize}}" fileLimit="1"
+                                  accept="{{uploadAcceptedFormat}}" customUpload="true" [showUploadButton]="false" [showCancelButton]="false"
+                                  chooseLabel="Seleccionar archivo"
+                                  invalidFileTypeMessageSummary="{{ 'global.alertas.formatoInvalido' | translate  }}"
+                                  invalidFileTypeMessageDetail="{{ 'global.alertas.extensionDocumento' | translate : { tipoDocumento: types } }}"
+                                  invalidFileSizeMessageSummary="{{ 'global.alertas.pesoInvalido' | translate  }}"
+                                  invalidFileSizeMessageDetail="{{ 'global.alertas.pesoDocumento' | translate : { pesoDocumento: uploadSizeMB } }}"
+                                  (onSelect)="onFileSelect(fileInput,i)">
+                                  <ng-template pTemplate="toolbar">
+                                    <button type="button" class="btn btn-descargar" (click)="downloadFile()">
+                                      <span class="icon-download-2 mr-2"></span> {{ 'administracion.cargueMasivo.descargarFormato' | translate }}
+                                    </button>
+                                    <div>
+                                      <small class="text-muted">
+                                         {{ 'global.alertas.informacionDocumento' | translate : { tipoDocumento: types | translate, pesoDocumento: uploadSizeMB } }}
+                                      </small>
+                                    </div>
+                                  </ng-template>
+                                  <ng-template let-file pTemplate="file">
+                                    <div class="row pt-2">
+                                      <div class="col-2 align-self-center">
+                                        <img class="mx-auto d-block" src="./assets/images/icon-excel.png" alt="">
+                                      </div>
+                                      <div class="col-6 pt-3">
+                                        {{file.name}}
+                                      </div>
+                                      <div class="col-3 pt-3">
+                                        {{getSizeInMegaBytes(file.size) | number:'1.2-2'}} MB
+                                      </div>
+                                      <div class="col-1 pt-3">
+                                        <button type="button" class="btn btn-descargar" matTooltip="Eliminar soporte" (click)="removeFile($event, file, fileInput)">
+                                          <span class="pi pi-times p-button-icon p-button-icon-left ng-star-inserted" aria-hidden="true"></span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </ng-template>
+                                  <ng-template pTemplate="content">
+                                    <div *ngIf="radicacionSoportes">
+                                      <div class="row pt-2" *ngFor="let file of radicacionSoportes">
+                                        <div class="col-2 align-self-center">
+                                          <img class="mx-auto d-block" src="./assets/file/icon-excel.png" alt="">
+                                        </div>
+                                        <div class="col-6 pt-3">
+                                          {{file.nombre}}
+                                        </div>
+                                        <div class="col-2 pt-3">
+                                          {{getSizeInMegaBytes(file.peso) | number:'1.2-2'}} MB
+                                        </div>
+                                        <div class="col-2 pt-3">
+                                          <button type="button" class="btn btn-success" matTooltip="Descargar soporte" (click)="descargarSoporte(file.codigo,  file.nombre, file.tipoMime)">
+                                            <span class="pi pi-download p-button-icon p-button-icon-left ng-star-inserted" aria-hidden="true"></span>
+                                          </button>
+                                          &nbsp;
+                                          <button type="button" class="btn btn-primary" matTooltip="Eliminar soporte" (click)="eliminarSoporte(file.codigo, file.nombre)">
+                                            <span class="pi pi-times p-button-icon p-button-icon-left ng-star-inserted" aria-hidden="true"></span>
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </ng-template>
+                                </p-fileUpload>
+                              </div>
+
+                              <ng-container *ngSwitchDefault></ng-container>
+
+                            </div>
+
+                          </td>
+
+                          <td style="text-align:center" class="d-flex flex-row px-1">
+                            <button type="button" pInitEditableRow class="btn btn--icon bg--blue2 mx-auto" (click)="onDeleteRow(i, getControls(i).codigoTipoPromocion.value, getControls(i).nombreTipoPromocion.value)">
+                              <span class="icon-trash-3 text--red1"></span>
+                            </button>
+                          </td>
+                        </tr>
+                      </ng-container>
+                    </ng-template>
+                  </p-table>
+
+                </div>
+              </fieldset>
+            </div>
+
+            <!--Controles -->
+            <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+                <div class="card-body py-2">
+                    <div class="row mx-0 w-10 justify-content-end align-items-center">
+                        <!-- Botones -->
+                        <div class="col-xl-12">
+                            <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                                    [disabled]="form.pristine">
+                                    <span class="icon-edit-3 mr-2"></span>
+                                    {{ 'global.save' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </form>
+</div>

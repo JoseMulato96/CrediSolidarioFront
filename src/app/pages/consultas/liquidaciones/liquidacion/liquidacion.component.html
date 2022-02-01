@@ -1,0 +1,105 @@
+<div class="mx-0 w-100 " *ngIf="mimLiquidacion">
+  <!-- Inicio cabecera -->
+  <div class="row pt-5">
+    <!-- Inicio boton atras -->
+    <p class="col-3 text-left">
+      <a class="btn btn--circle justify-content-start" (click)="irAtras()">
+        <span class="icon-arrow-thin-left mr-2"></span>
+        {{ 'global.back' | translate }}
+      </a>
+    </p>
+    <!-- Fin boton atras-->
+
+    <div class="col-6 mx-0 w-100 align-items-center">
+      <!-- Inicio titulo -->
+      <div class="col-md-10">
+        <h1 class="my-0">
+          {{ 'liquidaciones.detalleLiquidacion.titulo' | translate }}
+        </h1>
+      </div>
+      <!-- Fin titulo -->
+    </div>
+    <div class="col-1 mx-0 w-100"></div>
+    <!-- Inicio boton exportar PDF -->
+    <div class="col-2 mx-0 w-100">
+      <button class="btn btn--white btn--md text--red1 float-right" (click)="exportarPDF()">
+        <span class="icon-export mr-2 text--red1"></span>
+        {{ 'liquidaciones.detalleLiquidacion.exportarPDF' | translate }}
+      </button>
+    </div>
+    <!-- Fin boton exportar PDF -->
+  </div>
+  <!-- Fin cabecera -->
+
+  <div class="row">
+    <!-- Inicio panel derecho -->
+    <div class="col-12 col-xl-3">
+      <app-mim-persona-detalle *ngIf="datosSolicitudEventoMimPersonaDetalle"
+        [configuracion]="datosSolicitudEventoMimPersonaDetalle">
+      </app-mim-persona-detalle>
+    </div>
+    <!-- Fin panel derecho -->
+    <!-- Inicio panel izquierdo -->
+    <div class="col-12 col-xl-9">
+      <!-- Inicio forma de pago. -->
+      <app-mim-forma-pago *ngIf="datosMimFormaPagoComponentConfiguracion"
+        [configuracion]="datosMimFormaPagoComponentConfiguracion"></app-mim-forma-pago>
+      <!-- Fin forma pago -->
+
+      <!-- Inicio coberturas -->
+      <ng-template [ngIf]="datosCoberturasMimGridConfiguracion">
+        <app-mim-grid *ngIf="datosCoberturasMimGridConfiguracion" [configuracion]="datosCoberturasMimGridConfiguracion">
+        </app-mim-grid>
+        <!-- Footer de la tabla -->
+        <div class="card-footer border bg--white py-2 my-3 rounded">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex justify-content-end">
+                <h2 class="text--500wt text--gray2 px-3 py-2 my-0 text-right">
+                  {{ 'liquidaciones.detalleLiquidacion.grid.valorTotalPago' | translate }}:
+                  <span class="text--green1">
+                    {{ mimLiquidacion.valorTotalPago | customCurrency | emptyPipe }}
+                  </span>
+                </h2>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </ng-template>
+      <!-- Fin coberturas -->
+
+      <!-- Inicio deducciones -->
+      <app-mim-deducciones-card *ngIf="datosDeduccionesMimDeduccionesCardConfig"
+        [configuracion]="datosDeduccionesMimDeduccionesCardConfig"></app-mim-deducciones-card>
+      <!-- Fin deducciones -->
+
+      <!-- Inicio observaciones -->
+      <div class="mb-4">
+        <div class="card cards--headerFooter w-100 mb-5 ">
+          <div class="card-header">
+            <div class="row mx-0 w100 align-items-center">
+              <div class="col-12 pl-0">
+                <h2 class="text--500wt text--gray1 my-0"><span
+                    class="icon-message text--18pts mr-2 text--orange1"></span>
+                  {{ 'global.observations' | translate }}
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <ng-template [ngIf]="mimLiquidacion.observaciones">
+              <h4 class="text--500wt text--gray1 mt-2 mb-0 text-justify">
+                {{mimLiquidacion.observaciones | emptyPipe }}
+              </h4>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <!-- Fin observaciones -->
+    </div>
+    <!-- Fin panel izquierdo -->
+
+  </div>
+
+</div>

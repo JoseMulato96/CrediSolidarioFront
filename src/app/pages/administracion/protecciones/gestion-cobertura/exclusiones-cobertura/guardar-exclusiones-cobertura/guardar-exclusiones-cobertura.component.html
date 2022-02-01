@@ -1,0 +1,255 @@
+<div class="row  mx-0 w-100 align-items-center">
+  <div class="col-md-12">
+    <h1 class="my-0">
+      <ng-template [ngIf]="_esCreacion">
+        {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.guardar.crear' | translate }}
+      </ng-template>
+      <ng-template [ngIf]="!_esCreacion">
+        {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.guardar.actualizar' | translate }}
+      </ng-template>
+    </h1>
+  </div>
+</div>
+
+<div class="mt-3 card bg--white border-0 rounded-0">
+  <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+    <div class="card-body">
+      <div class="row mx-0 w-100">
+        <!-- Fondo -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="fondo" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.coberturas.guardar.fondo' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fondo'" [controlName]="'fondo'">
+                <app-mim-select class="w-100" [inputId]="'fondo'" [options]="fondos" formControlName="fondo"
+                  [optionKey]="'nombre'" name="'fondo'" ngDefaultControl (blur)="_changeFondo()">
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fondo" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.coberturas.guardar.fondo' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+        <!-- cobertura -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="cobertura" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.cobertura' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'cobertura'" [controlName]="'cobertura'">
+                <app-mim-select class="w-100" [inputId]="'cobertura'" [options]="coberturas" formControlName="cobertura"
+                  [optionKey]="'nombre'" name="'cobertura'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="cobertura" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.cobertura' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- exclusiones -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="exclusion" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.exclusion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'exclusion'" [controlName]="'exclusion'">
+                <app-mim-select class="w-100" [inputId]="'exclusion'" [options]="exclusionesItems"
+                  formControlName="exclusion" [optionKey]="'descripcion'" name="'exclusion'" ngDefaultControl>
+                </app-mim-select>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="exclusion" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.exclusion' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+        
+        <!-- Descripcion -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="descripcion" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.exclusion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'descripcion'" [controlName]="'descripcion'">
+                <textarea type="text" rows="5" class="form-control" id="descripcion" formControlName="descripcion"
+                  name="descripcion"></textarea>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="descripcion" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.enfermedadesGraves.grid.descripcion' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- transacción -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="tipoTransaccion" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.transaccion' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'tipoTransaccion'" [controlName]="'tipoTransaccion'">
+                <app-mim-multiselect class="w-100" [inputId]="'tipoTransaccion'" [options]="tipoTransaccion"
+                  formControlName="tipoTransaccion" [optionKey]="'nombre'" name="'tipoTransaccion'" ngDefaultControl>
+                </app-mim-multiselect>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="tipoTransaccion" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.transaccion' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- canal -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="canalesVentas" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.canal' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'canalesVentas'" [controlName]="'canalesVentas'">
+                <app-mim-multiselect class="w-100" [inputId]="'canalesVentas'" [options]="canalesVentas"
+                  formControlName="canalesVentas" [optionKey]="'nombre'" name="'canalesVentas'" ngDefaultControl>
+                </app-mim-multiselect>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="canalesVentas" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.canal' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- periodo definido -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="nroPeriodoDefinido" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.periodoDefinido' | translate }}
+            </label>
+            <div class="col-12 mx-0 px-0 row">
+              <div class="col-sm-5">
+                <div class="input-group" appMimInput [for]="'nroPeriodoDefinido'" [controlName]="'nroPeriodoDefinido'">
+                  <input type="number" class="form-control" id="nroPeriodoDefinido" formControlName="nroPeriodoDefinido"
+                    name="nroPeriodoDefinido" min="0" max="999" />
+                </div>
+              </div>
+              <div class="col-sm-7">
+                <div class="input-group" appMimInput [for]="'unidadTiempos'" [controlName]="'unidadTiempos'">
+                  <app-mim-select class="w-100" [inputId]="'unidadTiempos'" [options]="unidadTiempos"
+                    formControlName="unidadTiempos" [optionKey]="'nombre'" name="'unidadTiempos'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="nroPeriodoDefinido" errorKey="min">
+                {{ 'global.minValue' | translate :
+                      { campo: 'administracion.protecciones.planCobertura.guardar.caracteristicasBasicas.condicionesAsistencia.guardar.numeroEventos' | translate,
+                        min: 0
+                      }
+                    }}
+              </app-mim-input-error>
+              <app-mim-input-error class="col-sm-12" controlName="nroPeriodoDefinido" errorKey="max">
+                {{ 'global.maxValue' | translate :
+                        { campo: 'administracion.protecciones.planCobertura.guardar.caracteristicasBasicas.condicionesAsistencia.guardar.numeroEventos' | translate,
+                          max: 999
+                        }
+                      }}
+              </app-mim-input-error>
+            </div>
+          </div>
+        </div>
+
+        <!-- contribucciones -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label appMimLabel for="contribucciones" class="col-sm-12 col-form-label">
+              {{ 'administracion.protecciones.gestionCobertura.exclusionCobertura.grid.contribucciones' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'contribucciones'" [controlName]="'contribucciones'">
+                <input type="number" class="form-control" id="contribucciones" min="0" max="999"
+                  formControlName="contribucciones" name="contribucciones" />
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="contribucciones" errorKey="min">
+              {{ 'global.minValue' | translate :
+                    { campo: 'administracion.protecciones.planCobertura.guardar.caracteristicasBasicas.condicionesAsistencia.guardar.numeroEventos' | translate,
+                      min: 0
+                    }
+                  }}
+            </app-mim-input-error>
+            <app-mim-input-error class="col-sm-12" controlName="contribucciones" errorKey="max">
+              {{ 'global.maxValue' | translate :
+                      { campo: 'administracion.protecciones.planCobertura.guardar.caracteristicasBasicas.condicionesAsistencia.guardar.numeroEventos' | translate,
+                        max: 999
+                      }
+                    }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!-- Vigente -->
+        <div class="col-sm-12 col-md-3" *ngIf="!_esCreacion">
+          <div class="form-group">
+            <label class="col-form-label" appMimLabel for="vigente">
+              {{ 'administracion.protecciones.gestionPlanes.frecuenciaFacturacion.grid.vigente' | translate }}
+            </label>
+            <div class="custom-control custom-switch p-0">
+              <label class="switch">
+                <input type="checkbox" formControlName="vigente" id="vigente" name="vigente">
+                <span class="slider round">
+                  <span class="text--white text--14pts text--500wt">SI</span>
+                  <span class="text--white text--14pts text--500wt">NO</span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- fecha inicio y fecha fin -->
+        <div class="col-sm-12 col-md-6">
+          <div class="form-group row align-items-center">
+            <label class="col-sm-12 col-form-label" appMimLabel for="fechaInicioFechaFin">
+              {{ 'administracion.protecciones.nivelesRiesgosCobertura.grid.fechaInicioYFin' | translate }}
+            </label>
+            <div class="col-sm-12">
+              <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'" [controlName]="'fechaInicioFechaFin'">
+                <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'" formControlName="fechaInicioFechaFin"
+                  [selectionMode]="'range'" [disabled]="estadoFecha" ngDefaultControl>
+                </app-mim-date-picker>
+              </div>
+            </div>
+            <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin" errorKey="required">
+              {{ 'global.required' | translate : { campo: 'administracion.protecciones.nivelesRiesgosCobertura.grid.fechaInicio' | translate } }}
+            </app-mim-input-error>
+          </div>
+        </div>
+
+        <!--Controles -->
+        <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+          <div class="card-body py-2">
+            <div class="row mx-0 w-10 justify-content-end align-items-center">
+              <!-- Botones -->
+              <div class="col-xl-12">
+                <div class="d-flex flex-row-reverse">
+                  <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_alGuardar()"
+                    [disabled]="form.pristine">
+                    <span class="icon-checkmark mr-2"></span>
+                    {{ 'global.save' | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

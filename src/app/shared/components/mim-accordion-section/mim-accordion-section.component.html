@@ -1,0 +1,27 @@
+<div class="card cards--panelLeft cards--panelLeft_beneficiarios cards--panelLeft_liquidacion mb-3"
+  [class.active]="configuracion._showAccordion ==true">
+  <div class="card-header py-3 px-2" [id]="'headingLiquidacionResumenThree'+_id">
+    <div class="row mx-0 w-100 align-items-center">
+      <div [ngClass]="{'col-10': configuracion.collapsable, 'col-12': !configuracion.collapsable}">
+        <h2 class="text--500wt text--gray1 my-0">
+          <span class="icon-money text--18pts mr-2 text--orange1"></span>
+          {{ configuracion.title | translate }} : <span class="text--gray2">
+            {{ configuracion.description | translate }}</span>
+        </h2>
+      </div>
+      <div class="col-2" *ngIf="configuracion.collapsable">
+        <a href="#" data-toggle="collapse" [attr.data-target]="'#collapseLiquidacionResumenThree'+_id"
+          aria-expanded="false" [attr.aria-controls]="'collapseLiquidacionResumenThree'+_id"
+          class="text--15pts text--green1 float-right" (click)="_onClickOpen()">
+          <span class="icon-chevron-down"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div [id]="'collapseLiquidacionResumenThree'+_id" class="collapse"
+    [attr.aria-labelledby]="'headingLiquidacionResumenThree'+_id">
+    <div class="card-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

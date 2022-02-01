@@ -1,0 +1,701 @@
+<div class="card cards--panelLeft cards--panelLeft_beneficiarios mb-2" [ngClass]="{active: dropdown }">
+  <div class="card-header py-2 " id="headingPortafolioAsociadosOne">
+    <div class="row mx-0 w-100 align-items-center">
+      <div class="col-md-11 px-0 py-3">
+        <div class="row mx-0 w-100 justify-content-start">
+          <div class="col-md-11">
+            <h5 class="my-0 text--18pts text--medium">
+              {{ 'administracion.protecciones.planCobertura.datosPrincipales.titulo' | translate | emptyPipe }}
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 p-0">
+        <div class="row justify-content-end">
+          <div class="col-md-2 px-0 pt-2 pr-3">
+            <a data-toggle="collapse" data-target="#collapsePortafolioAsociadosOne" aria-expanded="false"
+              aria-controls="collapsePortafolioAsociadosOne" class="text--15pts text--green1 float-right cursor-point"
+              (click)="_toggle()">
+              <span class="icon-chevron-up" *ngIf="dropdown"></span>
+              <span class="icon-chevron-down" *ngIf="!dropdown"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="collapse" [ngClass]="{ show: dropdown }" aria-labelledby="headingCategoriaDetalle"
+    data-parent="#accordionPortafolioAsociados">
+    <form class="form--default" [formGroup]="form" *ngIf="isForm | async as isForm;">
+      <div class="card-body">
+        <!-- Inicio configuracion Plan/Cobertura-->
+        <div class="row mx-0">
+          <!-- Cobertura -->
+          <div class="col-sm-12 col-md-4">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="cobertura" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.cobertura' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'cobertura'" [controlName]="'cobertura'">
+                  <app-mim-select class="w-100" [inputId]="'cobertura'" [options]="coberturas"
+                    formControlName="cobertura" [optionKey]="'nombre'" name="'cobertura'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="cobertura" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.cobertura' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Nombre -->
+          <div class="col-sm-12 col-md-4">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="nombre" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.nombreComercial' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'nombre'" [controlName]="'nombre'">
+                  <input type="text" class="form-control" id="nombre" formControlName="nombre" name="nombre" />
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="required">
+                {{ 'global.required' | translate  : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.nombreComercial' | translate } }}
+              </app-mim-input-error>
+              <app-mim-input-error class="col-sm-12" controlName="nombre" errorKey="maxlength">
+                {{ 'global.maxCaracteres' | translate  : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.nombreComercial' | translate, max: 255 } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Nombre Corto -->
+          <div class="col-sm-12 col-md-4">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="nombreCorto" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.nombreCorto' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'nombreCorto'" [controlName]="'nombreCorto'">
+                  <input type="text" class="form-control" id="nombreCorto" formControlName="nombreCorto"
+                    name="nombreCorto" />
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="nombreCorto" errorKey="required">
+                {{ 'global.required' | translate  : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.nombreCorto' | translate } }}
+              </app-mim-input-error>
+              <app-mim-input-error class="col-sm-12" controlName="nombreCorto" errorKey="maxlength">
+                {{ 'global.maxCaracteres' | translate  : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.nombreCorto' | translate, max: 15 } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Origen -->
+          <div class="col-sm-12 col-md-4">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="origen" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.origen' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'origen'" [controlName]="'origen'">
+                  <app-mim-multiselect class="w-100" [inputId]="'origen'" [options]="origenes" formControlName="origen"
+                    [optionKey]="'nombre'" name="'origen'" ngDefaultControl>
+                  </app-mim-multiselect>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="origen" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.origen' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+           <!-- Calculo fecha perseverancia -->
+           <div class="col-sm-6 col-md-4">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="fechaPerseveracia" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.fechaPerseveracia' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'fechaPerseveracia'" [controlName]="'fechaPerseveracia'">
+                  <app-mim-select class="w-100" [inputId]="'fechaPerseveracia'" [options]="tiposFecha" formControlName="fechaPerseveracia"
+                    [optionKey]="'nombre'" name="'fechaPerseveracia'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="fechaPerseveracia" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.fechaPerseveracia' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+           <!-- Estado -->
+           <div class="col-sm-6 col-md-4">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="estado" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.estado' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'estado'" [controlName]="'estado'">
+                  <app-mim-select class="w-100" [inputId]="'estado'" [options]="estados" formControlName="estado"
+                    [optionKey]="'nombre'" name="'estado'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="estado" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.estado' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+           <!-- Cobertura básica -->
+           <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+              <label class="col-form-label" appMimLabel for="coberturaBasica">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.coberturaBasica' | translate }}
+              </label>
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="coberturaBasica" id="coberturaBasica" name="coberturaBasica">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">SI</span>
+                    <span class="text--white text--14pts text--500wt">NO</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan cobertura requerida -->
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+              <label class="col-form-label" appMimLabel for="planCoberturaRequerida">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.planCoberturaRequerida' | translate }}
+              </label>
+              <div class="custom-control custom-switch p-0">
+                <label class="switch">
+                  <input type="checkbox" formControlName="planCoberturaRequerida" id="planCoberturaRequerida" name="planCoberturaRequerida">
+                  <span class="slider round">
+                    <span class="text--white text--14pts text--500wt">SI</span>
+                    <span class="text--white text--14pts text--500wt">NO</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tipo Incremento -->
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="tipoIncremento" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.tipoIncremento' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'tipoIncremento'" [controlName]="'tipoIncremento'">
+                  <app-mim-select class="w-100" [inputId]="'tipoIncremento'" [options]="tipoIncrementos" formControlName="tipoIncremento"
+                    [optionKey]="'nombre'" name="'tipoIncremento'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="tipoIncremento" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.tipoIncremento' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Periodo inicio incremento anual -->
+          <div class="col-sm-6 col-md-4" *ngIf="mostrarPeriodoIncrementoInicio">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="periodoInicioIncremento" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.periodoInicioIncremento' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'periodoInicioIncremento'" [controlName]="'periodoInicioIncremento'">
+                  <app-mim-select class="w-100" [inputId]="'periodoInicioIncremento'" [options]="meses" formControlName="periodoInicioIncremento"
+                    [optionKey]="'nombre'" name="'periodoInicioIncremento'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="periodoInicioIncremento" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.periodoInicioIncremento' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Periodo fin incremento anual -->
+          <div class="col-sm-6 col-md-4" *ngIf="mostrarPeriodoIncrementoFin">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="periodoFinIncremento" class="col-sm-12 col-form-label">
+                {{ 'administracion.protecciones.planCobertura.datosPrincipales.periodoFinIncremento' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'periodoFinIncremento'" [controlName]="'periodoFinIncremento'">
+                  <app-mim-select class="w-100" [inputId]="'periodoFinIncremento'" [options]="meses" formControlName="periodoFinIncremento"
+                    [optionKey]="'nombre'" name="'periodoFinIncremento'" ngDefaultControl>
+                  </app-mim-select>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="periodoFinIncremento" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.periodoFinIncremento' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+           <!-- Descripción cobertura -->
+           <div class="col-sm-12 col-md-12">
+            <div class="form-group row align-items-center">
+              <label appMimLabel for="descripcionCobertura" class="col-sm-12 col-form-label">
+                {{'administracion.protecciones.planCobertura.datosPrincipales.descripcionCobertura' | translate }}
+              </label>
+              <div class="col-sm-12">
+                <div class="input-group" appMimInput [for]="'descripcionCobertura'" [controlName]="'descripcionCobertura'">
+                  <textarea type="text" rows="4" class="form-control" id="descripcionCobertura" formControlName="descripcionCobertura"
+                  name="descripcionCobertura"></textarea>
+                </div>
+              </div>
+              <app-mim-input-error class="col-sm-12" controlName="descripcionCobertura" errorKey="required">
+                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.descripcionCobertura' | translate } }}
+              </app-mim-input-error>
+            </div>
+          </div>
+
+          <!-- Sección edades -->
+          <div class="col-12 mb-3">
+            <fieldset class="fieldset_mm pb-3 w-100">
+              <legend class="legend_mm">
+                <span class="text--16pts text--600wt">
+                  {{ 'administracion.protecciones.planCobertura.datosPrincipales.edades' | translate }}
+                </span>
+              </legend>
+              <div class="row mx-0 w-100">
+
+                <ng-container *ngIf="!mostrarGridEdades">
+                   <!-- Edad mínima de ingreso -->
+                  <div class="col-sm-6 col-md-3">
+                    <div class="form-group row align-items-center">
+                      <label appMimLabel for="edadMinima" class="col-sm-12 col-form-label">
+                        {{ 'administracion.protecciones.planCobertura.datosPrincipales.edadMinima' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'edadMinima'" [controlName]="'edadMinima'">
+                          <input type="number" class="form-control" id="edadMinima" formControlName="edadMinima"
+                            name="edadMinima" min="18" max="100" />
+                        </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMinima' | translate } }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="min">
+                        {{ 'global.minValue' | translate :
+                          { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMinima' | translate,
+                            min: 18
+                          }
+                        }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="max">
+                        {{ 'global.maxValue' | translate :
+                            { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMinima' | translate,
+                              max: 100
+                            }
+                          }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMinima" errorKey="range">
+                        {{ 'administracion.protecciones.planes.alertas.MinimaYMaxima' | translate  }}
+                      </app-mim-input-error>
+                    </div>
+                  </div>
+
+                  <!-- Edad máxima de ingreso -->
+                  <div class="col-sm-6 col-md-3">
+                    <div class="form-group row align-items-center">
+                      <label appMimLabel for="edadMaxima" class="col-sm-12 col-form-label">
+                        {{ 'administracion.protecciones.planCobertura.datosPrincipales.edadMaxima' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'edadMaxima'" [controlName]="'edadMaxima'">
+                          <input type="number" class="form-control" id="edadMaxima" formControlName="edadMaxima"
+                            name="edadMaxima" min="18" max="100" />
+                        </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="required">
+                        {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaxima' | translate } }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="min">
+                        {{ 'global.minValue' | translate :
+                            { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaxima' | translate,
+                              min: 18
+                            }
+                          }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="max">
+                        {{ 'global.maxValue' | translate :
+                              { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaxima' | translate,
+                                max: 100
+                              }
+                            }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMaxima" errorKey="range">
+                        {{ 'administracion.protecciones.planes.alertas.MinimaYMaxima' | translate  }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMaxima"
+                        errorKey="rangePermanencia">
+                        {{ 'administracion.protecciones.planes.alertas.edadMaximaPermanencia' | translate  }}
+                      </app-mim-input-error>
+                    </div>
+                  </div>
+
+                  <!-- Edad indemnización -->
+                  <div class="col-sm-6 col-md-3">
+                    <div class="form-group row align-items-center">
+                      <label appMimLabel for="edadIndemnizacion" class="col-sm-12 col-form-label">
+                        {{ 'administracion.protecciones.planCobertura.datosPrincipales.edadIndemnizacion' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'edadIndemnizacion'" [controlName]="'edadIndemnizacion'">
+                          <input type="number" class="form-control" id="edadIndemnizacion"
+                            formControlName="edadIndemnizacion" name="edadIndemnizacion" min="18" max="100" />
+                        </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="edadIndemnizacion" errorKey="min">
+                        {{ 'global.minValue' | translate :
+                            { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadIndemnizacion' | translate,
+                              min: 18
+                            }
+                          }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadIndemnizacion" errorKey="max">
+                        {{ 'global.maxValue' | translate :
+                              { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadIndemnizacion' | translate,
+                                max: 100
+                              }
+                            }}
+                      </app-mim-input-error>
+                    </div>
+                  </div>
+
+                  <!-- Edad permanencia -->
+                  <div class="col-sm-6 col-md-3">
+                    <div class="form-group row align-items-center">
+                      <label appMimLabel for="edadMaximaPermanencia" class="col-sm-12 col-form-label">
+                        {{ 'administracion.protecciones.planCobertura.datosPrincipales.edadMaximaPermanencia' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'edadMaximaPermanencia'"
+                          [controlName]="'edadMaximaPermanencia'">
+                          <input type="number" class="form-control" id="edadMaximaPermanencia"
+                            formControlName="edadMaximaPermanencia" name="edadMaximaPermanencia" min="18" max="150" />
+                        </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMaximaPermanencia" errorKey="min">
+                        {{ 'global.minValue' | translate :
+                            { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaximaPermanencia' | translate,
+                              min: 18
+                            }
+                          }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMaximaPermanencia" errorKey="max">
+                        {{ 'global.maxValue' | translate :
+                              { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaximaPermanencia' | translate,
+                                max: 150
+                              }
+                            }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="edadMaximaPermanencia"
+                        errorKey="rangePermanencia">
+                        {{ 'administracion.protecciones.planes.alertas.edadMaximaPermanencia' | translate  }}
+                      </app-mim-input-error>
+                    </div>
+                  </div>
+
+                  <!-- Plazo -->
+                  <div class="col-sm-6 col-md-3">
+                    <div class="form-group row align-items-center">
+                      <label appMimLabel for="plazo" class="col-sm-12 col-form-label">
+                        {{ 'administracion.protecciones.planCobertura.datosPrincipales.plazo' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                        <div class="input-group" appMimInput [for]="'plazo'" [controlName]="'plazo'">
+                          <input type="number" class="form-control" id="plazo"
+                            formControlName="plazo" name="plazo" min="1" max="10" />
+                        </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="plazo" errorKey="min">
+                        {{ 'global.minValue' | translate :
+                            { campo: 'administracion.protecciones.planCobertura.datosPrincipales.plazo' | translate,
+                              min: 1
+                            }
+                          }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="plazo" errorKey="max">
+                        {{ 'global.maxValue' | translate :
+                              { campo: 'administracion.protecciones.planCobertura.datosPrincipales.plazo' | translate,
+                                max: 10
+                              }
+                            }}
+                      </app-mim-input-error>
+                    </div>
+                  </div>
+
+                  <!-- Fondo de garantía -->
+                  <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                      <label class="col-form-label" appMimLabel for="fondoGarantia">
+                        {{ 'administracion.protecciones.planCobertura.datosPrincipales.fondoGarantia' | translate }}
+                      </label>
+                      <div class="custom-control custom-switch p-0">
+                        <label class="switch">
+                          <input type="checkbox" formControlName="fondoGarantia" id="fondoGarantia" name="fondoGarantia">
+                          <span class="slider round">
+                            <span class="text--white text--14pts text--500wt">SI</span>
+                            <span class="text--white text--14pts text--500wt">NO</span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Renovación -->
+                  <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                      <label class="col-form-label" appMimLabel for="renovacion">
+                        {{ 'administracion.protecciones.planCobertura.datosPrincipales.renovacion' | translate }}
+                      </label>
+                      <div class="custom-control custom-switch p-0">
+                        <label class="switch">
+                          <input type="checkbox" formControlName="renovacion" id="renovacion" name="renovacion">
+                          <span class="slider round">
+                            <span class="text--white text--14pts text--500wt">SI</span>
+                            <span class="text--white text--14pts text--500wt">NO</span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                </ng-container>
+
+                <p-table [value]="arrayEdades.controls" class="grid-table" *ngIf="mostrarGridEdades">
+                  <ng-template pTemplate="caption">
+
+                    <div class="d-flex flex-row">
+                      <div class="d-flex flex-row-reverse w-100">
+                        <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="addNewRow()">
+                          <span class="icon-plus mr-2"></span> {{ 'global.add' | translate }}
+                        </button>
+                      </div>
+                    </div>
+                  </ng-template>
+
+                  <ng-template pTemplate="header">
+                      <tr class="grid-head-columns grid-head-column text-uppercase">
+                          <th scope="col" style="width:26em">{{'administracion.protecciones.planCobertura.datosPrincipales.planCobertura' | translate }}</th>
+                          <th scope="col">{{'administracion.protecciones.planCobertura.datosPrincipales.edadMinima' | translate }}</th>
+                          <th scope="col">{{'administracion.protecciones.planCobertura.datosPrincipales.edadMaxima'| translate }}</th>
+                          <th scope="col">{{'administracion.protecciones.planCobertura.datosPrincipales.edadIndemnizacion'| translate }}</th>
+                          <th scope="col">{{'administracion.protecciones.planCobertura.datosPrincipales.edadMaximaPermanencia' | translate }}</th>
+                          <th scope="col">{{'administracion.protecciones.planCobertura.datosPrincipales.plazo' | translate }}</th>
+                          <th scope="col">{{'administracion.protecciones.planCobertura.datosPrincipales.fondoGarantia' | translate }}</th>
+                          <th scope="col">{{'administracion.protecciones.planCobertura.datosPrincipales.renovacion' | translate }}</th>
+                          <th scope="col" style="width:6em">{{'administracion.protecciones.planCobertura.datosPrincipales.gridEdades.accion' | translate }}</th>
+                      </tr>
+                  </ng-template>
+                   <ng-template pTemplate="body" let-rowData let-i="rowIndex">
+                    <ng-container formArrayName="arrayEdades">
+                      <tr class="grid-space-row"><!-- Espacio en transparente --></tr>
+                      <tr [formGroupName]="i" [pEditableRow]="rowData" class="grid-body-column ng-star-inserted">
+                        <td>
+                          <div class="form-group tooltipError">
+                            <div class="input-group" [ngClass]="getControls(i)?.planCoberturaEdad.errors ? 'border--red1': ''">
+                              <app-mim-select class="w-100" [options]="planesCoberturas" formControlName="planCoberturaEdad"
+                                [optionKey]="'nombre'" ngDefaultControl>
+                              </app-mim-select>
+                            </div>
+                            <span class="tooltiptext" *ngIf="getControls(i)?.planCoberturaEdad.errors">
+                              <p *ngIf="getControls(i)?.planCoberturaEdad.errors?.required">
+                                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.planCobertura' | translate } }}
+                              </p>
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group tooltipError">
+                            <div class="input-group" [ngClass]="getControls(i)?.edadMinima.errors ? 'border--red1': ''">
+                              <input type="number" class="form-control" formControlName="edadMinima" min="18" max="100" />
+                            </div>
+                            <span class="tooltiptext" *ngIf="getControls(i)?.edadMinima.errors">
+                              <p *ngIf="getControls(i)?.edadMinima.errors?.required">
+                                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMinima'| translate } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMinima.errors?.min">
+                                {{ 'global.minValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMinima'| translate, min: 18 } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMinima.errors?.max">
+                                {{ 'global.maxValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMinima'| translate, max: 100 } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMinima.errors?.range">
+                                {{ 'administracion.protecciones.planes.alertas.MinimaYMaxima' | translate  }}
+                              </p>
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group tooltipError">
+                            <div class="input-group" [ngClass]="getControls(i)?.edadMaxima.errors ? 'border--red1': ''">
+                              <input type="number" class="form-control" formControlName="edadMaxima" min="18" max="100" />
+                            </div>
+                            <span class="tooltiptext" *ngIf="getControls(i)?.edadMaxima.errors">
+                              <p *ngIf="getControls(i)?.edadMaxima.errors?.required">
+                                {{ 'global.required' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaxima'| translate } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMaxima.errors?.min">
+                                {{ 'global.minValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaxima'| translate, min: 18 } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMaxima.errors?.max">
+                                {{ 'global.maxValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaxima'| translate, max: 100 } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMaxima.errors?.range">
+                                {{ 'administracion.protecciones.planes.alertas.MinimaYMaxima' | translate  }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMaxima.errors?.rangePermanencia">
+                                {{ 'administracion.protecciones.planes.alertas.edadMaximaPermanencia' | translate  }}
+                              </p>
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group tooltipError">
+                            <div class="input-group" [ngClass]="getControls(i)?.edadIndemnizacion.errors ? 'border--red1': ''">
+                              <input type="number" class="form-control" formControlName="edadIndemnizacion" min="18" max="100" />
+                            </div>
+                            <span class="tooltiptext" *ngIf="getControls(i)?.edadIndemnizacion.errors">
+                              <p *ngIf="getControls(i)?.edadIndemnizacion.errors?.min">
+                                {{ 'global.minValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadIndemnizacion'| translate, min: 18 } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadIndemnizacion.errors?.max">
+                                {{ 'global.maxValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadIndemnizacion'| translate, max: 100 } }}
+                              </p>
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group tooltipError">
+                            <div class="input-group" [ngClass]="getControls(i)?.edadMaximaPermanencia.errors ? 'border--red1': ''">
+                              <input type="number" class="form-control" formControlName="edadMaximaPermanencia" min="18" max="150" />
+                            </div>
+                            <span class="tooltiptext" *ngIf="getControls(i)?.edadMaximaPermanencia.errors">
+                              <p *ngIf="getControls(i)?.edadMaximaPermanencia.errors?.min">
+                                {{ 'global.minValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaximaPermanencia'| translate, min: 18 } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMaximaPermanencia.errors?.max">
+                                {{ 'global.maxValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.edadMaximaPermanencia'| translate, max: 150 } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.edadMaximaPermanencia.errors?.rangePermanencia">
+                                {{ 'administracion.protecciones.planes.alertas.edadMaximaPermanencia' | translate  }}
+                              </p>
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group tooltipError">
+                            <div class="input-group" [ngClass]="getControls(i)?.plazo.errors ? 'border--red1': ''">
+                              <input type="number" class="form-control" formControlName="plazo" min="1" max="100" />
+                            </div>
+                            <span class="tooltiptext" *ngIf="getControls(i)?.plazo.errors">
+                              <p *ngIf="getControls(i)?.plazo.errors?.min">
+                                {{ 'global.minValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.plazo'| translate, min: 1 } }}
+                              </p>
+                              <p *ngIf="getControls(i)?.plazo.errors?.max">
+                                {{ 'global.maxValue' | translate : { campo: 'administracion.protecciones.planCobertura.datosPrincipales.plazo'| translate, max: 100 } }}
+                              </p>
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-switch p-0">
+                            <label class="switch">
+                              <input type="checkbox" formControlName="fondoGarantia" id="fondoGarantia" name="fondoGarantia">
+                              <span class="slider round">
+                                <span class="text--white text--14pts text--500wt">SI</span>
+                                <span class="text--white text--14pts text--500wt">NO</span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="custom-control custom-switch p-0">
+                            <label class="switch">
+                              <input type="checkbox" formControlName="renovacion" id="renovacion" name="renovacion">
+                              <span class="slider round">
+                                <span class="text--white text--14pts text--500wt">SI</span>
+                                <span class="text--white text--14pts text--500wt">NO</span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td style="text-align:center" class="d-flex flex-row px-1">
+                          <button type="button" pInitEditableRow class="btn btn--icon bg--blue2 mx-auto" (click)="onDeleteRow(i)">
+                            <span class="icon-trash-3 text--red1"></span>
+                          </button>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </ng-template>
+                </p-table>
+
+
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Configuración de obligatoriedad -->
+          <div class="col-12 mb-3">
+            <fieldset class="fieldset_mm pb-3 w-100">
+              <legend class="legend_mm">
+                <span class="text--16pts text--600wt">
+                  {{ 'administracion.protecciones.planCobertura.datosPrincipales.configuracionObligatoriedad' | translate }}
+                </span>
+              </legend>
+              <div class="row mx-0 w-100">
+                <div class="col-sm-4 col-md-3" *ngFor="let configuracion of configuracion.condicionesVenta">
+                  <div class="form-group">
+                    <label class="col-form-label" appMimLabel for="{{ configuracion.control }}">
+                      {{ configuracion.title | translate }}
+                    </label>
+                    <div class="custom-control custom-switch p-0">
+                      <label class="switch">
+                        <input type="checkbox" formControlName="{{ configuracion.control }}"
+                          id="{{ configuracion.control }}" name="{{ configuracion.control }}">
+                        <span class="slider round">
+                          <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }} </span>
+                          <span class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        </div>
+
+
+
+        <div class="d-flex" [class.flex-row-reverse]="!_esCreacion">
+          <!-- Boton atras -->
+          <p class="text-left w-100" *ngIf="_esCreacion">
+            <a class="btn btn--circle justify-content-start" (click)="_onSalir()">
+              <span class="icon-arrow-thin-left mr-2"></span>
+              {{ 'header.regresar' | translate }}
+            </a>
+          </p>
+          <button type="submit" class="btn btn--orange1 btn--md mr-3" (click)="_guardar()"
+            [disabled]="isPristine(form)">
+            <span class="icon-edit-3 mr-2"></span>
+            {{ 'global.save' | translate }}
+          </button>
+        </div>
+        <!-- Fin configuracion Plan/Cobertura-->
+      </div>
+    </form>
+  </div>
+</div>

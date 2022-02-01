@@ -1,0 +1,102 @@
+<div class="barra-asociado col-12" *ngIf="datosCabecera">
+  <div class="row mx-0 w-100">
+    <div class="col-xl-3 col-sm-2"><!-- barra-asociado-hide -->
+      <!-- Nothing here... -->
+      <!-- Se agrega este espacio para cuadrar con la configuracion principal de menu lateral -contenido de la pagina. -->
+    </div>
+
+    <div class="col-sm-10 col-xl-9">
+
+      <div class="col-md-12">
+
+      <div class="card cards--headerFooter w-100">
+        <div class="card-header py-0 barra-asociado-header">
+          <div class="barra-asociado-header-container">
+            <div class="d-flex  w-100">
+              <ng-container *ngFor="let itemCabecera of datosCabecera; index as i">
+
+                <div class="{{itemCabecera.clasesCss}} d-flex flex-row">
+                  <span class="{{itemCabecera.titulo.iconoLeft}} d-flex align-items-center"
+                    *ngIf="itemCabecera.titulo?.iconoLeft"></span>
+                  <h5 class="{{itemCabecera.titulo.clasesCss}} mb-0 d-flex align-items-center"
+                    *ngIf="itemCabecera.titulo">
+                    {{ itemCabecera.titulo.label | translate }}:
+                  </h5>
+                  <span class="{{itemCabecera.titulo.iconoRight}} d-flex align-items-center"
+                    *ngIf="itemCabecera.titulo?.iconoRight"></span>
+                  <h4 class="{{itemCabecera.valor.clasesCss}} mb-0 d-flex align-items-center"
+                    *ngIf="itemCabecera.valor">
+                    <span class="{{itemCabecera.valor.iconoLeft}} d-flex align-items-center"
+                      *ngIf="itemCabecera.valor?.iconoLeft"></span>
+                    {{ itemCabecera.valor.label? itemCabecera.valor.label : '-' }}
+                    <span class="{{itemCabecera.valor.iconoRight}} d-flex align-items-center"
+                      *ngIf="itemCabecera.valor?.iconoRight"></span>
+                  </h4>
+
+                  <div class="d-flex align-items-center">
+                    <button class="{{itemCabecera.boton.clasesCss}}" (click)="clickBoton(itemCabecera.boton?.tipo)"
+                      *ngIf="itemCabecera.boton">
+                      <span class="{{itemCabecera.boton?.clasesCssTextButon}}">{{itemCabecera.boton?.label}}</span>
+                    </button>
+                  </div>
+                </div>
+              </ng-container>
+
+              <div class="d-flex flex-row ml-3" *ngIf="datosDetalle.length > 0">
+                <a data-toggle="collapse" data-target="#collapseAsociadoDetalle" aria-expanded="false"
+                  aria-controls="collapseAsociadoDetalle" class="text--15pts text--green1 float-right cursor-point"
+                  (click)="_toggle()">
+                  <span class="icon-chevron-up" *ngIf="dropdown"></span>
+                  <span class="icon-chevron-down" *ngIf="!dropdown"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapse" [ngClass]="{ show: dropdown }" aria-labelledby="headingCategoriaDetalle"
+          data-parent="#accordionAsociadoDetalle">
+          <div class="card-body bt-1px py-3">
+            <div class="barra-asociado-body-container my-0 py-0">
+              <div class="col-12 d-flex">
+                <ng-container *ngFor="let itemDetalle of datosDetalle; index as i">
+
+                  <div class="d-flex flex-row">
+                    <span class="{{itemDetalle.titulo.iconoLeft}} d-flex align-items-center"
+                      *ngIf="itemDetalle.titulo?.iconoLeft"></span>
+                    <h5 class="{{itemDetalle.titulo.clasesCss}} mb-0 d-flex align-items-center"
+                      *ngIf="itemDetalle.titulo">
+                      {{ itemDetalle.titulo.label | translate }}:
+                    </h5>
+                    <span class="{{itemDetalle.titulo.iconoRight}} d-flex align-items-center"
+                      *ngIf="itemDetalle.titulo?.iconoRight"></span>
+                    <h4 class="{{itemDetalle.valor.clasesCss}} mb-0 d-flex align-items-center"
+                      *ngIf="itemDetalle.valor">
+                      <span class="{{itemDetalle.valor.iconoLeft}} d-flex align-items-center"
+                        *ngIf="itemDetalle.valor?.iconoLeft"></span>
+                      {{ itemDetalle.valor.label? itemDetalle.valor.label : '-' }}
+                      <span class="{{itemDetalle.valor.iconoRight}} d-flex align-items-center"
+                        *ngIf="itemDetalle.valor?.iconoRight"></span>
+                    </h4>
+
+                    <div class="d-flex align-items-center">
+                      <button class="{{itemDetalle.boton.clasesCss}}" (click)="_onClickCopiar(configuracion.nitCli)"
+                        *ngIf="itemDetalle.boton">
+                        <span class="{{itemDetalle.boton?.clasesCssTextButon}}">{{itemDetalle.boton?.label}}</span>
+                      </button>
+                    </div>
+                  </div>
+
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+
+  </div>
+</div>

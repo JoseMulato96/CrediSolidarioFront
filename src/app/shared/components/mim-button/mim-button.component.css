@@ -1,0 +1,52 @@
+.link-copy,
+.link-button {
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  outline: none;
+}
+.link-copy span,
+.link-button span {
+  font-size: 0.8125rem;
+}
+.link-button {
+  min-width: 70px;
+  border: 1px solid #ff743b;
+  color: #2f4158;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: 0px;
+}
+.link-copy {
+  border: 1px solid #ff743b;
+  color: #2f4158;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left: 1px solid #ff743b;
+  padding: 5px 8px 5px 8px;
+}
+.link-container:hover .link-copy,
+.link-container:hover .link-button {
+  color: #ffffff;
+  background-color: #ff743b;
+}
+.link-container:hover .link-copy,
+.link-copy:hover {
+  border-left: 1px solid #ffffff;
+}
+.link-copy + span {
+  transition: all 5s ease;
+  color: #d6dbe0;
+}
+.link-copy:hover span {
+  transform: rotate(-360deg);
+}
+.link-container {
+  padding: 0px !important;
+  background-color: transparent;
+  height: 30px;
+  display: inline-flex;
+}
+.link-container:hover .link-copy {
+  display: inherit;
+}

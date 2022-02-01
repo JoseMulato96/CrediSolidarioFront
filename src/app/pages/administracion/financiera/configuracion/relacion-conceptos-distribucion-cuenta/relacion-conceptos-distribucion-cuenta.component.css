@@ -1,0 +1,9 @@
+.text--normal{
+    font-weight: normal !important;
+}
+
+.custom--checkbox {
+    height: auto;
+    display: block;
+    padding-bottom: 10px;
+}

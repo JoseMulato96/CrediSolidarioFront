@@ -1,0 +1,9 @@
+<p-autoComplete [inputId]="inputId" [name]="inputId" [(ngModel)]="modelo"
+  placeholder="{{ 'global.placeholderAutoComplete' | translate:{numeroCaracteres:minLength} }}" class="autocomplete-coomeva w-100" dataKey="{{ optionKey }}"
+  field="{{ optionField }}" [suggestions]="suggestions" [dropdown]="true" (completeMethod)="_onCompleteMethod($event)"
+  [dropdownIcon]="'icon-chevron-down'" [minLength]="minLength" (ngModelChange)="_onAutocompleteChange($event)"
+  ngDefaultControl [disabled]="disabled">
+  <ng-template let-suggestion pTemplate="item">
+    {{ optionKey? suggestion[optionKey] + ' - ':'' }}{{ suggestion[optionField] }}
+  </ng-template>
+</p-autoComplete>

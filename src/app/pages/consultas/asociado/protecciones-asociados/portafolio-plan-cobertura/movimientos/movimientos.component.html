@@ -1,0 +1,397 @@
+<div class="row">
+    <div class="col-md-3 posicion_top_consultas">
+        <span class="text-left mr-2">
+            <a class="btn btn--circle justify-content-start" (click)="atras()">
+                <span class="icon-arrow-thin-left mr-2"></span>
+                {{'global.back' | translate}}
+            </a>
+        </span>
+
+        <div class="card posicion_top_card cards--panelLeft">
+            <div class="card-header bg-white">
+                <h5 class="text--gray1 text--700wt text-uppercase my-0">Consultar</h5>
+            </div>
+            <div class="card-body">
+                <form class="form--default w-100" [formGroup]="form">
+                    <!--No. documento -->
+                    <div class="col-md-12 px-0">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="documento" class="col-sm-12 col-form-label">
+                                {{ 'asociado.protecciones.portafolio.movimientos.filtros.noDocumento' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'documento'" [controlName]="'documento'">
+                                    <input type="text" class="form-control" id="documento" formControlName="documento"
+                                        name="documento" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fecha de solicitud -->
+                    <div class="col-md-12 px-0">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="fechaInicioFechaFin" class="col-sm-12 col-form-label">
+                                {{ 'asociado.protecciones.portafolio.movimientos.filtros.fechaSolicitud' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'fechaInicioFechaFin'"
+                                    [controlName]="'fechaInicioFechaFin'">
+                                    <app-mim-date-picker class="w-100" [inputId]="'fechaInicioFechaFin'"
+                                        [maxDate]="maxDateValue" [selectionMode]="'range'"
+                                        formControlName="fechaInicioFechaFin" ngDefaultControl></app-mim-date-picker>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="fechaInicioFechaFin"
+                                errorKey="rangoError">
+                                {{ 'global.alertas.rangoError' | translate : {rango: 30 } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <!-- Tipo de movimiento -->
+                    <div class="col-md-12 px-0">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="tipoMovimiento" class="col-sm-12 col-form-label">
+                                {{ 'asociado.protecciones.portafolio.movimientos.filtros.tipoMovimiento' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'tipoMovimiento'"
+                                    [controlName]="'tipoMovimiento'">
+                                    <app-mim-select class="w-100" [inputId]="'tipoMovimiento'"
+                                        [options]="tipoMovimientos" formControlName="tipoMovimiento"
+                                        [optionKey]="'nombre'" name="'tipoMovimiento'" ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                            <app-mim-input-error class="col-sm-12" controlName="tipoMovimiento" errorKey="required">
+                                {{ 'global.required' | translate : { campo:
+                                'asociado.protecciones.portafolio.movimientos.filtros.tipoMovimiento' | translate } }}
+                            </app-mim-input-error>
+                        </div>
+                    </div>
+
+                    <!-- Estados -->
+                    <div class="col-md-12 px-0">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="estado" class="col-sm-12 col-form-label">
+                                {{ 'asociado.protecciones.portafolio.movimientos.filtros.estados' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'estado'" [controlName]="'estado'">
+                                    <app-mim-select class="w-100" [inputId]="'estado'" [options]="estados"
+                                        formControlName="estado" [optionKey]="'nombre'" name="'estado'"
+                                        ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Canal ventas -->
+                    <div class="col-md-12 px-0">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="canalVenta" class="col-sm-12 col-form-label">
+                                {{ 'asociado.protecciones.portafolio.movimientos.filtros.canalVenta' | translate }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'canalVenta'" [controlName]="'canalVenta'">
+                                    <app-mim-select class="w-100" [inputId]="'canalVenta'" [options]="canalVentas"
+                                        formControlName="canalVenta" [optionKey]="'nombre'" name="'canalVenta'"
+                                        ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Promotor comercial -->
+                    <div class="col-md-12 px-0">
+                        <div class="form-group row align-items-center">
+                            <label appMimLabel for="promotorComercial" class="col-sm-12 col-form-label">
+                                {{ 'asociado.protecciones.portafolio.movimientos.filtros.promotorComercial' | translate
+                                }}
+                            </label>
+                            <div class="col-sm-12">
+                                <div class="input-group" appMimInput [for]="'promotorComercial'"
+                                    [controlName]="'promotorComercial'">
+                                    <app-mim-select class="w-100" [inputId]="'promotorComercial'"
+                                        [options]="promotoresComerciales" formControlName="promotorComercial"
+                                        [optionKey]="'nombre'" name="'promotorComercial'" ngDefaultControl>
+                                    </app-mim-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn--gray2 btn--md col-md-12 mt-4" (click)="limpiarForm()">
+                                {{ 'global.limpiar' | translate }}
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn--green1 btn--md col-md-12 mt-4" (click)="buscarForm()">
+                                {{ 'global.search' | translate }}
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-9">
+        <h1 class="mb-0">{{ 'asociado.protecciones.portafolio.movimientos.titulo' | translate }}</h1>
+
+        <app-mim-grid [configuracion]="configuracion.gridConfig" (siguiente)="siguienteAtrasTable($event)"
+            (atras)="siguienteAtrasTable($event)" (clickCeldaElement)="clickMas($event)">
+        </app-mim-grid>
+    </div>
+</div>
+
+
+
+<!-- Footer -->
+<div class="card cards--footer border-0 rounded-0">
+    <div class="card-body py-2">
+        <div class="col-11 offset-1 col-xl-12 offset-xl-0">
+            <!-- SUMATORIA -->
+            <div class="mx-0 w-100 row justify-content-between align-items-center">
+                <div class="d-flex flex-row">
+                    <div class="alert panel--alert p-0 m-0" role="alert">
+                        <h5 class="my-0 text--gray2 text--600wt d-inline-flex align-items-center text--tittle_circle">
+                            <span class="icon-info-2 bg--yellow1 mr-3 text--26pts"></span>
+                            {{
+                            'asociado.protecciones.portafolio.movimientos.mensajeFooter' | translate
+                            }}
+                        </h5>
+                    </div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <button type="button" class="btn btn--orange1 btn--md mx-1" (click)="nuevaCotizacion()">
+                        <span class="icon-arrow-thin-right mr-2"></span>
+                        {{
+                        'asociado.protecciones.portafolio.movimientos.botonNuevaCotizacion' | translate
+                        }}
+                    </button>
+                    <button type="button" class="btn btn--border_green1 btn--md mx-1" (click)="realizarVenta()">
+                        <span class="icon-arrow-thin-right mr-2"></span>
+                        {{
+                        'asociado.protecciones.portafolio.movimientos.botonRealizarVenta' | translate
+                        }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarBitacora == true }" *ngIf="mostrarBitacora">
+    <div class="row mx-0 w-100 justify-content-end">
+        <div class="col-xl-6 col-md-8 px-0">
+            <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+                <div class="card-header mb-3">
+                    <div class="row mx-0 w-100 align-items-center">
+                        <div class="col-lg-10">
+                            <h1 class="text--500wt text--gray1 my-0">
+                                {{ 'eventos.consulta.bitacora.titulo' | translate }}
+                            </h1>
+                        </div>
+                        <div class="col-lg-2 d-flex justify-content-end">
+                            <button class="btn btn--circle btn--circle_green" (click)="cerrarModalBitacora()">
+                                <span class="icon-cross mr-2"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <app-mim-bitacora class="mx-3" [idProceso]="idProceso" [titulo]="''" *ngIf="mostrarBitacora">
+                </app-mim-bitacora>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-popup-menu [configuracion]="configuracion.popupMenu" class="col-3" (click-item)="clickItemPopup($event)">
+</app-popup-menu>
+
+<!-- Modal lateral -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarModalCambioEstado == true }"
+    *ngIf="mostrarModalCambioEstado">
+    <div class="row mx-0 w-100 justify-content-end">
+        <div class="col-xl-4 col-md-6 px-0">
+            <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+                <div class="card-header">
+                    <div class="row mx-0 w-100 align-items-center">
+                        <div class="col-lg-10">
+                            <h1 class="text--500wt text--gray1 my-0">
+                                {{
+                                'asociado.protecciones.portafolio.movimientos.modal.titulo'
+                                | translate}}
+                            </h1>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn--circle btn--circle_green" (click)="toggleModalCambioEstado()">
+                                <span class="icon-cross mr-2"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <form class="form--default w-100 " [formGroup]="formCambioEstado">
+                    <div class="card-header pb-0">
+                        <div class="row mx-0">
+                            <!-- Nombre de. asociado -->
+                            <div class="col-sm-12 col-md-8">
+                                <div class="form-group row">
+                                    <h5 class="my-0 text--13pts text--medium px-3">
+                                        <span class="text--gray2 mr-1">
+                                            {{'asociado.protecciones.portafolio.movimientos.modal.nombreAsociado' |
+                                            translate}}
+                                            :
+                                        </span>
+                                    </h5>
+                                    <label for="nombre" class="col-sm-12 col-form-labelas pt-1">
+                                        {{ rowCambiarEstadoCotizacion.asociado.nombreAsociado }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Cédula del asociado -->
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group row">
+                                    <h5 class="my-0 text--13pts text--medium px-3">
+                                        <span class="text--gray2 mr-1">
+                                            {{'asociado.protecciones.portafolio.movimientos.modal.cedula' | translate}}
+                                            :
+                                        </span>
+                                    </h5>
+                                    <label for="nombre" class="col-sm-12 col-form-labelas pt-1">
+                                        {{ rowCambiarEstadoCotizacion.asociado.nitCli }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mx-0">
+                            <!-- código -->
+                            <div class="col-md-7">
+                                <div class="form-group row">
+                                    <h5 class="my-0 text--13pts text--medium px-3">
+                                        <span class="text--gray2 mr-1">
+                                            {{'asociado.protecciones.portafolio.movimientos.modal.codigo' |
+                                            translate}}
+                                            :
+                                        </span>
+                                    </h5>
+                                    <label for="nombre" class="col-sm-12 col-form-labelas pt-1">
+                                        {{ rowCambiarEstadoCotizacion.codigo }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Tipo plan -->
+                            <div class="col-md-5">
+                                <div class="form-group row">
+                                    <h5 class="my-0 text--13pts text--medium px-3">
+                                        <span class="text--gray2 mr-1">
+                                            {{'asociado.protecciones.portafolio.movimientos.modal.tipoPlan' |
+                                            translate}}
+                                            :
+                                        </span>
+                                    </h5>
+                                    <label for="nombre" class="col-sm-12 col-form-labelas pt-1">
+                                        {{ rowCambiarEstadoCotizacion.mimPlan.mimTipoPlan.nombre }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- plan -->
+                            <div class="col-md-7">
+                                <div class="form-group row">
+                                    <h5 class="my-0 text--13pts text--medium px-3">
+                                        <span class="text--gray2 mr-1">
+                                            {{'asociado.protecciones.portafolio.movimientos.modal.plan' |
+                                            translate}}
+                                            :
+                                        </span>
+                                    </h5>
+                                    <label for="nombre" class="col-sm-12 col-form-labelas pt-1">
+                                        {{ rowCambiarEstadoCotizacion.mimPlan.nombre }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Fecha Solicitud -->
+                            <div class="col-md-5">
+                                <div class="form-group row">
+                                    <h5 class="my-0 text--13pts text--medium px-3">
+                                        <span class="text--gray2 mr-1">
+                                            {{'asociado.protecciones.portafolio.movimientos.modal.fechaSolicitud' |
+                                            translate}}
+                                            :
+                                        </span>
+                                    </h5>
+                                    <label for="nombre" class="col-sm-12 col-form-labelas pt-1">
+                                        {{ rowCambiarEstadoCotizacion.fechaSolicitud }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Estado Actual Cotizacion -->
+                            <div class="col-md-8">
+                                <div class="form-group row">
+                                    <h5 class="my-0 text--13pts text--medium px-3">
+                                        <span class="text--gray2 mr-1">
+                                            {{'asociado.protecciones.portafolio.movimientos.modal.estadoActualCotizacion'
+                                            | translate}}
+                                            :
+                                        </span>
+                                    </h5>
+                                    <label for="nombre" class="col-sm-12 col-form-labelas pt-1">
+                                        {{ rowCambiarEstadoCotizacion.nombreEstado }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Estados cotización -->
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group row align-items-center">
+                                    <label appMimLabel for="causaNegacion" class="col-sm-12 col-form-label">
+                                        {{
+                                        'asociado.protecciones.portafolio.movimientos.modal.estado'
+                                        | translate }}
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <div class="input-group" appMimInput [for]="'estados'"
+                                            [controlName]="'estados'">
+                                            <app-mim-select class="w-100" [inputId]="'estados'"
+                                                [options]="estadosCotizacion" formControlName="estados"
+                                                [optionKey]="'nombre'" name="'estados'" ngDefaultControl>
+                                            </app-mim-select>
+                                        </div>
+                                    </div>
+                                    <app-mim-input-error class="col-sm-12" controlName="estados" errorKey="required">
+                                        {{ 'global.required' | translate : { campo:
+                                        'asociado.protecciones.portafolio.movimientos.modal.estado'
+                                        | translate } }}
+                                    </app-mim-input-error>
+                                </div>
+                            </div>
+
+                            <div class="card-footer  w-100 border-0 px-0">
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="submit" class="btn btn--orange1 btn--md"
+                                        (click)="guardarCambiarEstado()" [disabled]="formCambioEstado.invalid">
+                                        <span class="icon-checkmark  mr-2"></span>
+                                        {{ 'global.save' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

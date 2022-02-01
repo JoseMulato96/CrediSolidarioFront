@@ -1,0 +1,12 @@
+.form-label {
+  color: #2f4158;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.form-height {
+  min-height: 290px;
+}
+.topCheck{
+  top: 0;
+}

@@ -1,0 +1,6 @@
+<p-multiSelect class="multi-select-coomeva" [inputId]="inputId" [name]="inputId" [options]="_options"
+  [(ngModel)]="modelo" [dropdownIcon]="'icon-chevron-down'" [disabled]="disabled"
+  ngDefaultControl defaultLabel="{{ 'home.seleccionar' | translate }}" [optionLabel]="optionKey"
+  selectedItemsLabel="{0} {{ 'global.selected' | translate }}" (ngModelChange)="_onSelectChange($event)"
+  emptyFilterMessage="{{ 'global.noSeEncontraronRegistrosMensaje' | translate}}">
+</p-multiSelect>

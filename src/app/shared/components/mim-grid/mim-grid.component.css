@@ -1,0 +1,464 @@
+.text-ellipsis {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  width: 69px;
+  white-space: nowrap;
+}
+.head-column-container {
+  display: block;
+}
+.head-arrows-orden {
+  width: 10px;
+  font-size: 10px;
+  float: right;
+  color: #7a8a9f;
+}
+.head-select-orden,
+.head-arrows-orden div i:hover {
+  color: #ff743b !important;
+}
+.head-select-orden-rect {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+.head-select-orden-rect i {
+  margin: 4px;
+}
+.head-arrows-letter {
+  bottom: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 7px;
+  float: left;
+}
+.page-arrows {
+  font-size: 8px !important;
+}
+.grid-link-copy,
+.grid-link-button {
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  outline: none;
+}
+.grid-link-copy span,
+.grid-link-button span {
+  font-size: 0.8125rem;
+}
+.grid-link-button {
+  min-width: 70px;
+  width: 100%;
+  border: 1px solid #ff743b;
+  color: #2f4158;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding: 0.375rem 0.75rem;
+  border-right: 0px;
+}
+.grid-link-copy {
+  border: 1px solid #ff743b;
+  color: #2f4158;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left: 1px solid #ff743b;
+  padding: 5px;
+}
+.grid-link-container:hover .grid-link-copy,
+.grid-link-container:hover .grid-link-button {
+  color: #ffffff;
+  background-color: #ff743b;
+}
+.grid-link-copy:hover {
+  border-left: 1px solid #ffffff;
+}
+.grid-link-copy + span {
+  transition: all 5s ease;
+  color: #d6dbe0;
+}
+.grid-link-copy:hover span {
+  transform: rotate(-360deg);
+}
+.grid-link-container {
+  width: 100%;
+  padding: 0px !important;
+  background-color: transparent;
+  height: 30px;
+  display: inline-flex;
+}
+.grid-link-container:hover .grid-link-copy {
+  display: inherit;
+}
+.grid-table {
+  border-collapse: collapse;
+}
+.grid-check-column {
+  width: 20px;
+}
+.grid-head-columns {
+  background-color: transparent;
+  border: 0px solid #d6dbe0;
+  border-radius: 5px;
+}
+.grid-head-column th {
+  border: 0px !important;
+  outline: none;
+  background-color: #dfe3e6 !important;
+  color: #323b48 !important;
+  font-weight: 700 !important;
+  font-size: 0.72rem; /* 0.77rem; */
+}
+.grid-head-column-sortable .ui-sortable-column-icon {
+  color: #323b48 !important;
+}
+.grid-head-column th:first-child {
+  border: 0px !important;
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+.grid-head-column th:last-child {
+  border: 0px !important;
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+.grid-body-column td {
+  border: 0px !important;
+  background: transparent !important;
+}
+.grid-head-column {
+  height: 50px !important;
+}
+.grid-body-column {
+  height: 37px !important;
+}
+.grid-space-row {
+  height: 5px;
+}
+.grid-body-column td:first-child {
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+}
+.grid-body-column td:last-child {
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+.grid-body-column h5 {
+  font-family: Montserrat, sans-serif;
+  color: #2f4158;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  /* text-align: left !important; */
+}
+.grid-table .ui-paginator-top {
+  display: none;
+}
+.grid-filter-column th {
+  border: 0px !important;
+}
+.grid-filter-column-input {
+  width: 100%;
+  color: #2f4158;
+  border: 1px solid #d6dbe0;
+  outline: none;
+  height: 27px;
+  padding: 6px;
+  border-radius: 5px;
+}
+.grid-filter-column-input:hover,
+.grid-filter-column-input:focus {
+  width: 100%;
+  color: #2f4158;
+  border: 1px solid #ff743b;
+}
+.grid-filter-column-multiselect app-mim-multiselect p-multiselect:hover,
+.grid-filter-column-multiselect app-mim-multiselect p-multiselect:focus {
+  border: 1px solid #ff743b;
+}
+.grid-scroll-x .ui-table-wrapper {
+  overflow-x: scroll;
+  min-height: 50vh;
+}
+.grid-vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.grid-vertical-th {
+  vertical-align: bottom;
+  height: 142px;
+}
+
+.bagde-all-text {
+  word-break: break-all;
+  white-space: normal;
+}
+.ui-table-caption.ui-widget-header {
+  border: none !important;
+  background: transparent !important;
+}
+/*-----------------------*/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(214, 25, 25);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #0e8652;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #0e8652;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.izquierda {
+  float: left;
+  margin-top: 10px !important;
+  margin-left: 6px !important;
+}
+.derecha {
+  float: right;
+  margin-top: 10px !important;
+  margin-right: 6px !important;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.scrollTop{
+  width: 102%;
+  overflow-x: scroll;
+  margin-left: -15px;
+  margin-bottom: -5px;
+  overflow-y:hidden;
+}
+.scrollTopInterno{
+  height: 7px;
+}
+
+.ui-table p-sorticon {
+  display: block;
+  float: left;
+}
+
+.Badge2{
+  color: #000;
+  font-size: 0.8125rem;
+}
+
+.columnas .ui-multiselect{
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #ff743b;
+}
+
+.columnas .ui-multiselect .ui-multiselect-trigger {
+  background-color: transparent !important;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  padding: 0;
+  color: #848484;
+}
+
+.columnas .ui-multiselect .ui-multiselect-label-container span:first-child{
+  color: #ff743b;
+}
+
+.columnas .ui-multiselect .ui-multiselect-trigger {
+  right: 0px;
+  color: #ff743b;
+}
+
+.columnas .ui-multiselect:hover,
+.columnas .ui-multiselect:hover,
+.columnas .ui-multiselect:focus,
+.columnas .ui-multiselect:active,
+.columnas .ui-multiselect.active,
+.columnas .ui-multiselect:hover .ui-multiselect-label-container span:first-child,
+.columnas .ui-multiselect:hover .ui-multiselect-trigger span:first-child{
+  background-color: #ff743b !important;
+  border: 1px solid #ff743b !important;
+  color: #fff !important;
+}
+
+body .ui-table .ui-table-tbody > tr > td {
+  padding: 0em 0.857em !important;
+}
+
+th .multi-select-coomeva .ui-multiselect,
+th .multi-select-coomeva .ui-multiselect:hover {
+  padding: 0px !important;
+  height: 1.81rem !important;
+}
+
+body th .ui-multiselect
+.ui-multiselect-label{
+  height: 1.81rem !important;
+  padding: 0.429em !important;
+  padding-left: 0.429em !important;
+  margin-top: -0.1em;
+}
+
+.searchInput {
+  border-bottom-left-radius: 20px;
+   border-top-left-radius: 20px;
+}
+
+.buttonSearch{
+  border: 1px solid #ced4da;
+}
+
+.buttonSearch:focus,
+.buttonSearch:hover,
+.buttonSearch:active,
+.buttonSearch.active
+{
+  background-color: #ecf2ff;
+  border: 1px solid #ced4da;
+}
+
+/**
+ * Estilos para el control date de los filtros
+ */
+ .gridGenerico .ui-shadow{
+  width: 300px !important;
+  top: 30px !important;
+  z-index: 1030 !important;
+}
+.ui-datepicker table td {
+  padding: 0px !important;
+}
+
+.calendar-coomeva {
+  border-radius: 5px;
+  align-items: center;
+  border-top: 0;
+  color: #2f4158 !important;
+  background-color: #fff !important;
+  font-family: 'Montserrat', sans-serif;
+  /* font-size: 0.8125rem; */
+  font-weight: 400;
+  height: 3rem;
+}
+.calendar-coomeva .ui-calendar {
+  width: 100%;
+  /* border: 1px solid #d6dbe0; */
+  border-radius: 5px;
+}
+.calendar-coomeva .ui-calendar .ui-inputtext {
+  padding: 0.375rem 0.75rem;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1px solid #ced4da;
+  border-radius: 20px !important;
+  cursor: pointer;
+}
+.calendar-coomeva .ui-calendar .ui-calendar-button,
+.calendar-coomeva .ui-calendar .ui-calendar-button:enabled:focus,
+.calendar-coomeva .ui-calendar .ui-calendar-button:enabled:hover {
+
+  color: #0064f7;
+  width: 40px !important;
+  height: 100%;
+  float: right;
+  position: absolute;
+  right: 0;
+  background-color: #ecf2ff;
+    border: 1px solid #ced4da;
+    /* border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px; */
+}
+
+.gridGenerico .calendar-coomeva .ui-calendar .ui-calendar-button,
+.gridGenerico .calendar-coomeva .ui-calendar .ui-calendar-button:enabled:focus,
+.gridGenerico .calendar-coomeva .ui-calendar .ui-calendar-button:enabled:hover{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.calendar-coomeva .ui-datepicker .ui-datepicker-header .ui-datepicker-title select,
+.calendar-coomeva .ui-datepicker .ui-datepicker-header .ui-datepicker-title select:hover,
+.calendar-coomeva .ui-datepicker .ui-datepicker-header .ui-datepicker-title select:focus {
+  border-radius: 5px !important;
+  border: 1px solid #d6dbe0 !important;
+}
+
+/* input[type="date"] {
+  position: relative;
+  padding: 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: transparent;
+  background: none;
+  z-index: 1;
+}
+
+input[type="date"]:before {
+  color: transparent;
+  background: none;
+  display: block;
+  font-family: 'FontAwesome';
+  content: '\f073';
+  width: 15px;
+  height: 20px;
+  position: absolute;
+  top: 12px;
+  right: 6px;
+  color: #999;
+} */
+
+
+#requisitosSolicitados .select-coomeva .ui-dropdown{ 
+  border: solid 1px #c1c1c1 !important;
+  height: 1.8rem;
+}
+
+#requisitosSolicitados .select-coomeva .ui-dropdown .ui-dropdown-label-container .ui-dropdown-label{
+  height: 1.7rem;
+  padding-top: 3px;
+}

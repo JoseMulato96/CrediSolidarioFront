@@ -1,0 +1,32 @@
+.dist-head-columns {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.dist-text-red {
+  color: red !important;
+}
+
+.porcentaje-readonly:read-only {
+  opacity: 0.5;
+}
+
+.dist-head-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.dist-cell-text {
+  padding-left: 15px;
+  padding-top: 10px;
+}
+.dist-cell-form {
+  height: 51px;
+}
+
+.text-porcentaje-distribucion {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 15px;
+  padding-top: 10px;
+}

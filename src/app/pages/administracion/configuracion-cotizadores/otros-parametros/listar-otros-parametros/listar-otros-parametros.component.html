@@ -1,0 +1,13 @@
+<div class="row  mx-0 w-100 align-items-center">
+    <div class="col-md-12">
+        <h1 class="my-0">
+            {{ 'administracion.cofiguracionCotizadores.otrosParametros.titulo' | translate }}
+        </h1>
+    </div>
+</div>
+
+<div>
+    <app-mim-grid [configuracion]="configuracion.gridListar" (clickCeldaElement)="_onClickCeldaElement($event)"
+        (siguiente)="_onSiguiente($event)" (atras)="_onAtras($event)" (ordenar)="_ordenar($event)">
+    </app-mim-grid>
+</div>

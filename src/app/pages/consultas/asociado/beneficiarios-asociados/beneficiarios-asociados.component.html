@@ -1,0 +1,89 @@
+<div class="row mx-0 w-100 align-items-center">
+  <!-- Titulo -->
+  <div class="col-md-10">
+    <h1 class="my-0">{{ 'beneficiarios.titulo' | translate }}</h1>
+  </div>
+  <!-- Boton exportar PDF -->
+  <div id="MM_DESCARGAR" class="col-md-2 px-0">
+    <button class="btn btn--white btn--md text--red1" (click)="exportarPdf()"
+      [disabled]="!(butonExportActive && tienePermisos('MM_DESCARGAR'))">
+      <span class="icon-export mr-2 text--red1"></span>
+      {{ 'asociado.beneficiario.exportarPDF' | translate }}
+    </button>
+  </div>
+</div>
+<!-- Beneficiarios -->
+<div *ngFor="let recipient of _agrupado">
+  <div class="row mx-0 w-100 mt-1 align-items-center">
+    <div class="col-12">
+      <div class="row mx-0 w-100 align-items-center">
+        <div class="col-4 p-0">
+          <h5 class="badge--title my-0 badge badge-primary  text-uppercase text--14pts p-2 text-title-badge"
+            [ngClass]="recipient.css || 'bg--orange1'">
+            {{ recipient.desGrupo }}
+          </h5>
+        </div>
+        <div class="col-8 pl-3 pr-0">
+          <hr class="mt-4" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-0 w-100 mt-1">
+    <div class="col md-12">
+      <div class="accordion" id="accordionBeneficiosSolidaridad">
+        <!-- Detalle beneficiario -->
+        <app-beneficiario-detalle *ngFor="let item of recipient.valores" [configuracion]="item"
+          [disableEdit]="!tienePermisos('MM_EDITAR')" [disable-delete]="!tienePermisos('MM_ELIMINAR')
+          || ( recipient.valores.length == 1 && item.tipoCod == this.parametrosVista.TIPO_BENEFICIARIO.SOLIDARIDAD)"
+          (click-eliminar)="_onEliminar($event)" (click-editar)="_onEditar($event)">
+        </app-beneficiario-detalle>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin agrupacion-->
+<div id="MM_AGREGAR">
+  <div class="col-4 float-right">
+    <p class="ocultarbtn">
+      <a class="btn btn--circle btn--circle_three float-right px-0" (click)="_onAgregar()"
+        [attr.disabled]="!tienePermisos('MM_AGREGAR') ? true : null">
+        <span class="icon-plus mr-2"></span>
+        <span
+          class="text--gray2 text--13pts text--600wt">{{ 'beneficiarios.asociados.botonAgregarAsociado' | translate }}</span>
+      </a>
+    </p>
+  </div>
+</div>
+<!-- Footer -->
+<div class="espacio-pie-pagina" style="display:none">
+  <div class="card cards--footer border-0 rounded-0 hidden">
+    <div class="card-body p-2">
+      <div class="row mx-0 w-10 justify-content-end align-items-center">
+        <div class="col-xl-9">
+          <div class="mx-0 w-100 row justify-content-between align-items-center">
+            <div class="col-5">
+              <div class="alert panel--alert p-0 m-0" role="alert">
+                <h5 class="my-0 text--gray2 text--600wt d-inline-flex align-items-center text--tittle_circle">
+                  <span class="icon-check bg--green2 mr-3 text--26pts"></span>
+                  {{ 'beneficiarios.asociados.footer.mensaje' | translate }}
+                </h5>
+              </div>
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn--orange1 btn--lg w-100" (click)="modificarPorcentaje(1)">
+                <span class="icon-checkmark mr-2"></span>
+                {{ 'beneficiarios.asociados.footer.botonGuardar' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-mim-wind-modal [configuracion]="configuracion.winPorcentaje">
+  <app-distribucion-porcentaje [configuracion]="configuracion.beneficiariosPorcejate"
+    (guardar-datos)="_guardarDatosPorcentaje($event)">
+  </app-distribucion-porcentaje>
+</app-mim-wind-modal>

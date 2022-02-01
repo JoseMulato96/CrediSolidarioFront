@@ -1,0 +1,19 @@
+<div class="row mx-0 w-100 pb-5">
+  <!-- PANEL DERECHO -->
+  <div class="col-xl-3 index-z">
+
+    <!-- Boton atras -->
+    <p class="text-left pt-2">
+        <a class="btn btn--circle justify-content-start" (click)="irAtras()">
+            <span class="icon-arrow-thin-left mr-2"></span>
+            {{ 'global.back' | translate }}
+        </a>
+    </p>
+
+  </div>
+  <!-- PANEL DERECHO -->
+  <div class="col-11 offset-1 col-xl-9 offset-xl-0 py-5 d-block px-xl-3">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

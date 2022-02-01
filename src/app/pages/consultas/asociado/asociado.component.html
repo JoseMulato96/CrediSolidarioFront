@@ -1,0 +1,29 @@
+<!-- DATA DE USUARIO -->
+<app-mim-asociado-detalle [configuracion]="datosAsociado" *ngIf="mostrarDetalleAsociado"></app-mim-asociado-detalle>
+
+<div class="row mx-0 w-100 pb-5">
+  <!-- PANEL DERECHO -->
+  <div class="col-11 offset-1 col-xl-3 offset-xl-0 index-z-2" *ngIf="mostrarSubmenuConsultas">
+    <!-- Boton atras -->
+    <p class="text-left pt-5" *ngIf="ocultarAtras  && !ocultarSubMenu">
+      <a class="btn btn--circle justify-content-start" (click)="irAtras()">
+        <span class="icon-arrow-thin-left mr-2"></span>
+        {{ 'global.back' | translate }}
+      </a>
+    </p>
+
+    <app-asociado-producto-detalle *ngIf="!ocultarAsociadoProductoDetalle" [configuracion]="detallesProducto"
+      (click-item)="_cambiarDetalledelProducto($event)">
+    </app-asociado-producto-detalle>
+
+    <!-- Consultas -->
+    <app-mim-menu-vertical [configuracion]="configuracion.submenu" (clickItemEvent)="seleccionOpcion($event)"
+      *ngIf="ocultarSubMenu">
+    </app-mim-menu-vertical>
+  </div>
+
+  <!-- PANEL IZQUIERDO -->
+  <div [ngClass]="{'col-11 offset-1 col-xl-9 offset-xl-0 pt-5 pb-5 d-block pl-0 px-xl-3': mostrarSubmenuConsultas, 'col-xl-12 py-5 d-block': !mostrarSubmenuConsultas }">
+    <router-outlet></router-outlet>
+  </div>
+</div>

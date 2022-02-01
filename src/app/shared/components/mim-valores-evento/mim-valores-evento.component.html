@@ -1,0 +1,278 @@
+<form class="form--default w-100" [formGroup]="formValores" *ngIf="isForm | async as isForm;">
+  <div class="cards--headerFooter w-100 mb-3">
+      <div class="card-body">
+          <div class="row mx-0">
+              <!-- fecha inicio y fecha fin -->
+              <div class="col-sm-6 col-md-6" *ngIf="faseFlujo == 1">
+                  <div class="form-group row align-items-center">
+                      <label class="col-sm-12 col-form-label" appMimLabel for="fechaEvento">
+                          {{ 'eventos.consulta.solicitud.fechaEvento' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'fechaEvento'"
+                              [controlName]="'fechaEvento'">
+                              <app-mim-date-picker class="w-100" [inputId]="'fechaEvento'" [maxDate]="maxDate"
+                                  formControlName="fechaEvento" ngDefaultControl>
+                              </app-mim-date-picker>
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="fechaEvento" errorKey="required">
+                          {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.fechaEvento' | translate } }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+
+              <!-- Forma de pago -->
+              <div class="col-sm-6 col-md-6">
+                  <div class="form-group row align-items-center">
+                      <label class="col-sm-12 col-form-label" appMimLabel for="formaPago">
+                          {{ 'eventos.consulta.solicitud.formaPago' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'formaPago'" [controlName]="'formaPago'">
+                              <app-mim-select class="w-100" [inputId]="'formaPago'" [options]="formasPago"
+                                  formControlName="formaPago" [optionKey]="'nombre'" name="'formaPago'"
+                                  ngDefaultControl>
+                              </app-mim-select>
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="fechaEvento" errorKey="required">
+                          {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.formaPago' | translate } }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+
+              <!-- tipo cuenta -->
+              <div class="col-sm-6 col-md-3" *ngIf="esDeposito">
+                  <div class="form-group row align-items-center">
+                      <label appMimLabel for="tipoCuenta" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.tipoCuenta' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'tipoCuenta'" [controlName]="'tipoCuenta'">
+                              <app-mim-select class="w-100" [inputId]="'tipoCuenta'" [options]="tiposCuenta"
+                                  formControlName="tipoCuenta" [optionKey]="'nombre'" name="'tipoCuenta'"
+                                  ngDefaultControl>
+                              </app-mim-select>
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="tipoCuenta" errorKey="required">
+                          {{ 'global.required' | translate  : { campo: 'eventos.consulta.solicitud.tipoCuenta' | translate } }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+
+              <!-- Banco -->
+              <div class="col-sm-6 col-md-3" *ngIf="esDeposito">
+                  <div class="form-group row align-items-center">
+                      <label appMimLabel for="banco" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.banco' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'tipoCuenta'" [controlName]="'tipoCuenta'">
+                              <app-mim-select class="w-100" [inputId]="'banco'" [options]="bancos"
+                                  formControlName="banco" [optionKey]="'nombre'" name="'banco'"
+                                  ngDefaultControl>
+                              </app-mim-select>
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="banco" errorKey="required">
+                          {{ 'global.required' | translate  : { campo: 'eventos.consulta.solicitud.banco' | translate } }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+
+              <!-- oficina -->
+              <div class="col-sm-6 col-md-6" *ngIf="esCheque">
+                  <div class="form-group row align-items-center">
+                      <label appMimLabel for="oficina" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.oficina' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'oficina'" [controlName]="'oficina'">
+                              <app-mim-select class="w-100" [inputId]="'oficina'" [options]="oficinas"
+                                  formControlName="oficina" [optionKey]="'nomAgc'" name="'oficina'"
+                                  ngDefaultControl>
+                              </app-mim-select>
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="oficina" errorKey="required">
+                          {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.oficina' | translate } }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+
+              <!-- numeroCuenta -->
+              <div class="col-sm-6 col-md-3" *ngIf="esDeposito">
+                  <div class="form-group row align-items-center">
+                      <label appMimLabel for="numeroCuenta" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.numeroCuenta' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'numeroCuenta'" [controlName]="'numeroCuenta'">
+                              <input type="text" class="form-control" id="numeroCuenta" formControlName="numeroCuenta"
+                                  name="numeroCuenta" maxlength="17" />
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="numeroCuenta" errorKey="required">
+                          {{ 'global.required' | translate  : { campo: 'eventos.consulta.solicitud.numeroCuenta' | translate } }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="numeroCuenta" errorKey="maxlength">
+                        {{ 'global.maxCaracteres' | translate : { campo: 'eventos.consulta.solicitud.numeroCuenta' | translate, max : 17} }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+
+              <!-- valor Pagar -->
+              <div class="col-sm-6 col-md-3" *ngIf="faseFlujo == 1">
+                  <div class="form-group row align-items-center">
+                      <label appMimLabel for="valorPagar" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.valorPagar' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'valorPagar'" [controlName]="'valorPagar'">
+                              <input type="text" class="form-control" id="valorPagar" formControlName="valorPagar"
+                                  name="valorPagar" mask="separator.0" thousandSeparator="." />
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="valorPagar" errorKey="required">
+                          {{ 'global.required' | translate  : { campo: 'eventos.consulta.solicitud.valorPagar' | translate } }}
+                      </app-mim-input-error>
+                      <app-mim-input-error class="col-sm-12" controlName="valorPagar" errorKey="maxlength">
+                        {{ 'global.maxCaracteres' | translate : { campo: 'eventos.consulta.solicitud.valorPagar' | translate, max : 10} }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+
+              <!-- Reclama copago -->
+              <div class="form-group col-sm-3" *ngIf="mostrarCopago">
+                <label class="col-form-label" appMimLabel for="reclamaCopago">
+                  {{ 'eventos.consulta.solicitud.registro.validaDocumentos.reclamaCopago' | translate }}
+                </label>
+                <div class="custom-control custom-switch p-0">
+                    <label class="switch">
+                        <input type="checkbox" formControlName="reclamaCopago"
+                            id="reclamaCopago" name="reclamaCopago">
+                        <span class="slider round">
+                            <span
+                                class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}
+                            </span>
+                            <span
+                                class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                        </span>
+                    </label>
+                </div>
+              </div>
+
+
+              <hr class="col-11" />
+
+              <!-- Retencion evento -->
+              <div class="col-sm-6 col-md-6">
+                  <div class="form-group row align-items-center">
+                      <label appMimLabel for="retencionEvento" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.retencionEvento' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'retencionEvento'" [controlName]="'retencionEvento'">
+                              <app-mim-select class="w-100" [inputId]="'retencionEvento'" [options]="retencionEvento"
+                                  formControlName="retencionEvento" [optionKey]="'nombre'" name="'retencionEvento'"
+                                  ngDefaultControl>
+                              </app-mim-select>
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="retencionEvento" errorKey="required">
+                          {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.retencionEvento' | translate } }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+
+              <!-- pagar a -->
+              <div class="col-sm-6 col-md-6">
+                  <div class="form-group row align-items-center">
+                      <label appMimLabel for="pagarA" class="col-sm-12 col-form-label">
+                          {{ 'eventos.consulta.solicitud.pagarA' | translate }}
+                      </label>
+                      <div class="col-sm-12">
+                          <div class="input-group" appMimInput [for]="'pagarA'" [controlName]="'pagarA'">
+                              <app-mim-select class="w-100" [inputId]="'pagarA'" [options]="pagarA"
+                                  formControlName="pagarA" [optionKey]="'mimTipoBeneficiarioPago.nombre'" name="'pagarA'"
+                                  ngDefaultControl>
+                              </app-mim-select>
+                          </div>
+                      </div>
+                      <app-mim-input-error class="col-sm-12" controlName="pagarA" errorKey="required">
+                          {{ 'global.required' | translate : { campo: 'eventos.consulta.solicitud.pagarA' | translate } }}
+                      </app-mim-input-error>
+                  </div>
+              </div>
+              <!-- Inicio check -->
+              <div class="w-100 d-flex justify-content-between">
+                  <!-- descuento Cuota Mes -->
+                  <div class="px-3">
+                      <div class="form-group">
+                          <label class="col-form-label" appMimLabel for="descuentoCuotaMes">
+                              {{ 'eventos.consulta.solicitud.descuentoCuotaMes' | translate }}
+                          </label>
+                          <div class="custom-control custom-switch p-0">
+                              <label class="switch">
+                                  <input type="checkbox" formControlName="descuentoCuotaMes" id="descuentoCuotaMes"
+                                      name="descuentoCuotaMes">
+                                  <span class="slider round">
+                                      <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}
+                                      </span>
+                                      <span
+                                          class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                                  </span>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- descuento Saldo Vencido -->
+                  <div class="px-3">
+                      <div class="form-group">
+                          <label class="col-form-label" appMimLabel for="descuentoSaldoVencido">
+                              {{ 'eventos.consulta.solicitud.descuentoSaldoVencido' | translate }}
+                          </label>
+                          <div class="custom-control custom-switch p-0">
+                              <label class="switch">
+                                  <input type="checkbox" formControlName="descuentoSaldoVencido"
+                                      id="descuentoSaldoVencido" name="descuentoSaldoVencido">
+                                  <span class="slider round">
+                                      <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}
+                                      </span>
+                                      <span
+                                          class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                                  </span>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- abona Credito -->
+                  <div class="px-3">
+                      <div class="form-group">
+                          <label class="col-form-label" appMimLabel for="abonaCredito">
+                              {{ 'eventos.consulta.solicitud.abonaCredito' | translate }}
+                          </label>
+                          <div class="custom-control custom-switch p-0">
+                              <label class="switch">
+                                  <input type="checkbox" formControlName="abonaCredito"
+                                      id="abonaCredito" name="abonaCredito">
+                                  <span class="slider round">
+                                      <span class="text--white text--14pts text--500wt">{{ 'global.si' | translate }}
+                                      </span>
+                                      <span
+                                          class="text--white text--14pts text--500wt">{{ 'global.no' | translate }}</span>
+                                  </span>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Fin check -->
+          </div>
+      </div>
+  </div>
+</form>

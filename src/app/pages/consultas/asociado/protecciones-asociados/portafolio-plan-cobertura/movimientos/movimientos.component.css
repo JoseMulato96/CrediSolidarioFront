@@ -1,0 +1,25 @@
+.custom-select-sm > .ui-dropdown-label-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-select-sm > .ui-dropdown .ui-dropdown-label{
+    padding: unset !important;
+    height: auto !important;
+}
+
+.posicion_top_consultas{
+    margin-top: -45px;
+    z-index: 9;
+}
+
+.posicion_top_card{
+    margin-top: -25px;
+}
+
+.dropdown-menu {
+    left: -120px !important;
+}
+

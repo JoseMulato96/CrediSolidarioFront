@@ -1,0 +1,120 @@
+<div class="row mx-0 w-100 pb-5 mt-n5">
+  <!-- PANEL IZQUIERDO -->
+  <div class="col-xl-3 pt4 index-z">
+    <!-- Boton atras -->
+    <p class="text-left">
+      <a class="btn btn--circle justify-content-start" (click)="_onAtras()">
+        <span class="icon-arrow-thin-left mr-2"></span>
+        {{ 'header.salir' | translate }}
+      </a>
+    </p>
+    <app-mim-persona-detalle *ngIf="mimPersonaDetalleConfiguracion" [configuracion]="mimPersonaDetalleConfiguracion">
+    </app-mim-persona-detalle>
+  </div>
+
+  <!-- PANEL CENTRAL  -->
+  <div class="col-9 offset-1 col-xl-9 offset-xl-0 py-5 d-block px-xl-3">
+    <div class="row  mx-0 w-100 align-items-center">
+      <div class="col-md-12">
+        <h1 class="my-0">
+          {{ 'asociado.protecciones.portafolio.gestionListasRestrictivas.titulo' | translate }}
+        </h1>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+
+      <div class="col-md-8 card bg--white border-0 rounded-0">
+        <form class="form--default w-100" [formGroup]="form" *ngIf="isForm | async as isForm;">
+          <div class="card-body">
+            <div class="row mx-0 w-100">
+
+              <!-- Conceptos -->
+              <div class="col-sm-12 col-md-12">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="concepto" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.gestionListasRestrictivas.form.conceptos' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'concepto'" [controlName]="'concepto'">
+                      <app-mim-select class="w-100" [inputId]="'concepto'" [options]="conceptos"
+                        formControlName="concepto" [optionKey]="'nombre'" name="'concepto'" ngDefaultControl>
+                      </app-mim-select>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="concepto" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'asociado.protecciones.portafolio.gestionListasRestrictivas.form.conceptos' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!-- Descripcion -->
+              <div class="col-sm-12 col-md-12">
+                <div class="form-group row align-items-center">
+                  <label appMimLabel for="observacion" class="col-sm-12 col-form-label">
+                    {{ 'asociado.protecciones.portafolio.gestionListasRestrictivas.form.descripcion' | translate }}
+                  </label>
+                  <div class="col-sm-12">
+                    <div class="input-group" appMimInput [for]="'observacion'" [controlName]="'observacion'">
+                      <textarea type="text" rows="5" class="form-control" id="observacion" formControlName="observacion"
+                        name="observacion"></textarea>
+                    </div>
+                  </div>
+                  <app-mim-input-error class="col-sm-12" controlName="observacion" errorKey="required">
+                    {{ 'global.required' | translate : { campo: 'asociado.protecciones.portafolio.gestionListasRestrictivas.form.descripcion' | translate } }}
+                  </app-mim-input-error>
+                </div>
+              </div>
+
+              <!--Controles -->
+              <div class="card cards--footer border-0 rounded-0 panel-crear-cuenta z-index-footer">
+                <div class="card-body py-2">
+                  <div class="row mx-0 w-10 justify-content-end align-items-center">
+                    <!-- Botones -->
+                    <div class="col-xl-12">
+                      <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="guardar()"
+                          [disabled]="form.pristine">
+                          <span class="icon-checkmark mr-2"></span>
+                          {{ 'global.save' | translate }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- PANEL DERECHO  -->
+      <div class="col-md-4 p2.5-4 index-z">
+        <app-mim-links (customGoTo)="customGoTo($event)" [configuracion]="mimLinksConfiguracion"></app-mim-links>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Bitacora-->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{ open: mostrarBitacora == true }" *ngIf="mostrarBitacora">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-xl-6 col-md-8 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0 overflow-y-scroll">
+        <div class="card-header mb-3">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0">
+                {{ 'eventos.consulta.bitacora.titulo' | translate }}
+              </h1>
+            </div>
+            <div class="col-lg-2 d-flex justify-content-end">
+              <button class="btn btn--circle btn--circle_green" (click)="cerrarModalBitacora()">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <app-mim-bitacora class="mx-3" [idProceso]="idProceso" [titulo]="''" *ngIf="mostrarBitacora"></app-mim-bitacora>
+      </div>
+    </div>
+  </div>
+</div>

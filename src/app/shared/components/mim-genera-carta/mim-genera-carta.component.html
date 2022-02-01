@@ -1,0 +1,70 @@
+<form [formGroup]="form" class="form--default w-100"  *ngIf="disabled">
+    <div class="cards--headerFooter w-100 mt-2 mb-3" *ngIf="cartaExistente">
+        <div class="card-body d-flex justify-content-between">
+            <div class="ng-star-inserted row pl-4">
+                <div class="btn btn--icon bg--green1">
+                    <span class="icon-checkmark text--gray4"></span>
+                </div>
+                <label appMimLabel class="col-form-label ml-3">
+                    {{ 'generarCarta.cartaGenerada' | translate }}
+                </label>
+            </div>
+            <div class="d-flex justify-content-end pr-3">
+                <div class="ng-star-inserted">
+                    <button class="btn btn--icon bg--blue2" (click)="abrirModal()">
+                        <span class="icon-edit-3 text--blue1"></span>
+                    </button>
+                </div>
+
+                <div class="ng-star-inserted pl-3">
+                    <button class="btn btn--icon bg--blue2" (click)="verCartaPDF()">
+                        <span class="icon-eye text--orange1"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="cards--headerFooter w-100 mt-2 mb-3">
+        <div class="card-body d-flex justify-content-between">
+            <div class="ng-star-inserted row pl-4">
+                <div class="btn btn--icon bg--blue2">
+                    <span class="icon-mail text--orange1"></span>
+                </div>
+                <label appMimLabel class="col-form-label ml-3">
+                    {{ 'generarCarta.generarCarta' | translate }}
+                </label>
+            </div>
+            <div class="d-flex justify-content-end col-sm-10 com-md-10 pr-0 pr-3">
+                <!-- tipo cartas -->
+                <div class="col-sm-9 com-md-9 pr-0">
+                    <div class="form-group row align-items-center mb-0">
+                        <div class="col-sm-9">
+                            <div class="input-group" appMimInput [for]="'tipoCarta'" [controlName]="'tipoCarta'">
+                                <app-mim-select class="w-100" [inputId]="'tipoCarta'" [options]="tiposCartas"
+                                    formControlName="tipoCarta" [optionKey]="'nombre'" name="'tipoCarta'"
+                                    id="tipoCarta" ngDefaultControl [disabled]="cartaExistente">
+                                </app-mim-select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn--orange1 btn--md mr-2" (click)="_diligenciar()" [disabled]="cartaExistente">
+                                <span class="icon-checkmark mr-2"></span>
+                                {{ 'generarCarta.botonDiligenciar' | translate }}
+                            </button>
+                        </div>
+                        <app-mim-input-error class="col-sm-12" controlName="tipoCarta" errorKey="required">
+                            {{ 'global.required' | translate : { campo: 'generarCarta.tipoCarta' | translate } }}
+                        </app-mim-input-error>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Inicio modal lateral -->
+    <app-mim-genera-carta-modal [tipoCarta]="tipoCarta" [asoNumInt]="asoNumInt" [idProceso]="idProceso" (cartaGuardada)="cartaGuardada($event)"></app-mim-genera-carta-modal>
+
+</form>

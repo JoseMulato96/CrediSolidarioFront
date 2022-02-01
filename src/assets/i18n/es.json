@@ -1,0 +1,4650 @@
+{
+  "title": "Mi Mutual",
+  "global": {
+    "onDeactivate": "¿Desea salir del formulario y descartar los cambios realizados?",
+    "onCancel": "¿Está seguro de cancelar?",
+    "onDeactive": "¿Desea descartar los cambios?",
+    "validateForm": "Existen campos por completar o alguno de los campos es inválido, por favor verificar",
+    "cancel": "Cancelar",
+    "cerrar": "Cerrar",
+    "save": "Guardar",
+    "cargar": "Cargar Archivo",
+    "activar": "Activar",
+    "update": "Actualizar",
+    "edit": "Editar",
+    "limpiar": "Limpiar",
+    "delete": "Eliminar",
+    "actions": "Acciones",
+    "previsualizar": "Previsualizar",
+    "registrar": "Registrar",
+    "send": "Enviar",
+    "ended": "Terminar",
+    "required": "El campo {{campo}} es requerido",
+    "pattern": "El campo {{campo}} tiene un patrón de caracteres inválido",
+    "erroFormat": "Formato incorrecto",
+    "minCarateresBusqueda": "Para realizar la búsqueda debe tener mínimo {{min}} caracteres",
+    "minCaracteres": "El campo {{campo}} debe tener mínimo {{min}} caracteres",
+    "maxCaracteres": "El campo {{campo}} debe tener máximo {{max}} caracteres",
+    "minValue": "El campo {{campo}} debe ser mínimo de {{min}}",
+    "maxValue": "El campo {{campo}} debe ser máximo de {{max}}",
+    "minEdadValue": "La edad mínima permitida es {{min}} años",
+    "maxEdadValue": "La edad máxima permitida es {{max}} años",
+    "onlyText": "Formato inválido, no use números ni caracteres especiales",
+    "select": "Seleccione",
+    "selected": "Seleccionados",
+    "admin": "Administrar",
+    "clean": "Limpiar",
+    "search": "Buscar",
+    "general": "General",
+    "add": "Agregar nuevo",
+    "value": "Valor",
+    "cost": "Costo",
+    "periods": "Periodos",
+    "period": "Periodo",
+    "fee": "Cuota",
+    "fees": "Cuotas",
+    "status": "Estado",
+    "observations": "Observaciones",
+    "consultar": "Consultar",
+    "si": "Sí",
+    "no": "No",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "end": "Finalizar",
+    "na": "N/A",
+    "validar": "Validar todos",
+    "asignar": "Asignar",
+    "noInscripto": "No inscrito",
+    "close": "Cerrar",
+    "accept": "Aceptar",
+    "unknown": "Desconocido",
+    "executing": "Ejecutándose",
+    "noop": "N/A",
+    "ejecutar": "Ejecutar",
+    "failed": "Fallido",
+    "stopped": "Detenido",
+    "completed": "Completado",
+    "locked": "Bloqueado",
+    "none": "Sin iniciar",
+    "paginaNoExiste": "La página no existe",
+    "row": "Fila",
+    "column": "Columna",
+    "error": "Error",
+    "errores": "Errores",
+    "ver": "Ver",
+    "placeholderAutoComplete": "Digite al menos {{numeroCaracteres}} caracteres",
+    "noExistenRegistros": "No existen {{name}} para los parámetros de búsqueda ingresados",
+    "noHayParametros": "No se han ingresados parámetros de búsqueda",
+    "noSeEncontraronRegistrosMensaje": "No se encontraron registros para los criterios de búsqueda ingresados",
+    "noExistenRegistroParams": "No existen {{name}} para {{detalle}} solicitado",
+    "actualizacionExitosaMensaje": "Se ha actualizado el registro exitosamente",
+    "guardadoExitosoMensaje": "Se ha guardado el registro exitosamente",
+    "cargadoExitosoMensaje": "Se ha cargado el archivo exitosamente",
+    "eliminadoExitosoMensaje": "Se ha eliminado el registro exitosamente",
+    "solicitudRechazadaMensaje": "La solicitud de eliminación fue rechazada",
+    "solicitudCreacionRechazadaMensaje": "La solicitud de creación fue rechazada",
+    "solicitudCreacionActuaria": "La solicitud de creación se envió para aprobación de dirección",
+    "devolverA": "La solicitud fue devuelta a la fase de configuración {{fase}}",
+    "confirmarConfiguración": "¿Se encuentra seguro de aprobar la configuración?, por favor no olvide revisar las observaciones",
+    "solicitudEliminacionMensaje": "{{mensaje}}.<br /> Se realizó exitosamente la radicación: {{numero}}",
+    "solicitudEliminacionEnviada": "La solicitud de inactivación se envió para aprobación de dirección",
+    "solicitudCreacionEnviada": "La solicitud de creación se envió para aprobación del director",
+    "confirmacionCreacion": "¿Se encuentra seguro de aprobar la creación?, por favor no olvide revisar las observaciones de creación",
+    "confirmacionRechazo": "¿Se encuentra seguro de aprobar el rechazo de la solicitud?, por favor no olvide revisar las observaciones",
+    "otrasAreas": "La solicitud de amparo {{idProceso}} se ha guardado. Se asignó a {{usuarioProceso}} en la fase {{faseProceso}}",
+    "finalizaFlujo": "El proceso fue terminado exitosamente",
+    "confirmacionObjecion": "{{mensajeObjecion}} ¿Desea continuar con la operación?",
+    "diligenciarCarta": "Por favor diligenciar la carta",
+    "valorBaseCero": "El valor total base debe ser mayor a cero para pasar a la pestaña liquidar",
+    "superaTopesAnualidad": "Supera los topes de la anualidad",
+    "noInternet": "No hay conexión a Internet, por favor validar su conexión",
+    "mostrarActivos": "Mostrar solo los disponibles",
+    "mostrarDisponibles": "Mostrar solo disponibles",
+    "exportarExcel": "Exportar Excel",
+    "exportarPDF": "Exportar PDF",
+    "imprimir": "Imprimir",
+    "opcionNoDisponible": "Opción no disponible",
+    "guardadoCartaExitosoMensaje": "Se ha guardado exitosamente la carta",
+    "devolucionPorError": "Ya se ha dado concepto del amparo, ¿Está seguro que desea devolver por error?",
+    "opcionNoImplementada": "Opción no implementada",
+    "maxlenth": "Número máximo de caracteres permitidos es {{numero}}",
+    "alertas": {
+      "rangoObligatorio": "Falta fecha de inicio y/o fecha final por diligenciar",
+      "rangoError": "La fecha de inicio y fecha final pueden tener hasta {{rango}} días de diferencia",
+      "ingresoError": "El ingreso mensual del asociado debe ser mayor o igual a un salario mínimo mensual legal vigente {{smmlv}}",
+      "deseaCrearEditarRegistro": "¿Está seguro que desea crear o editar el registro?",
+      "eliminar": "¿Está seguro de eliminar el registro?",
+      "filtroRangoFecha": "La búsqueda por fechas debe ser un rango de fechas",
+      "formatoInvalido": "Formato inválido: ",
+      "pesoInvalido": "Peso inválido: ",
+      "extensionDocumento": "El archivo que intenta cargar no tiene un formato válido. Extensión valida {{tipoDocumento}}",
+      "pesoDocumento": "El archivo que intenta cargar supera el peso requerido, peso máximo permitido es {{pesoDocumento}} MB",
+      "elegirDocumento": "Debe seleccionar un documento a cargar",
+      "informacionDocumento": "Solo se permiten adjuntar archivos con extensión: {{tipoDocumento}}. El tamaño máximo permitido por archivo es de {{pesoDocumento}} MB."
+    },
+    "filtros": {
+      "consulta": "Consulta"
+    },
+    "noHayFirma": "No hay una firma parametrizada de jefe para la regional del asociado"
+  },
+  "error": {
+    "0": {
+      "mensajeErrConnectionTimedOut": "Se ha agotado el tiempo de espera para establecer la conexión con el servidor del backend."
+    },
+    "401": {
+      "mensaje": "No tiene autorización para ingresar al sistema"
+    },
+    "403": {
+      "mensaje": "No tiene permisos para la operación seleccionada, solicite autorización a su jefe inmediato",
+      "mensajeMenu": "No tiene permisos para la operación seleccionada, solicite autorización al área de riesgos"
+    },
+    "500": {
+      "mensaje": "Error interno del servidor",
+      "mensajeDetalleTecnico": "El error no tiene detalle técnico, por favor diríjase al log del aplicativo"
+    },
+    "503": {
+      "mensaje": "Servicio temporalmente no disponible"
+    }
+  },
+  "security": {
+    "sesionCaduca": "Sesión expirada",
+    "extenderSesion": "Su sesión ha expirado.",
+    "sesionExtendida": "Sesión extendida",
+    "sesionNoExtendida": "Sesión no extendida",
+    "noPermisos": "No tiene permisos para consultar este asociado, solicite autorización a su jefe inmediato",
+    "noRefreshToken": "No fue posible extender su sesión, guarde sus cambios antes de {{tiempo}} minutos",
+    "refreshTokenError": "Ocurrió un error al refrescar la sesión, el sistema se cerrará.",
+    "logIn": {
+      "ingresar": "Ingresar",
+      "nombreUsuario": "Identificación del usuario",
+      "contraseña": "Contraseña",
+      "nombreUsuarioRequerido": "*La identificación de usuario es requerida",
+      "contraseñaRequerida": "*La contraseña es requerida",
+      "nombreUsuarioContrasenaInvalidos": "Nombre de usuario o contraseña inválidos",
+      "servicioNoDisponible": "El servicio de autenticación no se encuentra disponible en el momento, intente más tarde"
+    }
+  },
+  "header": {
+    "consultarAsociado": "Consulta",
+    "consultarResponsableAsegurado": "Consulta de Responsable / Asegurado",
+    "salir": "Salir",
+    "regresar": "Regresar"
+  },
+  "home": {
+    "grid": {
+      "noSolicitud": "No. Solicitud",
+      "identificacion": "Identificación",
+      "nombreAsociado": "Asegurado",
+      "producto": "Solicitud",
+      "dias": "Días",
+      "accion": "Acción",
+      "tipoSolicitud": "Tipo Solicitud",
+      "docs": "Docs"
+    },
+    "seleccionar": "Seleccionar",
+    "mensajeErrorUrl": "Hay un error con las variables agregadas a la solicitud",
+    "mensajeNotificacionDigitalizacion": "La notificacion de la digitalización se realizó exitosamente"
+  },
+  "usuario": {
+    "tipoUsuario": "Tipo de Usuario",
+    "estado": "Estado",
+    "cargo": "Cargo",
+    "regional": "Regional",
+    "lugarTrabajo": "Lugar de Trabajo"
+  },
+  "beneficiarios": {
+    "menu": {
+      "beneficiarios": "Beneficiarios",
+      "repetidos": "Repetidos",
+      "fallecidos": "Fallecidos",
+      "informacion": "Información",
+      "actualizacionFechaNacimiento": "Actualización fecha de nacimiento beneficiarios"
+    },
+    "actualizar": {
+      "titulo": "Actualización de fecha de nacimiento beneficiarios",
+      "subTitulo": "Asociados relacionados",
+      "filtro": {
+        "idBeneficiario": "Identificación",
+        "nombreApellidos": "Nombres y/o apellidos"
+      },
+      "alertas": {
+        "asociadosRelacionados": "No se han encontrado usuarios relacionados para el beneficiario seleccionado",
+        "datosRequeridos": "No se han ingresados parametros de búsqueda"
+      },
+      "grid": {
+        "tipoIdentificacion": "Tipo Identificación",
+        "numeroIdentificacion": "Número de identificación",
+        "nombreApellidos": "Nombres y Apellidos"
+      },
+      "detalle": {
+        "tipoIdentificacion": "Tipo identificación",
+        "NoIdentificacion": "No de identificación",
+        "nombreCompleto": "Nombre completo",
+        "edad": "Edad",
+        "fechaNacimiento": "Fecha de nacimiento",
+        "nuevaFechaNacimiento": "Nueva fecha de nacimiento"
+      }
+    },
+    "repetidos": {
+      "titulo": "Beneficiarios Repetidos",
+      "tipoIdAsociado": "Tipo Id asociado",
+      "numeroIdAsociado": "No. Id. Asociado",
+      "nombreAsociado": "Nombre Asociado",
+      "regionalAsociado": "Regional Asociado",
+      "tipoBeneficiario": "Tipo Beneficiario",
+      "tipoIdBeneficiario": "Tipo Id. Beneficiario",
+      "numeroIdBeneficiario": "No. Id. Beneficiario",
+      "nombreBeneficiario": "Nombre Beneficiario",
+      "parentesco": "Parentesco",
+      "noExisteBeneficiariosRepetidos": "No existen beneficiarios repetidos para los parámetros de búsqueda ingresados",
+      "filtro": {
+        "rangoFecha": "Rango de Fecha",
+        "idBeneficiario": "Identificación del beneficiario",
+        "filtrofechaInicio": "Fecha de inicio",
+        "filtrofechaFin": "Fecha de Fin",
+        "filtroidBeneficiario": "Identificación del beneficiario"
+      }
+    },
+    "fallecidos": {
+      "titulo": "Beneficiarios Fallecidos",
+      "tipoIdAsociado": "Tipo Id asociado",
+      "numeroIdAsociado": "No. Id. Asociado",
+      "nombreAsociado": "Nombre Asociado",
+      "regionalAsociado": "Regional Asociado",
+      "tipoBeneficiario": "Tipo beneficiario",
+      "tipoIdBeneficiario": "Tipo Id. Beneficiario",
+      "numeroIdBeneficiario": "No. Id. Beneficiario",
+      "nombreBeneficiario": "Nombre Beneficiario",
+      "parentesco": "Parentesco",
+      "cedulaNoEncontrada": "El número de identificación de beneficiario que se ingresó, no existe en el sistema",
+      "campoNoIngresado": "No ha ingresado ningún criterio de búsqueda por favor vuelva a intentarlo",
+      "noExisteBeneficiarioFallecidos": "No existen beneficiarios fallecidos para los parámetros de búsqueda ingresados",
+      "fechaInicioSuperior": "La Fecha inicio es superior a la fecha final",
+      "fechaInicioSuperiorSistema": "La fecha de inicio es inválida ya que supera la fecha del sistema",
+      "fechaFinSuperiorSistema": "La fecha fin es inválida ya que supera la fecha del sistema",
+      "noHayFechaInicioFin": "Falta fecha de inicio y/o fecha final por diligenciar",
+      "filtro": {
+        "rangoFecha": "Rango de Fecha",
+        "idBeneficiario": "Identificación del beneficiario",
+        "filtrofechaInicio": "Fecha de inicio",
+        "filtrofechaFin": "Fecha de fin",
+        "filtroidBeneficiario": "Identificación del beneficiario"
+      }
+    },
+    "informacion": {
+      "titulo": "Información Beneficiarios",
+      "tipoIdBeneficiario": "Tipo Id Beneficiario",
+      "noIdBeneficiario": "No Id beneficiario",
+      "nombreBeneficiario": "Nombre y/o Apellidos",
+      "cedulaNoEncontrada": "El número de identificación de beneficiario que se ingresó, no existe en el sistema",
+      "campoNoIngresado": "No ha ingresado ningún criterio de búsqueda por favor vuelva a intentarlo",
+      "noExisteBeneficiarioInformacion": "El número de identificación del beneficiario que se ingresó, no existe en el sistema",
+      "noExisteNombreBeneficiarioInformacion": "No se encontraron beneficiarios que coincidan con los criterios de búsqueda",
+      "fechaInicioSuperior": "La Fecha inicio es superior a la fecha final",
+      "fechaInicioSuperiorSistema": "La Fecha inicio es inválida ya que supera la fecha del sistema",
+      "fechaFinSuperiorSistema": "La Fecha fin es inválida ya que supera la fecha del sistema",
+      "noHayFechaInicioFin": "Falta fecha de inicio y/o fecha final por diligenciar",
+      "noExisteBeneficiarioId": "El número de identificación del beneficiario que se ingresó, no existe en el sistema",
+      "filtro": {
+        "idBeneficiario": "Identificación del beneficiario",
+        "nombreApellidos": "Nombres y/o Apellidos"
+      }
+    },
+    "asociados": {
+      "titulo": "Consulta de Beneficiario",
+      "tipoId": "Tipo Id",
+      "noId": "No. de Id",
+      "cobertura": "Cobertura",
+      "valorCuota": "Valor cuota",
+      "invalidez": "Tiene Discapacidad",
+      "nombreAsociado": "Nombre Asociado",
+      "edad": "Edad",
+      "fechaNacimiento": "Fecha de nacimiento",
+      "subTitulo": "Asociados Relacionados",
+      "subTitulo2": "Asociado Relacionado",
+      "noIdentificacion": "No. de Identificación",
+      "nombreApellido": "Nombre y/o Apellidos",
+      "nvoVlrCuota": "Nvo .vlr .cuota",
+      "parentesco": "Parentesco",
+      "observaciones": "Observaciones",
+      "tipoBeneficiario": "Tipo beneficiario",
+      "estadoBeneficiaio": "Estado beneficiario",
+      "fechaIngresoBeneficiario": "Fecha ingreso beneficiario",
+      "estadoAsociado": "Estado asociado",
+      "indPagAuxFun": "Id. pag Aux fun",
+      "fechaActualizacion": "Fecha actualización ind. aux fun",
+      "fechaPago": "fecha Pago",
+      "historicoNovedades": "Historia de novedades",
+      "botonAgregarAsociado": "Agregar Beneficiario",
+      "esAsociado": "Asociado",
+      "footer": {
+        "mensaje": "En este momento la sumatoria de los porcentajes es 100%",
+        "botonGuardar": "Guardar cambios"
+      }
+    },
+    "titulo": "Beneficiarios",
+    "noSeEncontraronRegistrosMensaje": "No se encontraron asociados para el beneficiario"
+  },
+  "beneficiariosAsociadoDetalle": {
+    "titulo": "Editar datos",
+    "informacionPersonal": "Información personal",
+    "primerNombre": "Primer nombre",
+    "segundoNombre": "Segundo nombre",
+    "primerApellido": "Primer apellido",
+    "segundoApellido": "Segundo apellido",
+    "estadoCivil": "Estado civil",
+    "profesion": "Profesión",
+    "informacionContacto": "Información de contacto",
+    "direccion": "Dirección",
+    "barrio": "Barrio",
+    "ciudad": "Ciudad",
+    "correspondencia": "Correspondencia",
+    "correo": "Correo electrónico",
+    "telefono": "Teléfono",
+    "extension": "Extensión",
+    "celular": "Celular",
+    "informacionLaboral": "Información laboral",
+    "informacionApartadoAereo": "Información de apartado aéreo",
+    "apartadoAereo": "Apartado aéreo",
+    "casillero": "Casillero",
+    "botonGuardar": "Guardar cambios"
+  },
+  "benenficiariosAcciones": {
+    "numeroSolicitud": "Número de solicitud",
+    "nombre": "Nombre",
+    "cedula": "Cédula",
+    "FechaNacimiento": "Fecha de nacimiento",
+    "auxilioFunerario": "Auxilio funerario",
+    "titulo": "Bitácora de acciones",
+    "gestion": "Gestionar",
+    "observacion": "Observaciones"
+  },
+  "asociado": {
+    "tipo": "Tipo",
+    "noNumeroIdentificacion": "El número de identificación no se encuentra",
+    "noIntentaNumeroNombre": "Intenta con otro número o nombre",
+    "asociado": "Asociado",
+    "datosBasicos": "Datos básicos",
+    "datosBasicosResponsablePago": "Datos básicos Responsable de pago",
+    "datosBasicosAsegurado": "Datos básicos Asegurado",
+    "search": "Buscar asociado por ID",
+    "informacionProteccion": "Información de protección",
+    "informacionContacto": "Información de contacto",
+    "informacionLaboral": "Información laboral",
+    "informacionFamiliar": "Información familiar",
+    "informacionApartadoAereo": "Información de apartado aéreo",
+    "tipoDocumento": "Tipo Id",
+    "identificacionAsociado": "Identificación del asociado",
+    "identificacionAsociadoRequerida": "*El número ID es requerido",
+    "nombreApellido": "Nombre y apellido",
+    "nombreApellidoRequerido": "*El nombre es requerido",
+    "identificacion": "Nro. Id",
+    "numInt": "NumInt",
+    "nombre": "Nombre",
+    "cedula": "Cédula",
+    "fechaNacimiento": "Fec. Nacimiento",
+    "estadoCivil": "Est. Civil",
+    "fechaIngreso": "Fec. Ingreso",
+    "tipoVinculacion": "Tip. Vinculación",
+    "estado": "Estado",
+    "auxilioFunerario": "Auxilio funerario",
+    "nivelRiesgo": "Nivel de riesgo",
+    "codigo": "Código",
+    "id": "Id",
+    "fechaEstado": "Fecha estado",
+    "fechaIngresoCompleto": "Fecha Ingreso",
+    "corte": "Corte",
+    "edad": "Edad",
+    "profesion": "Profesión",
+    "regional": "Regional",
+    "oficinaVin": "Oficina de vinculación",
+    "edadIngreso": "Edad de ingreso",
+    "smmlv": "SMMLV",
+    "edadActual": "Edad actual",
+    "proteccionAcumAltoCosto": "Protección acum. alto costo",
+    "agenciaViculacion": "Agencia vinculación",
+    "tipoViculacion": "Tipo de vinculación",
+    "primaNivelada": " Prima Nivelada",
+    "maximaVida": "Máxima Vida",
+    "acumuladaVida": "Acumulada Vida",
+    "maximaPerseverancia": "Máxima Perseverancia",
+    "acumuladaPerseverancia": "Acumulada Perseverancia",
+    "maximaRentaDiaria": "Máxima Renta Diaria",
+    "acumuladaRentaDiaria": "Acumulada Renta Diaria",
+    "maximaTotal": "Máxima total",
+    "acumuladaTotal": "Acumulada total",
+    "direccion": "Dirección",
+    "correo": "Correo electrónico",
+    "barrio": "Barrio",
+    "telefono": "Teléfono",
+    "ciudad": "Ciudad",
+    "celular": "Celular",
+    "correspondecia": "Correspondencia",
+    "apartadoAereo": "Apartado aéreo",
+    "casillero": "Casillero",
+    "cliente": "Cliente",
+    "noSeEncontraronRegistrosMensaje": "No se encontraron responsables de pago que coincidan con los criterios de búsqueda",
+    "noSeEncontroRegistroMensaje": "No se encontró registro del asociado con identificador único de asociado {{asoNumInt}}",
+    "beneficiario": {
+      "beneficiario": "Beneficiario",
+      "beneficiarios": "Beneficiarios",
+      "register": "Registrar beneficiario",
+      "update": "Actualizar beneficiario",
+      "exportarPDF": "Exportar PDF",
+      "alertEliminar": "¿Está seguro de eliminar este beneficiario?",
+      "alertEliminoExito": "Se eliminó el beneficiario correctamente",
+      "noSeEncontraronRegistrosMensaje": "Actualmente el asociado no ha registrado beneficiarios",
+      "nuevoBeneficiario": {
+        "agregarTitulo": "Agregar nuevo beneficiario",
+        "editartTitulo": "Editar beneficiario",
+        "informacionGeneral": "Información General",
+        "beneficiario": "Beneficiario",
+        "itemSolidaridad": "Solidaridad",
+        "itemAuxFunerario": "Auxilio Funerario",
+        "itemOtros": "Otros",
+        "tipoBeneficiario": "Tipo Beneficiario",
+        "tipoPromotor": "Promotor Comercial",
+        "tipoVenta": "Canal de Venta",
+        "planEducativo": "Plan Educativo",
+        "edad": "Edad",
+        "numeroId": "Número identificación",
+        "identificacion": "Identificación",
+        "fechaNacimiento": "Fecha de nacimiento",
+        "apellido1": "Apellido 1",
+        "apellido2": "Apellido 2",
+        "nombre": "Nombre",
+        "parentesco": "Parentesco",
+        "sexo": "Sexo",
+        "femenino": "Femenino",
+        "masculino": "Masculino",
+        "si": "Sí",
+        "no": "No",
+        "invalido": "Inválido",
+        "coberturaSMMLV": "Cobertura SMMLV",
+        "porcentaje": "Porcentaje",
+        "cuotaContribucion": "Cuota de contribución",
+        "observaciones": "Observaciones",
+        "guardarBeneficiario": "Guardar",
+        "actualizarBeneficiario": "Actualizar",
+        "alertNombre": "No existe nombre del beneficiario",
+        "alertCedulaIgual": "La identificación es igual a la del asociado",
+        "alertCedulaFallecido": "La cédula es de un beneficiario fallecido",
+        "alertFechaMayorHoy": "La fecha no puede ser mayor a la actual",
+        "alertMultiplo": "La cobertura debe ser múltiplo de 0.5",
+        "alertFechaMayorPadre": "La fecha no puede ser mayor o igual que el asociado si el parentesco es padre",
+        "alertFechaMayorHijo": "La fecha no puede ser menor o igual que el asociado si el parentesco es hijo",
+        "alertExisteApellido": "Ninguno de los apellidos ingresados coincide con el asociado",
+        "alertPorsentaje": "El total de la suma de porcentajes debe ser 100%",
+        "alertNoPlanEducativo": "No puede registrar el beneficiario, porque no tiene productos de plan educativo registrados",
+        "winModalPorcentaje": {
+          "titulo": "Debe distribuir el % hasta completar 100%",
+          "distribuir": "Porcentaje a Distribuir",
+          "nombre": "Nombre",
+          "porcentaje": "Porcentaje",
+          "borrar": "Borrar",
+          "btnAutomatico": "Automático",
+          "btnManul": "Manual",
+          "btnAceptar": "Aceptar",
+          "identificacion": "Identificación"
+        },
+        "winModalExistente": {
+          "titulo": "Beneficiario Repetido",
+          "nombre": "Nombre",
+          "identificacion": "Identificación",
+          "estado": "Estado",
+          "asociado": "Asociados",
+          "btnAceptar": "Aceptar"
+        }
+      },
+      "planEducativoNoAsignado": {
+        "alertNoAsignado": "Actualmente el asociado tiene planes educativos sin asignar a algún beneficiario"
+      }
+    },
+    "protecciones": {
+      "acumulado": "Acumulado",
+      "proteccion": "Protección",
+      "protecciones": "Protecciones",
+      "portafolioProductos": "Portafolio de productos",
+      "auxiliosAplicables": "Auxilios aplicables",
+      "pendientes": "Pendientes",
+      "promociones": "Promociones",
+      "register": "Registrar protección",
+      "nuevoPlan": "Nuevo plan",
+      "acumVida": "Acum. Vida",
+      "acumPerseverancia": "Acum. Perseverancia",
+      "acumRentaDiaria": "Acum. Renta Diaria",
+      "acumMaximoTotal": "Acum. Máximo Total",
+      "planesBasicos": "Planes básicos",
+      "mostrarActivos": "Mostrar solo los vigentes",
+      "sumatoriaProteccionesMensaje": "Esta es la suma de todos tus planes y cuotas",
+      "sumatoriaCoberturasMensaje": "Esta es la suma de todos los valores voluntarios de protección y cuotas",
+      "aprobacion": "Aprobación",
+      "noSeEncontraronRegistrosMensaje": "El asociado no tiene facturación pendiente",
+      "fechaPerseverancia": "Fecha perseverancia",
+      "perseverado": "Perseverado",
+      "alertas": {
+        "haLogradoPerseverarse": "¡El asociado se ha logrado perseverar!",
+        "enProcesoPerseverarse": "El asociado está construyendo su perseverancia"
+      },
+      "portafolio": {
+        "titulo": "Portafolio de productos",
+        "tituloLinks": "Links",
+        "gestionar": "Gestionar",
+        "acumVida": "Acum. Vida",
+        "acumPerseverancia": "Acum. Perseverancia",
+        "acumIncTemporal": "Acum. Inc. Temporal",
+        "acumMaximoTotal": "Acum. Máximo Total",
+        "totalProductos": "Total productos",
+        "totalCuotas": "Total cuotas",
+        "planes": {
+          "titulo": "Planes",
+          "grid": {
+            "tipoPlan": "Tipo de plan",
+            "plan": "Plan",
+            "proteccion": "Protección",
+            "cuota": "Cuota",
+            "fechaRegistro": "Fecha Registro",
+            "detalle": "Detalle"
+          }
+        },
+        "auditoriaMedicaVentas": {
+          "titulo": "Auditoria médica",
+          "campos": {
+            "conceptoAuditor": "Concepto auditor",
+            "razonNegacion": "Razón de negación",
+            "observacion": "Observación"
+          },
+          "personaDetalle": {
+            "numeroSolicitud": "No. solicitud",
+            "fechaSolicitud": "Fecha Solicitud",
+            "nombre": "Nombre",
+            "cedula": "Cédula",
+            "correoElectronico": "Correo electrónico",
+            "celular": "Celular",
+            "telefonoFijo": "Teléfono fijo",
+            "categoriaAsociado": "Categoría del asociado",
+            "canalVenta": "Canal de venta",
+            "oficinaVinculacion": "Oficina de vinculación",
+            "regional": "Regional",
+            "proyectoVida": "Proyecto de vida"
+          },
+          "links": {
+            "declaracionSalud": "Declaración de salud",
+            "preexistencia": "Preexistencia",
+            "verPortafolio": "Ver portafolio",
+            "verBitacora": "Ver bitácora",
+            "resumenVenta": "Resumen venta"
+          },
+          "alertas": {
+            "noFasesDevolverPorError": "No hay fases configuradas para realizar una devolución por error"
+          }
+        },
+        "activarSolicitudesSuspendidas": {
+          "personaDetalle": {
+            "numeroSolicitud": "No. solicitud",
+            "fechaSolicitud": "Fecha Solicitud",
+            "tipoSolicitud": "Tipo solicitud",
+            "estadoSolicitud": "Estado de la solicitud",
+            "producto": "Producto",
+            "categoriaAsociado": "Categoría del asociado",
+            "canalVenta": "Canal de venta",
+            "oficinaVinculacion": "Oficina de vinculación",
+            "regional": "Regional"
+          }
+        },
+        "auxiliarMedico": {
+          "titulo": "Solicitud de información - Auxiliar Médico",
+          "campos": {
+            "conceptoAuditor": "Concepto auditor",
+            "razonNegacion": "Razón de negación",
+            "observacion": "Observación"
+          },
+          "personaDetalle": {
+            "numeroSolicitud": "No. solicitud",
+            "fechaSolicitud": "Fecha Solicitud",
+            "nombre": "Nombre",
+            "cedula": "Cédula",
+            "correoElectronico": "Correo electrónico",
+            "celular": "Celular",
+            "telefonoFijo": "Teléfono fijo",
+            "categoriaAsociado": "Categoría del asociado",
+            "canalVenta": "Canal de venta",
+            "oficinaVinculacion": "Oficina de vinculación",
+            "regional": "Regional",
+            "proyectoVida": "Proyecto de vida"
+          },
+          "links": {
+            "declaracionSalud": "Declaración de salud",
+            "preexistencia": "Preexistencia",
+            "verPortafolio": "Ver portafolio",
+            "verBitacora": "Ver bitácora",
+            "resumenVenta": "Resumen venta"
+          },
+          "alertas": {
+            "noFasesDevolverPorError": "No hay fases configuradas para realizar una devolución por error"
+          }
+        },
+        "gestionOperaciones": {
+          "titulo": "Gestión operaciones",
+          "campos": {
+            "concepto": "Concepto",
+            "tipoGlosa": "Tipo glosa",
+            "observacion": "Observación",
+            "solicitarRevisionAreaTecnica": "Solicitar revisión área técnica"
+          },
+          "personaDetalle": {
+            "titulo": "Datos de la solicitud",
+            "numeroSolicitud": "No. solicitud",
+            "fechaSolicitud": "Fecha Solicitud",
+            "estadoSolicitud": "Estado Solicitud",
+            "nombreAsociado": "Nombre asociado",
+            "identidifacionAsociado": "Identificación asociado",
+            "tipoMovimiento": "Tipo de movimiento",
+            "nivelRiesgoActual": "Nivel de riesgo actual",
+            "categoriaAsociado": "Categoría del asociado",
+            "estadoAsociado": "Estado del asociado",
+            "cuotasMora": "Cuotas en mora",
+            "regionalAsociado": "Regional del asociado",
+            "oficinaVinculacion": "Oficina de vinculación",
+            "canal": "Canal"
+          },
+          "links": {
+            "bitacora": "Bitácora",
+            "facturacion": "Facturación",
+            "detalleBeneficiarios": "Detalle de beneficiarios",
+            "resumenVenta": "Resumen venta",
+            "portafolioProducto": "Portafolio de producto"
+          },
+          "alertas": {
+            "noFasesDevolverPorError": "No hay fases configuradas para realizar una devolución por error"
+          }
+        },
+        "cobertura": {
+          "titulo": "Coberturas",
+          "grid": {
+            "plan": "Plan",
+            "cobertura": "Cobertura",
+            "proteccion": "Protección",
+            "cuota": "Cuota",
+            "factor": "Factor",
+            "edad": "Edad",
+            "estado": "Estado",
+            "aprobacion": "Aprobación",
+            "detalle": "Detalle"
+          }
+        },
+        "movimientos": {
+          "titulo": "Listado de solicitudes",
+          "mensajeFooter": "Sera obligatoria la cotización para algunos canales de venta",
+          "filtros": {
+            "noDocumento": "No. documento",
+            "fechaSolicitud": "Fecha de solicitud",
+            "tipoMovimiento": "Tipo de solicitud",
+            "estados": "Estados",
+            "canalVenta": "Canal de venta",
+            "promotorComercial": "Promotor comercial"
+          },
+          "grid": {
+            "noDoc": "No. Doc",
+            "movimiento": "Movimiento",
+            "tipoSolicitud": "Tipo solicitud",
+            "codigoCotizacion": "Código cotización",
+            "fechaSolicitud": "Fecha de solicitud",
+            "solicitud": "Solicitud",
+            "plan": "Plan",
+            "fechaVigencia": "Fecha fin vigencia",
+            "estado": "Estado",
+            "fase": "Fase",
+            "mas": "Mas"
+          },
+          "modal": {
+            "titulo": "Cambiar estado cotización",
+            "nombreAsociado": "Nombre asociado",
+            "cedula": "Cédula",
+            "codigo": "Código",
+            "tipoPlan": "Tipo de plan",
+            "plan": "Plan",
+            "fechaSolicitud": "Fecha solicitud",
+            "estadoActualCotizacion": "Estado actual de cotización",
+            "estado": "Estado",
+            "alerta": {
+              "estadoActualizado": "Se almacenó exitosamente el estado de la cotización"
+            }
+          },
+          "botonRealizarVenta": "Realizar venta",
+          "botonNuevaCotizacion": "Nueva cotización",
+          "alerts": {
+            "anularVenta": "¿Está seguro que desea anular la solicitud de venta No. {{solicitud}} ?",
+            "rangoObservacion": "",
+            "maxlenth": "Número máximo de caracteres permitidos es 1000"
+          }
+        },
+        "gestionListasRestrictivas": {
+          "titulo": "Gestión de solicitudes listas restrictivas",
+          "form": {
+            "conceptos": "Conceptos",
+            "descripcion": "Descripción"
+          },
+          "mimPersonaDetalle": {
+            "noSolicitud": "No. Solicitud",
+            "fechaSolicitud": "Fecha Solicitud",
+            "estadoSolicitud": "Estado Solicitud",
+            "nombreAsociado": "Nombre Asociado",
+            "identificacionAsoiado": "Identificación Asociado",
+            "tipoMovimiento": "Tipo de movimiento",
+            "nivelRiesgoIngreso": "Nivel de riesgo de ingreso",
+            "nivelRiesgoActual": "Nivel de riesgo actual",
+            "categoriaAsociado": "Categoría del asociado",
+            "estadoAsociado": "Estado del asociado",
+            "cuotasMora": "Cuotas en mora",
+            "regionalAsociado": "Regional del asociado",
+            "oficinaVinvulacion": "Oficina vinculación",
+            "canalVenta": "Canal de venta"
+          },
+          "mimLinksConfiguracion": {
+            "bitacora": "Bitácora",
+            "facturacion": "Facturación",
+            "detalleBeneficiario": "Detalle de beneficiarios",
+            "resumenVenta": "Resumen venta",
+            "portafolioProducto": "Portafolio de producto"
+          }
+        },
+        "listaRestrictivaValidacionManual": {
+          "titulo": "Validación manual en listas restrictivas",
+          "concepto": "Concepto",
+          "observacion": "Observación",
+          "cargarArchivo": "Cargar archivo"
+        },
+        "cotizacion": {
+          "titulo": "Cotización de plan",
+          "step": {
+            "validarDatos": "Validar datos",
+            "cotizarProteccion": "Cotizar protección"
+          },
+          "listaAsegurados": {
+            "estado": "Estado",
+            "tipoId": "Tipo Id",
+            "numeroId": "Numero Id",
+            "nombre": "Nombre",
+            "parentesco": "Parentesco",
+            "fechaNacimiento": "F. de nacimiento",
+            "edad": "Edad",
+            "sexo": "Sexo",
+            "acciones": "Acciones",
+
+            "guardar": {
+              "crear": "Agregar Asegurado",
+              "actualizar": "Actualizar Asegurado",
+              "tipoId": "Tipo Id",
+              "numeroId": "Numero Id",
+              "primerNombre": "Primer Nombre",
+              "segundoNombre": "Segundo Nombre",
+              "primerApellido": "Primer Apellido",
+              "segundoApellido": "Segundo Apellido",
+              "parentesco": "Parentesco",
+              "genero": "Sexo",
+              "fechaNacimiento":"Fecha de nacimiento",
+              "telefono": "Telefono",
+              "celular": "Celular",
+              "direccion": "Direccion",
+              "ciudad": "Ciudad",
+              "ingresoMensual": "Ingresos Mensuales",
+              "nivelRiesgo": "Nivel de riesgo",
+              "tipoAsegurado": "Tipo Asegurado",
+              "autorizoTratamiento": "Autorizo tratamiento datos sensibles",
+              "presentaInvalidez": "Presenta Invalidez"
+
+            }
+          },
+          "acumuladosDelAsociado": {
+            "titulo": "Acumulados del asociado",
+            "acum": "Acum.",
+            "maxPermitido": "Max. Permitido",
+            "disponible": "Disponible",
+            "cumulos": {
+              "muerte": "Cúmulo de Muerte",
+              "perseverancia": "Cúmulo de Perserverancia",
+              "rentaDiaria": "Cúmulo de Renta diaria",
+              "proteccion": "Valores máximos de protección"
+            },
+            "alertas": {
+              "noCUmulosParaPlan": "No están configurados los rangos del control del cumulo para el plan que desea",
+              "noPlanCanalMovimiento": "No hay canales, planes y niveles de riesgo configurados para el movimiento"
+            }
+          },
+          "completarDatosParaContinuar": "Debes completar todos los datos para poder continuar",
+          "continuar": "Continuar",
+          "finalizar": "Finalizar",
+          "alertas": {
+            "edadCotizacion": "Se realizara la cotización con la edad próxima a cumplir del asociado dado a que su cumpleaños sera en 30 días calendario o menos - Próxima Fecha de cumpleaños {{fecha}}",
+            "seleccionarPlan": "Se debe seleccionar un plan para realizar el cálculo de la renta diaria",
+            "tratamientoDatos": "No se autorizó el tratamiento de datos sensible del asegurado. Para poder realizar la venta es necesario",
+            "fechaMayor30": "No es posible realizar una nueva Cotizacion con la Fecha de solicitud indicada, el sistema permite registrar la cotizacion hasta la fecha: Fecha actual + {{param}} días",
+            "numeroCuotaMax": "El responsable de pago tiene un número de cuotas en mora mayor a las permitidas",
+            "valorMoraMax": "El responsable de pago tiene un valor en mora de {{totalValorMora}} que es mayor al valor permitido"
+          }
+        },
+        "venta": {
+          "titulo": "Venta de Plan",
+          "pestanas": {
+            "validarDatos": "Validar datos",
+            "registrarProteccion": "Registrar protección",
+            "declaracionSalud": "Declaración de salud"
+          },
+          "alertas": {
+            "confirmarGuardar": "¿Está seguro de guardar la venta?",
+            "noHayPorcentajeConfigurado": "No hay configurado rango de porcentaje cuota para el tipo de vinculación con ID {{codigo}}",
+            "guardarVenta": "La venta fue realizada exitosamente. Se asignó el código del proceso {{idProceso}}",
+            "descargarFormatoVentaMensaje": "Por favor descargar el formato de venta generado para finalizar la venta",
+            "descargarFormatoVenta": "Formato de venta"
+          }
+        },
+        "resumen": {
+          "titulo": "Venta de Plan - {{nombrePlan}}",
+          "titulo2": "Venta de Plan",
+          "valorTotal": {
+            "titulo": "Valor total de:",
+            "proteccion": "Protección",
+            "cuota": "Cuota"
+          },
+          "botones": {
+            "listadoVentas": "Listado de ventas",
+            "listasRestrictivas": "Listas restrictivas",
+            "descargar": "Descargar",
+            "cerrar": "Cerrar"
+          },
+          "listasRestrictivas": {
+            "nombreLista": "Nombre lista",
+            "noLista": "No. Lista",
+            "idLista": "Id Lista",
+            "prioridad": "Prioridad"
+          },
+          "misDatos": {
+            "titulo": "Mis datos",
+            "numeroVenta": "Número de venta",
+            "numeroCotizacion": "Número de cotización",
+            "fechaCotizacion": "Fecha de cotización",
+            "nombre": "Nombre",
+            "cedula": "Cédula",
+            "fechaNacimiento": "Fecha de nacimiento",
+            "correoEletronico": "Correo electrónico",
+            "tipoAsociado": "Tipo de asociado",
+            "canalVenta": "Canal de venta",
+            "ciudad": "Ciudad",
+            "regional": "Regional",
+            "proyectoVida": "Proyecto de vida"
+          },
+          "alertas": {
+            "noEncontroVenta": "No se encontraron datos para la venta"
+          }
+        },
+        "resumenCotizacion": {
+          "titulo": "Cotización de {{nombrePlan}}",
+          "titulo2": "Cotización",
+          "contribucion": "Contribución",
+          "planes": {
+            "titulo": "Planes"
+          },
+          "proyeccion": {
+            "titulo": "Proyección",
+            "tabla": {
+              "edad": "Edad",
+              "anio": "Año",
+              "mesesPagar": "Meses a pagar",
+              "contribucionMes": "Contribución mes",
+              "contribucionAnio": "Contribución año",
+              "valorProteccion": "Valor protección",
+              "valorRescate": "Valor rescate",
+              "contribucion": "Contribución",
+              "valorCapitalizado": "Valor capitalizado"
+            }
+          },
+          "resumen": {
+            "titulo": "Resumen",
+            "valoresPagados": "Valores pagados",
+            "contribucionTotalEstimada": "Contribución total o estimada a {{nombreCobertura}}",
+            "contribucionTotalPagadaAmparo": "Contribución total pagada por amparo {{nombreCobertura}}",
+            "totalContribucionPagada": "Total contribución pagada",
+            "valoresEstimadosRescateFinalizarPlan": "Valores estimados de rescate al finalizar el plan",
+            "valorRecibir": "Valor a recibir por {{nombreCobertura}}",
+            "valorRecibirAmparo": "Valor a recibir del amparo de {{nombreCobertura}} en caso de retiro a la edad de perseverancia",
+            "totalValoresEstimadosPagada": "Total valores estimados a pagar"
+          },
+          "estadisticas": {
+            "titulo": "Estadísticas",
+            "tituloGrafica": "Contribuciones pagadas vs Perseverancia proyectada",
+            "cifrasExpresadasMillonesPesos": "Cifras expresadas en millones de pesos",
+            "CuotasPagadas": "No. cuotas pagadas"
+          },
+          "botones": {
+            "continuarVenta": "Continuar venta",
+            "modificar": "Modificar"
+          },
+          "alertas": {
+            "noCotizoPerseverancia": "No se puede realizar la estadística de perseverancia, debido a que esta cobertura no ha sido cotizada",
+            "generandoProyeccion": "Se esta generando la proyección, por favor espere"
+          }
+        },
+        "gestionAreaTecnica": {
+          "titulo": "Gestión área técnica",
+          "campos": {
+            "conceptoTareaFlujo": "Concepto",
+            "razonNegacion": "Razón de negación",
+            "razonDevolucion": "Razón de devolución",
+            "observacion": "Observación"
+          },
+          "personaDetalle": {
+            "numeroSolicitud": "No. solicitud",
+            "fechaSolicitud": "Fecha Solicitud",
+            "estadoSolicitud": "Estado solicitud",
+            "cuotasMora": "Cuotas en mora",
+            "tipoMovimiento": "Tipo de movimiento",
+            "nivelRiesgoIngreso": "Nivel de riesgo ingreso",
+            "oficinaVinvulacion": "Oficina de vinculación",
+            "regionalAsociado": "Regional",
+            "categoriaAsociado": "Categoría del asociado",
+            "estadoAsociado": "Estado del asociado"
+          },
+          "links": {
+            "bitacora": "Bitácora",
+            "facturacion": "Facturación",
+            "facturacionMultiactiva": "Facturación Multiactiva",
+            "facturacionSolidaridad": "Facturación Solidaridad",
+            "detalleBeneficiario": "Detalle de beneficiarios",
+            "resumenVenta": "Resumen venta",
+            "portafolioProducto": "Portafolio de producto"
+          },
+          "alertas": {
+            "noFasesDevolverPorError": "No hay fases configuradas para realizar una devolución por error"
+          }
+        }
+      },
+      "detalle": {
+        "detalle": "Detalle",
+        "estado": "Estado",
+        "edadProducto": "Edad en la que tomó el producto",
+        "consecutivo": "Consecutivo",
+        "proteccionActual": "Protección actual",
+        "fechaDeRegistro": "Fecha de registro",
+        "consecutivoFlujo": "Consecutivo flujo",
+        "proteccionSolicitada": "Protección solicitada",
+        "fechaSolicitud": "Fecha de solicitud",
+        "registro": "Registro",
+        "coutaContribucion": "Cuota de contribución",
+        "fechaAprobado": "Fecha aprobado",
+        "fechaCompleto": "Fecha requisitos completos",
+        "proteccionVigente": "Protección vigente",
+        "canalVenta": "Canal de venta",
+        "fechaVigencia": "Fecha vigencia",
+        "promotor": "Promotor",
+        "motivoDisminucion": "Motivo de disminución",
+        "fechaContribuon": "Fecha primera contribución",
+        "usuarioRegistro": "Usuario de registro",
+        "porcentajeDescuento": "Porcentaje de descuento",
+        "tipo": "Tipo Incremento",
+        "cuotaDescuento": "Cuota descuento",
+        "fechaVingenciaAuxFun": "Fec. Vigencia Aux. Fun.",
+        "fechaVingenciaEnfGrav": "Fec. Vigencia Enf. Grav.",
+        "observacionProteccion": "Observación de protección",
+        "defatulTextObservacion": "Renuncia",
+        "promocion": "Promoción",
+        "factorActual": "Factor actual"
+      },
+      "facturacion": {
+        "titulo": "Facturación",
+        "grid": {
+          "tipoFacturacion": "Tipo",
+          "valorCuota": "Valor cuota",
+          "valorGenerado": "Valor generado",
+          "valorFacturado": "Valor facturado",
+          "fechaPago": "Fecha de pago",
+          "valorPagado": "Valor pagado",
+          "valorDescapitalizado": "Valor descapitalizado"
+        },
+        "excel": {
+          "valorProteccion": "Valor protección",
+          "plan": "Producto",
+          "concepto": "Concepto",
+          "valorCuota": "Valor cuota",
+          "valorGenerado": "Valor generado",
+          "valorFacturado": "Valor facturado",
+          "valorMora": "Valor mora",
+          "saldoMora": "Saldo mora",
+          "saldoPago": "Saldo pago",
+          "valorPagado": "Valor pagado",
+          "moraPagada": "Mora pagada",
+          "valorDescapitalizado": "Valor descapitalizado",
+          "fechaAjuste": "Fecha de ajuste",
+          "usuario": "Usuario",
+          "fechaPago": "Fecha de pago",
+          "observaciones": "Observaciones"
+        },
+        "footer": {
+          "mensajeSuma": "Esta es la suma de las cuotas para los periodos seleccionados",
+          "totalFacturado": "Total facturado",
+          "totalPagado": "Total pagado"
+        },
+        "detalle": {
+          "titulo": "Detalle Cuota",
+          "valorProteccion": "Valor protección",
+          "plan": "Producto",
+          "concepto": "Concepto",
+          "valorCuota": "Valor cuota",
+          "valorGenerado": "Valor generado",
+          "valorFacturado": "Valor facturado",
+          "valorMora": "Valor mora",
+          "saldoMora": "Saldo mora",
+          "saldoPago": "Saldo pago",
+          "valorPagado": "Valor pagado",
+          "moraPagada": "Mora pagada",
+          "valorDescapitalizado": "Valor descapitalizado",
+          "fechaAjuste": "Fecha de ajuste",
+          "usuario": "Usuario",
+          "fechaPago": "Fecha de pago",
+          "observaciones": "Observaciones"
+        },
+        "alertas": {
+          "noSeEncontraronRegistrosMensaje": "No existen detalles de facturación para el producto o plan correspondiente",
+          "noSeEncontraronRegistroDetalleMensaje": "No existe detalle para el detalle de facturación seleccionado"
+        },
+        "anularCuota": "Anular cuota"
+      },
+      "inactividades": {
+        "inactividades": "Inactividades",
+        "noSeEncontraronRegistrosMensaje": "No existen inactividades para el producto o plan correspondiente"
+      },
+      "historico": {
+        "historico": "Histórico",
+        "valorProteccion": "Valor Protección",
+        "factor": "Factor",
+        "estadoProteccion": "Estado Protección",
+        "anio": "Año",
+        "noSeEncontraronRegistrosMensaje": "No existen detalles de histórico para el producto o plan correspondiente"
+      }
+    },
+    "facturacion": {
+      "facturacion": "Facturación",
+      "ajusteFacturacion": "Ajuste de facturación",
+      "ajuste": {
+        "inicio": "Inicio",
+        "fin": "Fin",
+        "ajuste": "Ajuste",
+        "cuota": "Cuota",
+        "pactadas": "Pactadas",
+        "facturadas": "Facturadas",
+        "agregarNuvoAjuste": {
+          "titulo": "Agregar nuevo ajuste",
+          "formulario": {
+            "plan": "Plan",
+            "periodoInicial": "Periodo inicial",
+            "valorAjuste": "Valor Ajuste",
+            "cuotasPactadas": "Cuotas pactadas",
+            "tipo": "Tipo",
+            "valorCuota": "Valor cuota",
+            "calcular": "A calcular",
+            "periodoFina": "Periodo final",
+            "observaciones": "Observaciones",
+            "botonGuardar": "Guardar"
+          }
+        }
+      },
+      "ajusteFacturacionDetalle": {
+        "agregarBeneficiarioSolidario": "Agregar beneficiario solidario",
+        "guardarCambios": "Guardar cambios"
+      },
+      "concepto": "Concepto",
+      "fechaAjuste": "Fecha de ajuste",
+      "detalleAjuste": "Detalle de ajuste",
+      "codigoAjuste": "Código ajuste",
+      "valorCuota": "Valor cuota",
+      "periodoInicial": "Periodo inicial",
+      "periodoFinal": "Periodo final",
+      "cuotasFacturadas": "Cuotas facturadas",
+      "valorAjuste": "Valor ajuste",
+      "cuotasPactadas": "Cuotas pactadas",
+      "solidaridad": {
+        "title": "Solidaridad",
+        "noSeEncontraronRegistrosMensaje": "No se encontró facturación de solidaridad para el asociado",
+        "fechaCreacion": "Fecha creación",
+        "periodo": "Periodo",
+        "concepto": "Concepto Facturación",
+        "nombre": "Nombre producto",
+        "valorCuota": "Valor cuota",
+        "valorFacturado": "Valor facturado",
+        "estado": "Estado",
+        "valorGenerado": "Valor Generado",
+        "valorPagado": "Valor Pagado",
+        "fechaPago": "Fecha Pago",
+        "valorMora": "Mora",
+        "pagoMora": "Mora Pagada",
+        "saldoMora": "Saldo Mora",
+        "saldoValorFacturado": "Saldo Factura",
+        "detalle": {
+          "title": "Detalle mora",
+          "concepto": "Concepto",
+          "periodo": "Periodo",
+          "saldo": "Saldo",
+          "totalMora": "Total",
+          "noSeEncontraronRegistrosDetalleMensaje": "No se encontraron datos de mora para el asociado"
+        }
+      },
+      "cuentasContables": {
+        "title": "Cuentas contables",
+        "noSeEncontraronRegistrosMensaje": "No se encontraron cuentas contables para el asociado",
+        "cuentaConcepto": "Concepto",
+        "productoDescripcion": "Plan/Producto",
+        "distribucionesDesc": "Fondo",
+        "cuentaNumero": "Nro Cuenta",
+        "pagoValor": "Valor Acumulado",
+        "detalle": {
+          "title": "DETALLE PAGOS CUENTAS CONTABLES",
+          "codigo": "Código",
+          "fechaPago": "Fecha Pago",
+          "periodo": "Periodo",
+          "valor": "Valor",
+          "plan": "Plan/Producto",
+          "concepto": "Concepto",
+          "fondo": "Fondo",
+          "cuenta": "Cuenta",
+          "noTransaccion": "No. Transacción",
+          "valorCuenta": "Valor",
+          "noSeEncontraronRegistrosMensaje": "No se encontraron datos de detalle para la cuenta"
+        }
+      },
+      "multiactiva": {
+        "titulo": "Multiactiva",
+        "concepto": "Concepto",
+        "saldo": "Saldo",
+        "vencido": "Vencido",
+        "cuota": "Cuota",
+        "moraCorte": "Mora corte",
+        "pagoTotal": "Pago total",
+        "cuotaVencida": "Cuota vencida",
+        "ultimoPago": "Último pago",
+        "cuentasCobrar": "Cuentas por cobrar",
+        "moraDia": "Mora día",
+        "interesesFinaciacion": "Intereses de financiación",
+        "saldoPosterior": "Saldo posterior",
+        "vencidoTotal": "Vencido",
+        "cuotaTotal": "Cuota",
+        "moraCorteTotal": "Mora al corte",
+        "pagoTotal2": "Pago total",
+        "ultimoTotal": "Último pago",
+        "noSeEncontraronRegistrosMensaje": "No se encontró facturación pendiente para el asociado"
+      },
+      "recaudos": {
+        "title": "Recaudos",
+        "consecutivo": "Consecutivo",
+        "plan": "Plan/Producto",
+        "conceptoFac": "Concepto facturación",
+        "nombreProducto": "Nombre Producto",
+        "fechaProceso": "Fecha de Pago",
+        "valorRecaudo": "Valor recaudo",
+        "exceso": "Exceso",
+        "valorExceso": "Valor exceso",
+        "noSeEncontraronRegistrosMensaje": "No se encontraron recaudos para el asociado",
+        "noSeEncontraronRegistrosDetalleMensaje": "No se encontraron detalles para el recaudo seleccionado",
+        "distrubucionRecaudo": "Distribución Recaudo",
+        "fondo": "Fondo",
+        "numeroCuenta": "Número de Cuenta",
+        "valor": "Valor",
+        "totalDetalleRecaudo": "Total"
+      },
+      "capitalPagado": {
+        "title": "Capital pagado",
+        "totalProteccionesSeleccionadas": "Total acumulado",
+        "sumatoriaProteccionesSeleccionadasMensaje": "Esta es la sumatoria de los productos seleccionados",
+        "cuotasPagadas": "C. Pagadas",
+        "cuotasVencidas": "C. Vencidas",
+        "noSeEncontraronRegistrosMensaje": "No se encontró capital pagado para el asociado"
+      }
+    },
+    "preexistencias": {
+      "preexistencia": "Preexistencia",
+      "preexistencias": "Preexistencias",
+      "imc": "IMC",
+      "peso": "Peso (Kg):",
+      "estatura": "Estatura (Mts):",
+      "consultarHistorico": "Histórico Movimiento",
+      "codigoDiagnosticoAnterior": "DIAG. CIE9",
+      "codigoDiagnostico": "DIAG. CIE10",
+      "descripcionDiagnostico": "Diagnóstico",
+      "fechaInicio": "Inicio",
+      "fechaRegistro": "Registro",
+      "causa": "Causa",
+      "examen": "Examen",
+      "calificacion": "Calificación",
+      "calificacionTotal": "Calificación total",
+      "noSeEncontraronRegistrosMensaje": "No se encontraron preexistencias para el asociado",
+      "ingresar": {
+        "title": "Ingreso Preexistencia",
+        "agregarPreexistencia": "Agregar Preexistencia",
+        "guardar": "Guardar",
+        "diagnosticoRequerido": "*El diagnóstico es requerido",
+        "causaRequerida": "*La causa es requerida",
+        "examenRequerido": "*El examen es requerido",
+        "calificacionRequerida": "*La calificación es requerida",
+        "fechaInicio": "Fecha Inicio",
+        "fechaRegistro": "Fecha Registro",
+        "examen": "Examen Médico",
+        "fechaInicioRequerida": "*Fecha de inicio es requerida",
+        "observacionesRqueridas": "*Las observaciones son requeridas",
+        "permiteCobertura": "Permite cobertura",
+        "observacionesMaxLength": "*Las observaciones no deben superar los 1000 caracteres"
+      },
+      "actualizar": {
+        "fechaRegistro": "Fecha Registro",
+        "auditor": "Auditor",
+        "actualizarImc": "Actualizar IMC"
+      },
+      "historico": {
+        "title": "Movimiento Preexistencia",
+        "noSeEncontraronRegistrosMensaje": "No existe histórico para la preexistencia"
+      }
+    },
+    "general": {
+      "renunciaAuxilioFunerario": {
+        "title": "Actualización Indicador Auxilio Funerario",
+        "indicador": "Indicador",
+        "indicadorRequerido": "*El indicador es requerido",
+        "observacion": "Observación",
+        "observacionRequerida": "*La observación es requerida",
+        "observacionesMaxLength": "*Las observaciones no deben superar los 1000 caracteres",
+        "renunciaAuxilioFunerario": "Act. Indicador Aux. Funerario",
+        "validacionCambioIndicador": "No puede realizarse el cambio de indicador cuando se posee Crédito T70 ó Cuota Única"
+      },
+      "actualizaIndicadorFNacimiento": {
+        "title": "Actualización Indicador Fecha de Nacimiento",
+        "actualizaIndicadorFNacimiento": "Act. Indicador F. Nacimiento",
+        "indicador": "Indicador",
+        "indicadorRequerido": "*El indicador es requerido",
+        "subserie": "Subserie",
+        "subserieRequerida": "*La subserie es requerida",
+        "indicadorIgual": "El indicador ya tiene asignado el dato que seleccionó"
+      },
+      "actualizaFechaNacimiento": "Actualiza fecha de nacimiento"
+    },
+    "responsablePago": {
+      "titulo": "Responsable de pago",
+      "grid": {
+        "idResponsablePago": "Id responsable de pago",
+        "nombreResponsablePago": "Nombre responsable de pago",
+        "parentesco": "Parentesco",
+        "plan": "Plan",
+        "estadoResponsablePago": "Estado responsable de pago"
+      }
+    },
+    "asegurado": {
+      "titulo": "Asegurado",
+      "grid": {
+      }
+    }
+  },
+  "liquidaciones": {
+    "consultaLiquidaciones": {
+      "titulo": "Resultado Consulta Liquidaciones",
+      "grid": {
+        "noReclamacion": "No. Reclamación",
+        "noLiquidacion": "No. Liquidación",
+        "asociado": "Asociado",
+        "fechaPago": "Fecha Pago",
+        "estado": "Estado",
+        "formaPago": "Forma de Pago",
+        "auxilioReclamado": "Auxilio Reclamado"
+      },
+      "filtros": {
+        "identificacionAsociado": "Identificación del asociado",
+        "noLiquidacion": "No. Liquidación",
+        "noReclamacion": "No. Reclamación"
+      },
+      "alertas": {
+        "noExisteIdentificacion": "El valor de identificación del asociado que se ingresó no existe en el Sistema",
+        "noExisteCodigo": "No existe información de liquidación asociada para el valor de identificación del asociado que fue ingresado"
+      }
+    },
+    "detalleLiquidacion": {
+      "titulo": "Liquidación",
+      "abonoCredito": {
+        "title": "¿Abono a crédito?",
+        "nPagare": "No. pagaré",
+        "valorMaxAbonar": "Valor max. abonar",
+        "valorAbonado": "Valor abonado",
+        "saldo": "Saldo"
+      },
+      "exportarPDF": "Exportar PDF",
+      "formaPago": "Forma de Pago",
+      "formaPagoGiro": {
+        "titulo": "Giro",
+        "detalle": {
+          "agenciaCobro": "Agencia de cobro"
+        }
+      },
+      "formaPagoDeposito": {
+        "titulo": "Depósito",
+        "detalle": {
+          "noCuenta": "No. de cuenta",
+          "banco": "Banco",
+          "sucursal": "Sucursal"
+        }
+      },
+      "formaPagoDistribuida": {
+        "titulo": "Distribuida",
+        "detalle": {
+          "noRentas": "No. Rentas",
+          "beneficiario": "Beneficiario",
+          "fechaPago": "Fecha de Pago",
+          "valor": "Valor",
+          "retefuente": "Retefuente",
+          "porRetefuente": "% Retefuente",
+          "noCuenta": "No. de cuenta",
+          "deducciones": "Deducciones",
+          "valorNeto": "Valor neto",
+          "agenciaCobro": "Agencia de cobro"
+        }
+      },
+      "grid": {
+        "nombreCobertura": "Nombre cobertura",
+        "valorBase": "Valor base",
+        "reconocidos": "Reconocidos",
+        "valorPago": "Valor pago",
+        "valorTotalPago": "Valor total pago"
+      },
+      "cardTotalNeto": {
+        "cuotaMesual": "Cuota mes de asociado a Coomeva Cooperativa",
+        "saldoVencidos": "Saldos vencidos en Coomeva Cooperativa",
+        "deduccionesVarias": "Deducciones varias",
+        "facturacion": "Factura No. {{numeroFactura}} Valor",
+        "totalDeducciones": "Total deducciones",
+        "rendimiento": "Rendimientos financieros (*) Valor base retención",
+        "retencion": "% Retención",
+        "retefuente": "Retefuente",
+        "valorNeto": "Valor total neto pago"
+      },
+      "datosAsociado": {
+        "nombre": "Nombre del asociado",
+        "identificacion": "Identificación",
+        "tipoAuxilio": "Evento solicitado",
+        "noReclamacion": "Número de radicado",
+        "noLiquidacion": "No. Liquidación",
+        "fechaEevento": "Fecha de evento",
+        "fechaReclamacion": "Fecha de solicitud",
+        "fechaPago": "Fecha pago",
+        "tipoContrato": "Tipo de contrato",
+        "empresa": "Empresa"
+      },
+      "datosBeneficiario": {
+        "titulo": "Familiar Fallecido",
+        "nombre": "Nombre beneficiario",
+        "identificacion": "Identificación"
+      }
+    }
+  },
+  "eventos": {
+    "solicitudSipReclamaciones": "La información de la solicitud amparo no se encuentra en el sistema Mi mutual",
+    "amparoMuerte": "No puede radicar el reclamo porque existe un reclamo por muerte",
+    "noEvento": "Número de solicitud",
+    "datosEvento": "Consulta solicitud Amparos",
+    "consulta": {
+      "titulo": "Consulta Solicitud Amparo",
+      "grid": {
+        "solicitud": "No. Solicitud",
+        "fechaEvento": "Fecha de Evento",
+        "diag": "Diag.",
+        "lt": "Lt",
+        "estado": "Estado",
+        "auxilioReclamo": "Tipo solicitud",
+        "asignado": "Asignado A",
+        "mas": "Mas"
+      },
+      "popupMas": {
+        "bitacora": "Bitácora",
+        "consultaRenta": "Consulta Renta",
+        "agregarObservacion": "Agregar Observación",
+        "anular": "Anular"
+      },
+      "filtros": {
+        "identificacionAsociado": "Identificación del asociado",
+        "codigoEvento": "No. solicitud",
+        "mensajes": {
+          "maxlenth": "Número máximo de caracteres permitidos es {{numero}}"
+        }
+      },
+      "botones": {
+        "nuevoEvento": "Nueva Solicitud de amparo"
+      },
+      "bitacora": {
+        "titulo": "Bitácora de acciones"
+      },
+      "detalleDatosEvento": {
+        "noEvento": "No. Solicitud de amparo",
+        "identificacion": "Identificación",
+        "noLiquidacion": "No. Liquidación",
+        "fechaEvento": "Fecha evento",
+        "fechaSolicitud": "Fecha solicitud de amparo",
+        "tipoAuxilio": "Tipo de solicitud de amparo",
+        "estado": "Estado",
+        "totalDatos": "Todos los datos"
+      },
+      "rentas": {
+        "titulo": "Consulta Rentas",
+        "renta": "Renta",
+        "valor": "Valor",
+        "noLiquidacion": "No. Liquidación",
+        "pagadaEnAnteriorLiquidacion": "Pagada en Anterior Liquidación",
+        "fechaPago": "Fecha de pago",
+        "identificacion": "Identificación",
+        "noEvento": "No. Solicitud",
+        "fechaEvento": "Fecha de evento",
+        "fechaRadicacion": "Fecha de radicación",
+        "nombre": "Nombre",
+        "tipoAuxilio": "Tipo de auxilio",
+        "empresa": "Empresa",
+        "tipoContrato": "Tipo de contrato",
+        "noSeEncontraronRegistrosMensaje": "No se encontraron rentas para el evento"
+      },
+      "solicitud": {
+        "gestionar": "Gestionar",
+        "bitacora": "Bitácora",
+        "gestionPendientePor": "Gestión pendiente por",
+        "observacion": "Observación",
+        "numeroRemedy": "Número del Remedy",
+        "devolucionError": "Opción devolución por error",
+        "razonDevolucion": "Razón de devolución",
+        "fechaEvento": "Fecha evento",
+        "formaPago": "Forma pago",
+        "numeroCuenta": "No. cuenta",
+        "valorPagar": "Valor solicitado",
+        "oficina": "Oficina registro",
+        "oficinaPago": "Oficina pago",
+        "descuentoCuotaMes": "¿Pagar cuota mes?",
+        "descuentoSaldoVencido": "Descontar saldos vencidos",
+        "abonaCredito": "Abona crédito",
+        "deposito": "Depósito",
+        "giro": "Giro",
+        "tipoCuenta": "Tipo cuenta",
+        "banco": "Banco",
+        "retencionEvento": "% Retención amparo",
+        "pagarA": "Pagar a",
+        "fechaRadicacion": "Fecha de radicación",
+        "tipoAuxilio": "Tipo de auxilio",
+        "estado": "Estado",
+        "informacionSolicitud": "Información Solicitud",
+        "informacionDocumentos": "Información documentos",
+        "informacionRadicacion": "Información radicación",
+        "informacionAuditoriaMedica": "Información Auditoría médica",
+        "auditoriaMedica": {
+          "titulo": "Auditoría médica",
+          "origenEvento": "Origen del evento",
+          "fechaEvento": "Fecha evento",
+          "conceptoMedico": "Concepto médico",
+          "razonesNegacion": "Razones de negación"
+        },
+        "notificarNegacion": {
+          "titulo": "Notificación de negación",
+          "estadoCierre": "Estado cierre",
+          "razonInsatisfacion": "Razón de insatisfacción",
+          "escaladoComoTratamientoEspecial": "Escalado como tratamiento especial",
+          "observacion": "Observación",
+          "mensajeNegacion": "La solicitud {{numero}} fue finalizada con concepto de negación"
+        },
+        "registro": {
+          "registraSolicitud": {
+            "titulo": "Registro solicitud",
+            "solicitudRecibidaPor": "Solicitud recibida por",
+            "canal": "Canal",
+            "tipoEvento": "Amparo que desea solicitar",
+            "reclamoPor": "Reclamo por",
+            "asociado": "Asociado",
+            "beneficiario": "Beneficiario",
+            "fechaEvento": "Fecha solicitud",
+            "observacion": "Observación",
+            "accidental": "Accidental",
+            "tratamientoEspecial": "Tratamiento especial",
+            "aviso": "Aviso",
+            "declarante": "¿Asociado/Beneficiario declarante de renta?",
+            "origen": "Origen"
+          },
+          "validaDocumentos": {
+            "titulo": "Validar documentos",
+            "listaDocumentos": "Documentos",
+            "reclamaCopago": "Reclama solo copago",
+            "aviso": "Aviso"
+          }
+        },
+        "radicar": {
+          "titulo": "Radicar solicitud de amparo",
+          "mensaje": {
+            "maxLength": "El máximo de caracteres permitidos en el campo {{control}} es de {{numero}}"
+          }
+        },
+        "liquidacionPago": {
+          "tituloLiquida": "Definición",
+          "tituloPago": "Pago",
+          "cobertura": {
+            "titulo": "Coberturas",
+            "conceptoCobertura": "Conceptos Cobertura",
+            "razonNegacion": "Razones de negación"
+          },
+          "valorPagar": {
+            "titulo": "Valores a Pagar",
+            "gridDetalleEvento": {
+              "nombre": "Nombre",
+              "proteccionBase": "Protección Base",
+              "valorBase": "Valor Base",
+              "valorTotalBase": "Total valores base:"
+            },
+            "deducciones": "Deducciones",
+            "cuotaMensual": "Cuota Mensual",
+            "deduccionesVarias": "Deducciones varias",
+            "saldosVencidos": "Saldos Vencidos",
+            "totalDeducciones": "Total deducciones"
+          },
+          "liquidar": {
+            "titulo": "Liquidar",
+            "liquidacionGenerada": "Liquidación Generada",
+            "liquidacionNo": "Liquidación No:",
+            "reclamante": "Reclamante",
+            "valorBase": "Valor Base",
+            "retefuente": "Retefuente",
+            "totalDeducciones": "Total deducciones",
+            "valorNeto": "Valor total neto pago",
+            "formaPago": "Forma Pago",
+            "tipoCuenta": "Tipo cuenta",
+            "banco": "Banco",
+            "noCuenta": "No. de cuenta",
+            "oficina": "Oficina"
+          }
+        },
+        "conceptoOtrasAreas": {
+          "titulo": "Concepto de otras áreas"
+        },
+        "activarFlujo": {
+          "titulo": "Activar solicitud"
+        },
+        "anulacion": {
+          "titulo": "¿Está seguro que desea anular la solicitud de amparo No. {{nroSolicitud}}?",
+          "causa": "Causa anulación",
+          "usuario": "Usuario error anulación",
+          "observacion": "observación"
+        },
+        "observaciones": {
+          "titulo": "Agregar observaciones"
+        }
+      }
+    }
+  },
+  "asociadosVIP": {
+    "titulo": "Lista Asociados V.I.P",
+    "grid": {
+      "numeroId": "Número de identificación",
+      "tipoId": "Tipo de Identificación",
+      "nombres": "Apellidos y Nombre(s) Asociado(a)",
+      "estado": "Estado",
+      "regional": "Regional",
+      "agregar": "Agregar Asociado"
+    },
+    "alertas": {
+      "debeBuscarAsociado": "Debe ingresar criterios de búsqueda válidos, presionar Enter para realizar la búsqueda y posteriormente agregar.",
+      "deseaEliminarAsociado": "¿Está seguro de eliminar al asociado {{asociado}}?"
+    }
+  },
+  "consultaTransaccional": {
+    "titulo": "Consulta Transaccional",
+    "consultaLogTransaccional": {
+      "titulo": "Consulta Log Transaccional",
+      "usuario": {
+        "titulo": "ID del Usuario",
+        "idUsuarioRequerido": "*El ID del usuario es requerido"
+      },
+      "funcionalidad": "Funcionalidad",
+      "fechaInicio": {
+        "titulo": "Fecha inicio",
+        "fechaInicioMenorFechaFin": "La fecha inicio es superior a la fecha final"
+      },
+      "fechaFin": {
+        "titulo": "Fecha fin",
+        "rangofechaFin": "La búsqueda se debe realizar máximo con un rango de 30 días"
+      },
+      "usuariAplicacion": "Usuario de aplicación y/o Usuario del sistema",
+      "idAsociado": "ID Asociado o Benef.",
+      "ipMaquina": "IP de la máquina",
+      "alertaExcelServidor": "Archivo generado, verificar tu correo",
+      "alertaNoDatos": "No existe información para el dato de búsqueda ingresado",
+      "alertaNoFecha": "Por favor ingrese rango de fecha inicial como rango de fecha final para poder realizar la búsqueda, inténtelo de nuevo",
+      "alertaFechaIniMayorFehcaSistema": "La fecha inicio es inválida ya que supera la fecha del sistema",
+      "alertaFechaFinMayorFehcaSistema": "La fecha final es inválida ya que supera la fecha del sistema",
+      "alertaIDUsuarioRequerido": "El campo ID usuario es requerido",
+      "botonLimpiar": "Limpiar",
+      "botonDescargar": "Descargar"
+    }
+  },
+  "consultas": {
+    "consultaPagos": {
+      "titulo": "Consultar Pagos",
+      "filtros": {
+        "liquidacionNo": "No. Liquidación",
+        "identificacionBenPago": "No. Identificación Ben. Pag.",
+        "nombreBenPago": "Nombre y Apellido Ben. Pag."
+      },
+      "grid": {
+        "numeroReclamacion": "No. Reclamación",
+        "identificacion": "Ident.",
+        "nombreBeneficiarioPago": "Nombre beneficiario de pago",
+        "auxilioPagado": "Auxilio pagado",
+        "fechaPago": "Fecha pago",
+        "destino": "Destino",
+        "valorPagado": "Vlr. Pago",
+        "valorRetenido": "Vlr. Ret",
+        "valorDeducido": "Vlr. Deduc",
+        "valorNeto": "Valor neto",
+        "regional": "Regional",
+        "zonaAsociado": "Zona Asociado",
+        "numeroLiquidacion": "No. Liq.",
+        "consecutivoGiro": "Consecutivo Giro",
+        "numero": "No.",
+        "auxilioNo": "Auxilio"
+      },
+      "excel": {
+        "numeroEvento": "No. Reclam.",
+        "identificacion": "Ident.",
+        "nombreBeneficiarioPago": "Nombre beneficiario de pago",
+        "auxilioPagado": "Auxilio pagado",
+        "fechaPago": "Fecha pago",
+        "destino": "Destino",
+        "valorPagado": "Vlr. Pago",
+        "valorRetenido": "Vlr. Ret",
+        "valorDeducido": "Vlr. Deduc",
+        "valorNeto": "Vlr. Neto",
+        "regional": "Regional",
+        "zonaAsociado": "Zona Asociado",
+        "numeroLiquidacion": "No. Liq.",
+        "consecutivoGiro": "Consecutivo Giro",
+        "numero": "No."
+      }
+    }
+  },
+  "simulaciones": {
+    "valorDevolver": {
+      "titulo": "Simulación de valores a devolver",
+      "boton": {
+        "salir": "Salir"
+      },
+      "cancelacion": {
+        "titulo": "Valores devolver por cancelación"
+      },
+      "filtros": {
+        "regresarSimulacionesValoresDevolver": "Regresar simulación de valores",
+        "tipoDocumento": "Tipo documento",
+        "identificacionAsociado": "Número de documento"
+      },
+      "grid": {
+        "concepto": "Concepto",
+        "descripcion": "Descripción",
+        "plan": "Plan",
+        "valorProteccion": "Valor de protección",
+        "valorCuota": "Valor de cuota",
+        "fechaPerseverancia": "Fecha perseverancia"
+      },
+      "gridDetalle": {
+        "nombreDetalle": "Nombre del plan",
+        "valores": "Valores",
+        "valorProteccionActual": "Valor protección actual - Perseverancia",
+        "valorProteccionActualVida": "Valor protección actual - Vida",
+        "valorTotalApartadoVida": "Valor total aportado - Vida",
+        "valorTotalApartado": "Valor total aportado - Perseverancia",
+        "valorReservaMatematica": "Valor reserva matemática - Vida",
+        "valorAportadoPerseveranciaMuerte": "Valor aportado en Perseverancia y muerte",
+        "porcentajeGastosAdministrativos": "Porcentaje gastos administrativos",
+        "edadSolicitud": "Edad de solicitud",
+        "plazo": "Plazo",
+        "valorAnualidad": "Valor anualidad",
+        "valorAnualidadVida": "Valor anualidad - Vida",
+        "porcentajeRentabilidad": "Porcentaje rentabilidad",
+        "porcentajePerseverancia": "Porcentaje perseverancia",
+        "numeroCuotasPagas": "Número de cuotas pagadas",
+        "porcentajeDevolucion": "Porcentaje de devolución",
+        "valorRescate": "Valor rescate - Perseverancia",
+        "valorRescateVida": "Valor rescate - Vida",
+        "valorDevolucion": "Valor devolución"
+      }
+    }
+  },
+  "administracion": {
+    "configuracionAsignacionGestionDiaria": {
+      "titulo": "Configuración asignación gestión diaria",
+      "tituloCrear": "Crear configuración de asignación gestión diaria",
+      "tituloEditar": "Editar configuración de asignación gestión diaria",
+      "grid": {
+        "proceso": "Proceso",
+        "tipoAsignacion": "Tipo asignación",
+        "acciones": "Acciones"
+      },
+      "form": {
+        "proceso": "Proceso",
+        "tipoAsignacion": "Tipo asignación",
+        "producto": "Producto",
+        "usuario": "Usuario"
+      },
+      "alertas": {
+        "deseaEliminar": "¿Está seguro de eliminar el registro?"
+      }
+    },
+    "gestionDiariaAutomatica": {
+      "titulo": "Configuración asignación gestión diaria automática",
+      "tituloCrear": "Crear configuración automática de asignación gestión diaria",
+      "tituloEditar": "Editar configuración automática de asignación gestión diaria",
+      "grid": {
+        "tipoSolicitud": "Tipo solicitud",
+        "solicitud": "Solicitud",
+        "faseSolicitud": "Fase solicitud",
+        "tarea": "Tarea",
+        "acciones": "Acciones"
+      },
+      "form": {
+        "tipoSolicitud": "Tipo solicitud",
+        "solicitud": "Solicitud",
+        "faseSolicitud": "Fase solicitud",
+        "tarea": "Tarea",
+        "usuarioFase": "Usuario fase",
+        "nroSolicitudes": "Número máximo solicitudes"
+      },
+      "alertas": {
+        "usuarioFase": "Debe seleccionar al menos un usuario fase",
+        "nroSolicitudes": "Los usuarios seleccionados deben tener un número mínimo de solicitud igual o mayor a 1",
+        "deseaEliminar": "¿Está seguro de eliminar el registro?"
+      }
+    },
+    "configuracionOperaciones": {
+      "tituloCrear": "Crear parámetros configuración operaciones",
+      "tituloEditar": "Editar parámetros configuración operaciones",
+      "titulo": "Parámetros configuración operaciones",
+      "form": {
+        "tipoConfiguracion": "Tipo configuración",
+        "general": "General",
+        "especifica": "Específica",
+        "plan": "Plan",
+        "cobertura": "Cobertura",
+        "tipoSolicitud": "Tipo solicitud",
+        "nivelRiesgo": "Nivel riesgo",
+        "valorMinimoProteccion": "Valor mínimo protección",
+        "valorMaximoProteccion": "Valor máximo protección",
+        "rangoMinimoEdad": "Rango edad mínima",
+        "rangoMaximoEdad": "Rango edad máxima",
+        "cicloFacturacion": "Ciclo facturación"
+      },
+      "grid": {
+        "tipoConfiguracion": "Tipo configuración",
+        "plan": "Plan",
+        "cobertura": "Cobertura",
+        "tipoSolicitud": "Tipo solicitud",
+        "fechaCreacion": "Fecha creación",
+        "acciones": "Acciones"
+      },
+      "validaciones": {
+        "edadMaxima": "Valor máximo de la edad debe ser {{numero}}",
+        "edadMinima": "Valor mínimo de la edad debe ser {{numero}}",
+        "edadMinimanMenorEdadMaxima": "El rango edad mínima no puede ser mayor a al rango de edad máxima",
+        "maxLenghtProteccion": "El valor máximo protección solo permite hasta {{numero}} números",
+        "proteccionMinimanMenorIngresoMaxima": "El valor mínimos protección no puede ser mayor al valor máximo protección"
+      },
+      "detalle": {
+        "form": {
+          "geolocalizacion": "Geolocalización",
+          "ubicacion": "Ubicación",
+          "tipoCantidadCasos": "Tipo cantidad casos",
+          "valorCantidadCasos": "Valor cantidad casos",
+          "horaCorte": "Horario corte",
+          "tituloCrear": "Crear cantidad de casos por geolocalización",
+          "tituloEditar": "Editar cantidad de casos por geolocalización"
+        },
+        "grid": {
+          "CantidadCasosGeolocalizacion": "Cantidad de casos por geolocalización",
+          "tipoCantidadCasos": "Tipo cantidad casos",
+          "valorCantidadCasos": "Valor cantidad casos",
+          "geolocalizacion": "Geolocalización",
+          "ubicacion": "Ubicación",
+          "acciones": "Acciones"
+        }
+      },
+      "alertas": {
+        "deseaEliminar": "¿Está seguro de eliminar el registro?",
+        "menorIgualUno": "No se puede eliminar porque apenas hay un registro",
+        "ubicacionRepetida": "Ya existe un registro de cantidad de casos por geolocalización creado con la misma ubicación que selecciono"
+      }
+    },
+    "configuracion-seguridad": {
+      "titulo": "Configuración Seguridad",
+      "subMenu": {
+        "logNovedades": "Log Novedades",
+        "auditoria": "Auditoría",
+        "logTransaccional": "Log Transaccional"
+      },
+      "log-novedades": {
+        "titulo": "Log Novedades",
+        "agregar": "AGREGAR",
+        "panelLateral": {
+          "titulo": "Ingreso Nueva Novedad",
+          "label": "Descripción Novedad",
+          "AgregarNovedad": "Agregar Novedad"
+        },
+        "entidad": {
+          "titulo": "Entidad",
+          "entidadRequerido": "*La entidad es requerida",
+          "descripcion": "Descripción Entidad"
+        },
+        "campoEntidad": {
+          "titulo": "Campo Entidad",
+          "campoEntidadRequerido": "*El campo entidad es requerido"
+        },
+        "novedades": {
+          "titulo": "Novedades",
+          "novedadesRequerido": "*El campo novedades es requerido"
+        },
+        "grid": {
+          "campoTabla": "Campo Tabla",
+          "novedad": "Novedad",
+          "eliminar": "Eliminar"
+        }
+      },
+      "log-transaccional": {
+        "titulo": "Log Transaccional"
+      }
+    },
+    "asignacionPermisos": {
+      "titulo": "Asignación de permisos especiales",
+      "filtros": {
+        "tipoDocumento": "Tipo de documento",
+        "numeroIdentificacion": "Número de identificación"
+      },
+      "grid": {
+        "codigoRol": "Código Rol",
+        "nombreRol": "Nombre Rol",
+        "permitir": "Permitir"
+      },
+      "alertas": {
+        "debeRealizarBusquedaDeUsuario": "Debes realizar la búsqueda del usuario al cual le asignaras permisos especiales"
+      }
+    },
+    "cargueMasivo": {
+      "TipoArchivo": "Tipo de transacción",
+      "SeleccionaArchivo": "Seleccionar Archivo",
+      "cargueMasivoTitulo": "Cargues masivos",
+      "SubirArchivo": "Seleccionar",
+      "cargarArchivos": "Cargues masivos",
+      "proceso": "Proceso",
+      "procesar": "Procesar",
+      "descargarFormato": "Descargar formato",
+      "filtros": {
+        "fechaInicio": "Fecha inicio y Fecha fin",
+        "fechaFin": "Fecha fin",
+        "codigoCargue": "Código cargue"
+      },
+      "grid": {
+        "codigo": "Código de cargue",
+        "usuario": "Usuario",
+        "archivo": "Nombre de archivo",
+        "fechaHora": "Fecha y hora cargue",
+        "totalDatos": "Cantidad de registros",
+        "estado": "Estado",
+        "descargarResultados": "Descargar resultado cargue masivo"
+      },
+      "excel": {
+        "idReclamacion": "Id reclamación",
+        "idAsociado": "ID asociado",
+        "solicitudRecibidaPor": "Solicitud recibida por",
+        "oficinaRadicacion": "Oficina Radicación",
+        "fechaReclamación": "Fecha reclamación",
+        "tipoOrigen": "Tipo origen",
+        "tratamientoEspecial": "Tratamiento especial",
+        "asociadoBeneficiarioDeclaranteRenta": "¿Asociado / Beneficiario declarante de renta?",
+        "reclamaSoloCopago": "Reclama solo copago",
+        "observacionRegistro": "Observación registro",
+        "fechaEvento": "Fecha evento",
+        "formaPago": "Forma pago",
+        "tipoCuenta": "Tipo de cuenta",
+        "banco": "Banco",
+        "noCuenta": "No cuenta",
+        "oficina": "Oficina",
+        "valorSolicitado": "Valor solicitado",
+        "descuentoCuotaMes": "Descuento cuota mes",
+        "descuentoSaldoVencido": "Descuento saldo vencido",
+        "observacionRadicación": "Observación radicación",
+        "notificarAsociado": "Notificar al asociado",
+        "estadoReclamacion": "Estado reclamación",
+        "estadoCargueReclamacion": "Estado del cargue de la reclamación",
+        "razonDeError": "Razón de error"
+      },
+      "excelNotificacionPagos": {
+        "fecha": "Fecha",
+        "hora": "Hora",
+        "numeroReclamo": "FS-Número Autorización Reclamo",
+        "identificacionReclamante": "FS-Identificación Reclamante",
+        "nombreReclamante": "FS-Nombre Completo del Reclamante",
+        "valorReclamacion": "FS-Valor Reclamación, Devolución",
+        "descuentoCartera": "FS-Descuento Cartera Mora",
+        "valorContable": "FS-Valor Contable a Financiera",
+        "valorLiquidacion": "FS-Valor Liquidación",
+        "descuentoImpuestos": "FS-Descuento Impuestos",
+        "idAsociado": "FS-Número Interno Asociado",
+        "nombreAsociado": "FS-Nombre Completo del Asociado",
+        "estadoCargueReclamacion": "Estado del cargue de la reclamación",
+        "razonDeError": "Razón de error"
+      },
+      "excelPromotores": {
+        "codigoCargue": "Código cargue",
+        "nombreCompania": "Compañia",
+        "tipoIdentificacion": "Tipo identificación",
+        "numeroIdentificacion": "Número identificación",
+        "nombrePromotor": "Nombre",
+        "correoElectronico": "Correo electrónico",
+        "regional": "Regional",
+        "tipoSolicitud": "Tipo Solicitud",
+        "canalVenta": "Canal venta",
+        "disponible": "Disponible",
+        "estadoCarguePromotor": "Estado del cargue del promotor",
+        "razonDeError": "Razón de error"
+      },
+      "alertas": {
+        "translapeFechas": "La fecha inicial no puede ser mayor a la fecha final",
+        "estrucutraNoCumple": "Algunos registros del archivo no cumplen con las validaciones de estructura, por favor revisar el log de errores",
+        "errorCargueMasivo": "Ocurrió un error al ejecutar el cargue masivo. Por favor descargue el detalle del error y póngase en contacto con el administrador del sistema"
+      }
+    },
+    "cargueMasivoCallCenter": {
+      "titulo": "Cargues masivos call center",
+      "proceso": "Proceso",
+      "filtros": {
+        "fechaInicio": "Fecha inicio y Fecha fin",
+        "fechaFin": "Fecha fin",
+        "codigoCargue": "Código del cargue"
+      },
+      "grid": {
+        "codigo": "Código de cargue",
+        "tipoMovimiento": "Tipo movimiento",
+        "usuario": "Usuario del cargue",
+        "archivo": "Nombre de archivo",
+        "numeroRegistros": "Número registros",
+        "registrosExitosos": "Registros exitosos",
+        "registrosNovedades": "Registros novedades",
+        "fechaHora": "Fecha y hora cargue",
+        "estado": "Estado",
+        "acciones": "Acciones"
+      },
+      "form": {
+        "cargueMasivoTitulo": "Cargues masivos call center",
+        "tipoTransaccion": "Tipo de transacción",
+        "tipoMovimiento": "Tipo movimiento",
+        "descargarFormato": "Descargar formato",
+        "cargarArchivo": "Cargar archivo",
+        "SeleccionaArchivo": "Seleccionar Archivo",
+        "procesar": "Procesar",
+        "SubirArchivo": "Seleccionar"
+      },
+      "excel": {
+        "identificacionAsociado": "Identificación asociado",
+        "fechaSolicitud": "Fecha solicitud",
+        "correoElectronico": "Correo electrónico",
+        "cedulaPromotorComercial": "Cédula promotor comercial",
+        "codigoPlan": "Código plan",
+        "proyectoVida": "¿Cual es tu proyecto de vida?",
+        "cual": "¿Cuál?",
+        "ingresosMensuales": "Ingresos mensuales",
+        "codigoPlanCobertura": "Código plan cobertura",
+        "valorProteccion": "Valor protección",
+        "pregunta1DeclaracionSalud": "Pregunta 1 Declaración de salud",
+        "pregunta2DeclaracionSalud": "Pregunta 2 Declaración de salud",
+        "pregunta3DeclaracionSalud": "Pregunta 3 Declaración de salud",
+        "pregunta4DeclaracionSalud": "Pregunta 4 Declaración de salud",
+        "pregunta5DeclaracionSalud": "Pregunta 5 Declaración de salud",
+        "pregunta6DeclaracionSalud": "Pregunta 6 Declaración de salud",
+        "diagnostico": "Diagnóstico",
+        "fechaDiagnostico": "Fecha diagnóstico",
+        "descripcionSecuela": "Descripción de la secuela",
+        "estatura": "Estatura (cm)",
+        "peso": "Peso (kg)",
+        "estadoCargueProcesoAutomatico": "Estado del cargue/ Proceso automático",
+        "razonError": "Razón de error"
+      },
+      "excelNotificacionPagos": {
+        "fecha": "Fecha",
+        "hora": "Hora",
+        "numeroReclamo": "FS-Número Autorización Reclamo",
+        "identificacionReclamante": "FS-Identificación Reclamante",
+        "nombreReclamante": "FS-Nombre Completo del Reclamante",
+        "valorReclamacion": "FS-Valor Reclamación, Devolución",
+        "descuentoCartera": "FS-Descuento Cartera Mora",
+        "valorContable": "FS-Valor Contable a Financiera",
+        "valorLiquidacion": "FS-Valor Liquidación",
+        "descuentoImpuestos": "FS-Descuento Impuestos",
+        "idAsociado": "FS-Número Interno Asociado",
+        "nombreAsociado": "FS-Nombre Completo del Asociado",
+        "estadoCargueReclamacion": "Estado del cargue de la reclamación",
+        "razonDeError": "Razón de error"
+      },
+      "alertas": {
+        "tipoDocumento": "El archivo que intenta cargar no tiene un formato válido. Extensión valida {{tipoDocumento}}",
+        "tamaniDocumento": "El archivo que intenta cargar supera el peso requerido, peso máximo permitido es {{pesoDocumento}}",
+
+        "translapeFechas": "La fecha inicial no puede ser mayor a la fecha final",
+        "estrucutraNoCumple": "Algunos registros del archivo no cumplen con las validaciones de estructura, por favor revisar el log de errores",
+        "errorCargueMasivo": "Ocurrió un error al ejecutar el cargue masivo. Por favor descargue el detalle del error y póngase en contacto con el administrador del sistema",
+        "noPermiteEditar": "El registro no puede ser modificado porque se encuentra completo",
+        "noPermiteRechazar": "El registro no puede ser rechazado porque se encuentra completo"
+      },
+      "bandejaGestionDetalladaOperaciones": {
+        "titulo": "Bandeja gestión detallada operaciones",
+        "grid": {
+          "codigoCargue": "Código de cargue",
+          "identificacionAsociado": "Identificación asociado",
+          "fechaSolicitud": "Fecha solicitud (DD-MM-AAAA)",
+          "correoElectronico": "Correo electrónico",
+          "promotorComercial": "Cédula promotor comercial",
+          "autorizoTratamientoDatosSensibles": "Autorizo el tratamiento de mis datos sensibles",
+          "codigoPlan": "Código plan",
+          "proyectoVida": "¿Cuál es tu proyecto de vida?",
+          "otroProyectoVida": "¿Cuál?",
+          "ingresosMensuales": "Ingresos mensuales",
+          "codigoPlanCobertura": "Código plan cobertura",
+          "valorProteccion": "Valor protección",
+          "pregunta1DeclaracionSalud": "Pregunta 1 Declaración de salud",
+          "pregunta2DeclaracionSalud": "Pregunta 2 Declaración de salud",
+          "pregunta3DeclaracionSalud": "Pregunta 3 Declaración de salud",
+          "pregunta4DeclaracionSalud": "Pregunta 4 Declaración de salud",
+          "pregunta5DeclaracionSalud": "Pregunta 5 Declaración de salud",
+          "pregunta6DeclaracionSalud": "Pregunta 6 Declaración de salud",
+          "pregunta7DeclaracionSalud": "Pregunta 7 Declaración de salud",
+          "diagnostico": "Diagnóstico",
+          "fechaDiagnostico": "Fecha diagnóstico (DD-MM-AAAA)",
+          "descripcionSecuela": "Descripción de la secuela",
+          "estatura": "Estatura (cm)",
+          "peso": "Peso (kg)",
+          "observacionDeclaracionSalud": "Observación declaración de salud",
+          "acciones": "Acciones"
+        },
+        "modal": {
+          "titulo": "Causa negación",
+          "observacion": "Observación"
+        },
+        "alertas": {
+          "registroAprobado": "Registro aprobado. <br />Se envía a validaciones de venta.",
+          "registroCompletado": "Registro completado. <br />Si el registro persiste descargue el log de errores.",
+          "registroRechazo": "Registro rechazado correctamente."
+        },
+        "excel": {
+          "nombreCampo": "Nombre campo",
+          "categoriaError": "Categoría del error",
+          "error": "Error"
+        }
+      }
+    },
+    "procesosAutomaticos": {
+      "crear": {
+        "titulo": "Crear procesos automáticos",
+        "procesoAutomatico": "Proceso automático",
+        "cronExpresion": "Expresión cron",
+        "traductorExpresion": "Traducción de expresión",
+        "dia": "Día",
+        "hora": "Hora",
+        "minutos": "Minutos",
+        "segundos": "Segundos",
+        "actualizar": "Actualizar procesos automáticos",
+        "descripcion": "Descripción"
+      },
+      "listar": {
+        "titulo": "Lista de procesos automáticos",
+        "iniciar": "Iniciar el proceso automático"
+      },
+      "alertas": {
+        "deseaEliminar": "¿Está seguro de eliminar el proceso automático?",
+        "iniciarJob": "¿Está seguro de iniciar el proceso automático?",
+        "pausarJob": "¿Está seguro de pausar el proceso automático?",
+        "reactivarJob": "¿Está seguro de reactivar el proceso automático?",
+        "detenerJob": "¿Está seguro de detener el proceso automático?",
+        "informarInicioJob": "Se ha iniciado el proceso automático exitosamente",
+        "informarPausarJob": "Se ha pausado el proceso automático exitosamente",
+        "informarReactivarJob": "Se ha reactivado el proceso automático exitosamente",
+        "informarDetenerJob": "Se ha detenido el proceso automático exitosamente",
+        "informarEliminarJob": "Se ha eliminado el proceso automático exitosamente",
+        "invalidaExpresion": "La expresión cron ingresada es invalida"
+      },
+      "grid": {
+        "nombreJob": "Proceso automático",
+        "descripcionJob": "Descripción",
+        "grupoJob": "Grupo",
+        "startTime": "Fecha de planificación",
+        "nextFireTime": "Próxima ejecución",
+        "acciones": "Acciones",
+        "previousFireTime": "Anterior ejecución",
+        "triggerState": "Estado",
+        "expresionCron": "Expresión cron"
+      }
+    },
+    "parametrizarCartas": {
+      "titulo": "Parametrización de cartas",
+      "grid": {
+        "codigoCarta": "Código Carta",
+        "nombreCarta": "Nombre de la Carta",
+        "estado": "Disponible",
+        "fechaModificacion": "Fecha modificación",
+        "acciones": "Acciones"
+      },
+      "guardar": {
+        "crear": "Crear parametrización carta",
+        "actualizar": "Editar parametrización carta",
+        "codigoCarta": "Código carta",
+        "nombreCarta": "Nombre de la carta",
+        "contenidoCarta": "Contenido de la carta"
+      },
+      "alertas": {
+        "deseaEliminarCarta": "¿Está seguro de eliminar la carta {{carta}}?"
+      }
+    },
+    "protecciones": {
+      "clientes": {
+        "titulo": "Clientes",
+        "grid": {
+          "tipoIdentificacion": "Tipo Identificación",
+          "numeroIdentificacion": "Número Identificación",
+          "digitoVerificacion": "Dígito de verificación",
+          "nombre": "Nombre",
+          "estadoCliente": "Estado cliente",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear cliente",
+          "actualizar": "Editar cliente",
+          "codigoCliente": "Código",
+          "tipoCliente": "Tipo",
+          "tipoIdentificacion": "Tipo Identificación",
+          "numeroIdentificacion": "Número Identificación",
+          "digitoVerificacion": "Dígito verificación",
+          "nombre": "Nombre",
+          "estadoCliente": "Estado cliente"
+        },
+        "alertas": {
+          "deseaEliminarCliente": "¿Está seguro de eliminar el cliente {{cliente}}?"
+        }
+      },
+      "categoriasAsociado": {
+        "titulo": "Tipo vinculación asociado",
+        "grid": {
+          "cliente": "Cliente",
+          "codigoCategoria": "Código tipo vinculación asociado",
+          "nombre": "Nombre del tipo vinculación asociado",
+          "estado": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "botones": {
+          "crear": "Crear",
+          "editar": "Editar",
+          "eliminar": "Eliminar",
+          "guardar": "Guardar",
+          "cancelar": "Cancelar"
+        },
+        "crear": {
+          "titulo": "Crear tipo vinculación asociado",
+          "codigoCategoriasAsociado": "Código tipo vinculación asociado",
+          "codigo": "Código",
+          "vigente": "Disponible",
+          "fechaInicioYFin": "Fecha inicio y fin",
+          "fechaInicio": "Fecha inicio"
+        },
+        "editar": {
+          "titulo": "Editar tipo vinculación asociado"
+        },
+        "alertas": {
+          "deseaEliminarCategoriasAsociado": "¿Está seguro de eliminar el registro?",
+          "codigoMinimo": "Valor mínimo permitido es {{numero}}"
+        }
+      },
+      "categoriasHomologacion": {
+        "titulo": "Homologación Tipo Asociado / Categoría",
+        "grid": {
+          "cliente": "Cliente",
+          "codigoCategoriaCliente": "Código categoría asociado",
+          "nombreCategoriaCliente": "Nombre categoría asociado",
+          "CodigoCategoriaAsociado": "Código tipo de asociado",
+          "nombreCategoriaAsociado": "Nombre del tipo de asociado",
+          "fechaModificacion": "Fecha modificación",
+          "estado": "Disponible",
+          "acciones": "Acciones"
+        },
+        "botones": {
+          "crear": "Crear",
+          "editar": "Editar",
+          "eliminar": "Eliminar",
+          "guardar": "Guardar",
+          "cancelar": "Cancelar"
+        },
+        "crear": {
+          "titulo": "Crear Homologación Tipo Asociado / Categoría",
+          "vigente": "Disponible",
+          "edadMinima": "Edad mínima",
+          "edadMaxima": "Edad máxima",
+          "ingresosMinimos": "Ingresos mínimos",
+          "ingresosMaximos": "Ingresos máximos",
+          "unidadIngresos": "Unidad ingresos",
+          "tituloAcademico": "Título académico",
+          "categoriaAsociadoCliente": "Homologación tipo asociado y categoría asociado",
+          "fechaInicioYFin": "Fecha inicio y fin",
+          "fechaInicio": "Fecha inicio"
+        },
+        "editar": {
+          "titulo": "Editar Homologación Tipo Asociado / Categoría"
+        },
+        "alertas": {
+          "deseaEliminarHomologacion": "¿Está seguro de eliminar el registro?",
+          "edadMinimanMenorEdadMaxima": "La edad mínima no puede ser mayor a la edad máxima",
+          "ingresoMinimanMenorIngresoMaxima": "Los ingresos mínimos no puede ser mayor a los ingresos máximos",
+          "edadMinima": "Valor mínimo de la edad debe ser {{numero}}",
+          "edadMaxima": "Valor máximo de la edad debe ser {{numero}}",
+          "minIngreso": "Valor mínimo de los ingresos debe ser {{numero}}",
+          "maxLenghtIngresos": "El número máximo de dígitos debe ser {{numero}}"
+        }
+      },
+      "fondos": {
+        "titulo": "Fondos",
+        "grid": {
+          "codigoFondo": "Código fondo",
+          "nombreFondo": "Nombre fondo",
+          "nombreCliente": "Nombre cliente",
+          "fechaModificacion": "Fecha modificación",
+          "vigente": "Disponible",
+          "opciones": "Opciones",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear fondo",
+          "actualizar": "Editar fondo",
+          "vigente": "Estado fondo"
+        },
+        "alertas": {
+          "deseaEliminarFondo": "¿Está seguro de eliminar el fondo {{fondo}}?"
+        }
+      },
+      "campanas": {
+        "titulo": "Campañas de endoso",
+        "grid": {
+          "codigoCampana": "Código",
+          "nombreCampana": "Campaña de endoso",
+          "beneficiarioCampana": "Beneficiario",
+          "fechaInicioVigencia": "Fecha Inicio Vigencia",
+          "fechaFinVigencia": "Fecha Fin Vigencia",
+          "fechaModificacion": "Fecha Modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear campaña de endoso",
+          "actualizar": "Editar campaña de endoso",
+          "nombre": "Nombre",
+          "descripcion": "Descripción",
+          "nombreBeneficiario": "Nombre beneficiario",
+          "fechaInicioYFin": "Fecha inicio y fin vigencia",
+          "codigo": "Código",
+          "vigente": "Disponible"
+        },
+        "alertas": {
+          "deseaEliminarCampana": "¿Está seguro de eliminar la campaña {{nombre}}?",
+          "maxlenth": "Número máximo de caracteres permitidos es {{numero}}"
+        }
+      },
+      "campanasCobertura": {
+        "titulo": "Campaña de endoso - Plan cobertura",
+        "grid": {
+          "campanaEndoso": "Campaña de endoso",
+          "planCobertura": "Plan-Cobertura",
+          "valorFijo": "Valor fijo destinado fondo garantia",
+          "fechaModificacion": "Fecha Modificación",
+          "disponible": "Disponible",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear relación campaña de endoso - plan cobertura",
+          "actualizar": "Editar relación campaña de endoso - plan cobertura",
+          "campana": "Campaña de endoso",
+          "descripcion": "Descripción",
+          "planCobertura": "Plan Cobertura",
+          "valorFijoFondo": "Valor fijo destinado fondo garantía",
+          "agregarValor": "Agregar valor fijo destinado fondo garantía",
+          "codigo": "Código",
+          "vigente": "Disponible",
+          "grid": {
+            "crear": "Crear valor fijo destinado fondo garantía",
+            "editar": "Editar valor fijo destinado fondo garantía",
+            "estadoAsociado": "Estado asegurado en MP",
+            "beneficiarioCobertura": "Beneficiario cobertura",
+            "edadInicio": "Edad inicio",
+            "edadFin": "Edad fin",
+            "valorDestinadoFondo": "Valor destinado Fondo garantía",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones",
+            "estado": "Estado",
+            "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+          }
+        },
+        "alertas": {
+          "deseaEliminarCampana": "¿Está seguro de eliminar el registro?",
+          "valorMinimo": "Valor mínimo permitido es {{numero}}",
+          "valorMaximo": "Valor máximo permitido es {{numero}}"
+        }
+      },
+      "canales": {
+        "titulo": "Canales",
+        "grid": {
+          "codigoCanal": "Código",
+          "nombreCanal": "Nombre Canal",
+          "nombreCorto": "Nombre Corto Canal",
+          "fechaModificacion": "Fecha modificación",
+          "descripcion": "Observación",
+          "vigente": "Disponible",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear Canal",
+          "actualizar": "Editar Canal",
+          "vigente": "Estado Canal"
+        },
+        "alertas": {
+          "deseaEliminarFondo": "¿Está seguro de eliminar el Canal?"
+        }
+      },
+      "coberturas": {
+        "titulo": "Coberturas",
+        "grid": {
+          "fondo": "Fondo",
+          "codigoCobertura": "Código cobertura",
+          "nombre": "Cobertura",
+          "origen": "Origen",
+          "estadoCobertura": "Estado",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "observacionesInactivacion": "Observaciones inactivación",
+        "observacion": "Observación",
+        "guardar": {
+          "crear": "Crear cobertura",
+          "actualizar": "Editar cobertura",
+          "cliente": "Cliente",
+          "codigo": "Código",
+          "fondo": "Fondo",
+          "nombre": "Nombre",
+          "nombreComercial": "Nombre comercial",
+          "nombreCorto": "Nombre corto",
+          "origen": "Origen",
+          "estado": "Estado",
+          "asistencia": "¿Es asistencia?",
+          "planFamiliar": "Aplica a plan familiar",
+          "incremento": "Incremento protección",
+          "decremento": "Disminución protección",
+          "beneficiarios": "Beneficiarios",
+          "devolucionRetiro": "Devolución por retiro",
+          "requisitosMedicos": "Requisitos Médicos",
+          "renunciarAmparo": "Se puede renunciar amparo",
+          "prorroga": "Prórroga",
+          "disponibleGarantia": "Disponible para garantía",
+          "exoneracionPago": "Exoneración de pago",
+          "coberturaBasica": "Cobertura básica",
+          "condicionesCobertura": "Condiciones de cobertura",
+          "condicionesVenta": "Condiciones venta",
+          "condicionesDestinacion": "Condiciones destinación",
+          "condicionesMovimientos": "Condiciones movimientos",
+          "condicionesIndemnización": "Condiciones indemnización",
+          "prescripcion": "Tiempo de prescripción",
+          "unidadTiempo": "Unidad de tiempo",
+          "fechaInicioYFin": "Fecha inicio y Fecha fin",
+          "fechaInicio": "Fecha inicio",
+          "vigente": "Disponible",
+          "puedeCancelar": "Puede cancelar",
+          "tieneRescate": "Tiene rescate",
+          "tieneFacturacion": "Tiene facturación",
+          "aplicaReactivacion": "Aplica reactivación",
+          "aplicaReingreso": "Aplica reingreso",
+          "aplicaRevocatoria": "Aplica para revocatoria",
+          "aplicaReceso": "Aplica receso",
+          "aplicaHabilitacion": "Aplica habilitación",
+          "aplicaSubsistencia": "Cobertura indemnizada que activa la subsistencia",
+          "disminucionProteccion": "Disminución protección",
+          "aplicaDisminucionPorAnticipoPago": "Aplica disminución por anticipo de pago",
+          "beneficiosPorPreexistencia": "Beneficios por preexistencia",
+          "tieneProyeccion": "Tiene proyección",
+          "tieneEstadistica": "Tiene Estadistica",
+          "reconocimientoPermanencia": "Reconocimiento por permanencia"
+        },
+        "alertas": {
+          "deseaEliminarCobertura": "¿Está seguro de eliminar la cobertura {{cobertura}}?",
+          "confirmacionEliminacion": "¿Se encuentra seguro de aprobar la eliminación?, por favor no olvide revisar las observaciones de inactivación"
+        }
+      },
+      "clienteEstadoAsociado": {
+        "titulo": "Estado Asociado",
+        "grid": {
+          "cliente": "Cliente",
+          "estadoAsociado": "Código estado asociado",
+          "nombreEstadoAsociado": "Estado asociado",
+          "estado": "Estado",
+          "opciones": "Opciones",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones",
+          "vigente": "Disponible",
+          "fechaInicioYFin": "Fecha inicio y Fecha fin",
+          "fechaInicio": "Fecha inicio"
+        },
+        "guardar": {
+          "crear": "Crear estado asociado",
+          "actualizar": "Editar estado asociado",
+          "vigente": "Disponible"
+        },
+        "alertas": {
+          "deseaEliminarEstadoAsociado": "¿Está seguro de eliminar el estado {{estado}}?",
+          "valorMinimo": "Valor mínimo permitido es {{numero}}",
+          "valorMaximo": "Valor máximo permitido es {{numero}}"
+        }
+      },
+      "nivelesRiesgosCobertura": {
+        "titulo": "Niveles de Riesgo por Cobertura",
+        "grid": {
+          "fondo": "Fondo",
+          "codigoCobertura": "Código cobertura",
+          "cobertura": "Cobertura",
+          "nivelesRiesgos": "Niveles riesgos",
+          "fechaInicioYFin": "Fecha inicio y Fecha fin",
+          "fechaInicio": "Fecha inicio",
+          "fechaFin": "Fecha fin",
+          "estado": "Estado",
+          "vigente": "Disponible",
+          "opciones": "Opciones",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear riesgo por cobertura",
+          "actualizar": "Editar riesgo por cobertura",
+          "vigente": "Disponible"
+        },
+        "alertas": {
+          "deseaEliminarFondo": "¿Está seguro de eliminar la cobertura {{fondo}}?",
+          "valorMinimo": "Valor mínimo permitido es {{numero}}",
+          "protecionMinimanYMaxima": "El valor de protección mínimo no puede ser mayor al valor de protección máximo"
+        }
+      },
+      "permisosEspecilaes": {
+        "codigoRol": "MM8",
+        "rol": "CONSULTA ASOCIADOS VIP"
+      },
+      "cumulo": {
+        "titulo": "Cúmulos generales",
+        "grid": {
+          "estadosCobertura": "Estados cobertura para proceso cálculo",
+          "codigo": "Código",
+          "nombre": "Nombre",
+          "procesoCumulo": "Proceso Cálculo",
+          "fondo": "Fondo",
+          "dependeOtrosPlanCobertura": "Depende de otros plan-cobertura",
+          "vigencia": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "planCoberturaDependiente": "Plan-Cobertura dependiente",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear cúmulo general",
+          "actualizar": "Editar cúmulo general"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar el registro?",
+          "nombreCaracteresMaxima": "Número máximo de caracteres permitidos es {{numero}}"
+        }
+      },
+      "cumuloCobertura": {
+        "titulo": "Cúmulos por cobertura",
+        "grid": {
+          "fondo": "Fondo",
+          "nombre": "Nombre Cúmulo",
+          "plan": "Plan",
+          "cobertura": "Plan-Cobertura",
+          "tipoPlan": "Tipo plan al que pertenece",
+          "vigenciaPlan": "Antigüedad del plan",
+          "vigente": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "nombre": "Nombre cúmulo",
+          "crear": "Crear cúmulo por cobertura",
+          "actualizar": "Editar cúmulo por cobertura"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar el cúmulo por cobertura {{item}}?"
+        }
+      },
+      "requisitosControlMedico": {
+        "titulo": "Requisitos control médico por cobertura",
+        "grid": {
+          "codigo": "Código",
+          "fondo": "Fondo",
+          "requisitoMedico": "Requisito médico",
+          "tipoTransaccion": "Tipo transacción",
+          "edadMinima": "Edad mínima",
+          "edadMaxima": "Edad máxima",
+          "planCobertura": "Plan Cobertura",
+          "documentos": "Documentos",
+          "vigencia": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear requisitos control médico por cobertura",
+          "actualizar": "Editar requisitos control médico por cobertura",
+          "codigo": "Código requisito médico",
+          "requisitosSolicitados": "Requisitos médicos",
+          "tipoTransaccion": "Tipo transacción",
+          "edadMinima": "Edad mínima",
+          "edadMaxima": "Edad máxima",
+          "valorProteccionMinimo": "Valor protección mínimo",
+          "valorProteccionMaximo": "Valor protección máximo",
+          "aplicaValidacionIMC": "Aplica validación IMC",
+          "genero": "Género",
+          "IMCMinimo": "IMC mínimo",
+          "IMCMaximo": "IMC máximo",
+          "fechaInicio": "Fecha inicio",
+          "fechaFin": "Fecha fin",
+          "fechaInicioYFin": "Fecha inicio y Fecha fin",
+          "requiereAuditoriaMedica": "Requiere auditoría médica"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar el requisito de control médico por cobertura {{item}}?",
+          "valorMinimo": "Valor mínimo permitido es {{numero}}",
+          "valorMaximo": "Valor máximo permitido es {{numero}}",
+          "maxlenth": "Número máximo de caracteres permitidos es {{numero}}",
+          "MinimaYMaxima": "La edad mínima no puede ser mayor a la edad máxima",
+          "maxMinProteccion": "El valor de protección mínimo no puede ser mayor al valor de protección máximo",
+          "maxMinIMC": "El IMC mínimo no puede ser mayor al IMC máximo"
+        }
+      },
+      "planes": {
+        "titulo": "Planes",
+        "grid": {
+          "fondo": "Fondo",
+          "codigo": "Código",
+          "nombre": "Nombre",
+          "nombrePlan": "Nombre plan",
+          "tipoPlan": "Tipo plan",
+          "estado": "Estado",
+          "fase": "Fase aprobación",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "bitacora": {
+          "titulo": "BITACORA",
+          "pendiente": "Pendiente configuración de producto por parte del área",
+          "asignado": "Asignado a:",
+          "sinFase": "Este plan se encuentra en proceso de creación, por tal motivo aún no tiene fase ni usuarios asignados"
+        },
+        "guardar": {
+          "crear": "Crear plan",
+          "actualizar": "Editar plan",
+          "codigo": "Código",
+          "nombre": "Nombre",
+          "tipoPlan": "Tipo plan",
+          "fondo": "Fondo",
+          "estado": "Estado",
+          "tipoCotizacion": "Tipo de cotización y venta",
+          "cuotaTotalVlrAsegurado": "Tipo cuota total/Valor asegurado global",
+          "ventaParcial": "Venta Parcial",
+          "planAutomaticoPerseverante": "Plan Automatico Perseverante",
+          "condiciones": "Condiciones",
+          "responsablePago": "Responsable de pago",
+          "aseguradoTercero": "Asegurado Tercero",
+          "ingresosMensuales":"Ingresos mensuales obligatorios",
+          "aseguradoRepetido":"Asegurado Repetido",
+          "parentesco":"Parentesco",
+          "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+          "fechaInicio": "Fecha inicio vigencia",
+          "fechaFin": "Fecha fin vigencia",
+          "edadMinima": "Edad mínima ingreso",
+          "valorMinimoContribucion": "Valor mínimo contribución",
+          "edadMaxima": "Edad máxima ingreso",
+          "edadMaximaPermanecia": "Edad máxima permanencia"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar el plan {{item}}?",
+          "valorMinimo": "Valor mínimo permitido es {{numero}}",
+          "valorMaximo": "Valor máximo permitido es {{numero}}",
+          "maxlenth": "Número máximo de caracteres permitidos es {{numero}}",
+          "MinimaYMaxima": "La edad máxima debe ser mayor que la edad mínima",
+          "edadMaximaPermanencia": "La edad máxima de ingreso no puede ser mayor a la edad máxima de permanencia"
+        },
+        "planAutomatico": {
+          "titulo": "Plan Automatico Perseverante",
+          "plan": "Plan"
+        },
+        "condiciones": {
+          "titulo": "Condiciones",
+          "tipo": "Tipo",
+          "valor": "Valor",
+          "estado": "Estado",
+          "plan": "Plan",
+          "accion": "Acción"
+        },
+        "planObligatorio": {
+          "titulo": "Planes obligatorios",
+          "tipoPlan": "Tipo plan",
+          "plan": "Plan",
+          "tipoSolicitud": "Tipo Solicitud",
+          "fechaVigencia": "Fecha vigencia",
+          "estado": "Estado",
+          "accion": "Acción"
+        }
+      },
+      "controlCumulo": {
+        "titulo": "Control de cúmulos por cobertura",
+        "grid": {
+          "codigo": "Código",
+          "fondo": "Fondo",
+          "tipoTope": "Tipo Tope",
+          "nombre": "Nombre cúmulo",
+          "categoriaAsociado": "Nombre tipo vinculación asegurado",
+          "edadMinimaAsociado": "Edad mínima asegurado",
+          "edadMaximaAsociado": "Edad máxima asegurado",
+          "valorMinimoTope": "Valor mínimo tope",
+          "valorMaximoTope": "Valor máximo tope",
+          "nivelRiesgo": "Nivel riesgo asegurado",
+          "unidad": "Unidad",
+          "ingresosMinimosAsociado": "Ingresos mínimos asegurado",
+          "ingresosMaximosAsociado": "Ingresos máximos asegurado",
+          "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+          "fechaInicioVigencia": "Fecha inicio vigencia",
+          "fechaFinVigencia": "Fecha fin vigencia",
+          "vigente": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "excel": {
+          "tipoTope": "Tipo Tope",
+          "fondo": "Fondo",
+          "nombre": "Nombre cúmulo",
+          "nombreTipoVinculacionAsociado": "Nombre tipo vinculación asegurado",
+          "edadMinimaAsociado": "Edad mínima asegurado",
+          "edadMaximaAsociado": "Edad máxima asegurado",
+          "ingresosMinimosAsociado": "Ingresos mínimos asegurado",
+          "ingresosMaximosAsociado": "Ingresos máximos asegurado",
+          "nivelRiesgo": "Nivel riesgo asegurado",
+          "unidad": "Unidad",
+          "valorMinimoTope": "Valor mínimo tope",
+          "valorMaximoTope": "Valor máximo tope",
+          "fechaInicioVigencia": "Fecha inicio vigencia",
+          "fechaFinVigencia": "Fecha fin vigencia",
+          "estado": "Disponible"
+        },
+        "guardar": {
+          "crear": "Crear control de cúmulos por cobertura",
+          "actualizar": "Editar control de cúmulos por cobertura",
+          "edadMinima": "Edad mínima asociado",
+          "edadMaxima": "Edad máxima asociado",
+          "ingresosMinimos": "Ingresos mínimos asociados",
+          "ingresosMaximos": "Ingresos máximos asociados",
+          "valorMinimoTope": "Valor mínimo tope",
+          "valorMaximoTope": "Valor máximo tope"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar el control cúmulo {{cumulo}}?",
+          "nombreCaracteresMaxima": "Número máximo de caracteres permitidos es {{numero}}",
+          "valorMinimo": "Valor mínimo permitido es {{numero}}",
+          "valorMaximo": "Valor máximo permitido es {{numero}}",
+          "MinimaYMaximaEdad": "La edad mínima asociado no puede ser mayor a la edad máxima asociado",
+          "MinimaYMaximaTope": "el tope mínimo no puede ser mayor al tope máximo",
+          "MinimaYMaximaIngresos": "Ingresos mínimos asociados no puede ser mayor Ingresos máximos asociados"
+        }
+      },
+      "gestionCobertura": {
+        "exclusionCobertura": {
+          "titulo": "Exclusiones cobertura",
+          "grid": {
+            "fondo": "Fondo",
+            "codigo": "Código",
+            "cobertura": "Cobertura",
+            "exclusion": "Exclusión",
+            "transaccion": "Transacción",
+            "canal": "Canal",
+            "periodoDefinido": "Período Definido",
+            "contribucciones": "Contribuciones",
+            "fechaInicio": "Fecha inicio",
+            "fechaFin": "Fecha fin",
+            "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+            "fechaModificacion": "Fecha modificación",
+            "estado": "Estado",
+            "vigente": "Disponible",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear exclusión cobertura",
+            "actualizar": "Editar exclusión cobertura",
+            "vigente": "Estado exclusión"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar la Exclusión - Cobertura {{item}}?"
+          }
+        },
+        "conceptosFacturacion": {
+          "titulo": "Conceptos de facturación",
+          "acciones": "Acciones",
+          "guardar": {
+            "crear": "Crear concepto facturación",
+            "actualizar": "Editar concepto facturación"
+          },
+          "grid": {
+            "concepto": "Concepto",
+            "disponible": "Disponible",
+            "fechaModificacion": "Fecha Modificación",
+            "descripcion": "Descripción",
+            "caracteres": "caracteres"
+          }
+        }
+      },
+      "gestionPlanes": {
+        "canalesVentasMovimientos": {
+          "titulo": "Canales de ventas y movimientos",
+          "grid": {
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "codigo": "Código",
+            "nombre": "Nombre canal",
+            "fechaInicioVigencia": "Fecha inicio vigencia",
+            "vigente": "Disponible",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear canal y movimientos",
+            "actualizar": "Editar canal de venta y movimiento",
+            "codigo": "Código",
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "canalVenta": "Canal",
+            "tipoMovimiento": "Tipo solicitud",
+            "estado": "Estado",
+            "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+            "fechaInicio": "Fecha inicio vigencia",
+            "fechaFin": "Fecha fin vigencia"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el canal de venta y movimiento: {{item}}?"
+          }
+        },
+        "mediosFacturacion": {
+          "titulo": "Medios de facturación",
+          "grid": {
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "codigo": "Código",
+            "nombre": "Nombre",
+            "fechaInicioVigencia": "Fecha inicio vigencia",
+            "vigente": "Disponible",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear medio de facturación",
+            "actualizar": "Editar medio de facturación",
+            "codigo": "Código",
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "medioFacturacion": "Medio facturación",
+            "estado": "Estado",
+            "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+            "fechaInicio": "Fecha inicio vigencia",
+            "fechaFin": "Fecha fin vigencia"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el medio de facturación {{item}}?"
+          }
+        },
+        "frecuenciaFacturacion": {
+          "titulo": "Frecuencia de facturación",
+          "grid": {
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "frecuencia": "Frecuencia",
+            "fechaInicioVigencia": "Fecha inicio vigencia",
+            "vigente": "Disponible",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear frecuencia de facturación",
+            "actualizar": "Editar frecuencia de facturación",
+            "codigo": "Código",
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "frecuencia": "Frecuencia",
+            "estado": "Estado",
+            "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+            "fechaInicio": "Fecha inicio vigencia",
+            "fechaFin": "Fecha fin vigencia"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el registro {{item}}?"
+          }
+        },
+        "controlAreaTecnica": {
+          "titulo": "Configuración control área técnica",
+          "grid": {
+            "codigo": "Codigo",
+            "tipoSolicitud": "Tipo Solicitud",
+            "nivelRiesgo": "Nivel de riesgo",
+            "aplicaControlAreaTecnica": "Aplica control de área técnica",
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "canal": "Canal venta",
+            "fechaInicio": "Fecha inicio vigencia",
+            "fechaFin": "Fecha fin vigencia",
+            "vigente": "Disponible",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear configuración de tipo movimiento y control de área técnica",
+            "actualizar": "Editar configuración de tipo movimiento y control de área técnica",
+            "codigo": "Codigo",
+            "tipoSolicitud": "Tipo Solicitud",
+            "aplicaControlAreaTecnica": "Aplica control de área técnica",
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "canal": "Canal venta",
+            "vigente": "Disponible",
+            "nivelRiesgo": "Nivel de riesgo",
+            "valorMinimoProteccion": "Valor mínimo protección",
+            "valorMaximoProteccion": "Valor máximo protección",
+            "edadMinima": "Edad mínima",
+            "edadMaxima": "Edad máxima",
+            "fechaModificacion": "Fecha modificación",
+            "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+            "fechaInicio": "Fecha inicio vigencia",
+            "fechaFin": "Fecha fin vigencia"
+          },
+          "alertas": {
+            "maxMinEdad": "El campo edad mínima no puede ser mayor al campo edad máxima",
+            "maxValorProteccion": "El campo Valor Mínimo Protección no puede ser mayor al campo Valor Máximo Protección",
+            "igualValorProteccion": "Los campos Valor Mínimo Protección y Valor Máximo Protección no pueden ser iguales, por favor asigne valores diferentes",
+            "igualEdad": "Los campos Edad Mínima y Edad Máxima no pueden ser iguales, por favor asigne valores diferentes"
+          }
+        },
+        "nivelesRiesgo": {
+          "titulo": "Nivel de Riesgo",
+          "grid": {
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "nivelRiesgo": "Nivel Riesgo",
+            "fechaInicio": "Fecha inicio",
+            "vigente": "Disponible",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear nivel de riesgo",
+            "actualizar": "Editar nivel de riesgo",
+            "codigo": "Código",
+            "fondo": "Fondo",
+            "plan": "Plan",
+            "nivelRiesgo": "Nivel riesgo",
+            "estado": "Estado",
+            "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+            "fechaInicio": "Fecha inicio vigencia",
+            "fechaFin": "Fecha fin vigencia"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el nivel de riesgo {{item}}?"
+          }
+        },
+        "productosEscluyentes": {
+          "titulo": "Planes excluyentes",
+          "grid": {
+            "tipoSolicitud": "Tipo solicitud",
+            "fondo1": "Fondo 1",
+            "fondo2": "Fondo 2",
+            "nombrePlan1": "Nombre plan 1",
+            "nombrePlan2": "Nombre plan 2",
+            "disponible": "Disponible",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear planes excluyentes",
+            "actualizar": "Editar planes excluyentes",
+            "tipoSolicitud": "Tipo solicitud",
+            "fondo1": "Fondo 1",
+            "fondo2": "Fondo 2",
+            "plan1": "Plan 1",
+            "plan2": "Plan 2",
+            "disponible": "Disponible",
+            "fechaInicioYFin": "Fecha inicio y fin de vigencia",
+            "fechaInicio": "Fecha inicio vigencia",
+            "fechaFin": "Fecha fin vigencia"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el nivel de riesgo {{item}}?"
+          }
+        }
+      },
+      "consultaRelacionMaestros": {
+        "titulo": "Consulta relación - planes",
+        "guardar": {
+          "maestros": "Maestro",
+          "descripcion": "Descripción"
+        },
+        "grid": {
+          "codigo": "Código",
+          "fondo": "Fondo",
+          "nombreMaestro": "Nombre maestro",
+          "descripcion": "Descripción",
+          "planRelacionado": "Plan relacionado",
+          "estado": "Disponible"
+        },
+        "alertas": {
+          "registrosNoEncontradosMaestroClientes": "No existe ningún plan relacionado al maestro seleccionado",
+          "registrosNoIngresados": "No se han ingresados todos los parametros de busqueda",
+          "checkSinCampos": "Debe tener seleccionados los campos con los cuales realizó la busqueda para poder visualizar los capos Activos o No activos"
+        }
+      },
+      "planCobertura": {
+        "titulo": "Plan - Cobertura",
+        "tituloDetalle": "Detalle Plan - Cobertura",
+        "alertas": {
+          "estadosDiferenteTecnicoEditar": "No se puede editar el plan cobertura porque se encuentra en flujo de aprobación"
+        },
+        "duplicar": {
+          "titulo": "Copiar coberturas de un plan existente",
+          "planClonar": "Plan a Copiar:",
+          "nuevoPlan": "Nuevo Plan:",
+          "acciones": "Acciones"
+        },
+        "grid": {
+          "plan": "Plan",
+          "estado": "Estado",
+          "cobertura": "Cobertura",
+          "acciones": "Acciones"
+        },
+        "solicitudCrear": {
+          "solicitudEnviada": "La solicitud de creación se envió para aprobación de director",
+          "tituloModal": "Observaciones"
+        },
+        "datosPrincipales": {
+          "titulo": "Datos Principales",
+          "cobertura": "Cobertura",
+          "nombreComercial": "Nombre comercial",
+          "nombreCorto": "Nombre corto",
+          "origen": "Origen",
+          "estado": "Estado",
+          "coberturaBasica": "Cobertura básica",
+          "fechaPerseveracia": "Cálculo fecha perseverancia",
+          "planCoberturaRequerida": "Plan cobertura requerida",
+          "descripcionCobertura": "Descripción cobertura",
+          "edades": "Edades",
+          "planCobertura": "Plan Cobertura",
+          "edadMinima": "Edad mínima ingreso",
+          "edadMaxima": "Edad máxima ingreso",
+          "edadIndemnizacion": "Edad Indemnización",
+          "edadMaximaPermanencia": "Edad permanencia",
+          "plazo": "Plazo",
+          "tipoIncremento": "Tipo incremento anual",
+          "periodoInicioIncremento": "Periodo inicio incremento anual",
+          "periodoFinIncremento": "Periodo fin incremento anual",
+          "fondoGarantia": "Utiliza fondo garantía",
+          "renovacion": "Renovación",
+          "configuracionObligatoriedad": "Configuración de obligatoriedad",
+          "gridEdades": {
+            "accion": "Acción"
+          },
+          "alertas": {
+            "guardar": "Debe diligenciar y guardar la información de la pestaña Datos principales para poder acceder a los demás formularios",
+            "proteccionesEventos": "No es posible editar la obligatoriedad de el formulario dado a que el plan ya fue comercializado",
+            "mensajeEdades": "Para la sección edades se debe agregar al menos un registro"
+          }
+        },
+        "guardar": {
+          "crear": "Crear Plan - Cobertura",
+          "actualizar": "Editar Plan - Cobertura",
+          "caracteristicasBasicas": {
+            "titulo": "Característica básicas",
+            "condiciones": {
+              "titulo": "Condiciones",
+              "grid": {
+                "fechaInicio": "Fecha inicio vigencia",
+                "fechaFin": "Fecha fin vigencia",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear condiciones",
+                "actualizar": "Editar condiciones",
+                "aplicaPlanFamiliar": "Aplica a plan familiar",
+                "renunciaAmparo": "Se puede renunciar al amparo",
+                "incrementoProteccion": "Incremento protección",
+                "disminucionProteccion": "Disminución protección",
+                "requisitosMedicos": "Requisitos médicos",
+                "facturacion": "Tiene facturación",
+                "tieneProyeccion": "Tiene proyección",
+                "tieneEstadistica": "Tiene estadística",
+                "disponibleParaGarantia": "Disponible para garantía",
+                "aplicaReactivacion": "Aplica reactivación",
+                "aplicaRevocatoria": "Aplica para revocatoria",
+                "aplicaHabilitacion": "Aplica habilitación",
+                "aplicaReceso": "Aplica receso",
+                "aplicaReingreso": "Aplica reingreso",
+                "cancelar": "Se puede cancelar",
+                "devolucionRetiro": "Devolución retiro",
+                "prorroga": "Prórroga",
+                "rescate": "Tiene rescate",
+                "exoneracionPago": "Exoneración pago",
+                "disminucionAnticipoPago": "Aplica disminución por anticipo de pago",
+                "valorRescatePreexistencia": "Valores rescate por preexistencia",
+                "fechaInicioFechaFin": "Fecha Inicio y Fecha fin",
+                "aplicaSubsistencia": "Cobertura indemnizada que activa la subsistencia"
+              },
+              "alert": {
+                "cambioCheckAplicaSubsistente": "Ya existe un registro relacionado en Plan Cobertura - Cobertura Subsistente o Cobertura Adicional. El sistema le asignará fecha fin de vigencia automáticamente con la fecha actual"
+              }
+            },
+            "condicionesAsistencia": {
+              "titulo": "Servicios asistencia",
+              "grid": {
+                "nombreServicio": "Nombre Servicio",
+                "proveedor": "Proveedor",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear servicios asistencia",
+                "actualizar": "Editar servicios asistencia",
+                "nombreServicio": "Nombre Servicio",
+                "subsistenteCobertura": "Subsistente cobertura",
+                "proveedor": "Proveedor",
+                "aplicaPara": "Aplica para",
+                "servicioIlimitado": "Servicio ilimitado",
+                "numeroEventos": "Número eventos",
+                "unidadEventos": "Unidad eventos",
+                "vigente": "Disponible",
+                "fechaInicioFechaFin": "Fecha inicio y fecha fin",
+                "fechaInicio": "Fecha inicio",
+                "grid": {
+                  "codigo": "Código",
+                  "fechaInicioVigencia": "Fecha inicio vigencia",
+                  "fechaFinVigencia": "Fecha fin vigencia"
+                }
+              },
+              "alertas": {
+                "deseaEliminar": "¿Está seguro de eliminar la condición de asistencia {{condicionAsistencia}}?"
+              }
+            }
+          },
+          "otrasCaracteristicas": {
+            "titulo": "Otras características",
+            "subsistentePlanCobertura": {
+              "tituloSubsistente": "Coberturas Subsistentes"
+            },
+            "conceptoFacturacion": {
+              "titulo": "Concepto de Facturación"
+            },
+            "reglasExcepciones": {
+              "titulo": "Reglas y excepciones",
+              "guardar": {
+                "tiempoAprobacion": "Tiempo para aprobación de excepciones (dias)"
+              },
+              "grid": {
+                "codigo": "Id",
+                "tipoSolicitud": "Tipo solicitud",
+                "condicion": "Condición",
+                "permitirExcepcion": "Permitir excepción",
+                "rolAprobador": "Rol Aprobador",
+                "acciones": "Acciones"
+              },
+              "formulario": {
+                "tituloCrear": "Crear reglas y excepciones",
+                "tituloEditar": "Editar reglas y excepciones",
+                "tipoSolicitud": "Tipo solicitud",
+                "condicion": "Condición",
+                "permitirExcepcion": "Permitir excepción",
+                "rolAprobador": "Rol Aprobador",
+                "fechaVigencia": "Fecha vigencia",
+                "fechaInicio": "Fecha inicio vigencia",
+                "disponible": "Disponible"
+              }
+            },
+            "desmembracionAccidente": {
+              "titulo": "Desmembración por Accidente",
+              "grid": {
+                "codigo": "Código",
+                "desmembracionAccidente": "Desmembración por Accidente",
+                "porcentajeParaPagar": "% para pago por desmembración accidental",
+                "tipoValor": "Tipo valor",
+                "cobertura": "Cobertura",
+                "disponible": "Disponible",
+                "acciones": "Acciones"
+              },
+              "formulario": {
+                "tituloCrear": "Crear Desmembración por accidente",
+                "tituloEditar": "Editar Desmembración por accidente",
+                "tipoValor": "Tipo valor",
+                "cobertura": "Cobertura",
+                "desmembracion": "Desmembración por accidente",
+                "porcentajeParaPagar": "% para pago por desmembración accidental",
+                "fechaInicioFin": "Fecha inicio vigente y fecha fin vigente",
+                "disponible": "Disponible"
+              },
+              "alertas": {
+                "eliminar": "¿Está seguro de eliminar el registro?"
+              }
+            },
+            "adicionalPlanCobertura": {
+              "tituloAdicional": "Cubrimientos Adicionales"
+            },
+            "deducibles": {
+              "titulo": "Deducibles",
+              "grid": {
+                "tipoDeducible": "Tipo deducible",
+                "tipoPago": "Momento de activación del deducible",
+                "cantidad": "Cantidad",
+                "fechaInicio": "Fecha inicio vigencia",
+                "fechaFin": "Fecha fin vigencia",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "adicionalPlanCobertura": {
+                "tituloAdicional": "Coberturas Adicionales"
+              },
+              "guardar": {
+                "crear": "Crear deducibles",
+                "actualizar": "Editar deducibles",
+                "tipoDeducible": "Tipo deducible",
+                "tipoPago": "Momento de activación del deducible",
+                "tipoRestitucionDeducible": "Restitución deducible",
+                "cantidad": "Cantidad",
+                "aplicaProrroga": "Aplica prórroga",
+                "discontinuidadDiasCalendario": "Discontinuidad días calendario",
+                "fechaInicio": "Fecha inicio vigencia",
+                "fechaInicioYFin": "Fecha inicio y Fecha fin"
+              },
+              "alertas": {
+                "nombreCaracteresMaxima": "Número máximo de caracteres permitidos es {{numero}}",
+                "numeroMinimo": "Valor mínimo permitido es {{numero}}",
+                "numeroMaximo": "Valor máximo permitido es {{numero}}"
+              }
+            },
+            "valorCuota": {
+              "titulo": "Valor Cuota",
+              "grid": {
+                "codigo": "Codigo",
+                "tipoValorCuota": "Tipo valor de cuota",
+                "descripcion": "Descripción",
+                "fechaInicio": "Fecha inicio vigencia",
+                "fechaFin": "Fecha fin vigencia",
+                "fechaModificacion": "Fecha de modificación",
+                "acciones": "Acciones"
+              },
+              "formulario": {
+                "tipoValorCuota": "Tipo valor de cuota",
+                "descripcion": "Descripción",
+                "estado": "Disponible",
+                "fechaInicioYFin": "Fecha inicio y Fecha fin",
+                "tituloCrear": "Crear valor cuota para cobertura",
+                "tituloEditar": "Editar valor cuota para cobertura"
+              }
+            },
+            "periodosCarencia": {
+              "titulo": "Periodos de Carencia",
+              "grid": {
+                "contribuciones": "Numero Contribuciones",
+                "periodoCarencia": "Periodo Carencia",
+                "unidadTiempo": "Unidad Carencia",
+                "causa": "Causa",
+                "fechaInicio": "Fecha inicio vigencia",
+                "fechaFin": "Fecha fin vigencia",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear periodo de carencia",
+                "actualizar": "Editar periodo de carencia",
+                "periodoCarencia": "Periodo Carencia",
+                "unidadTiempo": "Unidad Carencia",
+                "causa": "Causa",
+                "numeroContribuciones": "Número de Contribuciones",
+                "fechaAplicacion": "Fecha Aplicación Periodo Carencia",
+                "fechaInicio": "Fecha inicio vigencia",
+                "fechaFin": "Fecha fin vigencia",
+                "fechaInicioYFin": "Fecha inicio y Fecha fin"
+              }
+            },
+            "exclusiones": {
+              "titulo": "Exclusiones",
+              "grid": {
+                "codigo": "Código",
+                "exclusion": "Exclusión",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear Exclusión",
+                "actualizar": "Editar Exclusión",
+                "exclusion": "Exclusión",
+                "periodoDefinido": "Período Definido",
+                "contribuciones": "Contribuciones",
+                "transaccion": "Transacción",
+                "canal": "Canal",
+                "fechaInicioFechaFin": "Fecha inicio y fecha fin",
+                "fechaInicio": "Fecha inicio vigencia",
+                "grid": {
+                  "codigo": "Código",
+                  "vigente": "Disponible",
+                  "fechaInicio": "Fecha inicio",
+                  "fechaFin": "Fecha fin"
+                },
+                "alertas": {
+                  "exclusionesCoberturaNoRelacionadas": "No hay exclusiones para la cobertura seleccionada"
+                }
+              }
+            },
+            "coberturasAdicionales": {
+              "titulo": "Coberturas Adicionales",
+              "grid": {
+                "codigo": "Código",
+                "coberturaIndemnizada": "Cobertura Indemnizada",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear cobertura adicional",
+                "actualizar": "Editar cobertura adicional",
+                "coberturaIndemnizada": "Cobertura indemnizada",
+                "vigente": "Disponible",
+                "fechaInicioFechaFin": "Fecha inicio y fecha fin",
+                "fechaInicio": "Fecha inicio"
+              }
+            },
+            "coberturasSubsistentes": {
+              "titulo": "Coberturas Subsistentes",
+              "grid": {
+                "codigo": "Código",
+                "coberturaIndemnizada": "Cobertura indemnizada que activa la subsistencia",
+                "plan": "Plan",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear cobertura subsistente",
+                "actualizar": "Editar cobertura subsistente",
+                "plan": "Plan",
+                "coberturaIndemnizada": "Cobertura indemnizada que activa la subsistencia",
+                "subsistenteCobertura": "Subsiste cobertura",
+                "exoneraContribucion": "Exonera contribución",
+                "continuaPago": "Continua pago",
+                "tipoSubsistencia": "Contribución del asociado",
+                "vigente": "Disponible",
+                "fechaInicioFechaFin": "Fecha inicio y fecha fin",
+                "fechaInicio": "Fecha inicio",
+                "grid": {
+                  "codigo": "Código",
+                  "vigente": "Disponible",
+                  "fechaInicio": "Fecha inicio",
+                  "fechaFin": "Fecha fin"
+                },
+                "alertas": {
+                  "coberturasIndemnizadasNoRelacionadas": "No hay coberturas indemnizadas para la cobertura seleccionada"
+                }
+              },
+              "alertas": {
+                "deseaEliminar": "¿Está seguro de eliminar la cobertura subsistente {{coberturaSubsistente}}?"
+              }
+            },
+            "valorRescate": {
+              "titulo": "Valores de rescate",
+              "grid": {
+                "codigo": "Código",
+                "causa": "Causa rescate",
+                "contribucionMimina": "No. contribuciones mínimas",
+                "contribucionMaxima": "No. contribuciones máximas",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear valor de rescate",
+                "actualizar": "Editar valor de rescate",
+                "causaRescate": "Causa rescate",
+                "tipoRescate": "Tipo rescate",
+                "numeroContribucionesMinimas": "Número contribuciones mínimas",
+                "numeroContribucionesMaximas": "Número contribuciones máximas",
+                "valor": "Porcentaje de devolución",
+                "rentabilidad": "Rentabilidad",
+                "esAnticipoOtraCobertura": "Es anticipo de otra cobertura",
+                "cobertura": "Cobertura",
+                "fechaInicioFechaFin": "Fecha inicio y fecha fin",
+                "fechaInicio": "Fecha inicio vigencia",
+                "fechaFin": "Fecha fin vigencia",
+                "BeneficiarioPago":"Beneficiario pago valor rescate"
+              }
+            },
+            "condicionesActivacion": {
+              "titulo": "Condiciones activación",
+              "grid": {
+                "numeroContribuciones": "Número contribuciones",
+                "Vigente": "Disponible",
+                "fechaInicioVigencia": "Fecha inicio vigencia",
+                "fechaFinVigencia": "Fecha fin vigencia",
+                "fechaModificacion": "Fecha modificación",
+                "fechaInicioYFin": "Fecha inicio y Fecha fin",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear condición de activación",
+                "actualizar": "Editar condición de activación"
+              }
+            },
+            "valorAsegurado": {
+              "titulo": "Valor Asegurado",
+              "grid": {
+                "codigo": "Código",
+                "tipoValorAsegurado": "Tipo valor asegurado",
+                "inicioVigencia": "Fecha inicio vigencia",
+                "finVigencia": "Fecha fin vigencia",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "gridTopes": {
+                "titulo": "Topes tipo valor asegurado voluntario",
+                "nivelRiesgo": "Nivel riesgo",
+                "tipoValor": "Tipo valor",
+                "planCobertura": "Plan cobertura",
+                "valorMinimo": "Valor mínimo",
+                "valorMaximo": "Valor máximo",
+                "accion": "Acción"
+              },
+              "guardar": {
+                "crear": "Crear valor asegurado",
+                "actualizar": "Editar valor asegurado",
+                "tipoValorAsegurado": "Tipo valor asegurado",
+                "tipoReconocido": "Unidad",
+                "valorAsegurado": "Valor asegurado",
+                "tipoValorRestitucion": "Tipo valor restitución",
+                "planCobertura": "Plan Cobertura",
+                "rangoMaximo": "El % asegurado mínimo no puede ser mayor al % asegurado máximo",
+                "esUnRango%": "¿Es un rango de % ?",
+                "asegurado": "% asegurado",
+                "aseguradoFinal": "% asegurado final",
+                "aseguradoInicial": "% asegurado inicial",
+                "tieneValorAsegurado": "¿Tiene valor sublímite?",
+                "fechaInicioVigencia": "Fecha de inicio y fin de vigencia",
+                "vigente": "Disponible",
+                "esRenta": "¿El pago es en rentas?",
+                "cuantasRentasPagara": "Indique cuantas rentas pagará",
+                "periodicidad": "Periodicidad de la restitución",
+                "nroMesesPromedio": "# Meses promedio",
+                "porcentajePromedio": "% Promedio cobertura",
+                "observacionValorAsegurado": "Observación valor asegurado",
+                "botonAgregarTopes": "Agregar topes",
+                "mensajeTopes": "Para el valor asegurado voluntario se debe agregar al menos un tope",
+                "rentaMinima": "Renta mínima a pagar",
+                "rentaMaxima": "Renta máxima a pagar",
+                "fechasRestitucion":"Fecha inicio y fin de restitución",
+                "presentacionPortafolio":"Presentación valor asegurado en Portafolio"
+              },
+              "eliminar": {
+                "mensajeEliminar": "¿Está seguro de eliminar este valor asegurado?"
+              }
+            },
+            "limitacionCobertura": {
+              "titulo": "Limitaciones por cobertura",
+              "tituloDiagnostico": "Días a pagar",
+              "tituloAntiguedad": "Condiciones a pagar por antigüedad",
+              "tituloSublimiteOtraCobertura": "Sublímite de otra cobertura",
+              "tituloCondicionesAPagarPorEvento": "Condiciones a pagar por evento",
+              "diasPagarEvento": "Máximo días a pagar por evento",
+              "excepcionDiagnostico": "Excepciones por diagnóstico",
+              "gridDiagnostico": {
+                "diagnosticoEspecifico": "Diagnóstico Específico / Condición de cobertura",
+                "diasPagar": "Máximo días a pagar",
+                "fechaExcepcion": "Fecha desde la cual aplica la excepción",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "gridAntiguedad": {
+                "antiguedadMinima": "Antigüedad mínima",
+                "antiguedadMaxima": "Antigüedad máxima",
+                "condicionPagar": "Tipo limitación",
+                "cantidad": "Valor",
+                "fechaCondicion": "Fecha desde la cual aplica la condición",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "sublimiteOtraCobertura": {
+                "cobertura": "Coberturas",
+                "tipoSublimite": "Tipo sublímite",
+                "valor": "Valor",
+                "fechaActualAplica": "Fecha desde la cual aplica el sublímite",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones",
+                "eliminar": {
+                  "mensajeEliminar": "¿Está seguro de eliminar el registro?"
+                }
+              },
+              "condicionesPagarEvento": {
+                "causa": "Causa",
+                "unidad": "Unidad",
+                "valor": "Valor",
+                "fechaInicio": "Fecha Inicio",
+                "fechaFin": "Fecha Fin",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha Modificacion",
+                "acciones": "Acciones",
+                "eliminar": {
+                  "mensajeEliminar": "¿Está seguro de eliminar el registro?"
+                }
+              },
+              "guardarDiagnostico": {
+                "crear": "Crear excepciones por diagnóstico",
+                "actualizar": "Editar excepciones por diagnóstico",
+                "diagnosticoEspecifico": "Diagnóstico específico",
+                "condicionCobertura": "Condición de cobertura",
+                "maximoDiasPagar": "Máximo días a pagar",
+                "fechaExcepcionInicioFin": "Fecha aplica la excepción",
+                "fechaExcepcionInicio": "Fecha desde la cual aplica la excepción",
+                "fechaExcepcionFin": "Fecha hasta la cual aplica la excepción"
+              },
+              "guardarAntiguedad": {
+                "crear": "Crear condiciones a pagar por antigüedad",
+                "actualizar": "Editar condiciones a pagar por antigüedad",
+                "antiguedadMinima": "Antigüedad mínima (Años)",
+                "antiguedadMaxima": "Antigüedad máxima (Años)",
+                "tipoLimitacion": "Tipo limitación",
+                "valor": "Valor",
+                "fechaCondicionInicioFin": "Fecha aplica la condición",
+                "fechaCondicionInicio": "Fecha desde la cual aplica la condición",
+                "fechaCondicionFin": "Fecha hasta la cual aplica la condición",
+                "alertas": {
+                  "maxMinCondicionPagoAntiguedad": "El número de la antigüedad mínima no puede ser mayor al número de antigüedad máxima"
+                }
+              },
+              "guardarSublimiteOtraCobertura": {
+                "crear": "Crear sublímite de otra cobertura",
+                "actualizar": "Editar sublímite de otra cobertura",
+                "nombre": "Nombre",
+                "valor": "Valor",
+                "tiposSublimite": "Tipo sublímite",
+                "presentacion": "Presentación valor asegurado en portafolio",
+                "unidad": "Unidad",
+                "fechaInicioAplicaSublimite": "Fechas en las que aplica el sublímite"
+              },
+              "guardarCondicionesPagarEvento": {
+                "crear": "Crear Condiciones a pagar por evento",
+                "actualizar": "Editar Condiciones a pagar por evento",
+                "causa": "Causa",
+                "unidad": "Unidad",
+                "valor": "Valor",
+                "fechaInicioFechaFin": "Fecha inicio y fin de vigencia",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha Modificacion"
+              }
+            },
+            "valorRescatePreexistencia": {
+              "titulo": "Valores rescate por preexistencia",
+              "grid": {
+                "codigo": "Código",
+                "tipoValorDevolver": "Tipo valor a devolver",
+                "valor": "Valor",
+                "antiguedadMinima": "Antigüedad mínima (Años)",
+                "antiguedadMaxima": "Antigüedad máxima (Años)",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear valores rescate por preexistencia",
+                "actualizar": "Editar valores rescate por preexistencia",
+                "fechaInicioFechaFin": "Fecha inicio y fecha fin",
+                "fechaInicio": "Fecha desde la cual aplica el beneficio",
+                "codigo": "Código",
+                "aplicaAsegurado": "Aplica para asegurado",
+                "aplicaResponsable": "Aplica para responsable de pago",
+                "tipoValorDevolver": "Tipo valor a devolver",
+                "valor": "Valor",
+                "antiguedadMinima": "Antigüedad mínima (Años)",
+                "antiguedadMaxima": "Antigüedad máxima (Años)",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación"
+              },
+              "alertas": {
+                "deseaEliminar": "¿Está seguro de eliminar el Beneficio por preexistencia {{item}}?"
+              }
+            },
+            "conceptoFacturacionPlanCobertura": {
+              "titulo": "Conceptos Facturación",
+              "grid": {
+                "tipoConcepto": "Tipo de concepto",
+                "concepto": "Concepto",
+                "descripcion": "Descripción",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear Conceptos Facturación",
+                "actualizar": "Editar Conceptos Facturación"
+              },
+              "eliminar": {
+                "mensajeEliminar": "¿Está seguro de eliminar el registro?"
+              },
+              "alertas": {
+                "errorEliminar": "No se puede eliminar el concepto de facturación, ya que este concepto ha generado facturación sobre un plan cobertura",
+                "tipoFactorYaRegistrado": "Con la creación de este concepto de facturación, se deshabilitará la configuracion anterior para este tipo de concepto seleccionado y se habilitará la nueva configuración creada"
+              }
+            },
+            "enfermedadesGraves": {
+              "titulo": "Enfermedades graves",
+              "grid": {
+                "codigo": "Código",
+                "nombre": "Tratamiento o Enfermedad",
+                "tipoValorProteccion": "Tipo de valor reconocido sobre el valor de protección de la cobertura",
+                "valor": "Valor",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear enfermedades graves",
+                "actualizar": "Editar enfermedades graves",
+                "tipoValorProteccion": "Tipo de valor reconocido sobre el valor de protección de la cobertura",
+                "enfermedadGrave": "Tratamiento o Enfermedad",
+                "valor": "Valor",
+                "vigente": "Disponible",
+                "fechaInicioFechaFin": "Fecha inicio y fecha fin"
+              }
+            },
+            "condicionesVenta": {
+              "titulo": "Condiciones de venta",
+              "grid": {
+                "numeroContribuciones": "Número de contribuciones",
+                "antiguedad": "Antigüedad",
+                "tiempoAntiguedad": "Tiempo de antigüedad",
+                "tipoSolicitud": "Tipo de solicitud",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "fechaInicioVigencia": "Fecha inicio vigencia",
+                "fechaFinVigencia": "Fecha fin vigencia",
+                "fechaInicioFinVigencia": "Fecha inicio y fin vigencia",
+                "acciones": "Acciones"
+              },
+              "guardar": {
+                "crear": "Crear condiciones de venta",
+                "actualizar": "Editar condiciones de venta"
+              },
+              "alertas": {
+                "deseaEliminar": "¿Está seguro de eliminar la condición de venta {{item}}?"
+              }
+            },
+            "reconocimientosPorPermanencia": {
+              "titulo": "Reconocimientos por permanencia",
+              "grid": {
+                "codigo": "Código",
+                "valorReconocimiento": "Valor Reconocimiento",
+                "unidad": "Unidad",
+                "vigente": "Disponible",
+                "fechaModificacion": "Fecha modificación",
+                "acciones": "Acciones",
+                "edadIngreso": "Edad de ingreso",
+                "fechaInicio": "Fecha inicio",
+                "fechaInicioFechaFin": "Fecha inicio y fin",
+                "nombreComercialPlanCobertura": "Nombre Comercial Plan Cobertura"
+              },
+              "guardar": {
+                "crear": "Crear reconocimientos por permanencia",
+                "actualizar": "Editar reconocimientos por permanencia"
+              },
+              "alertas": {
+                "deseaEliminar": "¿Está seguro de eliminar el reconocimiento por permanencia {{item}}?"
+              }
+            }
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el registro {{item}}?",
+            "deseaEliminarRow": "¿Está seguro de eliminar el registro?",
+            "debeCompletarSeccionAnterior": "Debe completar la sección {{anterior}} para poder ingresar a {{seccion}}",
+            "debeCompletarSeccionActual": "Debe completar la sección {{actual}} para poder finalizar",
+            "nombreCaracteresMaxima": "Número máximo de caracteres permitidos es {{numero}}",
+            "valorMinimo": "El valor debe ser mayor que {{numero}}",
+            "maxMinContribuciion": "El número de contribuciones mínimas no puede ser mayor al número de contribuciones máximas",
+            "maxMinBeneficiosPreexistencia": "El número de la antigüedad mínima no puede ser mayor al número de antigüedad máxima"
+          }
+        }
+      },
+      "exclusiones": {
+        "titulo": "Exclusiones",
+        "grid": {
+          "fondo": "Fondo",
+          "codigo": "Código",
+          "descripcion": "Descripción exclusión",
+          "fechaModificacion": "Fecha modificación",
+          "estado": "Estado",
+          "vigente": "Disponible",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear exclusión",
+          "actualizar": "Editar exclusión",
+          "vigente": "Estado exclusión"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar la Exclusión {{item}}?"
+        },
+        "diagnosticos": {
+          "titulo": "Diagnósticos relacionados",
+          "grid": {
+            "codigo": "Código / Diagnóstico",
+            "fechaInicio": "Fecha desde la cual aplica diagnóstico",
+            "fechaFin": "Fecha hasta la cual aplica diagnóstico",
+            "disponible": "Disponible",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear diagnóstico para la exclusión",
+            "actualizar": "Editar diagnóstico para la exclusión",
+            "diagnostico": "Diagnóstico especifico",
+            "fechaInicioYFin": "Fecha inicio y fin de vigencia"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el Diagnóstico {{nombre}}?"
+          }
+        }
+      },
+      "desmembracionAccidente": {
+        "titulo": "Desmembración por Accidente",
+        "grid": {
+          "fondo": "Fondo",
+          "codigo": "Código Desmembración por accidente",
+          "descripcion": "Desmembración por accidente",
+          "fechaModificacion": "Fecha modificación",
+          "estado": "Estado",
+          "vigente": "Disponible",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear configuración desmembración por Accidente",
+          "actualizar": "Editar configuración desmembración por Accidente",
+          "vigente": "Estado desmembración por Accidente"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar la desmembración por Accidente {{item}}?"
+        }
+      },
+      "enfermedadesGraves": {
+        "titulo": "Enfermedades Graves",
+        "grid": {
+          "fondo": "Fondo",
+          "codigo": "Código enfermedad",
+          "descripcion": "Tratamiento o Enfermedad",
+          "fechaModificacion": "Fecha modificación",
+          "estado": "Estado",
+          "vigente": "Disponible",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear enfermedad grave",
+          "actualizar": "Editar enfermedad grave",
+          "vigente": "Estado exclusión"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar la Exclusión {{item}}?"
+        }
+      },
+      "formulaPlan": {
+        "titulo": "Formula Plan",
+        "grid": {
+          "codigo": "codigo",
+          "plan": "Plan",
+          "estado": "Estado",
+          "formula": "Formula",
+          "descripcion": "Descripción",
+          "tipoFormulaPlan": "Tipo de formula",
+          "fechaModificacion": "Fecha modificación",
+          "vigente": "Disponible",
+          "acciones": "Acciones",
+          "fechaInicio": "Fecha inicio",
+          "fechaFin": "Fecha fin",
+          "fechaInicioYFin": "Fecha inicio y Fecha fin"
+        },
+        "guardar": {
+          "crear": "Crear formula Plan",
+          "actualizar": "Editar formula plan"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar la Formula Plan {{item}}?"
+        }
+      },
+      "beneficiarioPago": {
+        "titulo": "Beneficiarios de indemnización y cobertura",
+        "grid": {
+          "fondo": "Fondo",
+          "cobertura": "Cobertura",
+          "estado": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "actualizar": "Editar beneficiarios de indemnización y cobertura",
+          "codigo": "Código cobertura",
+          "nombre": "Cobertura",
+          "fondo": "Fondo",
+          "tipoBeneficiarioPago": "Beneficiario de indemnización"
+        }
+      },
+      "promotores": {
+        "titulo": "Promotores",
+        "grid": {
+          "compania": "Compañia",
+          "numeroIdentificacion": "No. Identificación",
+          "nombrePromotor": "Nombre",
+          "fechaModificacion": "Fecha modificación",
+          "vigente": "Disponible",
+          "acciones": "Acciones",
+          "correoElectronico": "Correo electrónico",
+          "tipoIdentificacion": "Tipo identificación",
+          "regional": "Regional",
+          "tipoSolicitud": "Tipo de solicitud",
+          "canalVenta": "Canal venta",
+          "disponible": "Disponible"
+        },
+        "guardar": {
+          "crear": "Crear promotor",
+          "actualizar": "Editar promotor",
+          "vigente": "Estado promotor"
+        },
+        "alertas": {
+          "deseaEliminarPromotor": "¿Está seguro de eliminar el promotor {{promotor}}?"
+        }
+      }
+    },
+    "asignacionGestionDiaria": {
+      "titulo": "Asignación gestión diaria manual",
+      "filter": {
+        "tipoSolicitud": "Tipo solicitud",
+        "solicitud": "Solicitud",
+        "fases": "Fase solicitud",
+        "tarea": "Tarea",
+        "usuarios": "Usuarios",
+        "numeroCasos": "No. casos a asignar",
+        "noTienePermisos": "No tiene permisos para realizar asignación de gestión diaria",
+        "seleccionarNumeroCasosOCasos": "Falta completar el campo número de casos ó seleccionar los casos que desea asignar manualmente a los usuarios seleccionados."
+      },
+      "grid": {
+        "numeroCaso": "No. Solicitud",
+        "identificacion": "Identificación",
+        "solicitante": "Asociado",
+        "tipoSolicitud": "Tipo solicitud",
+        "solicitud": "Solicitud",
+        "dias": "Días",
+        "accion": "Acción",
+        "asignadoA": "Asignado a"
+      },
+      "footer": {
+        "camposCompletosMensaje": "Los campos requeridos están completos"
+      },
+      "modal": {
+        "titulo": "Resumen de asignación",
+        "grid": {
+          "usuario": "Usuario",
+          "tipoSolicitud": "Tipo solicitud",
+          "solicitud": "Solicitud",
+          "faseSolicitud": "Fase solicitud",
+          "numeroSolicitud": "No solicitud",
+          "numeroCaso": "No de caso",
+          "dias": "Días"
+        }
+      }
+    },
+    "gestionSolicitudSuspendida": {
+      "titulo": "Bandeja solicitudes suspendidas",
+      "filter": {
+        "tipoSolicitud": "Tipo solicitud",
+        "solicitud": "Solicitud",
+        "fases": "Fase solicitud",
+        "tarea": "Tarea"
+      },
+      "grid": {
+        "numeroCaso": "No. Solicitud",
+        "identificacion": "Identificación",
+        "solicitante": "Asociado",
+        "tipoSolicitud": "Tipo solicitud",
+        "solicitud": "Solicitud",
+        "dias": "Días",
+        "accion": "Acción"
+      },
+      "form": {
+        "titulo": "Gestionar solicitud",
+        "estadoGestion": "Estado de la gestión",
+        "observacion": "Observación"
+      }
+    },
+    "reportesGestionDiaria": {
+      "titulo": "Reportes gestión diaria",
+      "filtros": {
+        "titulo": "Consulta",
+        "documentoColaborador": "No. ced colaborador",
+        "fechaInicioFin": "Fecha inicio y fin",
+        "botonLimpiar": "Limpiar",
+        "botonBuscar": "Buscar"
+      },
+      "grid": {
+        "cedulaColaborador": "No. ced. colaborador",
+        "nombreColaborador": "Nombre colaborador",
+        "numeroSolicitud": "No. solicitud",
+        "estado": "Acción",
+        "fechaAsignacion": "Fecha asignación",
+        "fechaGestion": "Fecha gestión",
+        "asignadoPor": "Asignado por",
+        "observacion": "Observación"
+      },
+      "alertas": {
+        "fechaFinal": "Falta la fecha final por diligenciar"
+      },
+      "botonExportarExcel": "Exportar Excel"
+    },
+    "reportesAmparosPagados": {
+      "titulo": "Reporte amparos pagados",
+      "filtros": {
+        "titulo": "Consulta",
+        "fechaInicioFin": "Fecha inicio y fecha fin amparos pagados",
+        "botonLimpiar": "Limpiar",
+        "botonBuscar": "Buscar"
+      },
+      "grid": {
+        "identificacionAsociado": "No. identificación del asociado",
+        "nombreAsociado": "Nombre del asociado",
+        "numeroSolicitud": "No. solicitud",
+        "producto": "Producto"
+      },
+      "excel": {
+        "mesPago": "Mes",
+        "periodoActual": "Periodo",
+        "regionalAsociado": "Regional",
+        "zonaAsociado": "Zona",
+        "cedulaAsociado": "Cédula asociado",
+        "nombreAsociado": "Nombre asociado",
+        "consecutivoReclamacion": "Consecutivo reclamación",
+        "tipoAuxilio": "Tipo de auxilio",
+        "nombreAuxilio": "Nombre del auxilio",
+        "producto": "Producto",
+        "fechaIngreso": "Fecha ingreso reclamación",
+        "canalRadicacion": "Canal de radicación",
+        "fechaInicioRadicacion": "Fecha inicio radicación",
+        "fechaFinalRadicacion": "Fecha fin radicación",
+        "diasGestionRadicacion": "Días de gestión radicación",
+        "usuarioRadicacion": "Usuario radicación",
+        "fechaInicioAuditoriaMedica": "Fecha inicio auditoría médica",
+        "fechaFinalAuditoriaMedica": "Fecha fin auditoría médica",
+        "diasGestionAuditoriaMedica": "Días gestión auditoría médica",
+        "usuarioAuditoriaMedica": "Usuario auditoría médica",
+        "fechaInicioDefinicion": "Fecha inicio definición",
+        "fechaFinalDefinicion": "Fecha fin definición",
+        "diasGestionDefinicion": "Días de gestión definición",
+        "usuarioDefinicion": "Usuario definición",
+        "fechaInicioPago": "Fecha inicio pago",
+        "fechaFinalPago": "Fecha fin pago",
+        "diasGestionPago": "Días gestión pago",
+        "usuarioPago": "Usuario pago",
+        "formaPago": "Forma pago",
+        "valorPagoCobertura": "Valor pagado",
+        "diasSuspendido": "Número de días en estado suspendido",
+        "diasGestion": "Número total de días en gestión",
+        "tipoMuerte": "Tipo de muerte",
+        "tratamientoEspecial": "Tratamiento",
+        "pagoManual": "Pago manual"
+      },
+      "alertas": {
+        "fechaFinal": "Falta la fecha final por diligenciar"
+      }
+    },
+    "reasignacionOrdenes": {
+      "titulo": "Reasignación de órdenes",
+      "listadoOrdenes": "Listado de órdenes",
+      "reasignacion": "Reasignación",
+      "asignar": "¿Está seguro que desea reasignar las órdenes al colaborador seleccionado?",
+      "asignacionRealizada": "Se ha asignado correctamente la tarea",
+      "observacion": "Observación",
+      "filtros": {
+        "titulo": "Consulta",
+        "numeroSolicitud": "Número de solicitud",
+        "colaborador": "Colaborador",
+        "numeroIdentificacion": "Número de identificación",
+        "seleccionarTodos": "Seleccionar todos",
+        "datosDelColaborado": "Datos del colaborador al que se le asignará las órdenes"
+      },
+      "tarea": {
+        "solicitud": "No. solicitud",
+        "iDAsociado": "Identificación",
+        "nombreAsociado": "Asociado",
+        "accion": "Acción",
+        "producto": "Producto / Plan",
+        "diasProceso": "Días",
+        "tipoSolicitud": "Solicitud",
+        "asignadoA": "Asignado a"
+      },
+      "botones": {
+        "limpiar": "Limpiar",
+        "buscar": "Búscar",
+        "guardar": "Guardar"
+      }
+    },
+    "actuaria": {
+      "titulo": "Configuración Actuaria",
+      "requiereFactoresPlan": "¿Se requiere cargar factores para este plan?",
+      "conceptosDistribucion": {
+        "titulo": "Conceptos distribución",
+        "mmostrarSoloVigentes": "Mostrar solo los vigentes",
+        "grid": {
+          "codigo": "Código",
+          "descripcion": "Descripción",
+          "nombreCorto": "Nombre corto",
+          "vigente": "Disponible",
+          "acciones": "Acciones"
+        },
+        "modal": {
+          "tituloCrear": "Crear concepto distribución",
+          "tituloEditar": "Editar concepto distribución",
+          "botonGuardar": "Guardar"
+        }
+      },
+      "cargueMasivoFactores": {
+        "titulo": "Cargue masivo factores",
+        "grid": {
+          "codigo": "Código cargue",
+          "cobertura": "Cobertura",
+          "tipoFactor": "Tipo factor",
+          "conceptoDistribucion": "Concepto distribución",
+          "edadMinima": "Edad mínima",
+          "edadMaxima": "Edad máxima",
+          "descripcion": "Descripción",
+          "archivo": "Nombre de Archivo",
+          "fechaInicioFinCargue": "Fecha y hora cargue",
+          "fechaInicioFinVigencia": "Fecha inicio y fin vigencia",
+          "totalDatos": "Cantidad de registros",
+          "acciones": "Acciones",
+          "estructuraCargue":"Estructura de cargue"
+        },
+        "aplicacionExitosa": "Se guardó la información exitosamente",
+        "deseaEliminar": "¿Está seguro de eliminar el archivo {{archivo}}?",
+        "detalleContribucion": {
+          "titulo": "Detalle archivo de factores",
+          "factoresContribucion": "Factores de contribución",
+          "nombreFactores": "Nombre factores",
+          "FechaInicioFinVigencia": "Fecha inicio y fin vigencia",
+          "grid": {
+            "edad": "Edad",
+            "genero": "Género",
+            "factor": "Factor",
+            "acciones": "Acciones"
+          }
+        },
+        "detalleDistribucion": {
+          "titulo": "Detalle archivo de factores",
+          "factoresDistribucion": "Factores de distribución",
+          "FechaInicioFinVigencia": "Fecha inicio y fin vigencia",
+          "grid": {
+            "codigo": "Código concepto",
+            "descripcionConcepto": "Descripción concepto",
+            "edad": "Edad",
+            "genero": "Género",
+            "factor": "Factor",
+            "descripcion": "Descripción",
+            "acciones": "Acciones"
+          },
+          "alertas": {
+            "registrosNoModificados": "No hay registros modificados a guardar"
+          }
+        },
+        "botonProcesar": "Procesar",
+        "botnDescargar": "Descargar factores"
+      },
+      "relacionFactoresCobertura": {
+        "titulo": "Relación factores cobertura",
+        "tituloModal": "Observaciones"
+      },
+      "devolverA": "Devolver a",
+      "modalDevolver": {
+        "titulo": "Observaciones devolución",
+        "observacion": "Observación"
+      }
+    },
+    "financiera": {
+      "titulo": "Configuración Financiera",
+      "maestroCuenta": {
+        "titulo": "Maestro cuentas",
+        "grid": {
+          "cuentaContable": "Cuenta contable",
+          "nombreCuenta": "Nombre cuenta contable",
+          "cuentaColgaap": "Cuenta COLGAAP",
+          "cuentaNiff": "Cuenta NIIF",
+          "vigente": "Disponible",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear cuenta contable",
+          "editar": "Editar cuenta contable",
+          "cuentaContable": "Cuenta contable",
+          "nombreCuenta": "Nombre cuenta contable",
+          "cuentaColgaap": "Cuenta COLGAAP",
+          "cuentaNiff": "Cuenta NIIF",
+          "vigente": "Disponible"
+        }
+      },
+      "maestroUsoLocal": {
+        "titulo": "Maestro de uso local",
+        "mostrarSoloVigentes": "Mostrar solo los vigentes",
+        "grid": {
+          "codigo": "Código uso local",
+          "nombreUsoLocal": "Nombre uso local",
+          "vigente": "Disponible",
+          "acciones": "Acciones"
+        },
+        "modal": {
+          "tituloCrear": "Crear maestro uso local",
+          "tituloEditar": "Editar maestro uso local",
+          "botonGuardar": "Guardar"
+        }
+      },
+      "relacionConceptoDistribucionCuenta": {
+        "titulo": "Relación concepto de distribución cuenta",
+        "editar": "Editar relación concepto de distribución cuenta",
+        "crear": "Crear relación concepto de distribución cuenta",
+        "mostrarSoloVigentes": "Mostrar solo los vigentes",
+        "conceptoDistribucion": "Concepto distribución",
+        "cobertura": "Cobertura",
+        "usoLocal": "Uso local",
+        "cuentaContable": "Cuenta contable",
+        "cuentaTransaccion": "Cuenta transacción",
+        "nombreCuentaTransaccion": "transacción",
+        "partidaContrapartida": "transaccion recaudo / devolucion (código del sistema)",
+        "tipoTransaccion": "Tipo transacción",
+        "cuentaCOLGAAP": "Cuenta COLGAAP",
+        "cuentaNIIF": "Cuenta NIIF",
+        "grid": {
+          "codigoConceptoDistribucion": "Código concepto distribución",
+          "conceptoDistribucion": "Concepto distribución",
+          "cuentaContable": "Cuenta contable",
+          "nombreCuentaContable": "Nombre cuenta contable",
+          "codigoUsoLocal": "Código uso local",
+          "nombreUsoLocal": "Nombre uso local",
+          "vigente": "Disponible",
+          "acciones": "Acciones"
+        },
+        "modal": {
+          "tituloCrear": "Crear maestro uso local",
+          "tituloEditar": "Editar maestro uso local",
+          "botonGuardar": "Guardar"
+        }
+      },
+      "devolverA": "Devolver a",
+      "modalDevolver": {
+        "titulo": "Observaciones devolución",
+        "observacion": "Observación"
+      }
+    },
+    "cofiguracionCotizadores": {
+      "porcentajeCuota": {
+        "titulo": "Porcentaje de cuota",
+        "grid": {
+          "codigo": "Código",
+          "nombreCategoria": "Nombre del tipo de vinculación asociado",
+          "valorMinimo": "Valor porcentaje mínimo",
+          "valorMaximo": "Valor porcentaje máximo",
+          "vigente": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear porcentaje de cuota",
+          "actualizar": "Editar porcentaje de cuota"
+        },
+        "alertas": {
+          "valorMinimoMaxima": "El campo Valor máximo no puede ser menor al campo Valor mínimo",
+          "noIguales": "Los campos {{campo1}} y {{campo2}} no pueden tener el mismo valor, por favor asigne valores diferentes",
+          "noCero": "El campo {{campo}} no puede tener el valor (0)"
+        }
+      },
+      "proyectoVida": {
+        "titulo": "Proyecto de vida",
+        "grid": {
+          "codigo": "Código",
+          "nombre": "Nombre Proyecto de vida",
+          "descripcion": "Descripción",
+          "vigente": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear proyecto de vida",
+          "actualizar": "Editar proyecto de vida"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar el registro?"
+        }
+      },
+      "aportesEstatutarios": {
+        "titulo": "Aportes estatutarios",
+        "grid": {
+          "codigo": "Código",
+          "tipoVinculacion": "Tipo de vinculación",
+          "tipoAporte": "Tipo de aporte",
+          "valorSugerido": "Valor sugerido",
+          "valorMaximo": "Valor maximo",
+          "valorMinimo": "Valor minimo",
+          "vigente": "Disponible",
+          "fechaModificacion": "Fecha modificación",
+          "acciones": "Acciones"
+        },
+        "guardar": {
+          "crear": "Crear aporte estatutario",
+          "actualizar": "Editar aporte estatutario"
+        },
+        "alertas": {
+          "deseaEliminar": "¿Está seguro de eliminar el registro?",
+          "MinimaYMaxima": "El valor mínimo no puede ser mayor al valor máximo",
+          "beetwenRangue": "El valor sugerido debe estar entre el valor mínimo y máximo"
+        }
+      },
+      "otrosParametros":{
+        "titulo":"Configuración de valores de aportes estatutarios",
+        "grid":{
+          "descripcion":"Descripción",
+          "dias":"Días",
+          "acciones": "Acciones"
+        },
+        "editar":{
+          "actualizar":"Editar otros parámetros"
+        }
+      },
+      "gestionNotas": {
+        "notasAclaratorias": {
+          "titulo": "Notas aclaratorias",
+          "tituloDetalle": "Planes asociados a las notas",
+          "grid": {
+            "codigo": "Código",
+            "tipoMovimiento": "Tipo movimiento",
+            "tipoSolicitud": "Tipo solicitud",
+            "nombreNota": "Nombre nota",
+            "plan": "Plan",
+            "acciones": "Acciones",
+            "posicion": "Orden",
+            "planesCoberturaAsociadosNotas": "Planes Coberturas Asociados a la Nota"
+          },
+          "guardar": {
+            "crear": "Crear nota aclaratoria",
+            "actualizar": "Editar nota aclaratoria"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el registro?",
+            "maxlenth": "Número máximo de caracteres permitidos es {{numero}}"
+          }
+        },
+        "relacionPlanes": {
+          "titulo": "Relación planes",
+          "grid": {
+            "codigo": "Código",
+            "planAsociado": "plan cobertura asociado",
+            "notaAclaratoria": "Nota aclaratoria",
+            "ordenNota": "Orden nota",
+            "nivelRiesgo": "Nivel de riesgo",
+            "tipoMovimiento": "Tipo solicitud",
+            "fechaModificacion": "Fecha modificación",
+            "acciones": "Acciones"
+          },
+          "guardar": {
+            "crear": "Crear relación planes",
+            "actualizar": "Editar relación planes",
+            "nombrePlanCobertura": "Nombre plan-cobertura",
+            "notaAclaratoria": "Nota aclaratoria",
+            "ordenNota": "Orden de la nota",
+            "nivelRiesgo": "Nivel de riesgo"
+          },
+          "alertas": {
+            "deseaEliminar": "¿Está seguro de eliminar el registro?"
+          }
+        }
+      }
+    },
+    "gestionPromociones": {
+      "promociones": {
+        "titulo": "Promociones",
+        "grid": {
+          "nombrePromocion": "Nombre promoción",
+          "beneficio": "Beneficio",
+          "valorBeneficio": "Valor beneficio",
+          "estado": "Disponible",
+          "fechaInicio": "Fecha inicio",
+          "fechaFin": "Fecha fin",
+          "accion": "Acción"
+        },
+        "guardar": {
+          "crear": "Crear promociones",
+          "actualizar": "Editar promociones",
+          "nombrePromocion":"Nombre promoción",
+          "descripcion": "Descripción",
+          "tipoBeneficio": "Tipo beneficio",
+          "beneficio": "Beneficio",
+          "valorBeneficio": "Valor beneficio",
+          "cantidadStock": "Cantidad Stock",
+          "tipoSolicitud": "Tipo de solicitud",
+          "canal": "Canal",
+          "planCobertura":"Plan Cobertura",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia",
+          "vigente": "Disponible",
+          "aplicaPromocionPara": "Aplica promoción para",
+          "gridCondiciones": {
+            "condiciones": "Condiciones",
+            "valorCondiciones": "Valor condiciones",
+            "accion": "Acción"
+          }
+        },
+        "alertas": {
+          "condicionObligatorio": "Debe agregar al menos una condición para la que aplica la promoción"
+        }
+      }
+    },
+    "aprobacionFinal": {
+      "titulo": "Aprobación final configuración de producto",
+      "configuracion": {
+        "tecnica": "Configuración técnica",
+        "actuaria": "Configuración actuaria",
+        "financiera": "Configuración financiera",
+        "verDetalleConfiguracion": "Ver detalle configuración"
+      },
+      "devolverA": "Devolver a",
+      "plan": {
+        "titulo": "Plan",
+        "nombrePlan": "Nombre del plan",
+        "tipoPlan": "Tipo de plan",
+        "fondo": "Fondo",
+        "estado": "Estado",
+        "edadMinima": "Edad mínima ingreso",
+        "edadMaxima": "Edad máxima ingreso",
+        "edadPermanencia": "Edad permanencia",
+        "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+      },
+      "configuracionTecnica": {
+        "titulo": "Configuración técnica",
+        "condiciones": {
+          "titulo": "Datos principales - condiciones",
+          "amparo": "Amparo",
+          "edadMinima": "Edad mínima ingreso",
+          "edadMaxima": "Edad máxima ingreso",
+          "edadPermanencia": "Edad permanencia",
+          "origen": "Origen",
+          "planFamiliar": "Aplica a plan familiar",
+          "renunciaAmparo": "Se puede renunciar al amparo",
+          "incrementoProteccion": "Incremento protección",
+          "disminucionProteccion": "Disminución protección",
+          "requisitosMedicos": "Requisitos médicos",
+          "tieneFacturacion": "Tiene facturación",
+          "disponibleGarantia": "Disponible para garantía",
+          "aplicaReactivacion": "Aplica reactivación",
+          "aplicaRevocatoria": "Aplica para revocatoria",
+          "aplicaHabilitacion": "Aplica habilitación",
+          "aplicaReceso": "Aplica receso",
+          "aplicaReingreso": "Aplica reingreso",
+          "cancelar": "Se puede cancelar",
+          "devolucionRetiro": "Devolución retiro",
+          "prorroga": "Prórroga",
+          "tieneRescate": "Tiene rescate",
+          "exoneracionPago": "Exoneración de pago",
+          "disminucionAnticipo": "Aplica disminución por anticipo de pago",
+          "beneficioPreexistencia": "Beneficios con preexistencia",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        },
+        "deducibles": {
+          "titulo": "Deducibles",
+          "amparo": "Amparo",
+          "tipoDeducible": "Tipo deducible",
+          "tipoPago": "Momento de activación del deducible",
+          "tipoRestitucionDeducible": "Restitución deducible",
+          "cantidad": "Cantidad",
+          "aplicaProrroga": "Aplica prórroga",
+          "discontinuidad": "Discontinuidad días calendario",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        },
+        "periodosCarencia": {
+          "titulo": "Periodos de carencia",
+          "amparo": "Amparo",
+          "nroContribucciones": "Número contribuciones",
+          "periodoCarencia": "Periodo Carencia",
+          "unidadCarencia": "Unidad Carencia",
+          "causa": "Causa",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        },
+        "exclusiones": {
+          "titulo": "Exclusiones",
+          "amparo": "Amparo",
+          "exclusion": "Exclusión",
+          "periodoDefinido": "Período definido",
+          "contribuciones": "Contribuciones",
+          "transaccion": "Transacción",
+          "canal": "Canal",
+          "fechaInicio": "Fecha desde la cual aplica la exclusión",
+          "fechaFinal": "Fecha hasta la cual aplica la exclusión"
+        },
+        "coberturaSubsistente": {
+          "titulo": "Cobertura subsistente",
+          "amparo": "Amparo",
+          "coberturaIndemnizada": "Cobertura indemnizada",
+          "subsisteCobertura": "Subsiste cobertura",
+          "contribuccionAsociado": "Contribución asociado",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        },
+        "cubrimientosAdicionales": {
+          "titulo": "Cubrimientos adicionales",
+          "amparo": "Amparo",
+          "coberturaIndemnizada": "Cobertura indemnizada",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        },
+        "valoresRescate": {
+          "titulo": "Valores de rescate",
+          "amparo": "Amparo",
+          "causaRescate": "Causa rescate",
+          "tipoRescate": "Tipo rescate",
+          "contribuccionMimina": "No. contribuciones mínimas",
+          "contribuccionMaxima": "No. contribuciones máximas",
+          "valor": "Valor",
+          "rentabilidad": "Rentabilidad",
+          "anticipoCobertura": "Es anticipo de otra cobertura",
+          "cobertura": "Cobertura"
+        },
+        "desmembracionAccidental": {
+          "titulo": "Desmembración por accidente",
+          "tipoValor": "Tipo valor",
+          "cobertura": "Cobertura",
+          "desmembracionPorAccidente": "Desmembración por accidente",
+          "porcentajePagoDesmembracion": "% para pago por desmembración accidental",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        },
+        "valorAsegurado": {
+          "titulo": "Valor asegurado",
+          "amparo": "Amparo",
+          "tipoValor": "Tipo valor asegurado",
+          "cobertura": "Cobertura",
+          "rango": "¿Es un rango de %?",
+          "asegurado": "% asegurado",
+          "unidad": "Unidad",
+          "valorAsegurado": "Valor asegurado",
+          "tieneSublimite": "¿Tiene valor sublímite?",
+          "tipoRestitucion": "Tipo valor restitución",
+          "vitalicio": "Es vitalicio",
+          "pagoAdicional": "Con pago adicional",
+          "renta": "¿Es una renta?",
+          "rentasPago": "Indique cuantas rentas pagará",
+          "periocidad": "Periodicidad",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        },
+        "limitacionesCobertura": {
+          "titulo": "Limitaciones por cobertura",
+          "amparo": "Amparo",
+          "diasPagoEvento": "Máximo días a pagar por evento",
+          "dxEspecifico": "Diagnóstico específico",
+          "condicionCobertura": "Condición de cobertura",
+          "diasPago": "Máximo días a pagar",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia",
+          "antiguedadMinima": "Antigüedad mínima (años)",
+          "antiguedadMaxima": "Antigüedad máxima (años)",
+          "tipoLimitacion": "Tipo limitación",
+          "valor": "Valor",
+          "fechaInicioFinPA": "Fecha de inicio y fin de vigencia",
+          "nombreSublimite": "Nombre sublímite de otra cobertura",
+          "tipoSublimite": "Tipo sublímite",
+          "valorSublimite": "Valor",
+          "fechaDesdeSublimite": "Fecha desde la cual aplica el sublímite",
+          "fechaHastaSublimite": "Fecha hasta la cual aplica el sublímite"
+        },
+        "enfermedadesGraves": {
+          "titulo": "Enfermedades graves",
+          "amparo": "Amparo",
+          "tratamiento": "Tratamiento o enfermedad",
+          "tipoValor": "Tipo de valor reconocidos sobre el valor de protección de la cobertura",
+          "valor": "Valor",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        },
+        "beneficiosPreexistencia": {
+          "titulo": "Beneficios por preexistencia",
+          "amparo": "Amparo",
+          "antiguedadMinima": "Antigüedad mínima",
+          "antiguedadMaxima": "Antigüedad máxima",
+          "tipoValor": "Tipo valor a devolver",
+          "valor": "Valor",
+          "fechaDesdeBeneficio": "Fecha desde la cual aplica el beneficio",
+          "fechaHastaBeneficio": "Fecha hasta la cual aplica el beneficio"
+        },
+        "conceptosFacturacion": {
+          "titulo": "Conceptos facturación",
+          "amparo": "Amparo",
+          "tipoConcepto": "Tipo de Concepto",
+          "concepto": "Concepto"
+        },
+        "condicionesAsistencia": {
+          "titulo": "Datos principales - condiciones de asistencia",
+          "amparo": "Amparo",
+          "edadMinima": "Edad mínima ingreso",
+          "edadMaxima": "Edad máxima ingreso",
+          "edadPermanencia": "Edad permanencia",
+          "origen": "Origen",
+          "nombreServicio": "Nombre Servicio",
+          "proveedor": "Proveedor",
+          "aplicaPara": "Aplica para",
+          "servicioIlimitado": "Servicio ilimitado",
+          "numeroEventos": "Número eventos",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        }
+      },
+      "configuracionActuaria": {
+        "titulo": "Configuración actuaria",
+        "cargueFactores": {
+          "titulo": "Cargue factores",
+          "amparo": "Amparo",
+          "codigoCargue": "Código cargue",
+          "descripcion": "Descripción",
+          "tipoFactor": "Tipo factor",
+          "totalDatos": "Total Datos",
+          "fechaInicioFin": "Fecha de inicio y fin de vigencia"
+        }
+      },
+      "configuracionFinanciera": {
+        "titulo": "Configuración financiera",
+        "conceptosDistribucionCuenta": {
+          "titulo": "Relación conceptos de distribución y cuenta",
+          "amparo": "Amparo",
+          "conceptoDistribucion": "Concepto distribución",
+          "cuentaContable": "Cuenta contable",
+          "usoLocal": "Uso Local",
+          "cuentaTransaccion": "Cuenta transacción",
+          "partidaContraPartida": "Partida / Contrapartida (Código del sistema)",
+          "cuentaColgaap": "Cuenta COLGAAP",
+          "cuentaNiff": "Cuenta NIIF"
+        }
+      }
+    }
+  },
+  "reportes": {
+    "cartas": {
+      "titulo": "Módulo Consulta de Cartas",
+      "filtros": {
+        "numeroEvento": "No. solicitud amparo",
+        "numeroIdentificacion": "Número de identificación",
+        "fechaInicioFechaFin": "Fecha inicio y fecha fin"
+      },
+      "grid": {
+        "noCarta": "No. Carta",
+        "noEvento": "No. solicitud",
+        "nombreCarta": "Nombre Carta",
+        "evento": "Tipo solicitud",
+        "solicitud": "Solicitud",
+        "fechaCreacion": "Fecha creación",
+        "asociado": "Asociado",
+        "cedula": "Cédula"
+      },
+      "alerts": {
+        "validar": "Está seguro que desea validar esta carta",
+        "validarTodos": "Está seguro que desea validar todas las cartas",
+        "asociadoNull": "No se encuentra un asociado para esta carta"
+      }
+    },
+    "notificacionCierre": {
+      "fechaInicioFechaFin": "Fecha inicio y fecha fin de notificación:",
+      "titulo": "Reporte proceso de notificación y cierre de las reclamaciones",
+      "grid": {
+        "tipoAuxilioPagado": "Tipo de solicitud amparo",
+        "numeroReclamacion": "No. solicitud amparo",
+        "cedulaAsociadoBeneficiarioPago": "Cedula del asociado o beneficiario de pago",
+        "fechaPago": "Fecha de pago",
+        "fechaNotificacion": "Fecha de notificación",
+        "indicadorCerradoContactoExitoso": "Indicador si fue cerrado por contacto exitoso o no exitoso",
+        "observacion": "Observación"
+      }
+    },
+    "automaticoPagos": {
+      "fechaInicioFechaFin": "Fecha inicio y fecha fin reclamaciones pagadas y aplicadas:",
+      "titulo": "Reporte automático pagos",
+      "grid": {
+        "noIdentificacionAsociadoBeneficiarioPago": "No. identificación del asociado o beneficiario del pago",
+        "nombreAsociadoBeneficiarioPago": "Nombre del asociado o beneficiario del pago",
+        "numeroSolicitud": "No. solicitud amparo",
+        "amparo": "Tipo de solicitud amparo",
+        "estadoNotificacion": "Estado de notificación",
+        "fechaGestion": "Fecha gestión",
+        "asignadoPor": "Asignado por",
+        "observacion": "Observación",
+        "estadoSolicitud": "Estado de la solicitud",
+        "formaPago": "Forma de pago",
+        "numeroCuenta": "No cuenta",
+        "valorBase": "Valor base",
+        "valorDeducciones": "Valor deducciones",
+        "valorRetencion": "Valor retención",
+        "valorNeto": "Valor neto",
+        "usuarioRadicador": "Usuario radicador",
+        "usuarioPagador": "Usuario pagador"
+      }
+    },
+    "procesosAutomaticos": {
+      "titulo": "Reporte proceso automático",
+      "procesoAutomatico": "Proceso automático",
+      "fechaInicialFechaFinal": "Fecha inicial y fecha final",
+      "grid": {
+        "codigoProceso": "Código de proceso automático",
+        "usuario": "Usuario",
+        "fechaHoraEjecucion": "Fecha y hora ejecución",
+        "cantidadRegistros": "Cantidad de registros",
+        "estado": "Estado",
+        "logErrores": "Descargar log de errores"
+      },
+      "logErrores": {
+        "codigo": "Código",
+        "error": "Error",
+        "fechaCreacion": "Fecha creación"
+      },
+      "alertas": {
+        "errorCargueMasivo": "Ocurrió un error al ejecutar el proceso automático. Por favor descargue el detalle del error y póngase en contacto con el administrador del sistema"
+      }
+    }
+  },
+  "generarCarta": {
+    "generarCarta": "Generar carta",
+    "botonDiligenciar": "Diligenciar",
+    "tipoCarta": "Tipo carta",
+    "tituloCarta": "Carta de negación",
+    "texto": "Texto",
+    "cartaGenerada": "La carta fue generada",
+    "faltaDiligenciarCarta": "Falta diligenciar la carta"
+  },
+  "shared": {
+    "components": {
+      "form": {
+        "adminCoberturas": {
+          "crearCobertura": "Crear cobertura",
+          "editarCobertura": "Editar cobertura",
+          "coberturas": "Coberturas",
+          "proteccionActual": "Protección actual",
+          "cuota": "Cuota",
+          "listarCoberturas": {
+            "cobertura": "Cobertura",
+            "proteccion": "Protección",
+            "cuota": "Cuota",
+            "factorContribucion": "Factor contribución"
+          },
+          "agregarCobertura": "Agregar cobertura",
+          "cancelar": "Cancelar",
+          "registrar": "Registrar"
+        },
+        "cotizarProteccion": {
+          "fondo": "Fondo",
+          "tipoPlan": "Tipo de plan",
+          "plan": "Plan",
+          "cualProyectoVida": "¿Cuál es tu proyecto de vida?",
+          "cual": "¿Cuál?",
+          "ingresosMensuales": "Ingresos mensuales",
+          "rentaDiariaRecomendada": "Renta diaria recomendada",
+          "tipoCotizacion":"Tipo cotización"
+        },
+        "agregarPlanes":{
+          "agregar":"Agregar plan",
+          "nuevo": "Nuevo Plan",
+          "plan":"Plan",
+          "operacionSolicitada":"La operación solicitada es para el responsable de pago",
+          "frecuenciaFacturacion": "Frecuencia de facturación",
+          "medioFacturacion": "Medio de facturación",
+          "totalCuota":"Total cuota",
+          "asegurados": "Lista Asegurados"
+        },
+        "tipoCalculo": {
+          "elegirtipoCalculo": "Elegir el tipo de cálculo",
+          "valorCuota": "Valor de cuota",
+          "valorProteccion": "Valor de protección",
+          "cuota": "Cuota"
+        },
+        "validarDatos": {
+          "validarDatos": {
+            "fechaSolicitud": "Fecha de solicitud",
+            "fechaNacimiento": "Fecha de nacimiento",
+            "correoElectronico": "Correo electrónico",
+            "canalVenta": "Canal de venta",
+            "promotosComercial": "Promotor comercial",
+            "tratamientoDatosSensibles": "Autorizo el tratamiento de mis datos sensibles"
+          },
+          "alertas": {
+            "noAutorizaTratamientoDatos": "No se autorizó el tratamiento de datos sensibles del asociado, ¿Está seguro que desea continuar?"
+          }
+        },
+        "declaracionSalud": {
+          "titulo": "Preguntas del control médico",
+          "nota": "En caso de que usted, haya contestado positivamente alguna de las anteriores preguntas en los numerales 1,2,3,4 por favor amplíe (Diagnóstico, fecha de diagnóstico, secuela)",
+          "form": {
+            "diagnosticos": "Diagnóstico",
+            "fechaDiagnostico": "Fecha diagnóstico",
+            "descripcionSecuela": "Descripción de la secuela",
+            "observacionDeclaracionSalud": "Observación declaración de salud",
+            "peso": "Peso (kg)",
+            "estatura": "Estatura (Mts)",
+            "imc": "IMC"
+          }
+        }
+      }
+    }
+  }
+}

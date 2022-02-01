@@ -1,0 +1,5 @@
+<p-dropdown class="select-coomeva" [inputId]="inputId" [name]="inputId" [(ngModel)]="modelo" [options]="_options"
+  [autoDisplayFirst]="false" [dropdownIcon]="'icon-chevron-down'" [disabled]="disabled" [optionLabel]="optionKey"
+  placeholder="{{ 'home.seleccionar' | translate }}" ngDefaultControl (ngModelChange)="_onSelectChange($event)"
+  [filter]="filter">
+</p-dropdown>

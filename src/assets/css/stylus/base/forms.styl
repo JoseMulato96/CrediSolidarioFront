@@ -1,0 +1,496 @@
+.form
+	&--default
+		& label
+			color gray1
+			font-size 0.8125rem
+			font-weight 600
+		& input
+			background-color white
+			border-color gray3
+			border-style solid
+			border-width 1px 
+			border-radius 5px
+			font-family 'Montserrat', sans-serif
+			font-size 0.8125rem
+			font-weight 600
+			height 2.365rem
+			&:hover, &:focus, &:active, &.active, &:-internal-autofill-selected
+				background-color white
+				box-shadow none !important	
+				outline none !important 
+		& textarea
+			background-color white
+			border-color gray3
+			border-style solid
+			border-width 1px 
+			border-radius 5px
+			font-family 'Montserrat', sans-serif
+			font-size 0.8125rem
+			font-weight 600
+			height auto
+			resize none
+			overflow auto
+			&:hover, &:focus, &:active, &.active, &:-internal-autofill-selected
+				background-color white
+				border-color orange1
+				box-shadow none !important	
+				outline none !important 
+			&:disabled , &[disabled]
+				background-color gray3
+				border-color gray3	
+				color gray1
+				&:hover, &:focus, &:active, &.active
+					background-color gray3
+					border-color gray3	
+					color gray1
+		& .form-group
+			color gray1
+			& .input-group
+				background-color transparent
+				border-color gray3
+				border-style solid
+				border-width 1px 
+				border-radius 5px
+				& .input-group-prepend
+					& .input-group-text
+						background-color transparent
+						border 0px
+						color orange1
+						&.password
+							color gray2
+							font-size 1.4rem
+					&.date
+						margin-right 0
+						& .input-group-text
+							background-color gray4
+							border 0px
+							border-radius 0 5px 5px 0
+							color gray2						
+				& input
+					border 0
+					color gray1
+				&.search-results
+					& section
+						top 2.4rem
+						width 100%
+						& .ta-item
+							line-height  120%
+							background-color white
+							border-color gray3
+							border-style solid
+							border-width 1px 
+							border-radius 0
+							justify-content space-between
+							padding .5rem 
+							width 100%
+							& span
+								color gray1
+								font-family 'Montserrat', sans-serif
+								font-size 0.8125rem
+								font-weight 600
+								& i 
+									display none
+							&:last-child
+								border-bottom-right-radius 5px
+								border-bottom-left-radius 5px
+							&:hover, &:focus, &:active, &.active
+								background-color gray5
+								box-shadow none !important 
+								outline none !important
+								align-items center
+								border-top 0
+								border-bottom 1px solid #D6DBE0
+								justify-content center
+								display flex					
+				&.datepickerNG
+					display flex
+					justify-content space-between
+					width 100%
+					& ng-datepicker
+						display flex
+						width 80%
+						z-index 99
+						& input
+							background-color white
+							border 0px
+						& .ngx-datepicker-calendar-container
+							& .main-calendar-container
+								& .main-calendar-days
+									& span.is-selected
+										background-color orange1 !important
+					& .date
+						z-index 100
+						& .input-group-text
+							border-left 1px solid #D3D4DA
+							border-radius 0 5px 5px 0
+		& .custom-checkbox
+			align-items center
+			display flex 
+			margin 0
+			padding 0
+			outline none !important
+			& .custom-control-label
+				font-family 'Montserrat', sans-serif
+				font-size 1rem
+				box-shadow none !important
+				outline none !important
+				&:before , &:after
+					box-shadow none !important
+					outline none !important
+			& .custom-control-input
+				box-shadow none !important
+				outline none !important
+				height 100%
+				margin 0
+				left 0
+				width 100%
+				z-index 1
+			&_box
+				margin 0
+				& .custom-control-input
+					&:before , &:after
+						box-shadow none !important
+						outline none !important
+					&:checked~
+						& .custom-control-label
+							margin 0
+							&:before
+								color gray1
+					&:indeterminate~
+						& .custom-control-label
+							margin 0
+							&:before
+								background-color transparent
+								left 0
+					&:hover, &:focus, &:active
+						box-shadow none !important
+						outline none !important
+						&:before , &:after
+							box-shadow none !important
+							outline none !important
+				& .custom-control-label
+					&:before
+						background-color transparent
+						color gray2
+						left 0
+			&_border
+				border 1.2px solid gray3
+				border-radius 5px
+				height 2.365rem
+				& .custom-control-input
+					&:before , &:after
+						box-shadow none !important
+						outline none !important
+					&:checked~
+						& .custom-checkbox_border
+							border-color red
+						& .custom-control-label
+							&:before
+								content " "
+							&:after
+								background gray1
+								display flex
+					&:indeterminate~
+						& .custom-control-label
+							&:before
+								background-color transparent
+								content " "
+					&:hover, &:focus, &:active
+						box-shadow none !important
+						outline none !important
+						&:before , &:after
+							box-shadow none !important
+							outline none !important
+				& .custom-control-label
+					padding-left 2.5rem
+					width 100%
+					&:before , &:after
+						align-items center
+						border 1.2px solid gray3
+						border-radius 100%
+						background-color transparent
+						content " "
+						color gray2
+						display flex
+						left 0
+						height 26px
+						justify-content center
+						margin-left 5px
+						top -2px
+						width 26px
+					&:after
+						border 0px
+						background gray1
+						color gray2
+						display none
+						left 12px
+						height 12px
+						margin-left 0
+						top 5px
+						width 12px						
+		& .custom-control-input
+			&:checked~
+				&.custom-control-label
+					&:before
+						background-color transparent
+						color gray1
+						content "\e93b"
+						left 0
+						outline none !important
+		& .custom-control-label
+			&:after
+				display none
+			&:before
+				background-color transparent
+				color gray1
+				content "\ea36"
+				left -1.7rem
+				outline none !important
+				top 0
+			&:focus
+				outline none !important
+		& .custom-switch 
+			margin 0
+			& .switch
+				position relative
+				display inline-block
+				width 60px
+				height 34px
+			& input  
+				opacity 0
+				width 0
+				height 0
+				&:checked + .slider
+					background-color green1
+					&:before
+						transform translateX(26px)
+			.slider 
+				align-items center
+				background-color red1
+				border-radius 34px
+				bottom 0
+				cursor pointer
+				display flex
+				left 0
+				justify-content space-between
+				padding 0 .5rem
+				position absolute
+				right 0
+				top 0
+				transition .4s
+				&:before 
+					position absolute
+					border-radius 50%
+					content ""
+					height 26px
+					width 26px
+					left 4px
+					bottom 4px
+					background-color white
+					transition .4s
+			&_xs
+				margin 0
+				& .switch
+					height 17px
+					width 28px
+				& input  
+					opacity 0
+					width 0
+					height 0
+					&:checked + .slider
+						background-color white
+						border gray3 1px solid
+						&:before
+							background-color green2
+							transform translateX(7px)
+				.slider 
+					align-items center
+					background-color white
+					border-radius 8px
+					border gray3 1px solid
+					bottom 0
+					cursor pointer
+					display flex
+					left 0
+					justify-content space-between
+					padding 0 .5rem
+					position absolute
+					right 0
+					top 0
+					transition .4s
+					&:before 
+						position absolute
+						border-radius 50%
+						content ""
+						height 13px
+						width 13px
+						left 4px
+						bottom 1px
+						background-color gray2
+						transition .4s					
+		& .dropdown
+			margin 0
+			& .btn
+				background-color white
+				border-color gray3
+				border-style solid
+				border-width 1px 
+				border-radius 5px
+				color gray1
+				font-family 'Montserrat', sans-serif
+				font-size 0.8125rem
+				font-weight 600
+				height 2.365rem
+				justify-content space-between
+				padding .5rem 
+				width 100%
+				&:after
+					display none
+				& span
+					align-items center
+					background-color gray4
+					border-left 1px solid  gray3
+					display flex 
+					height 100%
+					padding 0 1rem
+					position  absolute
+					right 0
+				&:hover, &:focus, &:active, &.active
+					border-color orange1
+					color orange1
+			& .dropdown-menu
+				border-color orange1
+				border-radius 0 0 .25rem .25rem
+				color gray1
+				margin-top -2px
+				min-width 13.67rem
+				padding-bottom 0 
+				padding-top 0
+				width 87.5%.input-group
+				& .dropdown-item
+					align-items center
+					border-top 0
+					border-bottom 1px solid #D6DBE0
+					color gray1
+					display flex
+					font-family 'Montserrat', sans-serif
+					font-size 0.8125rem
+					font-weight 400
+					height 2.365rem
+					outline none !important
+					&:last-child
+						border-bottom 0px
+					&:hover, &:focus, &:active, &.active
+						background-color transparent
+						align-items center
+						border-top 0
+						border-bottom 1px solid #D6DBE0
+						color gray1
+						display flex
+						font-family 'Montserrat', sans-serif
+						font-size 0.8125rem
+						font-weight 600
+						height 2.365rem
+			&.show
+				& .btn
+					border-color orange1
+					border-radius .25px .25px 0 0
+					& span
+						color orange1
+		& .custom-radio
+			align-items center
+			display flex 
+			margin 0
+			padding 0
+			outline none !important			
+			& .custom-control-label
+				font-family 'Montserrat', sans-serif
+				font-size 1rem
+				box-shadow none !important
+				outline none !important
+				&:before 
+					background-color white
+					border-radius 100%
+					border 1px solid gray3
+					box-shadow none !important
+					content " "
+					display flex 
+					left -1.7rem
+					height 26px
+					outline none !important
+					top 0
+					width 26px
+				&:after
+					background-color white
+					border-radius 100%
+					box-shadow none !important
+					content ""
+					height 10px
+					display flex
+					width 10px
+			& .custom-control-input
+				box-shadow none !important
+				outline none !important
+				height 100%
+				margin 0
+				left 0
+				width 100%
+				z-index 1	
+				&:checked~
+					& .custom-control-label
+						&:before
+							background white
+							content " "
+							left -1.7rem
+							outline none !important
+							width 26px
+						&:after
+							background gray1
+							content " "
+							left -1.14rem
+							top .55rem
+
+					
+	&--search
+		& .form-group 
+			& .input-group
+				background-color white
+				border-radius 20px	
+				& input
+					background-color white
+					border none
+					border-radius 20px 0 0 20px
+					height 2.34rem
+	&--porcentaje
+		& label
+			color gray1
+			font-size 1.125rem
+			font-weight 500
+		& .form-group 
+			& .input-group
+				background-color white
+				border-radius 10px	
+				& input
+					background-color white
+					border none
+					border-radius 20px 0 0 20px
+					font-weight 500
+					font-size 1.125rem
+					height 2.34rem	
+					padding .5rem	
+				& .input-group-prepend
+					margin-right 0
+					& .input-group-text
+						background-color gray3
+						border-radius 0 10px 10px 0
+						border 0px
+						color gray1						
+
+
+
+
+
+
+
+
+			

@@ -1,0 +1,40 @@
+
+<ng-container *ngFor="let rowData of datos; index as i;">
+
+    <div class="border-left-div p-2 mt-2"
+        [ngClass.default-border-left]="configuracion.borderLeft"
+        [ngStyle]="{ 'border-left': configuracion.borderLeft ? '1px solid '+ rowData.mimPlanCobertura?.mimCobertura.codigoColor : null}">
+        <div class="row mx-0 w-100 justify-content-between pt-2">
+            <ng-container *ngFor="let col of configuracion.columnas;">
+
+                <div class="px-2" *ngIf="col.configCelda.tipo === 'icono'">
+                    <div class="btn--icon mx-auto text-center centrar--texto"
+                    [ngClass]="col.configCelda.classCss ? col.configCelda.classCss: 'default-background-icono'"
+                        [style.background-color]="obtenerValorRow(col.configCelda.color, rowData)">
+                        <span [ngClass]="col.configCelda.cssIcon ? col.configCelda.cssIcon: ''"></span>
+                    </div>
+                </div>
+
+
+                <div [ngClass]="col.configCelda.classCss ? col.configCelda.classCss: 'col'"
+                    *ngIf="col.configCelda.tipo !== 'icono'">
+
+                    <h5 class="text--13pts text--gray2 text--600wt my-0">
+                        {{ col.titulo | translate}}
+                    </h5>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0" *ngIf="col.configCelda.tipo === 'text'">
+                        {{ obtenerValorRow(col.key, rowData) |  emptyPipe }}
+                    </h4>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0" *ngIf="col.configCelda.tipo === 'currency'">
+                        {{ obtenerValorRow(col.key, rowData) | customCurrency | emptyPipe }}
+                    </h4>
+                    <h4 class="text--14pts text--gray1 text--600wt my-0" *ngIf="col.configCelda.tipo === 'number'">
+                        {{ obtenerValorRow(col.key, rowData) | emptyPipe }}
+                    </h4>
+                </div>
+
+            </ng-container>
+        </div>
+    </div>
+
+</ng-container>

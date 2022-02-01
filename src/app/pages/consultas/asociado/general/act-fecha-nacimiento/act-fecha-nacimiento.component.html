@@ -1,0 +1,538 @@
+<div class="row mx-0 w-100 align-items-center justify-content-between">
+  <!-- TÍTULO -->
+  <div class="col-md-8  pl-0">
+    <h1 class="my-0">Actualización fecha de nacimiento asociado</h1>
+  </div>
+  <!-- LLAMADO A LA ACCIÓN -->
+  <div class="col-md-3 pr-0 ">
+    <button class="btn btn--white btn--md text--green1 w-100" (click)="activePanelAgregarComentarios(true)">
+      <span class="icon-message-square mr-2 text--green1"></span>
+      <span class="text--green1">Agregar o ver comentarios</span>
+    </button>
+  </div>
+</div>
+<div class="card cards--panel_facturacion border-0 rounded mb-2 mt-4">
+  <form class="form--default w-100">
+    <div class="card-body px-0">
+      <div class="row mx-0 w-100 align-items-center">
+        <div class="col-xl-3">
+          <div class="form-group row align-items-center">
+            <label for="editarDatosAsoDireccion" class="col-sm-12 col-form-label">Fecha de nacimiento</label>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <input type="text" class="form-control" id="formBucarAsociadosID">
+                <div class="input-group-prepend date">
+                  <div class="input-group-text">
+                    <span class="icon-calendar"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3">
+          <div class="form-group row align-items-center">
+            <label for="editarDatosAsoDireccion" class="col-sm-12 col-form-label">Periodo inicial</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="editarDatosAsoDireccion">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3">
+          <div class="form-group">
+            <label for="editarDatosAsoCiudad" class="">Variación</label>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" id="editarDatosAsoCiudad" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="icon-chevron-down"></span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="editarDatosAsoCiudad">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3">
+          <button type="submit" class="btn btn--orange1 btn--lg w-100 mt-3">
+            <span class="icon-checkmark mr-2"></span>
+            Previsualizar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="card cards--table cards--table_facturacion mt-4 border-0">
+  <div class="card-header">
+    <div class="row mx-0 w-100 align-items-center justify-content-between">
+      <div class="col-xl-2">
+        <h5 class="text-left my-0 text-uppercase text--gray2 text--600wt">producto</h5>
+      </div>
+      <div class="col-xl-10 px-0">
+        <div class="row mx-0 w-100 align-items-center justify-content-between">
+          <div class="col">
+            <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Protección acumulada</h5>
+          </div>
+          <div class="col">
+            <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">cuota acumulada</h5>
+          </div>
+          <div class="col px-0">
+            <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">nueva prot.acumulada</h5>
+          </div>
+          <div class="col">
+            <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">nueva cuota acumulada</h5>
+          </div>
+          <div class="col pr-0">
+            <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">protección ajustada</h5>
+          </div>
+          <div class="col pr-0">
+            <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">cuota ajustada</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-0 ">
+    <!-- LISTADO -->
+    <div class="card cards--panel_facturacion border-0 rounded py-4 mb-2">
+      <div class="row mx-0 w-100 align-items-center justify-content-between">
+        <div class="col-xl-2">
+          <h5 class="my-0 text-left text--gray1 text--600wt">Plan 60 - Vida</h5>
+        </div>
+        <div class="col-xl-10 px-0">
+          <div class="row mx-0 w-100 align-items-center justify-content-between">
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$10.000.000</h5>
+            </div>
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$16.400</h5>
+            </div>
+            <div class="col px-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$14.748.983</h5>
+            </div>
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$33.135</h5>
+            </div>
+            <div class="col pr-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">0</h5>
+            </div>
+            <div class="col pr-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">0</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card cards--panel_facturacion border-0 rounded py-4 mb-2">
+      <div class="row mx-0 w-100 align-items-center justify-content-between">
+        <div class="col-xl-2">
+          <h5 class="my-0 text-left text--gray1 text--500wt">Plan 60 - Vida</h5>
+        </div>
+        <div class="col-xl-10 px-0">
+          <div class="row mx-0 w-100 align-items-center justify-content-between">
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$10.000.000</h5>
+            </div>
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$16.400</h5>
+            </div>
+            <div class="col px-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$14.748.983</h5>
+            </div>
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$33.135</h5>
+            </div>
+            <div class="col pr-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">0</h5>
+            </div>
+            <div class="col pr-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">0</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card cards--panel_facturacion border-0 rounded py-4 mb-2">
+      <div class="row mx-0 w-100 align-items-center justify-content-between">
+        <div class="col-xl-2">
+          <h5 class="my-0 text-left text--gray1 text--500wt">Plan 60 - Vida</h5>
+        </div>
+        <div class="col-xl-10 px-0">
+          <div class="row mx-0 w-100 align-items-center justify-content-between">
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$10.000.000</h5>
+            </div>
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$16.400</h5>
+            </div>
+            <div class="col px-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$14.748.983</h5>
+            </div>
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$33.135</h5>
+            </div>
+            <div class="col pr-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">0</h5>
+            </div>
+            <div class="col pr-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">0</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card cards--panel_facturacion border-0 rounded py-4 mb-2">
+      <div class="row mx-0 w-100 align-items-center justify-content-between">
+        <div class="col-xl-2">
+          <h5 class="my-0 text-left text--gray1 text--500wt">Plan 60 - Vida</h5>
+        </div>
+        <div class="col-xl-10 px-0">
+          <div class="row mx-0 w-100 align-items-center justify-content-between">
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$10.000.000</h5>
+            </div>
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$16.400</h5>
+            </div>
+            <div class="col px-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$14.748.983</h5>
+            </div>
+            <div class="col">
+              <h5 class="my-0 text-center text--gray1 text--500wt">$33.135</h5>
+            </div>
+            <div class="col pr-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">0</h5>
+            </div>
+            <div class="col pr-0">
+              <h5 class="my-0 text-center text--gray1 text--500wt">0</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PLANES ADICIONALES -->
+    <div class="col-md-12 mt-4 px-0">
+      <div class="row mx-0 w-100 mb-4 align-items-center">
+        <div class="col-12 pl-0">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-3 p-0">
+              <h5 class="badge--title my-0 badge badge-primary bg--green1 text-uppercase text--13pts p-2"> planes
+                adicionales </h5>
+            </div>
+            <div class="col-9 p-0">
+              <hr class="mt-4">
+            </div>
+          </div>
+        </div>
+        <div class="col-3 px-0"></div>
+      </div>
+    </div>
+    <div class="sidebar--tableScroll">
+      <div class="card cards--panel_facturacion border-0 rounded bg--transparent">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center justify-content-between">
+            <div class="col">
+              <h5 class="text-left my-0 text-uppercase text--gray2 text--600wt">aprobación</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">solicitud</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">protección</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">factor act.</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Cuota act.</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Nueva prot.</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Nuevo factor</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Nueva cuota</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Ingr/Incre</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body px-0 py-0">
+          <div class="card cards--panel_facturacion border-0 rounded py-4 mb-2">
+            <div class="row mx-0 w-100 align-items-center justify-content-between">
+              <div class="col">
+                <h5 class="my-0 text-left text--gray1 text--500wt">
+                  <span class="icon-calendar text--orange1 mr-1"></span>22/01/2002
+                </h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">22 años</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$9.171.968</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$2.47</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$22.655</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$10.251.131</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">2,21</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$22.655</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--600wt">Ingreso</h5>
+              </div>
+            </div>
+          </div>
+          <div class="card cards--panel_facturacion border-0 rounded py-4 mb-2">
+            <div class="row mx-0 w-100 align-items-center justify-content-between">
+              <div class="col">
+                <h5 class="my-0 text-left text--gray1 text--500wt">
+                  <span class="icon-calendar text--orange1 mr-1"></span>22/01/2002
+                </h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">22 años</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$9.171.968</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$2.47</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$22.655</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$10.251.131</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">2,21</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$22.655</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--600wt">Incremento</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- PLANES RENTA DIARIA DE VIDA  -->
+    <div class="col-md-12 mt-4 px-0">
+      <div class="row mx-0 w-100 mb-4 align-items-center">
+        <div class="col-12 pl-0">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-3 p-0">
+              <h5 class="badge--title my-0 badge badge-primary bg--green1 text-uppercase text--13pts p-2"> renta diaria
+                - plan 60 vida 1 </h5>
+            </div>
+            <div class="col-9 p-0">
+              <hr class="mt-4">
+            </div>
+          </div>
+        </div>
+        <div class="col-3 px-0"></div>
+      </div>
+    </div>
+    <div class="sidebar--tableScroll">
+      <div class="card cards--panel_facturacion border-0 rounded bg--transparent">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center justify-content-between">
+            <div class="col">
+              <h5 class="text-left my-0 text-uppercase text--gray2 text--600wt">aprobación</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">solicitud</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">protección</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">factor act.</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Cuota act.</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Nueva prot.</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Nuevo factor</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Nueva cuota</h5>
+            </div>
+            <div class="col">
+              <h5 class="text-center my-0 text-uppercase text--gray2 text--600wt">Ingr/Incre</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body px-0 py-0">
+          <div class="card cards--panel_facturacion border-0 rounded py-4 mb-2">
+            <div class="row mx-0 w-100 align-items-center justify-content-between">
+              <div class="col">
+                <h5 class="my-0 text-left text--gray1 text--500wt">
+                  <span class="icon-calendar text--orange1 mr-1"></span>22/01/2002
+                </h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">22 años</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$9.171.968</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$2.47</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$22.655</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$10.251.131</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">2,21</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$22.655</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--600wt">Ingreso</h5>
+              </div>
+            </div>
+          </div>
+          <div class="card cards--panel_facturacion border-0 rounded py-4 mb-2">
+            <div class="row mx-0 w-100 align-items-center justify-content-between">
+              <div class="col">
+                <h5 class="my-0 text-left text--gray1 text--500wt">
+                  <span class="icon-calendar text--orange1 mr-1"></span>22/01/2002
+                </h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">22 años</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$9.171.968</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$2.47</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$22.655</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$10.251.131</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">2,21</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--500wt">$22.655</h5>
+              </div>
+              <div class="col">
+                <h5 class="my-0 text-center text--gray1 text--600wt">Incremento</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card cards--footer border-0 rounded-0 ">
+  <div class="container">
+    <div class="card-body">
+      <div class="row mx-0 w-10 justify-content-end align-items-center">
+        <div class="col-xl-9 px-0">
+          <!-- AGREGA NUEVO -->
+          <div class="mx-0 w-100 row justify-content-end align-items-center">
+            <div class="col-3">
+              <a class="btn btn--white btn--lg w-100" href="#"
+                [routerLink]="['/pages','asociado','general-totales-actualizacion']">
+                <span class="icon-arrow-right mr-2 text--orange1"></span>
+                <span class="text--orange1">Ver totales</span>
+              </a>
+            </div>
+            <div class="col-3 pr-0">
+              <button type="submit" class="btn btn--orange1 btn--lg w-100">
+                <span class="icon-plus mr-2"></span>
+                Registrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PANEL -> AGREGAR COMENTARIO -->
+<div class="sidebar--slide sidebar--slide_right" [ngClass]="{'open':shownPanelAgregarComentarios == true}">
+  <div class="row mx-0 w-100 justify-content-end">
+    <div class="col-lg-4 px-0">
+      <div class="card cards--panel bg--white border-0 rounded-0">
+        <div class="card-header">
+          <div class="row mx-0 w-100 align-items-center">
+            <div class="col-lg-10">
+              <h1 class="text--500wt text--gray1 my-0">Agregar un comentario</h1>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn--circle btn--circle_green" (click)="activePanelAgregarComentarios(false)">
+                <span class="icon-cross mr-2"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form class="form--default w-100">
+          <div class="card-body">
+            <div class="row mx-0 w-100">
+              <div class="col-12">
+                <div class="form-group ">
+                  <label class="col-form-label" for="nuevoBeneAsoObservaciones">Observaciones</label>
+                  <textarea class="form-control" id="nuevoBeneAsoObservaciones" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn--circle btn--circle_three float-left px-0">
+                  <span class="icon-plus mr-2"></span>
+                  <span class="text--gray2 text--13pts text--600wt">Agregar nuevo comentario</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer  w-100 border-0 py-4 mt-5">
+            <div class="mx-0 w-100 row justify-content-end align-items-center">
+              <div class="col-8">
+                <button type="submit" class="btn btn--orange1 btn--lg w-100">
+                  <span class="icon-checkmark mr-2"></span>
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

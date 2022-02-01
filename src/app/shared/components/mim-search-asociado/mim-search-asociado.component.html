@@ -1,0 +1,53 @@
+<div class="collapse show" aria-labelledby="headingOne" data-parent="#accordionPanelLeft">
+  <div class="card-body ">
+    <form class="form--default form-height" [formGroup]="isForm" (keyup.enter)="onKeydown()"
+      *ngIf="isForm | async as isForm;">
+      <div class="row">
+        <div class="col-xl-3 col-md-4 form-group mb-0">
+          <label appMimLabel for="tipoId">
+            {{ 'asociadosVIP.grid.tipoId'| translate }}
+          </label>
+          <div class="input-group" appMimInput [for]="'tipoId'" [controlName]="'tipoId'">
+            <app-mim-select class="w-100" [inputId]="'tipoId'" [options]="tipos" formControlName="tipoId"
+              [optionKey]="'nombre'" ngDefaultControl></app-mim-select>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4 form-group mb-0">
+          <label appMimLabel for="formNumeroCedula">
+            {{ 'asociadosVIP.grid.numeroId' | translate }}
+          </label>
+          <div class="input-group" appMimInput [for]="'formNumeroCedula'" [controlName]="'formNumeroCedula'">
+            <input type="text" class="form-control " id="formNumeroCedula" name="formNumeroCedula"
+              formControlName="formNumeroCedula" mask="99999999999999999" [dropSpecialCharacters]="false" />
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-4 form-group mb-0">
+          <label appMimLabel for="formNombres">
+            {{ 'asociadosVIP.grid.nombres' | translate }}
+          </label>
+          <div class="input-group input-focus" appMimInput [for]="'formNombres'" [controlName]="'formNombres'">
+            <input type="text" class="form-control " id="formNombres" name="formNombres" formControlName="formNombres"
+              mask="a*" [patterns]="patterns" [dropSpecialCharacters]="false" />
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-3 form-group mb-0">
+          <label appMimLabel for="formEstado">
+            {{ 'asociadosVIP.grid.estado' | translate }}
+          </label>
+          <div class="input-group input-focus" appMimInput [for]="'formEstado'" [controlName]="'formEstado'">
+            <input type="text" class="form-control " id="formEstado" name="formEstado" formControlName="formEstado" />
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-3 form-group mb-0">
+          <label appMimLabel for="formRegional">
+            {{ 'asociadosVIP.grid.regional' | translate }}
+          </label>
+          <div class="input-group input-focus" appMimInput [for]="'formRegional'" [controlName]="'formRegional'">
+            <input type="text" class="form-control " id="formRegional" name="formRegional"
+              formControlName="formRegional" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
