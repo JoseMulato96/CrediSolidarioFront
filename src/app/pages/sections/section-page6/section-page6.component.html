@@ -1,0 +1,17 @@
+<div class=" ">
+    <div class="row card">
+        <div class="bar-title">Campos Adicionales</div>
+        <s-check class="col-6 col-sm-6" [skeleton]="FieldAuthorizationSave" #InputAuthorizationSave></s-check>
+        <s-check class="col-6 col-sm-6" [skeleton]="FieldAuthorizationCredit" #InputAuthorizationCredit></s-check>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldNameAndLastNameRef" #InputNameAndLastNameRef>
+        </s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldIdRef" (evtBlur)="onValidReferent()" #InputIdRef>
+        </s-input>
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldTypeCanal" #InputTypeCanal>
+        </s-autocomplete>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldChargeInterviewer" #InputChargeInterviewer></s-input>
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldOfficeInterviewer" #InputOfficeInterviewer></s-autocomplete>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldNameInterviewer" #InputNameInterviewer></s-input>
+        <!-- <s-check class="col-6 col-sm-6" [skeleton]="FieldTypeLoad" #InputTypeLoad></s-check> -->
+    </div>
+</div>

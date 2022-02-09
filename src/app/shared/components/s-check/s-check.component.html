@@ -1,0 +1,53 @@
+<form novalidate>
+  <fieldset>
+    <div class="form-group">
+      <label>
+        <i *ngIf="Skeleton.IsRequired" class="input-required-symbol">*</i>
+        <b>{{ Skeleton.Question }}</b
+        >{{ Skeleton.Label }}</label
+      >
+      <div class="form-group" class="style-line">
+        <div
+          *ngFor="let item of this.Skeleton.Items; let position = index"
+          [ngClass]="{ 'col-check': position % 2 == 0 }"
+        >
+          <input
+            *ngIf="this.Skeleton.Type != 'radio'"
+            [class]="this.Skeleton.Type"
+            [id]="GeneraIdByItem(item)"
+            [name]="GeneralNameGroup()"
+            [type]="this.Skeleton.Type"
+            [value]="_GetIsCheck()"
+            [(ngModel)]="_itemCheck"
+            [readonly]="Skeleton.ReadOnly ? 'readonly' : ''"
+            [disabled]="_Disable"
+          />
+
+          <input
+            *ngIf="this.Skeleton.Type == 'radio'"
+            [class]="this.Skeleton.Type"
+            [id]="GeneraId(item)"
+            [name]="GeneralNameGroup()"
+            [type]="this.Skeleton.Type"
+            [checked]="!!item._Select"
+            [readonly]="Skeleton.ReadOnly || item._Disable ? 'readonly' : ''"
+            [disabled]="_Disable || item._Disable"
+          />
+
+          <label
+            [class]="
+              this.Skeleton.Type == 'radio' ? 'radio-label' : 'check-label'
+            "
+            [for]="item.Id"
+            (click)="ChangeState(item)"
+          >
+          </label>
+          <label label [for]="item.Id" (click)="ChangeState(item)">
+            {{ item.Label }}
+          </label>
+        </div>
+        <div *ngIf="Skeleton.VisibleOptionNone"></div>
+      </div>
+    </div>
+  </fieldset>
+</form>

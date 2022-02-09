@@ -1,0 +1,39 @@
+.modal-content {
+  position: relative;
+  background: $card-bg;
+  border: none;
+  border-radius: 3px;
+  @include box-shadow(none);
+  max-height: 100% !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid $border-color;
+}
+
+.modal-footer {
+  border-top: 1px solid $border-color;
+}
+
+button.close {
+  outline: none;
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    top: 0;
+    @include transform(scale(0.95));
+  }
+  100% {
+    opacity: 1;
+    top: 50px;
+    @include transform(scale(1));
+  }
+}
+
+.modal-open {
+  .modal-content {
+    animation: modalFadeIn 0.5s both;
+  }
+}

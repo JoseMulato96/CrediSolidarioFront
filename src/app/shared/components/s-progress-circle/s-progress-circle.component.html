@@ -1,0 +1,6 @@
+<div class="s-progress-circle">
+  <div conteiner *ngFor="let item of Skeleton.Items; let i = index">
+    <div circule [ngClass]="(Skeleton.NumberProgress ==(i+1))? ' s-progress-circle-active ':''">{{i+1}}</div>
+    <div line *ngIf="i<(Skeleton.Items.length-1)"></div>
+  </div>
+</div>

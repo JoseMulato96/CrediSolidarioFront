@@ -1,0 +1,13 @@
+<div [hidden]="Skeleton.Hidden">
+  <button
+    [disabled]="Skeleton.Disable"
+    class="btn btn-icon btn-default"
+    (click)="OnClick()"
+  >
+    <i
+      [hidden]="!Skeleton.IconCss"
+      [ngClass]="'fa fa-' + (Skeleton.IconCss || '')"
+    ></i>
+    {{ Skeleton.Label }}
+  </button>
+</div>

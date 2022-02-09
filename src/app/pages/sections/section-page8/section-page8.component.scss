@@ -1,0 +1,20 @@
+.field-small {
+  display: block;
+  width: 345px;
+}
+
+.less-padding {
+  padding: 0px;
+}
+
+.less-padding>.style-line {
+  margin: 0px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .contaniner-hbox {
+    display: block;
+  }
+}

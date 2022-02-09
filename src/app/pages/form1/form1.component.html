@@ -1,0 +1,105 @@
+<div class="container-h">
+    <s-submenu class="s-submenu-el" [itemsmenu]="ItemsMenu"></s-submenu>
+    <div class="animated fadeIn sheet">
+        <div class="">
+            <!-- Cabecera -->
+            <div class="container-center">
+                <div class="container-heard">
+                    <div class="container-heard-title">
+                        <div class="title-center">
+                            <h4>Formulario de Vinculación Electrónico</h4>
+                        </div>
+                    </div>
+                    <div class="container-heard-right">
+                        <circle-progress [percent]="percent" [radius]="50" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300" [titleFontSize]="30"></circle-progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <!-- Cuerpo -->
+            <router-outlet (activate)="OnRouterOutletActivate($event)"></router-outlet>
+        </div>
+        <div class="">
+            <hr />
+            <!-- Pie de pagina -->
+            <div class="buttons-center">
+                <s-button class="button-normal button-bg-grey" [skeleton]="btnCancel" (s-click)="OnClickCancel($event)"></s-button>
+                <s-button class="button-normal" [skeleton]="btnPrev" (s-click)="OnClickPrev($event)"></s-button>
+                <s-button class="button-normal button-bg-red" [skeleton]="btnSave" (s-click)="OnClickSave($event)"></s-button>
+                <s-button class="button-normal" [skeleton]="btnFinsh" (s-click)="OnClickFinsh($event)"></s-button>
+                <!-- <s-button class="button-normal" [skeleton]="btnContinue" (click)="OnClickContinue($event)"></s-button> -->
+                <s-button class="button-normal" [skeleton]="btnNext" (s-click)="OnClickNext($event)"></s-button>
+                <s-button class="button-normal" [skeleton]="btnSkip" (s-click)="OnClickSkip($event)"></s-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<modal class="model-parent" aria-modal="true">
+    <modal-content class="model-horizontal">
+        <div style="display: grid; width: 100%">
+            <s-combobox [skeleton]="FieldSelecState" (EvtSelectItem)="OnSelectState($event)" #ComboboxState></s-combobox>
+            <s-area-text [skeleton]="FieldAreaText" #AreaTextObservation></s-area-text>
+        </div>
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-icon btn-default" (click)="ClickComfirm()">
+          Guardar
+        </button>
+    </modal-footer>
+</modal>
+
+
+<modal #modalConfirmEmail class="model-parent" aria-modal="true">
+    <modal-content class="model-horizontal">
+        <div style="display: grid; width: 100%">
+            <s-input [skeleton]="FieldNombre1Act" #InputNombre1Act></s-input>
+            <s-input [skeleton]="FieldNombre2Act" #InputNombre2Act></s-input>
+            <s-input [skeleton]="FieldApellido1Act" #InputApellido1Act></s-input>
+            <s-input [skeleton]="FieldApellido2Act" #InputApellido2Act></s-input>
+            <s-input [skeleton]="FieldCedulaAct" #InputCedulaAct></s-input>
+            <s-input [skeleton]="FieldCelularAct" #InputCelularlAct></s-input>
+            <s-input [skeleton]="FieldEmailAct" #InputEmailAct></s-input>
+            <!-- <s-input [skeleton]="FieldEmailConfirm" #InputEmailConfirm></s-input> -->
+        </div>
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-icon btn-default" (click)="ClickComfirmEmail()">
+          Confirmar
+        </button>
+    </modal-footer>
+</modal>
+
+<modal #modalListaSection class="model-parent" aria-modal="true">
+    <modal-content class="model-horizontal">
+        <div style="display: grid; width: 100%">
+            <h4>Atención es necesario completar las siguientes secciones:</h4>
+        </div>
+        <br/>
+        <br/>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th><span>Nombre Seccion</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let section of lstSections">
+                    <td>{{section.nombreSection}}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" (click)="redirijeSection(section.identificadorSection)" data-toggle="tooltip" data-placement="top" title="Este boton te redirije a esa seccion.">
+                            Ir A
+                          </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-icon btn-default" (click)="primeraSection()">
+            Confirmar
+          </button>
+    </modal-footer>
+</modal>

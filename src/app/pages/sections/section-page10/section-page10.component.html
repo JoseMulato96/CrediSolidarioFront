@@ -1,0 +1,23 @@
+<div class="">
+  <div class="row card">
+    <div class="bar-title">Información Personal</div>
+    <div class="col-6">
+      <s-check class="col-8 col-sm-6" [skeleton]="FieldCorporateIntroduction" #InputCorporateIntroduction></s-check>
+      <s-check class="col-8 col-sm-6" [skeleton]="FieldGroupFamily" #InputGroupFamily (ChangeState)="OnChangeGroupFamily($event)"></s-check>
+      
+      <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldTypeId" #InputTypeId></s-autocomplete>
+
+      <s-input class="col-8 col-sm-6" [skeleton]="FieldIdRelationship" #InputIdRelationship ></s-input>
+      <s-autocomplete class="col-12 col-sm-6" [skeleton]="FieldPulldownRelationship" #InputPulldownRelationship>
+      </s-autocomplete>
+
+
+      <s-autocomplete class="col-12 col-sm-6" [skeleton]="FieldSocialNetwork" #InputSocialNetwork>
+      </s-autocomplete>
+      <s-input class="col-12 col-sm-6" [skeleton]="FieldUserSocialNetwork" #InputUserSocialNetwork>
+      </s-input>
+      <s-area-text class="col-12 col-sm-12" [skeleton]="FieldObservation" #InputObservation></s-area-text>
+
+    </div>
+  </div>
+</div>

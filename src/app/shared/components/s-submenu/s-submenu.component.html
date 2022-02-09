@@ -1,0 +1,8 @@
+<nav class="s-submenu">
+  <ul>
+    <li [title]="item.Label" *ngFor="let item of _Items" (click)="OnClickLink(item)" [ngClass]="'btn btn-default '+ (item._active?'s-item-active':'')+(item.Disable? ' s-item-disable ': ' ')">
+      <i forIcon [ngClass]="'fas '+ item.IconCls "></i>
+      <div text>{{item.Label}}</div>
+    </li>
+  </ul>
+</nav>

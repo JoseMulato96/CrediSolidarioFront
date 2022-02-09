@@ -1,0 +1,53 @@
+<form novalidate class="s-autocomplete">
+  <fieldset>
+    <div
+      class="form-group"
+      [ngClass]="{ 's-autocomplete-display-disable': _Disable }"
+    >
+      <label>
+        <s-tooltip
+          *ngIf="Skeleton.Tooltip"
+          [skeleton]="Skeleton.Tooltip"
+        ></s-tooltip>
+        <i *ngIf="Skeleton.IsRequired" class="input-required-symbol">*</i>
+        {{ Skeleton.Label }}
+      </label>
+      <div class="s-autocomplete-flex">
+        <input
+          auto-complete
+          [ngModel]="Skeleton.Data"
+          [ngModelOptions]="{ standalone: true }"
+          [source]="Skeleton.ReadOnly ? [] : _Elements"
+          (blur)="OnBlur($event)"
+          [placeholder]="Skeleton.Placeholder || ''"
+          min-chars="_GetMinChars()"
+          no-match-found-text="-"
+          blank-option-text="-"
+          accept-user-input="{{ Skeleton.ReadOnly ? 'readonly' : '' }}"
+          [readOnly]="Skeleton.ReadOnly ? 'readonly' : ''"
+          display-property-name="Label"
+          class="form-control"
+          max-num-list="_LenItems()"
+          list-formatter="Label"
+          (ngModelChange)="OnTyping($event)"
+          [ngClass]="' ' + GetCssPrivate()"
+          select-value-of="_OnSelectValueOf($event)"
+          [disabled]="_Disable"
+        />
+        <input type="text" class="s-autocomplete-aux-hidden" />
+        <i
+          arrow
+          [ngClass]="_IsItemLoad ? ' s-autocomplete-arrow-hidden' : ''"
+          class="fas fa-caret-down"
+          (click)="OnClickIcon()"
+        ></i>
+        <i
+          arrow2
+          [ngClass]="!_IsItemLoad ? ' s-autocomplete-arrow-hidden' : ''"
+          class="fas fa-circle-notch fa-spin"
+        ></i>
+      </div>
+      <div class="input-required-text">{{ _PatternMessage }}<br /></div>
+    </div>
+  </fieldset>
+</form>

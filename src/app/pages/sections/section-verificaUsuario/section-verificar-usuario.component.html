@@ -1,0 +1,71 @@
+<div class="">
+    <span>{{ TitlePage }} </span>
+    <div class="row card">
+        <div class="bar-title">Verificar Usuario</div>
+        <div class="col-6">
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldTypeId" #InputTypeId></s-autocomplete>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNumberId" #InputNumberId></s-input>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldLastNames" #InputLastNames></s-input>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNames" #InputNames></s-input>
+
+
+            <s-datepicker class="col-8 col-sm-6" [skeleton]="FieldFechaExpedic" #InputFechaExpedicion></s-datepicker>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNumberCelular" #InputNumberCelular></s-input>
+
+            <!-- <s-check class="col-8 col-sm-6" [skeleton]="FieldOTP" #InputOTP>
+            </s-check> -->
+
+            <s-button class="col-8 col-sm-6" [skeleton]="btnValidar" (s-click)="OnClickValidaUsuario($event)"></s-button>
+
+        </div>
+    </div>
+
+</div>
+
+
+<modal class="model-parent" aria-modal="true" #modelOtp>
+    <modal-header> Metodo OTP </modal-header>
+    <modal-content class="model-horizontal">
+        <p>Por favor debes ingresar el código enviado a tu celular</p>
+        <div style="display: grid; width: 100%">
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNumberCelular" #InputNumberCelular></s-input>
+        </div>
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-icon btn-default" (click)="ClickCancelOTP(this)">
+        Cancelar
+      </button>
+        <button class="btn btn-icon btn-default" (click)="ClickReenviarOTP()">
+            Re-enviar
+          </button>
+        <button class="btn btn-icon btn-default" (click)="ClickComfirmOTP()">
+        Enviar a validar
+      </button>
+    </modal-footer>
+</modal>
+
+
+<modal class="model-parent" aria-modal="true" #modelCuestionario>
+    <modal-header> Metodo Cuestionario </modal-header>
+    <modal-content class="model-horizontal">
+        <p>No se pudo realizar la validacion por OTP, si deseas continuar con el proceso diligencia el cuestionario.</p>
+
+        <h3>Cuestionario</h3>
+        <p>En esta seccion debes responder las siguientes preguntas:</p>
+        <div style="display: grid; width: 100%">
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNumberCelular" #InputNumberCelular></s-input>
+        </div>
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-icon btn-default" (click)="ClickCancelCuestionario(this)">
+        Cancelar
+      </button>
+        <button class="btn btn-icon btn-default" (click)="ClickComfirmCuestionario()">
+        Enviar a validar
+      </button>
+    </modal-footer>
+</modal>

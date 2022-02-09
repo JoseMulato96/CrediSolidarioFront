@@ -1,0 +1,20 @@
+@import "../../theme/conf.scss";
+
+.s-button-icon {
+}
+
+.s-button-icon button {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  padding: 0px;
+  background-color: transparent;
+}
+
+.s-button-icon button i {
+  font-size: 30px;
+  color: $coomeva_green;
+}
+.s-button-icon button span {
+  color: $coomeva_green;
+}

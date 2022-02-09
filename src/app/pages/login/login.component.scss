@@ -1,0 +1,173 @@
+@import "../../shared/theme/conf";
+
+.bg-coomeva {
+  background-image: url($path_coomeva+"/assets/images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg-coomeva-login-right {
+  background-color: transparent;
+  margin: auto;
+  width: 390px;
+  height: 150px;
+}
+
+.login-card {
+  display: grid;
+  display: -ms-grid;
+  position: relative;
+  background: transparent;
+  border: 0px;
+  width: 500px;
+  top: 25%;
+
+  .form-control {
+    border-radius: 0px;
+    border: 1px solid black;
+    background-color: white !important;
+  }
+
+  .container-mobil {
+    display: none;
+  }
+
+  .conteiner-h {
+    display: flex;
+  }
+
+  .login-img-mobil {
+    background-image: url($path_coomeva+"/assets/images/logo.png") !important;
+  }
+
+  .login-img {
+    width: 200px;
+    height: 150px;
+    margin: 22px 1px 0px 0px;
+    background-image: url($path_coomeva+"/assets/images/logotipo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .form-group {
+    padding: 0;
+    width: 250px;
+  }
+
+  .form-label {
+    display: block;
+    color: $fonts-color;
+    padding: 0px;
+    float: right;
+    text-align: right;
+  }
+
+  span.form-label {
+    color: lighten($fonts-color, 30%);
+  }
+
+  .input-group {
+    padding: 0;
+    margin: 25px 0;
+  }
+
+  .form-control {
+    background: transparent;
+    color: $fonts-color;
+  }
+
+  .input-group-addon {
+    background: transparent;
+    border: none;
+    font-size: $lg-text;
+    color: lighten($fonts-color, 20%);
+  }
+
+  .btn {
+    width: 170px;
+    float: right;
+  }
+
+  .btn-link {
+    margin: 10px 0;
+    color: lighten($fonts-color, 30%);
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 991.98px) {
+  .bg-coomeva {
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 519px) {
+  .login-card {
+    width: 90%;
+    margin: 5px;
+  }
+
+  .form-label {
+    display: none !important;
+  }
+
+  .login-card .conteiner-h {
+    display: block;
+  }
+
+  .login-img-mobil {
+    display: inherit !important;
+    width: 55px;
+    height: 55px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 10px;
+  }
+
+  .login-img {
+    display: none;
+  }
+
+  .container-mobil {
+    display: block !important;
+    display: flex !important;
+  }
+}
+
+.button-normal-circle,
+.button-normal-circle:hover .button-normal-circle:focus {
+  text-align: center;
+  background-color: $button-bg;
+  background: $button-bg;
+  color: white;
+  height: 33px;
+  min-width: 87px;
+  margin: 2px;
+  border-radius: 30px;
+}
+
+.input-login,
+.input-login:hover {
+  border-radius: 30px;
+}
+
+.recaptcha-login {
+  margin: -50px;
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: 2px;
+}
+
+.recaptcha-container {
+  margin-top: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+  .recaptcha-login {
+    margin: 0px;
+  }
+}

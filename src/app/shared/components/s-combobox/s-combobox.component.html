@@ -1,0 +1,42 @@
+<form novalidate class="s-combobox">
+  <fieldset>
+    <div class="form-group">
+      <label>
+        <i *ngIf="Skeleton.IsRequired" class="input-required-symbol">*</i>
+        {{ Skeleton.Label }}
+      </label>
+      <div class="s-combobox-flex">
+        <select
+          [(ngModel)]="_Value"
+          [ngModelOptions]="{ standalone: true }"
+          (blur)="OnBlur($event)"
+          class="form-control fas fa-caret-down"
+          [ngClass]="' ' + GetCssPrivate()"
+          (change)="_OnChangeSelectItem($event.target.value)"
+        >
+          <option class="s-combobox-row" value="-1">-</option>
+          <option
+            *ngFor="let item of _Elements; index as i"
+            [value]="i"
+            [ngClass]="'s-combobox-row'"
+            >{{ item.Label }}</option
+          >
+        </select>
+        <!--
+          <i
+            arrow
+            [ngClass]="_IsItemLoad ? ' s-combobox-arrow-hidden' : ''"
+            class="fas fa-caret-down"
+            (click)="OnClickIcon()"
+          ></i>
+        -->
+        <i
+          arrow2
+          [ngClass]="!_IsItemLoad ? ' s-combobox-arrow-hidden' : ''"
+          class="fas fa-circle-notch fa-spin"
+        ></i>
+      </div>
+      <div class="input-required-text">{{ _PatternMessage }}<br /></div>
+    </div>
+  </fieldset>
+</form>

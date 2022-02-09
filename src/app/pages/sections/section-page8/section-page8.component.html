@@ -1,0 +1,34 @@
+<div class="">
+    <div class="row card">
+        <div class="bar-title">Declaración De Salud</div>
+        <div class="col-6">
+            <div class="col-12 col-sm-12">
+                <s-input class="field-small col-1" [skeleton]="FieldNameEPS" #InputNameEPS></s-input>
+            </div>
+            <div class="contaniner-hbox col-12 col-sm-12">
+                <s-input class="col-1" [skeleton]="FieldHeight" #InputHeight></s-input>
+                <s-input class="col-1" [skeleton]="FieldWeight" #InputWeight></s-input>
+            </div>
+            <s-check (ChangeState)="_OnChamgeState()" class="col-12 col-sm-12" [skeleton]="FieldDisease" #InputDisease>
+            </s-check>
+            <s-check (ChangeState)="_OnChamgeState()" class="col-12 col-sm-12" [skeleton]="FieldDiseaseSurgery" #InputDiseaseSurgery></s-check>
+            <s-check (ChangeState)="_OnChamgeState()" class="col-12 col-sm-12" [skeleton]="FieldPregnancy" #InputPregnancy>
+            </s-check>
+            <s-check (ChangeState)="_OnChamgeState()" class="col-12 col-sm-12" [skeleton]="FieldAbortion" #InputAbortion>
+            </s-check>
+            <s-area-text class="col-12 col-sm-12" [skeleton]="FieldDiagnostico" #InputDiagnostico></s-area-text>
+            <!-- <div class="col-4 col-sm-4"> -->
+            <s-datepicker class="col-4 col-sm-4" [skeleton]="FieldDateDiagnostico" #InputDateDiagnostico></s-datepicker>
+            <!-- </div> -->
+            <s-area-text class="col-12 col-sm-12" [skeleton]="FieldAftermath" #InputAftermath></s-area-text>
+            <div class="contaniner-hbox less-padding col-12 col-sm-12 ">
+                <s-check class="col-3 col-sm-3" [skeleton]="FieldSmokes" #InputSmokes (ChangeState)="_OnChamgeSmokes()">
+                </s-check>
+                <s-check class="col-4 col-sm-4" [skeleton]="FieldSmokesTime" #InputSmokesTime></s-check>
+                <s-input class="col-2 col-sm-2" [skeleton]="FieldSmokesHowMuch" #InputSmokesHowMuch></s-input>
+                <s-input class="col-2 col-sm-2" [skeleton]="FieldSinceWhen" #InputSinceWhen></s-input>
+            </div>
+            <s-check class="col-12 col-sm-12" [skeleton]="FieldAlcoholic" #InputAlcoholic></s-check>
+        </div>
+    </div>
+</div>

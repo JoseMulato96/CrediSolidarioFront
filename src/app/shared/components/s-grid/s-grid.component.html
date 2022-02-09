@@ -1,0 +1,87 @@
+<div class="s-grid-pages">
+  <table class="table-responsive row-border hover table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let column of Skeleton.Columns">{{ column.Label }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let value of Skeleton.Data; let position = index"
+        class="s-grid-div-column"
+      >
+        <td *ngFor="let column of Skeleton.Columns">
+          {{ _FormatterValue(value, column, position) }}
+          <div
+            class="s-grid-container-action"
+            [hidden]="column.Buttons && !column.Buttons.length"
+          >
+            <button
+              *ngFor="let btn of column.Buttons"
+              class="btn s-grid-btn-action"
+              [ngClass]="_CheckValid(value, btn) ? ' s-grid-btn-hidden ' : ''"
+              (click)="_OnClickBtnColumn(value, column, btn, position)"
+              [disabled]="_CheckValid(value, btn) ? 'disable' : ''"
+              [title]="btn.Title || ''"
+            >
+              <i
+                *ngIf="!_CheckValid(value, btn)"
+                [ngClass]="_CheckValid(value, btn) ? ' s-grid-btn-hidden ' : ''"
+                class="{{btn.IconCss}}"
+              ></i>
+            </button>
+            <input
+              *ngIf="column.IsCheckboxs"
+              type="checkbox"
+              (change)="_OnSelectRow($event, value, position)"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th *ngFor="let column of Skeleton.Columns; let pos = index">
+          {{ _IsApplicationFunction(column, pos) }}
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="s-grid-toolbox">
+    <select
+      (change)="_OnSelectPageSize($event.target.value)"
+      *ngIf="Skeleton.PageConfig.IsPages"
+    >
+      <option
+        class="form-control"
+        [value]="numb"
+        *ngFor="let numb of _ListPageSize"
+        >{{ numb }}</option
+      >
+    </select>
+
+    <ul style="visibility: hidden;">
+      <li
+        *ngFor="
+          let item of (_ItemsPages
+            | paginate
+              : {
+                  itemsPerPage: 1,
+                  currentPage: Skeleton.PageConfig.PageCurrent
+                })
+        "
+      >
+        {{ item }}
+      </li>
+    </ul>
+    <pagination-controls
+      class="s-grid-toolbox-pagination"
+      (pageChange)="p = $event && _OnSelectPage($event)"
+    ></pagination-controls>
+    <div class="s-grid-toolbox-button" *ngIf="this.Skeleton.IsExportExcel">
+      <button (click)="ExportFileExcel()">
+        <i class="fas fa-file-excel"></i>
+      </button>
+      Exportar
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="">
+  <div class="row card section-upload-files">
+    <div class="container section-upload-cn">
+      <!-- start bottones -->
+      <div class="section-upload-files-taps">
+        <button tap class="btn" [ngClass]="_toggleOption == 2 ? ' section-upload-files-active ' : ' '" (click)="_OnClickOptionDigital()"
+          [disabled]="_OnlyReadView || _toggleOption == 1">
+          <i class="fas fa-upload"></i> Adjuntar Archivos
+        </button>
+        <button tap class="btn" [ngClass]="_toggleOption == 1 ? ' section-upload-files-active ' : ' '" (click)="_OnClickOptionAbjuntar()"
+          [disabled]="_toggleOption == 2">
+          <i class="fas fa-camera"></i> Digitalizar Archivos
+        </button>
+      </div>
+      <!-- fin botones -->
+
+      <div [hidden]="_toggleOption == 1" [ngClass]="{ 'section-upload-files-card': _toggleOption != 1 }">
+        <br />
+        <div>
+          <s-attachement class="col-12 col-sm-12" style="padding: 0px" [skeleton]="FieldDocument" (EvtSelectFile)="OnSelectFileDocument($event)"
+            #InputDocument></s-attachement>
+          <s-attachement class="col-12 col-sm-12" style="padding: 0px" [skeleton]="FieldSoportIngress" (EvtSelectFile)="OnSelectFileSoportIngress($event)"
+            #InputSoportIngress></s-attachement>
+        </div>
+        <div class="col-12 col-sm-12" style="padding: 0px; margin: 0px">
+          <s-attachement [skeleton]="FieldSoportStudy" (EvtSelectFile)="OnSelectFileSoportStudy($event)"
+            #InputSoportStudy></s-attachement>
+        </div>
+        <div class="col-12 col-sm-12">
+          <br />
+          <s-button class="align-self-center section-upload-files-center" [skeleton]="BtnSee" (s-click)="OnSeeFilesDownload()"
+            style="margin-top: 10px;"></s-button>
+        </div>
+      </div>
+
+      <div [hidden]="_toggleOption == 2" [ngClass]="{ 'section-upload-files-card': _toggleOption != 2 }">
+        <br />
+        <div class="section-upload-files-docuware-container  " [ngClass]="{ 'section-btn-disable': _OnlyReadView }">
+          <s-input class="section-upload-files-docuware" [skeleton]="FieldDocumentKey" #InputDocumentKey></s-input>
+          <button class="btn section-upload-files-copy" (click)="CopyToClir()" [disabled]="_OnlyReadView">
+            <i class="far fa-copy"></i> Copiar
+          </button>
+        </div>
+        <ol class="">
+          <li [ngClass]="{ 'section-text-disable': _OnlyReadView }">
+            Ingresa a Docuware Mobil.
+          </li>
+          <li [ngClass]="{ 'section-text-disable': _OnlyReadView }">
+            Ingresa a Docuware Key.
+          </li>
+          <li [ngClass]="{ 'section-text-disable': _OnlyReadView }">
+            Ejecuta el escaneo de los documentos.
+          </li>
+          <li>
+            Valida que se han cargado adecuadamente los documentos por medio de
+            la siguiente opción:
+          </li>
+        </ol>
+        <br />
+        <div class="">
+          <br />
+          <s-button class="col align-self-center section-upload-files-center" [skeleton]="BtnSee" (s-click)="OnSeeFilesDownload()"></s-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

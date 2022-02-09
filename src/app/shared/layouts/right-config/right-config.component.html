@@ -1,0 +1,19 @@
+<button class="config-switch" (click)="configToggle()">
+  <i class="fa fa-tasks" *ngIf="!isConfigToggle"></i>
+  <i class="fa fa-chevron-right" *ngIf="isConfigToggle"></i>
+</button>
+<div class="right-config-wrap menu-by-mobil" [ngClass]="{ 'right-config-wrap-on': isConfigToggle }">
+  <div class="config-header ">
+    <h3 class="config-title">
+      <i class="fas fa-bars"></i> <span>{{ userName }}</span>
+    </h3>
+
+  </div>
+  <div class="config-content">
+    <div class="config-list">
+      <s-button [skeleton]="btnExit" (click)="OnExitSeccion()"></s-button>
+
+    </div>
+  </div>
+  <div class="version">version 1.0.7</div>
+</div>

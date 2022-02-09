@@ -1,0 +1,91 @@
+@import "../../theme/conf";
+.s-address-body {
+  display: flex;
+}
+
+.s-address-body input:first-child {
+  width: 40%;
+  margin-right: 3px;
+}
+
+.s-address-body input:read-only {
+  margin-right: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.model-parent .modal-dialog {
+  // width: 98%;
+}
+
+.model-parent .modal-content {
+  border: #000000 solid 1px;
+  z-index: 190909;
+}
+
+.model-parent .modal-backdrop {
+  position: fixed;
+}
+
+.model-horizontal {
+  display: flex;
+}
+
+.modal-backdrop {
+  z-index: -1;
+}
+
+.model-parent button {
+}
+
+.btn-circle,
+.btn-circle:active,
+.btn-circle:focus,
+.btn-circle:checked,
+.btn-circle:hover {
+  float: left;
+  border-radius: 100%;
+  max-width: 33px;
+  min-width: 33px;
+  max-height: 33px;
+  min-height: 33px;
+  width: 33px;
+  height: 33px;
+  background-color: $coomeva_green;
+  background: $coomeva_green;
+  color: white;
+}
+
+.label-left {
+  float: left;
+  padding: 7px;
+}
+
+.address-hidden-fields {
+  visibility: hidden;
+  opacity: 0;
+  height: 0px;
+}
+
+ng2-auto-complete {
+  text-transform: uppercase;
+}
+
+.body-address {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .body-address {
+    width: 100%;display: block;
+  }
+
+  .container-address{
+    display: block;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  .modal-body{
+    height: 70vh;
+  }
+}

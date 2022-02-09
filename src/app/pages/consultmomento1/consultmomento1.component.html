@@ -1,0 +1,65 @@
+<div class="container animated fadeIn sheet">
+    <div class="row card align-items-center ">
+        <div class="bar-title">Filtro de búsqueda Solicitud Fuerza Comercial</div>
+        <div class="col-6 col-sm-4">
+            <s-input [skeleton]="FilterNamesAndLastName" #InputNamesAndLastName></s-input>
+            <s-datepicker [skeleton]="FilterDateStartQuery" #InputDateStartQuery></s-datepicker>
+        </div>
+        <div class="col-6 col-sm-4">
+            <s-input [skeleton]="FilterNumberId" #InputNumberId></s-input>
+            <s-datepicker [skeleton]="FilterDateEndQuery" #InputDateEndQuery></s-datepicker>
+        </div>
+        <div class="col-6 col-sm-4">
+            <s-autocomplete [skeleton]="FilterState" #InputState></s-autocomplete>
+            <div class="consult1-btn-search">
+                <s-button class="btn-search" [skeleton]="ButtonFilter" (click)="OnClickFilterSearch($event)"></s-button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row card align-items-center " style="overflow-x:auto;">
+        <br />
+        <s-grid [skeleton]="FilterGrid" (btnaction)="OnActionBtn($event)" (EvtSelectPage)="OnSelectPage($event)" (SelectPageSize)="OnSelectPageSize($event)" #GridConsulMoment1></s-grid>
+    </div>
+</div>
+
+<modal class="model-parent" aria-modal="true" #modelObservation>
+    <modal-header> Observaciones de la incosistencia </modal-header>
+    <modal-content class="model-horizontal">
+        <div style="display: grid; width: 100%">
+            <s-area-text [skeleton]="FieldObservation" #AreaTextObservation></s-area-text>
+        </div>
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-icon btn-default" (EvtSelectPage)="OnSelectPage($event)" (click)="ClickAcept()">
+      Aceptar
+    </button>
+    </modal-footer>
+</modal>
+
+<modal class="model-parent" aria-modal="true" #modelFileupdate>
+    <modal-header> Adjuntar Archivos </modal-header>
+    <modal-content class="model-horizontal" style="display: grid;">
+        <s-attachement class="col-12 col-sm-12" style="padding: 0px" [skeleton]="FieldDocument" #InputDocument (EvtSelectFile)="OnSelectFileDocument($event)" #InputDocument></s-attachement>
+        <s-attachement class="col-12 col-sm-12" style="padding: 0px" [skeleton]="FieldSoportIngress" #InputSoportIngress (EvtSelectFile)="OnSelectFileSoportIngress($event)" #InputDocument></s-attachement>
+        <s-attachement class="col-12 col-sm-12" style="padding: 0px" [skeleton]="FieldSoportStudy" #InputSoportStudy (EvtSelectFile)="OnSelectFileSoportStudy($event)" #InputDocument></s-attachement>
+        <s-attachement class="col-12 col-sm-12" style="padding: 0px" [skeleton]="FieldVinculacion" #InputVinculacion (EvtSelectFile)="OnSelectFileViculacion($event)" #InputDocument></s-attachement>
+        <s-attachement class="col-12 col-sm-12" style="padding: 0px" [skeleton]="FieldOtherDocument" #InputOtherDocument (EvtSelectFile)="OnSelectFileOtherDocument($event)" #InputDocument></s-attachement>
+        <!-- <s-attachement
+      class="col-12 col-sm-12"
+      style="padding: 0px"
+      [skeleton]="FieldAccount"
+      #InputAccount
+      (EvtSelectFile)="OnSelectFileAccount($event)"
+      #InputDocument
+    ></s-attachement> -->
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-icon btn-default btn-cancel" (click)="OnClickUploadCancel()">
+      Cancelar
+    </button>
+        <button class="btn btn-icon btn-default" (click)="OnClickUpload()">
+      Subir
+    </button>
+    </modal-footer>
+</modal>

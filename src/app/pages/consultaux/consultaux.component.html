@@ -1,0 +1,46 @@
+<div class="container card card-block animated fadeIn sheet">
+    <div class="row card align-items-center ">
+        <div class="bar-title">Filtro de búsqueda Gestión de Incidentes</div>
+        <div class="col-4 col-sm-4">
+            <s-input [skeleton]="FilterNumberId" #InputIdFuerza></s-input>
+            <s-autocomplete [skeleton]="FilterCity" #InputCity></s-autocomplete>
+            <s-input [skeleton]="FilterIdProspect" #InputProspect></s-input>
+        </div>
+        <div class="col-4 col-sm-4">
+            <s-autocomplete [skeleton]="FilterZona" #InputZona></s-autocomplete>
+            <s-autocomplete [skeleton]="FilterRegional" #InputRegional></s-autocomplete>
+            <s-autocomplete [skeleton]="FilterState" #InputState></s-autocomplete>
+        </div>
+        <div class="col-4 col-sm-4">
+            <s-datepicker [skeleton]="FilterDateStartQuery" #InputDateStartQuery></s-datepicker>
+            <s-datepicker [skeleton]="FilterDateEndQuery" #InputDateEndQuery></s-datepicker>
+        </div>
+        <div class="col-6 col-sm-4">
+            <s-button class="btn-search" [skeleton]="ButtonFilter" (click)="OnClickFilter($event)"></s-button>
+        </div>
+    </div>
+
+    <div class="row card align-items-center " style="overflow-x:auto;">
+        <br />
+
+        <s-grid [skeleton]="FilterGrid" #GridConsulMoment2 (btnaction)="OnActionBtn($event)" (EvtSelectPage)="OnSelectPage($event)" (SelectPageSize)="OnSelectPageSize($event)"></s-grid>
+    </div>
+</div>
+
+<modal class="model-parent" aria-modal="true">
+    <modal-header> Enviar a Incosistencia </modal-header>
+    <modal-content class="model-horizontal">
+        <div style="display: grid; width: 100%">
+            <p>
+                Por favor indique el motivo por el cuál desea reportar esta solicitud como una incosistencia:
+            </p>
+            <br />
+            <s-area-text [skeleton]="FieldObservation" #AreaTextObservation></s-area-text>
+        </div>
+    </modal-content>
+    <modal-footer>
+        <button class="btn btn-icon btn-default" (click)="ClickComfirm()">
+      Aceptar
+    </button>
+    </modal-footer>
+</modal>

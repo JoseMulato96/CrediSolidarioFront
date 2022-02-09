@@ -1,0 +1,42 @@
+@import "../../theme/conf";
+
+.owl-dt-calendar-cell-content {
+  font-size: 12px !important;
+}
+
+.owl-dt-calendar-table .owl-dt-calendar-cell-disabled>.owl-dt-calendar-cell-content:not(.owl-dt-calendar-cell-selected){
+  color: transparent!important;
+}
+
+
+.datepicker-container {
+  display: flex;
+  padding: 0px;
+  border: 0px;
+}
+
+.datepicker-container input {
+  height: 32px;
+  width: 100%;
+  margin: 0;
+  border: 0px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: white;padding: 0px 0px 0px 5px;
+}
+
+.datepicker-container i{
+  z-index: 0;
+    width: 25px;
+    height: 35px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px 0px 0px 0px;
+    display: table;
+    margin: 0px 0px 0px -26px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    float: right;
+    right: 25px;
+}

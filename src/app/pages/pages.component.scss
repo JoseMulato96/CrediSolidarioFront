@@ -1,0 +1,43 @@
+@import "../shared/theme/conf";
+.pages-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: $body-bg;
+}
+
+.pages-body {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    overflow-x: hidden;
+    .pages-content {
+        // display: flex;
+        padding: 15px;
+        flex: 1;
+        background: transparent;
+        border-left: 1px solid $border-color;
+        border-top: 1px solid $border-color;
+        color: $fonts-color;
+        overflow-x: hidden;
+    }
+}
+
+.pages-content app-form1 {}
+
+.pages-content app-consult1,
+.pages-content app-consult2,
+.pages-content app-assign {
+    margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .pages-body {
+        .pages-content {
+            padding: 0px
+        }
+    }
+}

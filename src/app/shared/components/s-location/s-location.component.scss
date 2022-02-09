@@ -1,0 +1,34 @@
+.s-location {
+  padding: 0px;
+}
+
+.s-location s-autocomplete {
+  width: 100%;
+}
+
+.s-location label {
+  font-weight: normal;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.s-location s-autocomplete label {
+  display: none;
+}
+
+.s-location s-autocomplete .form-group {
+  margin-bottom: 0px;
+}
+
+.input-required-text {
+  color: #f44336;
+  font-size: 12px;
+  min-height: 12px;
+  padding-left: 20px;
+}
+
+.s-location-fields {
+  display: flex;
+}

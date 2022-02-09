@@ -1,0 +1,27 @@
+<div class=" ">
+    <div class="row card">
+        <div class="bar-title">Contribución Mensual A Fondos</div>
+        <div class="col-12 col-sm-12">
+            <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldLinkeCoomeva" (evttyping)="GetValueMin($event)" #InputLinkeCoomeva></s-autocomplete>
+            <s-input class="col-6 col-sm-6" [skeleton]="FieldContributionsPercentage" #InputContributionsPercentage></s-input>
+
+            <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldTypeId" #InputTypeId></s-autocomplete>
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNumberId" #InputNumberId></s-input>
+            <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldIdRelationship" #InputIdRelationship>
+            </s-autocomplete>
+            <s-check class="col-6 col-sm-6" [skeleton]="FieldFechaCorte" #InputFechaCorte>
+            </s-check>
+
+
+        </div>
+        <s-check class="col-8 col-sm-6" [skeleton]="FieldResignationFuneral" (ChangeState)="OnResignationFuneral($event)" #InputResignationFuneral></s-check>
+        <s-check class="col-12 col-sm-12" [skeleton]="FieldPlane" #InputPlane>
+        </s-check>
+        <div class="col-8 col-sm-6">
+            <s-input [skeleton]="FieldPlaneBasicSpecial" #InputPlaneBasicSpecial></s-input>
+            <s-input [skeleton]="FieldValueProtetion" #InputValueProtetion></s-input>
+            <s-input [skeleton]="FieldPerseverance" #InputPerseverance></s-input>
+            <s-input [skeleton]="FieldTemporaryDisability" #InputTemporaryDisability></s-input>
+        </div>
+    </div>
+</div>

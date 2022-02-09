@@ -1,0 +1,38 @@
+<div class="bg-coomeva">
+  <div class="bg-coomeva-login-right">
+    <div class="card card-block login-card">
+      <div class="container-mobil">
+        <div class="login-img-mobil"></div>
+        <h3>Gestión de Prospectos</h3>
+      </div>
+      <div class="conteiner-h">
+        <div class="login-img"></div>
+        <div class="form-group">
+          <div class="">
+            <h3 class="form-label">Gestión de Prospectos</h3>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon addon-left" id="username">
+              <i class="fas fa-user fa-fw"></i>
+            </span>
+            <input class="form-control input-login " [(ngModel)]="login.username" placeholder="Usuario" type="text" />
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon addon-left" id="password">
+              <i class="fas fa-unlock-alt fa-fw"></i>
+            </span>
+            <input class="form-control input-login " [(ngModel)]="login.password" placeholder="Clave" type="password" />
+          </div>
+
+          <button class=" btn btn-icon btn-defaulty button-normal-circle" (click)="OnClickEntry()">
+            Ingresar
+          </button>
+
+          <div class="recaptcha-container">
+            <div id="g-recaptcha"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

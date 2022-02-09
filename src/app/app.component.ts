@@ -1,44 +1,41 @@
-import { registerLocaleData } from '@angular/common';
-import locale_esCO from '@angular/common/locales/es-CO';
-import { Component, ɵLocaleDataIndex } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertService, AuthenticationService } from '@core/services';
-import { TranslateService } from '@ngx-translate/core';
-import { UrlRoute } from '@shared/static/urls/url-route';
-import { ConnectionService } from 'ng-connection-service';
-
+import { HttpClient } from "@angular/common/http";
+import { Component } from "@angular/core";
+import { NavigationStart, Router } from "@angular/router";
+import { AddressesUrlParams } from "./parameters/addresses-url-params";
+import { MainStore } from "./store/main-store";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: "app-root",
+  templateUrl: "app.component.html"
 })
 export class AppComponent {
-  constructor(
-    private readonly translate: TranslateService,
-    private readonly alertService: AlertService,
-    private readonly authenticationService: AuthenticationService,
-    private readonly router: Router,
-    private readonly connectionService: ConnectionService
-  ) {
-    translate.setDefaultLang('es');
-    registerLocaleData(locale_esCO);
+  constructor(private route: Router, http: HttpClient) {
+    MainStore.db.SetHttpClient(http);
+    this.SubscribeRouter();
+  }
 
-    // Actualmente el CurrencyPipe de Angular no soporta configurar un LOCALE por defecto.
-    // Como solucion se sobre escribe el simbolo USD pot $.
-    // Ver https://github.com/angular/angular/issues/25461
-    const currencySymbols = locale_esCO[ɵLocaleDataIndex.Currencies];
-    currencySymbols['USD'] = ['$', '$'];
-    registerLocaleData(locale_esCO, 'en');
-
-    this.connectionService.monitor().subscribe(isConnected => {
-      if (!isConnected) {
-        this.translate.get('global.noInternet').subscribe(text => {
-          this.alertService.info(text).then(confirm => {
-            this.authenticationService.logout();
-            this.router.navigate([UrlRoute.LOGIN]);
-          });
-        });
+  /**
+   * @author Jorge Luis Caviedes Alvarador
+   * @description Escucha el cambion de url y lo envia por el vijilante de URL
+   */
+  SubscribeRouter() {
+    this.route.events.subscribe(val => {
+      if (val instanceof NavigationStart) {
+        this.WatcherUrl(val.url.slice(1));
       }
     });
+  }
+
+  /**
+   * @author Jorge Luis Caviedes Alvarador
+   * @description Vigila que el usuario no fuerce el ingreso por la ruta URL
+   * @param url URL string
+   */
+  WatcherUrl(url: string): any {
+    if(!url.includes(AddressesUrlParams.AUTO_LOGIN)){
+      if (url != AddressesUrlParams.LOGIN && !MainStore.db.GetUser().name) {
+        this.route.navigateByUrl(AddressesUrlParams.LOGIN);
+      }
+    }
   }
 }

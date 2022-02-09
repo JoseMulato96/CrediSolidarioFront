@@ -1,0 +1,21 @@
+<div class="">
+    <div class="row card">
+        <div class="bar-title">Información Adicional</div>
+        <div class="col-6">
+            <div class="contaniner-hbox col-8 col-sm-6 contaniner-mobil">
+                <label class="field-small-require">
+          <span>*</span> No. de personas a cargo
+        </label>
+                <s-input class="col-1 field-small" [skeleton]="FieldDependentsChildren" #InputDependentsChildren></s-input>
+                <s-input class="col-1 field-small" [skeleton]="FieldDependentsOld" #InputDependentsOld></s-input>
+            </div>
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldLevelAcademin" #InputLevelAcademin></s-autocomplete>
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldDegree" #InputDegree></s-autocomplete>
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldNameInstitute" #InputNameInstitute></s-autocomplete>
+            <div class="contaniner-hbox  col-8 col-sm-6">
+                <s-datepicker class="col-1 field-date-degree" [skeleton]="FieldDateDegree" #InputDateDegree (changeValue)="onChangeValue($event)"></s-datepicker>
+                <s-check class="col-1" [skeleton]="FieldCurrent" #InputCurrent></s-check>
+            </div>
+        </div>
+    </div>
+</div>

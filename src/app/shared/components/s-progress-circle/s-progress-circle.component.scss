@@ -1,0 +1,28 @@
+@import "../../theme/conf";
+.s-progress-circle,
+.s-progress-circle div[conteiner] {
+  display: flex;
+}
+
+.s-progress-circle div[circule] {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 2px;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  display: grid;
+}
+
+.s-progress-circle-active {
+  background-color: $coomeva-green !important;
+}
+
+.s-progress-circle div[line] {
+  width: 15px;
+  border-bottom: solid 2px;
+  height: 21px;
+}

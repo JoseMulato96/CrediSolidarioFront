@@ -1,0 +1,18 @@
+@import '../../shared/theme/color-schemes/default';
+
+.auto-login{
+  background-color: $coomeva-green  ;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.auto-login div{
+  margin: auto;
+}
+
+
+.auto-login div i{
+  font-size: 50px;
+  color: white;
+}

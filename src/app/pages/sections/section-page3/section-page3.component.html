@@ -1,0 +1,45 @@
+<div class=" ">
+    <div class="row card">
+        <div class="bar-title">Información De Ocupación</div>
+        <s-autocomplete class="col-4 col-sm-4" [skeleton]="FieldOcupation" #InputOcupation></s-autocomplete>
+        <s-input class="col-4 col-sm-4" [skeleton]="FieldCIIU" #InputCIIU></s-input>
+        <s-autocomplete class="col-4 col-sm-4" [skeleton]="FieldActividadEconomica" #InputdActividadEconomica></s-autocomplete>
+        <s-input class="col-4 col-sm-4" [skeleton]="FieldCompany" #InputCompany></s-input>
+        <s-input class="col-4 col-sm-4" [skeleton]="FieldExtension" #InputExtension></s-input>
+        <s-input class="col-4 col-sm-4" [skeleton]="FieldCharge" #InputCharge></s-input>
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldLocation" #InputLocation></s-autocomplete>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldPhoneCompany" #InputPhoneCompany></s-input>
+        <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldTypeContract" #InputTypeContract></s-autocomplete>
+        <s-address class="col-12 col-sm-12" [skeleton]="FieldAddresCompany" #InputAddresCompany></s-address>
+    </div>
+
+    <!-- Informacion Contador by: Jose Mulato -->
+    <div class="row card">
+        <div class="bar-title">Información de Contador</div>
+        <s-check class="col-12 col-sm-12" (ChangeState)="OnSelectAportaContador()" [skeleton]="FieldAportaContadorQuestion" #InputAportaContadorQuestion></s-check>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldNameContador" #InputNameContador></s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldCedulaContador" #InputCedulaContador></s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldTelefonoContador" #InputTelefonoContador></s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldNumTarjetaContador" #InputNumTarjetaContador></s-input>
+    </div>
+
+    <div class="row card">
+        <div class="bar-title">Información de Económica</div>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldMonthlyIncome" #InputMonthlyIncome></s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldMonthlyDischarge" #InputMonthlyDischarge></s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldOtherIncome" #InputOtherIncome></s-input>
+        <s-input class="col-6 col-sm-6" (blur)="OnBlur($event)" [skeleton]="FieldOtherDetail" #InputOtherDetail></s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldTotalActive" #InputTotalActive></s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldTotalPassive" #InputTotalPassive></s-input>
+        <s-check class="col-12 col-sm-12 section-page3-check " (ChangeState)="OnSelectTypeTransation()" [skeleton]="FieldTypeTransation" #InputTypeTransation></s-check>
+        <!-- consulta otra tabla -->
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldNameEntity" #InputNameEntity></s-input>
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldTypeProduct" #InputTypeProduct></s-autocomplete>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldIdProduct" #InputIdProduct></s-input>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldAmount" #InputAmount></s-input>
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldCoin" #InputCoin></s-autocomplete>
+        <!-- Localizacion {país, ciudad} -->
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldCountryCoin" #InputCountryCoin (evttyping)="OnSelectCountry($event)"></s-autocomplete>
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldCityCoin" #InputCieyCoin></s-autocomplete>
+    </div>
+</div>

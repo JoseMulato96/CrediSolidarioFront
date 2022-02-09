@@ -1,0 +1,26 @@
+<div class="container card card-block animated fadeIn sheet">
+    <div class="row card align-items-center ">
+        <div class="bar-title">Filtro de búsqueda Solicitud Lider Regional</div>
+        <div class="col-4 col-sm-4">
+            <s-autocomplete [skeleton]="FilterRegional" #InputRegional></s-autocomplete>
+            <s-input [skeleton]="FilterIdAsoc" #InputAsoc></s-input>
+            <s-datepicker [skeleton]="FilterDateStartQuery" #InputDateStartQuery></s-datepicker>
+        </div>
+        <div class="col-4 col-sm-4">
+            <s-autocomplete [skeleton]="FilterZona" #InputZona></s-autocomplete>
+            <s-input [skeleton]="FilterIdEjec" #InputEjec></s-input>
+            <s-datepicker [skeleton]="FilterDateEndQuery" #InputDateEndQuery></s-datepicker>
+        </div>
+        <div class="col-4 col-sm-4">
+            <s-autocomplete [skeleton]="FilterState" #InputState></s-autocomplete>
+            <s-button class="btn-search" [skeleton]="ButtonFilter" (click)="OnClickFilterSearch($event)"></s-button>
+        </div>
+
+    </div>
+
+    <div class="row card align-items-center " style="overflow-x:auto;">
+        <br />
+
+        <s-grid [skeleton]="FilterGrid" #GridConsulRegional (btnaction)="OnActionBtn($event)" (EvtSelectPage)="OnSelectPage($event)" (SelectPageSize)="OnSelectPageSize($event)"></s-grid>
+    </div>
+</div>

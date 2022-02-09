@@ -1,0 +1,26 @@
+<form novalidate class="s-area-text">
+  <fieldset>
+    <div class="form-group">
+      <label>
+        <i *ngIf="Skeleton.IsRequired" class="input-required-symbol">{{
+          this.Skeleton.Symbol || "*"
+        }}</i
+        >{{ Skeleton.Label }}</label
+      >
+      <textarea
+        [(ngModel)]="Skeleton.Data"
+        [maxLength]="Skeleton.LenMaxValue || 1000000"
+        [ngModelOptions]="{ standalone: true }"
+        [placeholder]="Skeleton.Placeholder || ''"
+        [required]="!!Skeleton.IsRequired"
+        (focus)="OnFocus($event)"
+        (blur)="OnBlur($event)"
+        [readOnly]="Skeleton.ReadOnly || _Disable"
+        [ngClass]="'form-control ' + GetCssPrivate()"
+        [disabled]="Skeleton.Disable || _Disable"
+        (input)="Valid()"
+      ></textarea>
+      <div class="input-required-text">{{ _PatternMessage }}<br /></div>
+    </div>
+  </fieldset>
+</form>

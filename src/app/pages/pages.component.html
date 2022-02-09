@@ -1,7 +1,8 @@
-<header class="noprint sidebar--header fixed-top cards--popup">
-    <app-header></app-header>
-</header>
-<!-- CONTENEDOR PRINCIPAL -->
-<div class="container-fluid pt-5 mt-5">
-    <router-outlet></router-outlet>
+<div class="pages-wrap">
+  <pages-top></pages-top>
+  <div class="pages-body">
+    <sidebar></sidebar>
+    <div class="pages-content"><router-outlet></router-outlet></div>
+    <right-config></right-config>
+  </div>
 </div>

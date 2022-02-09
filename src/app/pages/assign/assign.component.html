@@ -1,0 +1,48 @@
+<div class="container card card-block animated fadeIn sheet">
+  <div class="row card align-items-center ">
+    <div class="bar-title">Filtro de búsqueda Asignación de Solicitudes</div>
+    <div class="col-12 col-sm-12">
+      <s-autocomplete [skeleton]="FilterAgent" #InputFilterAgent class="col-4 col-sm-4"></s-autocomplete>
+      <s-input [skeleton]="FilterNumberId" #InputNumberId class="col-4 col-sm-4"></s-input>
+      <s-autocomplete [skeleton]="FilterState" #InputState class="col-4 col-sm-4"></s-autocomplete>
+      <s-input [skeleton]="FilterIdProspect" #InputIdProspect class="col-4 col-sm-4"></s-input>
+      <s-button class="col-6 col-sm-4  btn-search" [skeleton]="ButtonFilter" (s-click)="OnClickFilter($event)">
+      </s-button>
+    </div>
+  </div>
+
+  <div class="row card align-items-center " style="overflow-x:auto;">
+    <br />
+    <div class="container-h">
+      <div class="center-items">
+        <button class="btn btn-icon btn-default  margin-5px" (click)="_OnClickAssign()" [disabled]="_BtnAssignDisable">
+          Asignar
+        </button>
+        <button class="btn btn-icon btn-default  margin-5px" (click)="_OnClickReAssign()"
+          [disabled]="_BtnAssignDisable">
+          Re-Asignar
+        </button>
+      </div>
+    </div>
+    <br />
+    <s-grid [skeleton]="FilterGrid" #GridFilter (EvtSelectRow)="OnSelectRow($event)"
+      (EvtSelectPage)="OnSelectPage($event)" (SelectPageSize)="OnSelectPageSize($event)"></s-grid>
+  </div>
+</div>
+
+<modal class="model-parent" aria-modal="true">
+  <modal-header> Elegir Agente </modal-header>
+  <modal-content class="model-horizontal">
+    <div style="display: grid; width: 100%">
+      <s-combobox [skeleton]="FieldSelectAgent"></s-combobox>
+    </div>
+  </modal-content>
+  <modal-footer>
+    <button class="btn btn-icon btn-default" (click)="OnClickCancel(this)">
+      Cancelar
+    </button>
+    <button class="btn btn-icon btn-default" (click)="ClickComfirm()">
+      Aceptar
+    </button>
+  </modal-footer>
+</modal>

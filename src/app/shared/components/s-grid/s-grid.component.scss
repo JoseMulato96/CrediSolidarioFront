@@ -1,0 +1,71 @@
+@import "../../theme/conf";
+
+.s-grid-btn-action {
+  min-width: 28px;
+  height: 28px;
+  font-size: 18px;
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  color: black;
+}
+
+.s-grid-btn-action:hover {
+  color: $coomeva_green;
+}
+
+.s-grid-container-action {
+  display: flex;
+}
+
+.s-grid-div-column th:last-child {
+  border-right: 1px solid #dddddd;
+}
+
+.s-grid-div-column th {
+  border-left: 1px solid #dddddd;
+}
+
+.s-grid-pages div[class="dataTables_paginate paging_simple_numbers"] {
+  float: initial;
+  text-align: center;
+}
+
+.s-grid-btn-hidden {
+  color: transparent;
+  cursor: auto !important;
+  display: none;
+}
+
+.s-grid-toolbox {
+  display: flex;
+  padding: 5px;
+}
+
+.s-grid-toolbox select {
+  float: left;
+  height: 35px;
+}
+
+.s-grid-toolbox-pagination {
+  margin: auto;
+}
+
+.s-grid-toolbox-button {
+  float: right;
+  display: block;
+  max-width: 45px;
+  text-align: center;
+}
+
+.s-grid-toolbox-button button {
+  border: 0px;
+  background: none;
+  outline: none;
+}
+
+.s-grid-toolbox-button i {
+  font-size: 35px;
+  color: #73bf45;
+  border: none;
+}

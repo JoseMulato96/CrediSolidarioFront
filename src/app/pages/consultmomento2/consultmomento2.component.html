@@ -1,0 +1,27 @@
+<div class="container card card-block animated fadeIn sheet">
+  <div class="row card align-items-center ">
+    <div class="bar-title">Filtro de búsqueda Solicitud de Agente</div>
+    <div class="col-6 col-sm-6">
+      <s-input [skeleton]="FilterNamesAndLastName" #InputNamesAndLastName></s-input>
+      <s-datepicker [skeleton]="FilterDateStartQuery" #InputDateStartQuery></s-datepicker>
+    </div>
+    <div class="col-6 col-sm-6">
+      <s-input [skeleton]="FilterNumberId" #InputNumberId></s-input>
+      <!--
+        <s-autocomplete [skeleton]="FilterState" #InputState></s-autocomplete>
+      -->
+    </div>
+    <div class="col-6 col-sm-4">
+      <div class="consult1-btn-search">
+        <s-button class="btn-search" [skeleton]="ButtonFilter" (click)="OnClickFilter($event)"></s-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row card align-items-center " style="overflow-x:auto;">
+    <br />
+
+    <s-grid [skeleton]="FilterGrid" #GridConsulMoment2 (btnaction)="OnActionBtn($event)"
+      (EvtSelectPage)="OnSelectPage($event)" (SelectPageSize)="OnSelectPageSize($event)"></s-grid>
+  </div>
+</div>

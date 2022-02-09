@@ -1,0 +1,23 @@
+<form novalidate>
+  <fieldset>
+    <div class="form-group">
+      <label>
+        <s-tooltip *ngIf="Skeleton.Tooltip" [skeleton]="Skeleton.Tooltip"></s-tooltip>
+        <i *ngIf="Skeleton.IsRequired" class="input-required-symbol">{{
+          this.Skeleton.Symbol || "*"
+          }}</i>{{ Skeleton.Label }}
+      </label>
+      <div class="datepicker-container" [ngClass]="'form-control' + GetCssPrivate()">
+        <input [owlDateTime]="dt1" [specialCharacters]="[ '/' ]" mask="09/09/0000" [required]="!!Skeleton.IsRequired"
+          [max]="_Max" [min]="_Min" [disabled]="_Disable" (focus)="OnFocus($event)" (blur)="OnBlur($event)"
+          [readOnly]="Skeleton.ReadOnly" [placeholder]="'dd/mm/yyyy'" (input)="_GetDataPrivate($event)"
+          [value]="Skeleton.Data" (dateTimeChange)="_SelectDateInCalendar($event)">
+        <span class="trigger" [owlDateTimeTrigger]="!_Disable? dt1:false" [disabled]="_Disable">
+          <i class="fas fa-calendar-alt"></i>
+        </span>
+      </div>
+      <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+      <div class="input-required-text">{{ _PatternMessage }}<br /></div>
+    </div>
+  </fieldset>
+</form>

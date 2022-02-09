@@ -1,0 +1,24 @@
+<form novalidate>
+  <fieldset>
+    <div class="form-group">
+      <label>
+        <s-tooltip *ngIf="Skeleton.Tooltip" [skeleton]="Skeleton.Tooltip"></s-tooltip>
+        <i *ngIf="Skeleton.IsRequired" class="input-required-symbol">{{
+          this.Skeleton.Symbol || "*"
+          }}</i>{{ Skeleton.Label }}
+      </label>
+      <!-- se valida si requiere formato tipo moneda -->
+      <input *ngIf="!Skeleton.IsCurrency" [maxLength]="Skeleton.LenMaxValue || 1000000" [type]="_Type" [max]="_Max"
+        [min]="_Min" [ngModel]="Skeleton.Data" [ngModelOptions]="{ standalone: true }" (ngModelChange)="OnTyping($event)"
+        [disabled]="_Disable" [pattern]="Skeleton.Pattern ? Skeleton.Pattern.exp : ''" [readOnly]="Skeleton.ReadOnly"
+        [placeholder]="Skeleton.Placeholder || ''" [required]="!!Skeleton.IsRequired" (focus)="OnFocus($event)" (blur)="OnBlur($event)"
+        (input)="Valid()" [ngClass]="'form-control' + GetCssPrivate()" />
+      <input *ngIf="Skeleton.IsCurrency" [type]="_Type" [max]="_Max" [min]="_Min" [maxLength]="Skeleton.LenMaxValue || 1000000"
+        [ngModel]="Skeleton.Data" [ngModelOptions]="{ standalone: true }" [disabled]="_Disable" [pattern]="Skeleton.Pattern ? Skeleton.Pattern.exp : ''"
+        [readOnly]="Skeleton.ReadOnly" [placeholder]="Skeleton.Placeholder || ''" [required]="!!Skeleton.IsRequired"
+        (focus)="OnFocus($event)" (blur)="OnBlur($event)" (input)="Valid()" (ngModelChange)="OnTyping($event)"
+        [ngClass]="'form-control' + GetCssPrivate()" currencyMask />
+      <div class="input-required-text">{{ _PatternMessage }}<br /></div>
+    </div>
+  </fieldset>
+</form>

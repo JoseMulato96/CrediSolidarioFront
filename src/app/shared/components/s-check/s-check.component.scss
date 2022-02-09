@@ -1,0 +1,40 @@
+@import "../../theme/conf.scss";
+
+.style-line {
+  display: table;
+  margin-top: 7px;
+  margin-bottom: 15px;
+}
+
+.style-line div {
+  display: flex;
+  margin: 10px;
+  float: left;
+}
+
+.style-line label[label] {
+  height: 14px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  line-height: 1;
+}
+
+.style-line .check-label,
+.style-line .radio-label {
+  position: absolute;
+}
+
+.style-line .check-label:checked {
+  background-color: rgba($fonts-color, 0.5);
+}
+
+.input-required-symbol {
+  color: red;
+  margin-right: 2px;
+}
+
+@media (max-width: 768px) {
+  .col-check {
+    width: 40%;
+  }
+}

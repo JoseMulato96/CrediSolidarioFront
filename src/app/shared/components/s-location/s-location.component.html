@@ -1,0 +1,12 @@
+<div class="form-group s-location">
+  <label>
+    <i *ngIf="Skeleton.IsRequired" style="color:red">*</i>
+    {{Skeleton.Label}}
+  </label>
+  <div class=" s-location-fields">
+    <s-autocomplete *ngIf="Skeleton.IsVisibleCountry" class="" [skeleton]="InputCountry"></s-autocomplete>
+    <s-autocomplete *ngIf="Skeleton.IsVisibleDepartament" class="" [skeleton]="InputDepartament"></s-autocomplete>
+    <s-autocomplete *ngIf="Skeleton.IsVisibleCity" class="" [skeleton]="InputCity"></s-autocomplete>
+  </div>
+  <div class="input-required-text">{{_PatternMessage}}<br></div>
+</div>

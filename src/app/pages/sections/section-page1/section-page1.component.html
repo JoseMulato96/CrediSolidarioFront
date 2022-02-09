@@ -1,0 +1,44 @@
+<div class="">
+    <span>{{ TitlePage }} </span>
+    <div class="row card">
+        <div class="bar-title">Información Personal</div>
+        <div class="col-6">
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldTypeId" #InputTypeId></s-autocomplete>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNumberId" #InputNumberId></s-input>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNames" #InputNames></s-input>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldLastNames" #InputLastNames></s-input>
+
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldSex" #InputSex></s-autocomplete>
+
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldLocation" #InputLocation>
+            </s-autocomplete>
+
+            <s-datepicker class="col-8 col-sm-6" [skeleton]="FieldBirdate" #InputBirdate></s-datepicker>
+
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldLocationExpedition" #InputLocationExpedition>
+            </s-autocomplete>
+
+            <s-datepicker class="col-8 col-sm-6" [skeleton]="FieldDateExpedition" #InputDateExpedition></s-datepicker>
+        </div>
+    </div>
+
+    <div class="row card">
+        <div class="bar-title">Información de Contacto</div>
+        <div class="col-6">
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldCountry" #InputCountry></s-input>
+
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldCity" #InputCity></s-autocomplete>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldPhone" #InputPhone></s-input>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldPhoneMobil" #InputPhoneMobil></s-input>
+
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldEmail" #InputEmail></s-input>
+
+            <s-address class="col-12 col-sm-12" [skeleton]="FieldAddress" #InputAddress></s-address>
+        </div>
+    </div>
+</div>

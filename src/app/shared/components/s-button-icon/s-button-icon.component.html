@@ -1,0 +1,6 @@
+<div class="s-button-icon" [hidden]="Skeleton.Hidden">
+  <button [disabled]="Skeleton.Disable" class="btn" (click)="OnClick()">
+    <i [hidden]="!Skeleton.IconCss" [ngClass]="Skeleton.IconCss || ''"></i>
+    <span> {{ Skeleton.Label }} </span>
+  </button>
+</div>

@@ -1,0 +1,56 @@
+<form novalidate>
+  <fieldset>
+    <div class="form-group">
+      <i *ngIf="Skeleton.IsRequired" style="color:red">*</i>
+      <label>{{ Skeleton.Label }}</label>
+      <div class="form-group s-address-body">
+        <input [(ngModel)]="Skeleton.Data" [maxLength]="Skeleton.LenMaxValue || 1000000"
+          [ngModelOptions]="{ standalone: true }" [placeholder]="Skeleton.Placeholder || ''"
+          [required]="!!Skeleton.IsRequired" (focus)="OnFocus($event)" (blur)="OnBlur($event)" class="form-control"
+          [ngClass]="' ' + GetCssPrivate()" [disabled]="_Disable" />
+        <input readonly [(ngModel)]="ValueTemporal || Skeleton.Data2" [ngModelOptions]="{ standalone: true }"
+          [placeholder]="Skeleton.Placeholder2 || ''" [required]="!!Skeleton.IsRequired" (focus)="OnFocus($event)"
+          (blur)="OnBlur($event)" class="form-control" [ngClass]="' ' + GetCss2Private()" [disabled]="_Disable" />
+        <button class="btn btn-icon btn-default " (click)="OnClickCurrent()" [disabled]="_Disable">
+          Actualizar
+        </button>
+      </div>
+      <div class="input-required-text">{{ _PatternMessage }}<br /></div>
+    </div>
+  </fieldset>
+</form>
+
+<modal class="model-parent" aria-modal="true">
+  <modal-content class="model-horizontal">
+    <div class="container-address">
+      <div class="body-address">
+        <s-autocomplete [skeleton]="FieldTypeStreets" (evttyping)="OnStreets($event, 0)"></s-autocomplete>
+        <s-input [skeleton]="FieldStreetsDetail" (evttyping)="OnStreets($event, 1)"></s-input>
+        <s-autocomplete [skeleton]="FieldOrientation" (evttyping)="OnStreets($event, 2)"></s-autocomplete>
+        <label style="padding-top:27px;">#</label>
+        <s-input [skeleton]="FieldOrientationDetail" (evttyping)="OnStreets($event, 3)"></s-input>
+        <label style="padding-top:27px;">-</label>
+        <s-input [skeleton]="FieldOrientationDetail2" (evttyping)="OnStreets($event, 4)"></s-input>
+      </div>
+      <div class="body-address" [ngClass]="!SwitchBtn ? 'address-hidden-fields' : ''">
+        <s-autocomplete [skeleton]="FieldUnidad" (evttyping)="OnStreets($event, 5)"></s-autocomplete>
+        <s-input [skeleton]="FieldUnidadDetail" (evttyping)="OnStreets($event, 6)"></s-input>
+        <s-autocomplete [skeleton]="FieldBloque" (evttyping)="OnStreets($event, 7)"></s-autocomplete>
+        <s-input [skeleton]="FieldBloqueDetail" (evttyping)="OnStreets($event, 8)"></s-input>
+
+        <s-input [skeleton]="FieldInfoAdd" (evttyping)="OnStreets($event, 10)"></s-input>
+      </div>
+    </div>
+  </modal-content>
+  <modal-footer>
+    <button class="btn btn-circle" (click)="ClickVisibleModeFields()">
+      {{ SwitchBtn ? "-" : "+" }}
+    </button>
+    <label class="label-left">
+      {{ SwitchBtn ? "Menos Información" : "Información Adicional" }}
+    </label>
+    <button class="btn btn-icon btn-default" (click)="ClickComfirm()">
+      Guardar
+    </button>
+  </modal-footer>
+</modal>

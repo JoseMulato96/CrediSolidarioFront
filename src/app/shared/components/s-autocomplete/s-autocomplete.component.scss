@@ -1,0 +1,89 @@
+@import "../../theme/conf";
+.input-required {
+  border: $coomeva-red 1px solid;
+}
+.input-required-symbol {
+  color: $coomeva-red;
+  margin-right: 2px;
+}
+
+.s-autocomplete div[display] {
+  max-height: 130px;
+  margin-top: 4px;
+  width: 90%;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 99999;
+  background-color: white;
+  border: solid 1px $coomeva-green;
+  border-top: 0px;
+  box-shadow: 0px 5px 15px -6px #0000008c;
+}
+
+.s-autocomplete div[display] ul {
+  list-style: none;
+  padding: 2px;
+  width: 100%;
+}
+
+.s-autocomplete div[display] ul li:hover {
+  color: white;
+  background-color: #009353a8;
+}
+.s-autocomplete div[display] ul li {
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.s-autocomplete input {
+  float: left;
+  width: 100%;
+}
+
+.s-autocomplete-flex {
+  display: flex;
+}
+
+.s-autocomplete-flex .ng2-auto-complete-wrapper {
+  width: 100%;
+}
+
+.s-autocomplete i[arrow],
+.s-autocomplete i[arrow2] {
+  z-index: 0;
+  width: 25px;
+  height: 35px;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px 0px 0px 0px;
+  display: table;
+  margin: 0px 0px 0px -26px;
+  // position: absolute;
+  display: flex;
+  float: right;
+  right: 25px;
+}
+
+.s-autocomplete i[arrow2] {
+  width: auto;
+}
+
+.s-autocomplete-arrow-hidden {
+  display: none !important;
+}
+
+.s-autocomplete-aux-hidden {
+  width: 0px !important;
+  border: 0px !important;
+  height: 0px !important;
+}
+
+ng2-auto-complete .ng-star-inserted {
+  max-height: 200px;
+  text-transform: uppercase;
+}
+
+.s-autocomplete-display-disable ng2-auto-complete .ng-star-inserted {
+  display: none;
+}

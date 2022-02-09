@@ -1,95 +1,90 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertService, AuthenticationService } from '@core/services';
-import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
-import { Keepalive } from '@ng-idle/keepalive';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Component, ViewEncapsulation } from "@angular/core";
+import { NotificationsAppService } from "../shared/services/notifications-app.service";
+import { MainStore } from "../store/main-store";
+import { Router } from "@angular/router";
+import { AddressesUrlParams } from "../parameters/addresses-url-params";
+import { AuthRefreshService } from "../shared/services/auth-refresh.service";
+import { AuthenticationService } from "../services/authentication.service";
+import { takeUntil, take } from "rxjs/operators";
+import { Subject, Subscription } from "rxjs";
+import { timer } from "rxjs/observable/timer";
+import { IResponseOautServer } from "../interfaces/response-oaut-server";
+import { SAlertComponent } from "../shared/components/s-alert/s-alert.component";
+import { BaseService } from "../services/base.service";
 
 @Component({
-  selector: 'app-pages',
-  templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.css']
+  encapsulation: ViewEncapsulation.None,
+  selector: "app-pages",
+  templateUrl: "./pages.component.html",
+  styleUrls: ["./pages.component.scss"]
 })
-export class PagesComponent implements OnInit, OnDestroy {
-
-  private _subs: Subscription[] = [];
-
-  private _onRefresh = false;
-
-  constructor(
-    private readonly alertService: AlertService,
-    private readonly authenticationService: AuthenticationService,
-    private readonly router: Router,
-    private readonly translate: TranslateService,
-    private readonly idle: Idle, private readonly keepalive: Keepalive) {
-
-    // Inicializa el proceso de validacion de sesion
-    this.validateSession();
+export class PagesComponent {
+  constructor(private notyApp: NotificationsAppService, public router: Router, public authRefresh: AuthRefreshService,
+    public authServ: AuthenticationService) {
+    this.notyApp.MenuItemClick.subscribe(x => {
+      this.CheckIsNew(x);
+    });
   }
+  unsubscribe$: Subject<void> = new Subject();
+  timerSubscription: Subscription;
 
   ngOnInit() {
-    // do nothing
-  }
-
-  validateSession() {
-    const seconds = this.authenticationService.getExpiresInToken();
-    // sets an idle timeout of 5 seconds, for testing purposes.
-    this.idle.setIdle(seconds);
-    // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
-    this.idle.setTimeout(1);
-    // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
-    this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
-    this._subs.push(
-      this.idle.onTimeout.subscribe(() => {
-        this.translate.get('security.sesionCaduca').subscribe((text: string) => {
-          this.alertService.info(text).then(() => {
-            this.authenticationService.logout();
-            this.router.navigate(['login']);
-          });
-        });
-      }));
-    // sets the ping interval to 15 seconds
-    this.keepalive.interval(15);
-
-    this._subs.push(this.keepalive.onPing.subscribe(() => {
-      if (!this._onRefresh && (this.getSecondsTokenExpiration() <= 120)) {
-        this._onRefresh = true;
-        this.authenticationService.refresh().subscribe(() => {
-          this._onRefresh = false;
-        }, err => {
-          this._onRefresh = false;
-          const minutes = this.getSecondsTokenExpiration() / 60;
-          if (minutes > 0) {
-            this.translate.get('security.noRefreshToken', { tiempo: Math.round(minutes) }).subscribe((text: string) => {
-              this.alertService.error(text);
-            });
-          } else {
-            this.translate.get('security.refreshTokenError').subscribe((text: string) => {
-              this.alertService.error(text).then(() => {
-                this.authenticationService.logout();
-                this.router.navigate(['login']);
-              });
-            });
-          }
-        });
+    this.resetTimer();
+    this.authRefresh.timerActionOccured.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(() => {
+      if (this.timerSubscription) {
+        this.timerSubscription.unsubscribe();
       }
-    }));
-
-    // start idle
-    this.idle.watch();
-  }
-
-  getSecondsTokenExpiration() {
-    // se calcula los tiempos que llegan del token
-    return ((this.authenticationService.getTokenExpirationDate().getTime() - new Date().getTime()) / 1000);
+      this.resetTimer();
+    });
   }
 
   ngOnDestroy() {
-    this._subs.forEach((sub: Subscription) => {
-      sub.unsubscribe();
-    });
-    this._subs = undefined;
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+    // this.timerSubscription && this.timerSubscription.
   }
 
+  resetTimer() {
+    const interval = 1000;
+    const duration = this.authRefresh.GetTimeRefresh() * 60;
+    this.timerSubscription = timer(0, interval).pipe(
+      take(duration)
+    ).subscribe(value => {
+      // console.log("reloj: ", value, duration)
+    },
+      err => { },
+      () => {
+        this.authServ.RefreshToken().
+          then((response: IResponseOautServer) => {
+            if (response.error == "unauthorized") {
+              return SAlertComponent.AlertError(response.error_description);
+            }
+            BaseService.SetToken(response.access_token);
+            BaseService.SetRefreshToken(response.refresh_token);
+            this.resetTimer()
+
+          }).catch((error) => { })
+
+      }
+    )
+  }
+  /**
+   * @author Jorge Luis Caviedes Alvarador
+   * @description valida si han dado click a crear una nueva solicitu y borrar el cache
+   * @param item
+   */
+  CheckIsNew(item) {
+    if (item.key == "create") {
+      let url = AddressesUrlParams.PathSectionForm(
+        AddressesUrlParams.SECTION_VERIFIC_USUARIO,
+        AddressesUrlParams.PAGES_FORM
+      );
+      this.router.navigateByUrl(AddressesUrlParams.PathIndex()).then(() => {
+        MainStore.db.RestSections();
+        this.router.navigateByUrl(url);
+      });
+    }
+  }
 }

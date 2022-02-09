@@ -1,0 +1,14 @@
+<div class=" ">
+    <div class="row card">
+        <div class="bar-title">Autorizaciones y Declaraciones</div>
+        <div class="col-12 col-sm-12">
+            <p>Autorizo inscribir la cuenta:</p>
+        </div>
+        <s-check class="col-6 col-sm-6" [skeleton]="FieldAuthorizationSaveACH" (ChangeState)="OnSelectAutorizacionAch()" #InputAuthorizationSave></s-check>
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldTypeAccount" #InputTypeAccount></s-autocomplete>
+        <s-autocomplete class="col-6 col-sm-6" [skeleton]="FieldListBank" #InputListBank></s-autocomplete>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldNumAccount" #InputNumAccount></s-input>
+        <s-datepicker class="col-6 col-sm-6" [skeleton]="FieldDateDiligence" #InputDateDiligence></s-datepicker>
+        <s-input class="col-6 col-sm-6" [skeleton]="FieldOrigin" #InputOrigin></s-input>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class=" ">
+    <div class="row card">
+        <div class="bar-title">Información Personal Expuesta Públicamente</div>
+        <div class="col-6">
+            <s-check class="col-12 col-sm-12" [skeleton]="FieldOneQuestion" #InputOneQuestion></s-check>
+            <s-check class="col-12 col-sm-12" [skeleton]="FieldSecondQuestion" #InputSecondQuestion (ChangeState)="_OnChangeState($event)"></s-check>
+            <s-check class="col-12 col-sm-12" [skeleton]="FieldThirdQuestion" #InputThirdQuestion></s-check>
+            <s-check class="col-12 col-sm-12" [skeleton]="FieldQuarterQuestion" #InputQuarterQuestion></s-check>
+
+            <s-autocomplete class="col-10 col-sm-10" [skeleton]="FieldWhatPoliticCharge" #InputWhatPoliticCharge>
+            </s-autocomplete>
+            <div class="col-8 col-sm-6">
+                <s-datepicker [skeleton]="FieldDateInit" #InputDateInit></s-datepicker>
+                <s-datepicker [skeleton]="FieldDateEnd" #InputDateEnd></s-datepicker>
+            </div>
+            <s-check class="col-8 col-sm-6" [skeleton]="FieldCurrent" (ChangeState)="_OnChangeCurrent($event)" #InputCurrent>
+            </s-check>
+        </div>
+    </div>
+</div>

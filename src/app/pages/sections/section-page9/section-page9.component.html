@@ -1,0 +1,31 @@
+<div class="">
+    <div class="row card">
+        <div class="bar-title">
+            Beneficiarios Fondo Mutual De Solidaridad Y Aportes
+        </div>
+        <div class="col-6">
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldName" #InputName></s-input>
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldLastName" #InputLastName></s-input>
+            <s-datepicker class="col-8 col-sm-6" [skeleton]="FieldBirthdate" #InputBirthdate></s-datepicker>
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldTypeId" #InputTypeId></s-autocomplete>
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldNumberId" #InputNumberId></s-input>
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldRelationship" #InputRelationship></s-autocomplete>
+            <s-autocomplete class="col-8 col-sm-6" [skeleton]="FieldGender" #InputGender></s-autocomplete>
+            <s-input class="col-8 col-sm-6" [skeleton]="FieldPercentage" #InputPercentage></s-input>
+            <s-check class="col-8 col-sm-6" [skeleton]="FieldDisability" #InputDisability></s-check>
+            <s-check class="col-8 col-sm-6" [skeleton]="FieldBeneficiary" (ChangeState)=_OnChangeType($event) #InputBeneficiary></s-check>
+        </div>
+        <br />
+        <div class="section-page9-center-button col-12 col-sm-12">
+            <s-button [skeleton]="ButtonAddToList" (s-click)="OnAddToList()"></s-button>
+            <s-button [skeleton]="ButtonClear" (s-click)="ClearFields()"></s-button>
+        </div>
+    </div>
+    <div class="row card align-items-center" style="overflow-x:auto;">
+        <div>
+            <br />
+            <br />
+            <s-grid [skeleton]="GridBeneficiary" #ListBeneficiary (btnaction)="OnActionBtn($event)"></s-grid>
+        </div>
+    </div>
+</div>

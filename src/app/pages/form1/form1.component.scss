@@ -1,0 +1,106 @@
+@import "../../shared/theme/conf.scss";
+
+.buttons-center {
+  display: flex;
+  justify-content: center;
+}
+
+.button-normal>div button {
+  text-align: center;
+  background-color: $button-bg;
+  background: $button-bg;
+  height: 33px;
+  min-width: 87px;
+  margin: 2px;
+}
+
+.button-bg-red>div button,
+.button-bg-red>div button:hover {
+  background-color: $coomeva-red;
+}
+
+.button-bg-grey>div button,
+.button-bg-grey>div button:hover,
+.button-bg-grey>div button:active,
+.button-bg-grey>div button:focus {
+  background-color: $coomeva-gray;
+}
+
+.title-center {
+  text-align: center;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.title-center s-progress-circle {
+  float: right;
+}
+
+.container-heard {
+  display: flex;
+  width: 100%;
+}
+
+.container-heard-title {
+  width: 100%;
+}
+
+.container-heard-right {
+  float: right;
+  right: 12px;
+}
+
+.sheet {
+  background-color: white;
+}
+
+.container-h {
+  display: flex;
+}
+
+.container-center {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .container-h {
+    display: block;
+  }
+
+  .title-center {
+    width: 225px;
+    text-align: left;
+  }
+
+  .sheet {
+    width: 100%;
+  }
+
+  .buttons-center {
+    display: block;
+  }
+
+  .buttons-center button {
+    float: left;
+    float: left;
+    width: 100%;
+  }
+}
+
+@media (max-width: 530px) {
+  .title-center {
+    width: 100px;
+  }
+
+  .s-submenu-el {
+    display: none;
+  }
+
+
+}

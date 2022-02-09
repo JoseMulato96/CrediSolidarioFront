@@ -1,0 +1,34 @@
+<form novalidate class="s-attachement">
+  <fieldset>
+    <div class="form-group">
+      <label>
+        <i *ngIf="Skeleton.IsRequired" class="input-required-symbol">*</i
+        >{{ Skeleton.Label }}</label
+      >
+      <div body>
+        <input
+          readonly="readonly"
+          type="text"
+          [(ngModel)]="Skeleton.Data"
+          [ngModelOptions]="{ standalone: true }"
+          [placeholder]="Skeleton.Name || Skeleton.Placeholder || ''"
+          [required]="!!Skeleton.IsRequired"
+          [ngClass]="'form-control'"
+        />
+        <input
+          type="file"
+          [accept]="Skeleton.FilesAccept"
+          (change)="OnChangeFile($event)"
+          style="display: none"
+        />
+        <button
+          class="btn btn-default"
+          (click)="OnClickFile($event)"
+          [disabled]="Skeleton.Disable || _Disable"
+        >
+          Examinar
+        </button>
+      </div>
+    </div>
+  </fieldset>
+</form>

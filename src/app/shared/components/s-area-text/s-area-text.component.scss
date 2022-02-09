@@ -1,0 +1,23 @@
+@import "../../theme/conf";
+.input-required {
+  border: #f44336 1px solid;
+}
+.input-required-symbol {
+  color: red;
+  margin-right: 2px;
+}
+
+.s-area-text textarea {
+  resize: none;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: white;
+  transition: all 1s;
+  -o-transition: all 1s;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}

@@ -1,0 +1,76 @@
+@import "../../theme/conf";
+
+.s-submenu {
+  margin-right: 5px;
+  max-width: 105px;
+}
+
+.s-submenu ul {
+  display: block;
+}
+
+.s-submenu ul li {
+  border-radius: 4px;
+  max-width: 100px;
+  min-width: 100px;
+  min-height: 77px;
+  padding-top: 15px;
+  color: white;
+  font-size: 14px;
+  margin: 1px 0px 0px 0px;
+  display: block;
+  background-color: $coomeva-gray;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.s-item-disable {
+  background-color: #8a8a8acc !important;
+  cursor: no-drop;
+}
+
+.s-item-active {
+  background-color: $coomeva-green !important;
+}
+
+
+.s-submenu ul li i[forIcon] {
+  height: 25px;
+  font-size: 25px;
+}
+
+.s-submenu ul li div[text] {
+  color: white;
+  font-size: 14px;
+  font-size: 12px;
+  max-width: 100px;
+  text-align: center;
+  white-space: pre-line;
+}
+
+@media only screen and (max-width: 768px) {
+  .s-submenu ul li {
+    border-radius: 4px;
+    max-width: 70px;
+    min-width: 70px;
+    min-height: 60px;
+    padding-top: 15px;
+    color: white;
+    font-size: 14px;
+    margin: 1px 0px 0px 0px;
+    display: grid;
+    background-color: $coomeva-gray;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .s-submenu ul li div[text] {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .s-submenu {
+    display: none;
+  }
+}

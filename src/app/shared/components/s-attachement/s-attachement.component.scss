@@ -1,0 +1,14 @@
+.s-attachement div[body] {
+  display: flex;
+}
+
+.s-attachement input {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.s-attachement button {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  height: 35px;
+}
