@@ -37,7 +37,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description valida si hay componente para selecionar por defecto
    */
   _CkeckValueDefault(): any {
@@ -58,7 +58,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description disable el componente
    * @param disable
    */
@@ -67,7 +67,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene la data del componente con el valor value
    */
   GetData(): any {
@@ -78,7 +78,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene la data del componente con el valor label
    */
   GetDataLabel(): any {
@@ -89,7 +89,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description seleciona el valor
    * @param value object que debe tener value
    */
@@ -100,7 +100,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Selecciona el dato buscandolo por el Valor
    * @param value
    */
@@ -117,7 +117,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description desabilita el valor del item
    * @param
    */
@@ -134,7 +134,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cambio el estado de los checks
    * @param item
    */
@@ -145,7 +145,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   _itemCheck: boolean = false;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene si esta chequeado el componente al menos uno
    */
   _GetIsCheck() {
@@ -156,7 +156,7 @@ export class SCheckComponent extends BCheckComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvaradors
+   * rs
    * @description checka el html el componente check o radio button
    * @param item
    */

@@ -6,7 +6,7 @@ export class TypeContractStore extends BaseStore {
   private serviceform: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener tipo de contrato y guardarla en cache
    */
   protected async GetService() {

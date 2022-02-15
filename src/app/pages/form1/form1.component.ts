@@ -91,7 +91,7 @@ export class Form1Component extends BaseForm implements OnInit {
   OnClickItem(item: ItemSubMenu) { }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description El sistema en ruta la url para ir a la session enviada
    * @param sectionUrl
    */
@@ -108,7 +108,7 @@ export class Form1Component extends BaseForm implements OnInit {
   ViewCurrent: IFormSection;
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha la vista (Section) actual que agrego al body al formulario
    * @param view Vista Actual
    */
@@ -118,7 +118,7 @@ export class Form1Component extends BaseForm implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton Anterior
    */
   async OnClickPrev($event) {
@@ -131,7 +131,7 @@ export class Form1Component extends BaseForm implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton guardar
    */
   async OnClickSave($event) {
@@ -150,7 +150,7 @@ export class Form1Component extends BaseForm implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton finalizar
    */
   /**
@@ -174,7 +174,7 @@ export class Form1Component extends BaseForm implements OnInit {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton cancelar
    * @param $event
    */
@@ -219,7 +219,7 @@ export class Form1Component extends BaseForm implements OnInit {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton siguiente
    */
   async OnClickNext($event) {
@@ -273,7 +273,7 @@ export class Form1Component extends BaseForm implements OnInit {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @param value
    */
   ValidLockSection(value: string): boolean {
@@ -326,7 +326,7 @@ export class Form1Component extends BaseForm implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida si esta en la ultima pagina para mostrar u ocultar el boton finalizar
    * @param value
    */
@@ -379,7 +379,7 @@ export class Form1Component extends BaseForm implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Valida si debe o no mostrar los botones disables
    */
   async ValidaDisableBtns() {
@@ -389,7 +389,7 @@ export class Form1Component extends BaseForm implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Valida si debe o no mostrar el boton continuar
    */
   ValidaBtnContinue(): any {
@@ -401,7 +401,7 @@ export class Form1Component extends BaseForm implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description visualiza la url
    */
   WatcherUrl(url: string) {

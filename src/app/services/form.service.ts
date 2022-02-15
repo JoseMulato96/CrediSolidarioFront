@@ -35,7 +35,7 @@ export class FormService extends BaseService {
     super(http);
   }
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo las diferentes actividades laborales
    */
   async GetWorkActivity() {
@@ -55,7 +55,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener los cargos polliticos
    */
   async GetChargesPublic() {
@@ -79,7 +79,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obteniendo los diferentes tipo de vinculación
    */
   async GetViculado() {
@@ -106,7 +106,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener los agentes
    */
   async GetAgents() {
@@ -115,7 +115,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo las diferentes productos
    */
   async GetTypeTransaction() {
@@ -127,7 +127,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo las diferentes productos
    */
   async GetTypeProduct() {
@@ -139,7 +139,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo las diferentes monedas
    */
   async GetTypeMoneda() {
@@ -151,7 +151,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtner el genero femenino y masculino
    */
   async GetTypeGender() {
@@ -163,7 +163,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener los tipos de documento por el servicio
    */
   async GetTypeDocument() {
@@ -175,7 +175,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener los tipos de vias
    */
   async GetAddressTypeRoad() {
@@ -187,7 +187,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener los tipos de vias
    */
   async GetAddressTypeZone() {
@@ -199,7 +199,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener los tipos de vias
    */
   async GetAddressTypeInside() {
@@ -211,7 +211,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener las oficinas
    */
   async GetOfficesByName(name: string) {
@@ -221,7 +221,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener los cargos de la oficinas de coomeva
    * @param nivel
    */
@@ -232,7 +232,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener las oficinas
    */
   async GetOfficesById(id: string) {
@@ -242,7 +242,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener los tipos de vias
    */
   async GetAddressTypeInmuebles() {
@@ -254,7 +254,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener el tipo de beneficiario
    */
   async TypeBeneficiary() {
@@ -266,7 +266,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener la localización
    */
   async GetLocation(idContry: number) {
@@ -279,7 +279,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener las localizaciones
    */
   async GetLocationsCountries(idContry: number) {
@@ -294,7 +294,7 @@ export class FormService extends BaseService {
       : [];
   }
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener las localizaciones del padre, ciudades
    */
   async GetLocationsCities(idContry: number, name = "") {
@@ -330,7 +330,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener los tipos de contrato
    */
   async GetTypeContract() {
@@ -342,7 +342,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener las diferencia relaciones familiares que existe ej. conyuge, primo,..
    */
   async GetRelationship() {
@@ -354,7 +354,7 @@ export class FormService extends BaseService {
   }
 
   /**
-    * @author Jorge Luis Caviedes Alvarado
+    * 
     * @description Obtener las diferencia relaciones familiares que existe ej. conyuge, primo,..
     */
   async  GetRelationshipTwo() {
@@ -366,7 +366,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener el plan de perseveransa
    */
   async GetPerseverancePlan() {
@@ -375,7 +375,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener los titulos
    */
   async GetTitles(name: string) {
@@ -387,7 +387,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener instituciones
    */
   async GetInstitutions(name: string) {
@@ -399,7 +399,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener las diferencia ocupaciones
    */
   async GetOcupationService() {
@@ -411,7 +411,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener la lista de bancos
    */
   async GetBanks() {
@@ -420,7 +420,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener las diferencia codigos de las actividades economicas
    */
   async GetCIIU() {
@@ -429,7 +429,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener el tipo de canal
    */
   async GetTypeChannel() {
@@ -441,7 +441,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Otener el plan de beneficiario
    */
   async GetBeneficiaryPlan() {
@@ -451,7 +451,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener los niveles academicos
    */
   async GetAcademicLevel() {
@@ -463,7 +463,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene el padre de la ciudad como el departamento y el pais
    * @param idPlace
    */
@@ -484,7 +484,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener titulo con el valor
    * @param idValue
    */
@@ -497,7 +497,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener los titulos
    * @param idPromotor
    */
@@ -510,7 +510,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene la institucion por valor
    * @param idValue
    */
@@ -520,7 +520,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene la lista de los beneficiario
    * @param idProspect
    */
@@ -533,7 +533,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtiene el contenido del servicio para retornarlo a las class store que lo usen
    * @param response
    */
@@ -542,7 +542,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvaradors
+   * rs
    * @description Obtener los datos del usuario
    * @param idPromotor
    */
@@ -555,7 +555,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener la oficina de LICO
    */
   async GetOfficesLico(idPromotor: number) {
@@ -564,7 +564,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Eliminar el beneficiario
    * @param Id id del cliente
    */
@@ -574,7 +574,7 @@ export class FormService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Construye la base de url para solicitar el tipo de parametro
    * @param param
    */

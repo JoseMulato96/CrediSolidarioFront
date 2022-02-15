@@ -402,7 +402,7 @@ export class SectionPage3Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la url anterior
    */
   async Prev(): Promise<any> {
@@ -410,14 +410,14 @@ export class SectionPage3Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la url siguiente
    */
   async Next(): Promise<any> {
     return AddressesUrlParams.SECTION_04;
   }
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guardar en dos casos:
    * 1. si no ha escogido un tipo de transación se guarda solo info economia
    * 2. si ha escogido un tipo de transación se guarda primero transación y luego info economia
@@ -453,7 +453,7 @@ export class SectionPage3Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description enviar a guardar la transaccion
    */
   async SaveTransaction() {
@@ -468,7 +468,7 @@ export class SectionPage3Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description enviar a guardar la informacion economica
    */
   async SaveInfEconomic(idTrasantion) {
@@ -507,7 +507,7 @@ export class SectionPage3Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha cuando a selecionado el tipo de transación
    */
   OnSelectTypeTransation() {
@@ -549,7 +549,7 @@ export class SectionPage3Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida los campos este llenos o cumpla con el dato
    */
   async Valid(): Promise<any> {
@@ -594,7 +594,7 @@ export class SectionPage3Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description carga los valores previos y exite
    */
   async Load(): Promise<any> {
@@ -852,7 +852,7 @@ export class SectionPage3Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description bloquea los campos de la seccion
    */
   IsLockSection() {

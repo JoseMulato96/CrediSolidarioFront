@@ -27,7 +27,7 @@ export class AuthenticationService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description servicio que se conecta oauth y obtener el token
    * @param data
    */

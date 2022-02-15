@@ -9,7 +9,7 @@ export class BCheckComponent extends BSwitchComponent {
   Skeleton: CheckModel = new CheckModel();
   _Disable: boolean;
   /**
-   * @author Jorge Luis Caviedes ALvarado
+   * 
    * @description cambia los estados
    */
   ChangeState(item) {

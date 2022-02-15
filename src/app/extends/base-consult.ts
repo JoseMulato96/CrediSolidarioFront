@@ -18,7 +18,7 @@ export class BaseConsult {
   ) { }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene los dato con base a los filtros
    * @param filterConsult
    */
@@ -60,7 +60,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene los dato con base a los filtros
    * @param filterConsult
    */
@@ -69,7 +69,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene los dato con base a los filtros
    * @param filterConsult
    */
@@ -78,7 +78,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene los dato con base a los filtros
    * @param filterConsult
    */
@@ -87,7 +87,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cierra el modal
    */
   OnClickCancel(modal: Modal) {
@@ -95,7 +95,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Exporta en excel los datos enviados
    * @param data datos para export
    */
@@ -134,7 +134,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Escucha el evento click en el boton de filtrado
    * @param e eventos del cursor
    */
@@ -144,7 +144,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description cuando a selecionado el tamaño de la pagina
    * @param value
    */
@@ -154,7 +154,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el evento cuando cambia de pagina
    * @param page
    */
@@ -164,7 +164,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cerrar la solicitud
    * @param item
    * @param position
@@ -197,7 +197,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Realiza el filtro con el servicio a la base de datos
    * @param filters
    * @param _PageCurrent
@@ -208,7 +208,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener la informacion de los filtros de locomponentes
    * @throws hay que implementar en la class que se hereda
    */
@@ -217,7 +217,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description limpia el cache y establese el prospecto
    */
   async EstablishProspect(idProspecto) {
@@ -226,7 +226,7 @@ export class BaseConsult {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Acciones de los botones
    */
   ACTION_DELETE: string = "DELETE";
@@ -239,7 +239,7 @@ export class BaseConsult {
   ACTION_REOPEN: string = "REOPEN";
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Tipo de filtro
    */
   FilterState: InputModel = {
@@ -256,12 +256,12 @@ export class BaseConsult {
   };
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Pagina actual
    */
   _PageCurrent: number = 1;
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cantidad de paginas permitidas por pagina
    */
   _PageSize: number = 10;

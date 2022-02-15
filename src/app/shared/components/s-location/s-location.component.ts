@@ -34,7 +34,7 @@ export class SLocationComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valid si hay que aplicacr el item store
    */
   ngAfterContentInit() {

@@ -5,7 +5,7 @@ import { BaseService } from "./base.service";
 @Injectable()
 export class NotificationService extends BaseService {
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description envia un email al prospecto
    * @param idProspecto
    */
@@ -15,7 +15,7 @@ export class NotificationService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description solicita si esta permitido mostras el boton coninuar momento 2
    */
   public async CompleteFormPermitRolCommercialForce() {

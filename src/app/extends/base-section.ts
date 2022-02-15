@@ -12,7 +12,7 @@ export class BaseSection {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida los componentes si esta correcto
    * @param components
    */
@@ -26,7 +26,7 @@ export class BaseSection {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Bloquea los componentes para que no sea editable
    */
   IsLockSection(components: BaseComponent[]) {

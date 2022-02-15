@@ -29,7 +29,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {}
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description el sistema realiza las siguientes validaciones y ejecucion de item store
    */
   ngAfterContentInit() {
@@ -58,7 +58,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   _PatternMessage: string = "";
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escuchar cuando se escribe en el componente
    * @param value
    */
@@ -68,7 +68,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    *
    * @description Escuchar evento cuando pierde el focus
    */
@@ -80,7 +80,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   @Output() evtBlur: EventEmitter<any> = new EventEmitter<any>();
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener el Valor
    */
   GetData(): any {
@@ -95,7 +95,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Habilita o desabilidata el componente
    * @param value
    */
@@ -104,7 +104,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Estableser el Valor
    */
   SetData(data: any) {
@@ -119,7 +119,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   // /**
-  //  * @author Jorge Luis Caviedes Alvarado
+  //  * 
   //  * @description esta funcionalidad es solo para fecha de diligenciamiento en autorizaciones
   //  */
   // SetDataCurrent(data: any) {
@@ -134,7 +134,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   // }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Limpia la selecion
    */
   Clear() {
@@ -143,7 +143,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description si se establece el focu en el componente quita cualquier css de requerido
    */
   public OnFocus(e) {
@@ -151,7 +151,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida si es requerido y si cumple los requerimientos
    */
   public Valid() {
@@ -257,7 +257,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description agrega el css al componente como requerido
    */
   ApplyInputRequired() {
@@ -265,7 +265,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description remoeve el css del componente como requerido
    */
   public InactivityInputRequired() {
@@ -273,7 +273,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Agrega los css privados o internos de la aplicacion
    */
   GetCssPrivate() {
@@ -281,7 +281,7 @@ export class BinputComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Agrega si es requerido o no
    */
   SetRequired(required:boolean){

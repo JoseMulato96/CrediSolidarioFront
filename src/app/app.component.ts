@@ -15,7 +15,7 @@ export class AppComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Escucha el cambion de url y lo envia por el vijilante de URL
    */
   SubscribeRouter() {
@@ -27,7 +27,7 @@ export class AppComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Vigila que el usuario no fuerce el ingreso por la ruta URL
    * @param url URL string
    */

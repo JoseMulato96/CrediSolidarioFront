@@ -6,7 +6,7 @@ export class EntityBankStore extends BaseStore {
   private channelService: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener bancos y guardarla en cache
    */
   protected async GetService() {

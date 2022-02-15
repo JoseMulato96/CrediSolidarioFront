@@ -6,7 +6,7 @@ export class RelationshipStore extends BaseStore {
   private relationshipService: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener Tipo de relaciones (Padres, Madre, Hijo...) y guardarla en cache
    */
   protected async GetService() {
@@ -35,7 +35,7 @@ export class RelationshipStoreFa extends BaseStore {
   private relationshipService: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener Tipo de relaciones (Padres, Madre, Hijo...) y guardarla en cache
    */
   protected async GetService() {

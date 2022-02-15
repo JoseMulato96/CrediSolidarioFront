@@ -173,7 +173,7 @@ export class SectionVerificarUsuario extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la url siguiente
    */
   async Next(): Promise<any> {

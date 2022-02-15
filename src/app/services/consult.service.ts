@@ -13,7 +13,7 @@ export class ConsultService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description consulta los agentes por el auxiliar
    * @param filterConsult filtros
    */
@@ -22,7 +22,7 @@ export class ConsultService extends BaseService {
     return this.GetConsultFilter(url, filterConsult);
   }
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description consulta los agentes por el supervisor
    * @param filterConsult filtros
    */
@@ -32,7 +32,7 @@ export class ConsultService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description consulta las solicitudes del agente
    * @param filterConsult filtros
    */
@@ -42,7 +42,7 @@ export class ConsultService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene los datos por los filtros enviados
    */
   GetConsultFilterCommercialForce(filterConsult: FilterConsultModel) {
@@ -77,7 +77,7 @@ export class ConsultService extends BaseService {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene los datos por los filtros enviados
    */
   GetAssign(idSolicitud: string, idAgente: string, labelAgente: string) {
@@ -86,7 +86,7 @@ export class ConsultService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene el exportar
    * @param pageSize
    * @param pageCurrent

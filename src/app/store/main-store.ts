@@ -32,7 +32,7 @@ export class MainStore {
   private static instance: MainStore;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description metodo por el cual obtiene el unico lugar de almacenamiento de los formulario del cliente
    */
   public static get db() {
@@ -47,7 +47,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Se asigna la instacia de http, para solitar su servicio
    * @param http HttpClient
    */
@@ -56,7 +56,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Limpia todos los valores
    */
   public RestData() {
@@ -64,7 +64,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description limpia todas las secciones y loquedos de componestes y secciones
    */
   public RestSections() {
@@ -86,7 +86,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener el usuario que esta logueado
    */
   public GetUser() {
@@ -96,7 +96,7 @@ export class MainStore {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Establese el usuario que va usar la aplicación
    * @param user UserModel
    */
@@ -126,7 +126,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Oteniendo el menú agregado
    */
   public GetMenu(): MenuModel[] {
@@ -134,7 +134,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Agregando al menú items
    * @param item
    */
@@ -143,7 +143,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Agregando al menú items
    */
   public ClearMenu() {
@@ -151,7 +151,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida si existe un cliente guardado
    */
   IsExitClient(): boolean {
@@ -159,7 +159,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener el prospecto actual
    */
   GetIdPropect(): number {
@@ -215,7 +215,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description bloquear o desploquear las secciones de momento 1
    * @param value
    */
@@ -230,14 +230,14 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener todas las secciones de momento 1
    */
   GetLockAllSectionM1(): LockSectionsModel {
     return this.data.lockSection;
   }
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la primera section 'Datos Personales'
    * @param data
    */
@@ -261,7 +261,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'PEP`s'
    * @param data
    */
@@ -285,7 +285,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'Actividad Economica'
    * @param data
    */
@@ -309,7 +309,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'Actividad Economica'
    * @param data
    */
@@ -333,7 +333,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'Contribucciones'
    * @param data
    */
@@ -357,7 +357,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'Autorizaciones'
    * @param data
    */
@@ -381,7 +381,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la primera section 'Campos Adicionales'
    * @param data
    */
@@ -403,7 +403,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'Información Adicional'
    * @param data
    */
@@ -427,7 +427,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'Declaración de Salud'
    * @param data
    */
@@ -451,7 +451,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'Beneficiarios'
    * @param array
    */
@@ -481,7 +481,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda la segunda section 'Otros Campos'
    * @param data
    */
@@ -505,7 +505,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description subiendo archivos
    * @param formData form de archivo
    */
@@ -529,7 +529,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Envia dinamicamente a los servicios correspondientes y adiciona en los atributtos IP, Usuario Creacion,  Usuario Modificación
    * @param funt el servicio que se va a llamar para guardar
    * @param data el dato que se va enviar a guardar
@@ -559,7 +559,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection1(idProspect?: string) {
@@ -582,7 +582,7 @@ export class MainStore {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetPercent(idProspect?: string) {
@@ -604,7 +604,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection2() {
@@ -627,7 +627,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la tercera seccion
    */
   async GetSection3Part1(idTransacion) {
@@ -649,7 +649,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection3Parte2() {
@@ -672,7 +672,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection4() {
@@ -695,7 +695,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection5() {
@@ -718,7 +718,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection6() {
@@ -741,7 +741,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection7() {
@@ -764,7 +764,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection8() {
@@ -787,7 +787,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection9() {
@@ -805,7 +805,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obteniendo la primera seccion
    */
   async GetSection10() {
@@ -828,7 +828,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene el valor si fue subido por primera ves
    */
   async GetSectionFile() {
@@ -840,7 +840,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene el key de docuware key
    */
   async GetDocuwareKey() {
@@ -865,7 +865,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener el tipo de carga de archivo
    */
   async GetTypeLoadFiles() {
@@ -879,7 +879,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Se edita al de fuerza comercial ver el boton continuar
    * @param valid boolean
    */
@@ -888,7 +888,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Se obtiene al rol de fuerza comercial el valor si tiene el permiso de mostrar el boton
    */
   public GetPCForceForCompleteForm() {
@@ -896,7 +896,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene los archivos ajuntos que se halla guardado previamente
    */
   async GetFilesAdjunt() {
@@ -904,7 +904,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtiene el nombre de los archivos subidos
    */
   async GetFilesAdjuntNames(id: number = 0) {
@@ -912,7 +912,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Guardar la ruta de pagina en quedo
    * @param url
    */
@@ -934,7 +934,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener la url de prospecto donde quedo
    */
   async GetPage(idProspect: number) {
@@ -949,7 +949,7 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene el valor de las secciones
    * @param section
    */
@@ -961,14 +961,14 @@ export class MainStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene y estables los campos a bloquear
    */
   GetLockFields() {
     return this.data.lockFields;
   }
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene y estables los campos a bloquear
    */
   SetLockFields(lockFields: LockFieldsModel) {

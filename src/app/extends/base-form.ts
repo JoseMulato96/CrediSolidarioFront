@@ -20,7 +20,7 @@ export class BaseForm {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description habilidata las secciones dar click
    * @param url
    */
@@ -44,7 +44,7 @@ export class BaseForm {
   ViewCurrent: IFormSection;
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha la vista (Section) actual que agrego al body al formulario
    * @param view Vista Actual
    */
@@ -53,7 +53,7 @@ export class BaseForm {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton Anterior
    */
   async OnClickPrev($event) {
@@ -65,7 +65,7 @@ export class BaseForm {
     MainStore.db.SavePage(this.GoSection(nextSection));
   }
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton guardar
    */
   async OnClickSave($event) {
@@ -80,7 +80,7 @@ export class BaseForm {
     return false;
   }
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton finalizar
    */
   async OnClickFinsh($event) {
@@ -90,7 +90,7 @@ export class BaseForm {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del boton cancelar
    * @param $event
    */
@@ -118,7 +118,7 @@ export class BaseForm {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida si esta en la ultima pagina para mostrar u ocultar el boton finalizar
    * @param value
    */

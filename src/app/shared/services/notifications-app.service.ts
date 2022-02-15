@@ -11,7 +11,7 @@ export class NotificationsAppService {
   MenuItemClick: EventEmitter<any> = new EventEmitter<any>();
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description notifica que se a cabado el token
    */
   ExpiredToken: EventEmitter<any> = new EventEmitter<any>();

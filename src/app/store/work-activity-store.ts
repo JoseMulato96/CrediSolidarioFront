@@ -6,7 +6,7 @@ export class WorkActivityStore extends BaseStore {
   private workActivityStore: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener actividades laborales y guardarla en cache
    */
   protected async GetService() {

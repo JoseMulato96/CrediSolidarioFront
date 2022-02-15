@@ -10,7 +10,7 @@ export class BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener por el filtro de value
    * @param value
    */
@@ -19,7 +19,7 @@ export class BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener item por key
    * @param value
    * @param key
@@ -29,7 +29,7 @@ export class BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description interfas para obtener el servicio
    */
   protected async GetService() {
@@ -37,7 +37,7 @@ export class BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener la instacia del Objeto
    */
   public async newData() {

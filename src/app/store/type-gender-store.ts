@@ -6,7 +6,7 @@ export class TypeGenderStore extends BaseStore {
   private _form: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener tipo de genero y guardarla en cache
    */
   protected async GetService() {

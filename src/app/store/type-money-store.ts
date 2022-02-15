@@ -6,7 +6,7 @@ export class TypeMoneyStore extends BaseStore {
   private typeMoney: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener tipos de monedas y guardarla en cache
    */
   protected async GetService() {

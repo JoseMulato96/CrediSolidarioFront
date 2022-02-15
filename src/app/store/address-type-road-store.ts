@@ -6,7 +6,7 @@ export class AddressTypeRoadStore extends BaseStore {
   private academicLevel: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener direcciones calles y guardarla en cache
    */
   protected async GetService() {
@@ -20,7 +20,7 @@ export class AddressTypeRoadStore extends BaseStore {
 }
 
 /**
- * @author Jorge Luis Caviedes Alvarador
+ * r
  * @description Obtener direcciones de zona y guardarla en cache
  */
 export class AddressTypeZoneStore extends BaseStore {
@@ -36,7 +36,7 @@ export class AddressTypeZoneStore extends BaseStore {
 }
 
 /**
- * @author Jorge Luis Caviedes Alvarador
+ * r
  * @description Obtener direcciones tipo de imueble y guardarla en cache
  */
 export class AddressTypeInmueblesStore extends BaseStore {
@@ -52,7 +52,7 @@ export class AddressTypeInmueblesStore extends BaseStore {
 }
 
 /**
- * @author Jorge Luis Caviedes Alvarador
+ * r
  * @description Obtener direcciones tipo internos y guardarla en cache
  */
 export class AddressTypeInsideStore extends BaseStore {

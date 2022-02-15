@@ -6,7 +6,7 @@ export class TypeProductStore extends BaseStore {
   private typeProductStore: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener tipo de productos y guardarla en cache
    */
   protected async GetService() {

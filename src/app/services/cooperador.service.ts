@@ -13,7 +13,7 @@ export class CooperadorService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener los datos del servicio de recooperamos
    * @param id numero de cedula
    */

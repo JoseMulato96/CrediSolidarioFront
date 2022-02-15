@@ -186,7 +186,7 @@ export class SectionUploadFiles2Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida que halla documento para colocar el nombre
    */
   ngAfterContentInit() {
@@ -234,7 +234,7 @@ export class SectionUploadFiles2Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el cambio de pestaña
    *  */
   _OnClickOptionAbjuntar() {
@@ -242,7 +242,7 @@ export class SectionUploadFiles2Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el cambio de pestaña
    */
   _OnClickOptionDigital() {
@@ -250,7 +250,7 @@ export class SectionUploadFiles2Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description descarga los archivos
    */
   OnSeeFilesDownload() {
@@ -295,7 +295,7 @@ export class SectionUploadFiles2Component extends BaseSection
     this._FormDataFileSoportStudy = file;
   }
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description copiar el campo de docuwer
    */
   CopyToClir() {

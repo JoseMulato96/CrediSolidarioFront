@@ -6,7 +6,7 @@ export class ViculacionStore extends BaseStore {
   private academicLevel: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener vinculados y guardarla en cache
    */
   protected async GetService() {

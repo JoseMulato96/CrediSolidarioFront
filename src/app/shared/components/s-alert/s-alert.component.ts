@@ -3,7 +3,7 @@ export class SAlertComponent {
   static _WindowSpiner: any;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description construye la alerta con su descripcion
    * @param title
    * @param text
@@ -18,7 +18,7 @@ export class SAlertComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description muestra una alerta de confirmacion
    * @param text
    * @param title
@@ -30,7 +30,7 @@ export class SAlertComponent {
     this.Alert(text, title, "success");
   }
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description muestra una alerta de informacion
    * @param text
    * @param title
@@ -40,7 +40,7 @@ export class SAlertComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description muestra una alerta de alvertencia
    * @param text
    * @param title
@@ -50,7 +50,7 @@ export class SAlertComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description muesta una alerta de salida
    * @param text
    * @param title
@@ -66,7 +66,7 @@ export class SAlertComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description muestra una alerta con icono error y su texto
    * @param text
    * @param title
@@ -79,7 +79,7 @@ export class SAlertComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description muesta el spinner global
    */
   public static ShowSpinner() {
@@ -94,7 +94,7 @@ export class SAlertComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cierra el spiner global
    */
   public static CloseSpinner() {
@@ -102,7 +102,7 @@ export class SAlertComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description ventana emergente que solicita confirmacion con respecto al texto
    * @param text
    * @param danger

@@ -6,7 +6,7 @@ export class TypeDocumentStore extends BaseStore {
   private _form: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener tipo de documento y guardarla en cache
    */
   protected async GetService() {

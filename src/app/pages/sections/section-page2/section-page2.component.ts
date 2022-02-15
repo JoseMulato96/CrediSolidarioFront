@@ -164,7 +164,7 @@ export class SectionPage2Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la url anterior
    */
   async Prev(): Promise<any> {
@@ -172,7 +172,7 @@ export class SectionPage2Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la url siguiente
    */
   async Next(): Promise<any> {
@@ -180,7 +180,7 @@ export class SectionPage2Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Envia al servidor a guardar
    */
   async Save(): Promise<any> {
@@ -219,7 +219,7 @@ export class SectionPage2Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna si son valido los campos y completa formulario
    */
   async Valid(): Promise<any> {

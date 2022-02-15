@@ -6,7 +6,7 @@ export class OcupationStore extends BaseStore {
   private ocupationService: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener Ocupaciones y guardarla en cache
    */
   protected async GetService() {

@@ -36,7 +36,7 @@ export class SComboboxComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description configura y valida que la configuracion Skeleton se encuentre con los valores minimo y que las funciones de agregar por medio de servicio
    */
   ngOnInit() {
@@ -57,7 +57,7 @@ export class SComboboxComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Organiza la lista en forma alfabetica
    */
   _OrderByLabel() {
@@ -69,7 +69,7 @@ export class SComboboxComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Mostrar la lista de datos
    */
   OnClickIcon() {
@@ -82,7 +82,7 @@ export class SComboboxComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el evento cuando seleciona un item
    * @param e
    */

@@ -6,7 +6,7 @@ export class PerseverancePlanStore extends BaseStore {
   private perseverancePlane: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener planes de perseveracia y guardarla en cache
    */
   protected async GetService() {    

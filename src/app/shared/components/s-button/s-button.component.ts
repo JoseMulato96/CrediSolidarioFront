@@ -17,7 +17,7 @@ export class SButtonComponent extends BButtonComponent implements OnInit {
   iconCls: string = "";
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el click del botoon y dispara el evento o valida que este dispobible y no disable
    */
   OnClick() {

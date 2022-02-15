@@ -46,7 +46,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   @ViewChild(Modal) ModelAssign: Modal;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener la informacion de los filtros de locomponentes
    */
   GetFiltersComponents() {
@@ -60,7 +60,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description realiza la solicitud y filtra los datos
    * @param filter
    * @param pageCurrent
@@ -90,7 +90,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   _BtnAssignDisable: boolean = true;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escuchar cuando dar cancelar
    */
   OnClickCancel(e) {
@@ -98,7 +98,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escuchar cuando seleciona un row
    */
   OnSelectRow(item) {
@@ -110,7 +110,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el boton de actiones sobre la celda
    * @param params
    */
@@ -124,7 +124,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    */
   _OnClickAssign() {
     if (!this.FilterGrid.Data) {
@@ -134,7 +134,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha cuando reasigna
    */
   _OnClickReAssign() {
@@ -142,7 +142,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description solo se permite
    */
   FilterState: InputModel = {
@@ -155,7 +155,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   };
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Solicita al usuario si desea eliminar el usuario
    * @param item
    * @param position
@@ -190,7 +190,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obteniendo
    */
   ClickComfirm() {
@@ -227,7 +227,7 @@ export class AssignComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Mostrar u ocultar los botones
    * @param item
    * @param stateValue

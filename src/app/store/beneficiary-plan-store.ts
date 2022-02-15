@@ -5,7 +5,7 @@ import { FormService } from "../services/form.service";
 export class BeneficiaryPlanStore extends BaseStore {
   private beneficiaryPlanService: FormService;
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener plan de beneficiario y guardarla en cache
    */
   protected async GetService() {

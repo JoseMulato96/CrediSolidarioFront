@@ -6,7 +6,7 @@ export class TypeChannelStore extends BaseStore {
   private channelService: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener canales y guardarla en cache
    */
   protected async GetService() {

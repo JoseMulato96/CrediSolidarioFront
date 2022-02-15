@@ -338,7 +338,7 @@ export class SectionPage1Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la url siguiente
    */
   async Next(): Promise<any> {
@@ -346,7 +346,7 @@ export class SectionPage1Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Mandar a guardar el dato al servicio
    */
   async Save(): Promise<any> {
@@ -397,7 +397,7 @@ export class SectionPage1Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida si hay que bloquear campos
    */
   async LockFiels() {
@@ -415,7 +415,7 @@ export class SectionPage1Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Valida los campos este correctos
    */
   async Valid(): Promise<any> {
@@ -439,7 +439,7 @@ export class SectionPage1Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Carga los datos
    */
   Load(): Promise<any> {
@@ -564,7 +564,7 @@ export class SectionPage1Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description bloquea los campos de la seccion
    */
   IsLockSection() {

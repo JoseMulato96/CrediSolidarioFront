@@ -6,7 +6,7 @@ export class OfficesStore extends BaseStore {
   private academicLevel: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener oficinas de coomeva y guardarla en cache
    */
   protected async GetService() {
@@ -21,7 +21,7 @@ export class OfficesStore extends BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener oficinas de coomeva y sin guardarla en cache
    */
   protected async GetOffice(nivel) {
@@ -59,7 +59,7 @@ export class OfficesStore extends BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener oficina por el nombre
    */
   public async GetOfficesByName(value: string, options: any) {

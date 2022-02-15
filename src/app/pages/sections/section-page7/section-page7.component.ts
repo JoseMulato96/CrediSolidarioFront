@@ -74,7 +74,7 @@ export class SectionPage7Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion previo
    */
   async Prev(): Promise<any> {
@@ -82,7 +82,7 @@ export class SectionPage7Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion siguiente
    */
   async Next(): Promise<any> {
@@ -90,7 +90,7 @@ export class SectionPage7Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description enviar informacion de los componente a al seridor
    */
   async Save(): Promise<any> {
@@ -121,7 +121,7 @@ export class SectionPage7Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida informacion de los componentes
    */
   async Valid(): Promise<any> {
@@ -138,7 +138,7 @@ export class SectionPage7Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description carga en los componente con la informacion pre guardaba
    */
   async Load(): Promise<any> {

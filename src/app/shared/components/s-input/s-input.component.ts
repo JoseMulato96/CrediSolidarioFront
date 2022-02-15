@@ -27,7 +27,7 @@ export class SInputComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida si el tipo de componente es fecha para que solo funcione con la fecha
    */
   ngAfterViewInit() {

@@ -90,7 +90,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description realiza la solicitud y filtra los datos
    * @param filter
    * @param pageCurrent
@@ -119,7 +119,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el boton de actiones sobre la celda
    * @param params
    */
@@ -136,7 +136,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description abre el window emergente de los incidente
    * @param element
    * @param position
@@ -147,7 +147,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha al confirmar el click del window emergente
    */
   ClickComfirm() {
@@ -175,7 +175,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cerrar la solicitud
    * @param item
    * @param position
@@ -247,7 +247,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Se direje a la ultima vista en que quedo
    * @param item
    * @param position
@@ -261,7 +261,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Solicita al usuario si desea eliminar el usuario
    * @param item
    * @param position
@@ -296,7 +296,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description realizar el servicio y exportar el excel el datto obtenido
    */
   ExportExcelAux() {
@@ -374,7 +374,7 @@ export class ConsultAuxComponent extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Mostrar u ocultar los botones
    * @param item
    * @param stateValue

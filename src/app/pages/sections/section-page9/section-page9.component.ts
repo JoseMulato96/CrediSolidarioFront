@@ -106,7 +106,7 @@ export class SectionPage9Component extends BaseSection
   private arraySuegros: Array<any> = [];
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion previo
    */
   async Prev(): Promise<any> {
@@ -114,7 +114,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion siguiente
    */
   async Next(): Promise<any> {
@@ -161,14 +161,14 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna true
    */
   async Valid(): Promise<any> {
     return true;
   }
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description carga la lista de beneficiario
    */
   async Load(): Promise<any> {
@@ -203,7 +203,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida si el boton se habilita o no dependiendo si llega el atributo
    * @param item row de la grid
    */
@@ -389,7 +389,7 @@ export class SectionPage9Component extends BaseSection
   _typeCR: number = TypeDocumentStore.CIVIL_REGISTRATION;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida si el tipo de documento es correcto con respecto a la edad
    * @param age edad de la persona que se le asigno
    * @param typeDocument el tipo de documento de la persona que se le asigno
@@ -422,7 +422,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtiene los valores del formulario y se lo adiciona a la lista
    */
   OnAddToList() {
@@ -644,7 +644,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Elimina Funerario Duplicado
    * @param data
    */
@@ -660,7 +660,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Crea un dublicado del dato y lo agrega en la lista
    * con la condicion de colocarlo aux solidaridad y aporte
    * @param data
@@ -679,7 +679,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida que todos los campos contenga datos
    */
   ValidData(): any {
@@ -699,7 +699,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Limpiar componentes
    * @param params
    */
@@ -719,7 +719,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el boton de actiones sobre la celda
    * @param params
    */
@@ -754,7 +754,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida si el cliente editar datos
    * @param item
    * @param position
@@ -777,7 +777,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Valida si el usuario desea eliminar el item
    * @param item
    */
@@ -792,7 +792,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description solicita eliminar el item desde la base de datos
    * @param item elemento que va eliminar
    */
@@ -814,7 +814,7 @@ export class SectionPage9Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Escucha el esto de tipo de beneficiario
    * @param item
    */

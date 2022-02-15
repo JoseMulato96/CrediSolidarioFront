@@ -42,7 +42,7 @@ export class SectionPage8Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el componenten si es afirmativo cuando fuma para habilitar o desabilitar la opciones
    */
   _OnChamgeSmokes() {
@@ -63,7 +63,7 @@ export class SectionPage8Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el componente si una de las respuesta es afirmativa se habilita los componente diagnostico, fecha y secuelas
    */
   _OnChamgeState() {
@@ -98,7 +98,7 @@ export class SectionPage8Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Valida si el diagnostico es afirmativo o negativo las preguntas
    */
   _ValidateByDiagnostico(): boolean {
@@ -111,7 +111,7 @@ export class SectionPage8Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion previo
    */
   async Prev(): Promise<any> {
@@ -119,7 +119,7 @@ export class SectionPage8Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion siguiente
    */
   async Next(): Promise<any> {
@@ -127,7 +127,7 @@ export class SectionPage8Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description enviar a guardar la informacion de los componentes
    */
   async Save(): Promise<any> {
@@ -164,7 +164,7 @@ export class SectionPage8Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Valida el contido de la informacion del componente
    */
   async Valid(): Promise<any> {
@@ -190,7 +190,7 @@ export class SectionPage8Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description carga la informaicon de los componentes
    */
   async Load(): Promise<any> {

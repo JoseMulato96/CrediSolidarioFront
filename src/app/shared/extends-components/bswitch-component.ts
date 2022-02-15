@@ -22,7 +22,7 @@ export class BSwitchComponent extends BaseComponent {
   EvtChangeState: EventEmitter<any> = new EventEmitter<any>();
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cambia el estado
    * @param item
    */
@@ -40,7 +40,7 @@ export class BSwitchComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Genera un ID random si no tiene el item un id
    * @param item Elemento
    */
@@ -49,7 +49,7 @@ export class BSwitchComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener y establese id al item
    * @param item
    */
@@ -58,7 +58,7 @@ export class BSwitchComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    *@description Asigna un nombre al Group para que no interfiera en otras instancias
    */
   GeneralNameGroup() {

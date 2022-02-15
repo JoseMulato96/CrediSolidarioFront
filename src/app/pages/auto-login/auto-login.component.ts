@@ -59,7 +59,7 @@ export class AutoLoginComponent implements OnInit {
   private login: UserModel = new UserModel();
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Generar la autenticación automaticamente
    */  
   AutoAuthentication() {
@@ -71,7 +71,7 @@ export class AutoLoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Refresca el token
    */
   async RefreshToken() {
@@ -94,7 +94,7 @@ export class AutoLoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Validar en red cooperamos
    */
   async ValidateRedCooperador() {
@@ -117,7 +117,7 @@ export class AutoLoginComponent implements OnInit {
   }
 
   /**
-  * @author Jorge Luis Caviedes Alvarado
+  * 
   * @description Valida la respuesta que envia el servicio
   * @param response
   */
@@ -131,7 +131,7 @@ export class AutoLoginComponent implements OnInit {
   }
 
   /**
-  * @author Jorge Luis Caviedes Alvarador
+  * r
   * @description Valida por medio de un servicio si debe o no publicar el boton continuar
   */
   private ValidCompleteFormPermitRolCommercialForce() {
@@ -145,7 +145,7 @@ export class AutoLoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Carga el menu en la aplicación
    * @param data
    */
@@ -167,7 +167,7 @@ export class AutoLoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Filtra las opciones del menú
    * @param objs
    * @param actions
@@ -192,7 +192,7 @@ export class AutoLoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Carga los datos basico del usuario que ingresa y el menu
    * @param data
    */

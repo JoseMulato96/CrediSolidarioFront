@@ -149,7 +149,7 @@ export class SectionUploadFilesComponent extends BaseSection
   };
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion previo
    */
   async Prev(): Promise<any> {
@@ -157,7 +157,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion siguiente
    */
   async Next(): Promise<any> {
@@ -165,7 +165,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description guardar la informacion en el servidor
    */
   async Save(): Promise<any> {
@@ -227,7 +227,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida los componente la informacion contenida
    */
   async Valid(): Promise<any> {
@@ -240,7 +240,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description no carga nada
    */
   async Load(): Promise<any> {
@@ -248,7 +248,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description hace el switch del taba de adjuntar y docuwer
    *  */
   _OnClickOptionAbjuntar() {
@@ -256,7 +256,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description hace el switch del taba de adjuntar y docuwer
    */
   _OnClickOptionDigital() {
@@ -264,7 +264,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description descarga los archivo adjunto
    */
   OnSeeFilesDownload() {
@@ -286,7 +286,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtiene el valor de los archivos
    * @param file
    */
@@ -295,7 +295,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtiene el valor de los archivos
    * @param file
    */
@@ -304,7 +304,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtiene el valor de los archivos
    * @param file
    */
@@ -313,7 +313,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description copiar el valor
    */
   CopyToClir() {
@@ -321,7 +321,7 @@ export class SectionUploadFilesComponent extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description bloquea los campos
    */
   IsLockSection() {

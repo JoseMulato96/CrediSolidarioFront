@@ -79,7 +79,7 @@ export class ListOfStore {
   private static instances: BaseStore[] = [];
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtiene en la lista las clases de almacenamiento para que los componente solicite el servicio y obtenga el contenido
    * @param nameStore
    * @param http

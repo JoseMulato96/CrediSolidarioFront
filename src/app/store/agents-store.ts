@@ -5,7 +5,7 @@ import { FormService } from "../services/form.service";
 export class AgentsStore extends BaseStore {
   private server: FormService;
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener agentes y guardarla en cache
    */
   protected async GetService() {

@@ -6,7 +6,7 @@ export class CIIUStore extends BaseStore {
   private classcompanystore: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener CIIU y guardarla en cache
    */
   protected async GetService() {

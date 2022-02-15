@@ -9,14 +9,14 @@ export class BButtonComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Eventos de cambio estado
    */
   @Output("s-click")
   EvtClick: EventEmitter<any> = new EventEmitter<any>();
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el clin del boton
    */
   OnClick() {

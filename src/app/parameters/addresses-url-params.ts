@@ -34,7 +34,7 @@ export class AddressesUrlParams {
   static SECTION_VERIFIC_USUARIO: string = `verificarUsuario`;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description construye la ruta del momento 1 o 2 y la seccion
    */
   static PathSectionForm(section: string, form: string) {
@@ -42,7 +42,7 @@ export class AddressesUrlParams {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description construye la ruta para ir momento uno de la seccion inicial
    */
   static GetPathFormStart() {
@@ -52,7 +52,7 @@ export class AddressesUrlParams {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description construye la ruta para ir al index
    */
   static PathIndex() {

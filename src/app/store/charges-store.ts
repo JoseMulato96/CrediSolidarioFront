@@ -5,7 +5,7 @@ import { FormService } from "../services/form.service";
 export class ChargesStore extends BaseStore {
   private server: FormService;
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener cargos y guardarla en cache
    */
   protected async GetService() {

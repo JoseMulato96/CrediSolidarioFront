@@ -158,7 +158,7 @@ export class SDatepickerComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida si es requerido y si cumple los requerimientos
    */
   public Valid() {
@@ -240,7 +240,7 @@ export class SDatepickerComponent extends BinputComponent implements OnInit {
   }
 
   /**
- * @author Jorge Luis Caviedes Alvarado
+ * 
  * @description Estableser el Valor
  */
   SetData(data: any) {
@@ -256,7 +256,7 @@ export class SDatepickerComponent extends BinputComponent implements OnInit {
 
 
   /**
- * @author Jorge Luis Caviedes Alvarado
+ * 
  * @description esta funcionalidad es solo para fecha de diligenciamiento en autorizaciones
  */
   SetDataCurrent(data: any) {

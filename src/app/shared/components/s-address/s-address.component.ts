@@ -86,7 +86,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   };
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida los dos campos
    */
   Valid() {
@@ -141,7 +141,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Agrega los css privados o internos de la aplicacion
    */
   GetCssPrivate() {
@@ -149,7 +149,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Agrega los css privados o internos de la aplicacion
    */
   GetCss2Private() {
@@ -157,7 +157,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener el barrio
    * */
   GetDataNeighborhood(): string {
@@ -165,7 +165,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener la direccion
    * */
   GetDataAddress(): string {
@@ -173,7 +173,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Estableser la direccion
    * @param data
    */
@@ -182,7 +182,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Estableser la barrio
    * @param data
    */
@@ -191,7 +191,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Posiciona el valor en Data2 de Skeleton
    * @param value objecto
    * @param pos index
@@ -203,7 +203,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha cuando va actualizar la información de la dirección
    */
   OnClickCurrent() {
@@ -228,7 +228,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda el dato
    */
   ClickComfirm() {
@@ -240,7 +240,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Muestra o oculta los datos
    */
   ClickVisibleModeFields() {
@@ -261,7 +261,7 @@ export class SAddressComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description une el contenido de las direccion y lo coloca en un extructura
    */
   ApplycationValue() {

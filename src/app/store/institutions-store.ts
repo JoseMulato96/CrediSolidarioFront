@@ -6,7 +6,7 @@ export class InstitutionsStore extends BaseStore {
   private server: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener instituciones y guardarla en cache
    */
   protected async GetService() {
@@ -22,7 +22,7 @@ export class InstitutionsStore extends BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener instituciones buscando por el nombre
    */
   protected async GetInstitucionesByName(value: string) {
@@ -41,7 +41,7 @@ export class InstitutionsStore extends BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener instituciones buscando por el value
    */
   public async GetInstitucionesByValue(value: number) {

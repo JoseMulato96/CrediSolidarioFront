@@ -29,7 +29,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   _StopDelay: boolean = false;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description realiza la configuración con base a Skeleton y dar los valores por default si no los contiene
    */
   ngOnInit() {
@@ -47,7 +47,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida si hay que bloquear el componente
    */
   ngAfterContentInit() {
@@ -58,7 +58,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Disable componente
    * @param value
    */
@@ -70,7 +70,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Organiza la lista en forma alfabetica
    */
   _OrderByLabel() {
@@ -88,7 +88,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   _IsItemLoad: boolean = false;
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida si cumple con el dato
    */
   Valid(): boolean {
@@ -111,7 +111,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener el dato del componente
    */
   GetData() {
@@ -119,7 +119,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener el label del componente
    */
   GetLabel() {
@@ -127,7 +127,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description se agrega el item a la lista de items
    * @param item
    */
@@ -139,7 +139,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Selecciona el dato buscandolo por el Valor
    * @param value
    */
@@ -155,7 +155,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description escuchando la escritura
    * @param value
    */
@@ -165,7 +165,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description se guarda el valor que se le pasa por parametro para luego pasarcelo _Delay como parametro en la solicitud del servicio, es comun cuando se requiere filtrar o buscar las ciudades de un pais que fue selecionado en otro componente y se le paso el valor por esta funcion
    * @param value
    */
@@ -174,7 +174,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Mandando por la funcion el valor
    * @param value
    */
@@ -185,7 +185,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description activa la vandera para indicar que no vuelva a buscar con el _Delay y no hacer ningun servcio
    */
   _OnSelectValueOf(value) {
@@ -194,7 +194,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida despues de un tiempo si el usuario al escribir hay que hacer la solicitud de algun servicio store
    * y luego llenar en la lista con el contenido retornado
    * @param value
@@ -242,7 +242,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   _BaseStore: BaseStore;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Buscar por servicio
    * @param http
    */
@@ -282,7 +282,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Mostrar la lista de datos
    */
   OnClickIcon() {
@@ -298,7 +298,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener los minimos carateres para escribir
    */
   _GetMinChars() {
@@ -306,7 +306,7 @@ export class SAutocompleteComponent extends BinputComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener la cantidad minima de items
    */
   _LenItems() {

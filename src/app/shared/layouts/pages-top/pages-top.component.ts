@@ -25,7 +25,7 @@ export class PagesTopComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description envia abrir o cerrar el menu
    */
   public _sidebarToggle() {

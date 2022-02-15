@@ -5,7 +5,7 @@ export class ConfirmeStore extends BaseStore {
   private confirmeStore: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Se establese una copia del valor si o no
    */
   protected async GetService() {

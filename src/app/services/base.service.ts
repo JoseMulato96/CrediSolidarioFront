@@ -18,7 +18,7 @@ export class BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Se establese el token para enviar en las demas peticiones
    */
   static SetToken(token: string): any {
@@ -26,7 +26,7 @@ export class BaseService {
   }
 
   /**
-  * @author Jorge Luis Caviedes Alvarado
+  * 
   * @description Se establese el refresh token para refrescar el token
   */
   static SetRefreshToken(refresh: string) {
@@ -34,7 +34,7 @@ export class BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Se obtiene el token
    */
   static GetToken() {
@@ -42,7 +42,7 @@ export class BaseService {
   }
 
   /**
-  * @author Jorge Luis Caviedes Alvarado
+  * 
   * @description Se obtiene el refresh token
   */
   static GetRefreshToken(): string {
@@ -50,7 +50,7 @@ export class BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description servicio por medio POST
    * @param urlService
    * @param data
@@ -94,7 +94,7 @@ export class BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description servicio por GET
    * @param urlService
    * @param data
@@ -126,7 +126,7 @@ export class BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description enviar por put
    * @param urlService
    * @param data
@@ -158,7 +158,7 @@ export class BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida que el usuario se le halla acabado el token para redirecionar al login
    * @param responseGeneral
    */

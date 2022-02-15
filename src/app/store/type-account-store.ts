@@ -6,7 +6,7 @@ export class TypeAccountStore extends BaseStore {
   private typeAccountStore: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener tipo de cuanta y guardarla en cache
    */
   protected async GetService() {

@@ -14,7 +14,7 @@ export class SProgressCircleComponent extends BprogressCircleComponent
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description construye el la interfaz numero circulo
    */
   ngOnInit() {

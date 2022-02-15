@@ -30,7 +30,7 @@ export class SectionsService extends BaseService {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la primer session
    * @param data
    */
@@ -40,7 +40,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la segunda session
    * @param data
    */
@@ -50,7 +50,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la tercera session
    * @param data
    */
@@ -60,7 +60,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la tercera session
    * @param data
    */
@@ -70,7 +70,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la cuarta session
    * @param data
    */
@@ -83,7 +83,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la quita session
    * @param data
    */
@@ -93,7 +93,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la sexta session
    * @param data
    */
@@ -103,7 +103,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la sectima session
    * @param data
    */
@@ -113,7 +113,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la octava session
    * @param data
    */
@@ -123,7 +123,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la novena session
    * @param data
    */
@@ -133,7 +133,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la decima session
    * @param data
    */
@@ -144,7 +144,7 @@ export class SectionsService extends BaseService {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema envia los datos para crear la section encuesta
    * @param data
    */
@@ -155,7 +155,7 @@ export class SectionsService extends BaseService {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la primera seccion
    * @param idClient
    */
@@ -176,7 +176,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la primera seccion
    * @param idClient
    */
@@ -186,7 +186,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene el tipo de tranasacion
    * @param idTransacion ID de tranasacion
    */
@@ -196,7 +196,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la primera seccion
    * @param idClient
    */
@@ -206,7 +206,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la primera seccion
    * @param idClient
    */
@@ -216,7 +216,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la quita seccion
    * @param idClient
    */
@@ -226,7 +226,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la sexta seccion
    * @param idClient
    */
@@ -236,7 +236,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la sectima seccion
    * @param idClient
    */
@@ -246,7 +246,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la octava seccion
    * @param idClient
    */
@@ -256,7 +256,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la novena seccion
    * @param idClient
    */
@@ -266,7 +266,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema obtiene del backend la decima seccion
    * @param idClient
    */
@@ -276,7 +276,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description sube los archivos ajuntos
    * @param formData Form de archivos
    */
@@ -286,7 +286,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtiene el Key que genera desde el backend
    * @param idProspecto
    */
@@ -296,7 +296,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene los documentos adjuntos
    */
   async GetFilesAdjunt(id: number) {
@@ -313,7 +313,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description obtener los nombre que se juntaron
    * @param idProspecto
    */
@@ -323,7 +323,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description cambia el estado del cliente que esta inscribiendo
    * @param data
    */
@@ -333,7 +333,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener el tipo de cargar de archivo
    * @param idProspect
    */
@@ -343,7 +343,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description eliminar el cliente o la solicitud
    * @param data
    */
@@ -353,7 +353,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Guarda un beneficiario
    * @param data
    */
@@ -363,7 +363,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Guarda la pagina donde quedo el usuario
    * @param data
    */
@@ -373,7 +373,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener la pagina del prospecto donde se guardo
    * @param idProspecto
    */
@@ -383,7 +383,7 @@ export class SectionsService extends BaseService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Envia al servisio si es para firmar
    */
   async SendAdobeSign(data: ConfirmaEmailAdobeSignDTO) {

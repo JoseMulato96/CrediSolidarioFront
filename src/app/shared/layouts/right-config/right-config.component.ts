@@ -24,7 +24,7 @@ export class RightConfigComponent implements OnInit {
   ngOnInit() {}
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description cierra o abre el menu
    */
   configToggle() {
@@ -32,7 +32,7 @@ export class RightConfigComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description el sistema escucha cuando seleciona el boton salir
    */
   OnExitSeccion() {

@@ -6,7 +6,7 @@ export class TitlesStore extends BaseStore {
   private server: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener titulos profecionales y guardarla en cache
    */
   protected async GetService() {
@@ -22,7 +22,7 @@ export class TitlesStore extends BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener titulos profecionales y no lo guardar en cache
    */
   protected async GetTitles(value: string) {
@@ -39,7 +39,7 @@ export class TitlesStore extends BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener titulos profecional, filtrado por el valor=consTituloacademico
    * y no guarda en cache
    */

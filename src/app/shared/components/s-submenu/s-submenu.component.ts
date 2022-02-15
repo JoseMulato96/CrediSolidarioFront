@@ -12,7 +12,7 @@ export class SSubMenuComponent implements OnInit {
   ngOnInit() {}
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description se subcribe para escuchar el contenido de la url
    */
   ngAfterContentInit() {
@@ -25,7 +25,7 @@ export class SSubMenuComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el estado de la url para pintarse el item del sub-menu como selecionado
    * @param url string
    */
@@ -38,7 +38,7 @@ export class SSubMenuComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el item selecionado y valida que si esta disponible para emitir el evento
    * @param item
    */
@@ -52,7 +52,7 @@ export class SSubMenuComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description seleciona el item del sub-menu y pinta la selecion
    * @param item
    */

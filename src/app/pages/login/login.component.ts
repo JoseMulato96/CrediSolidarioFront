@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el evento del click para validar los campos y enviar la autenticación
    */
   OnClickEntry() {
@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description se consume el servicio de autenticacion
    */
   Login() {
@@ -121,7 +121,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida la respuesta que envia el servicio
    * @param response
    */
@@ -153,7 +153,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Carga el menu en la aplicación
    * @param data
    */
@@ -169,7 +169,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Filtra las opciones del menú
    * @param objs
    * @param actions
@@ -194,7 +194,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Carga los datos basico del usuario que ingresa y el menu
    * @param data
    */
@@ -214,7 +214,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Valida los campos que no este vacios
    * @param msg Mensaje del error que existe
    */
@@ -229,7 +229,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Valida por medio de un servicio si debe o no publicar el boton continuar
    */
   private ValidCompleteFormPermitRolCommercialForce() {
@@ -243,7 +243,7 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Habilitar o desahabilitar
    */
   _OnExpired() {

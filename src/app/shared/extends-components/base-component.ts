@@ -20,7 +20,7 @@ export class BaseComponent {
   _Type: string = "";
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Overwritter para lo demás componentes
    *  */
   Valid(): boolean {
@@ -28,7 +28,7 @@ export class BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description cambiar el estado si es disable
    * @param disable
    */
@@ -37,7 +37,7 @@ export class BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Buscar por servicio
    * @param http
    */
@@ -58,7 +58,7 @@ export class BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description filtra los elemento que no va contener en la configuracion de skeleton
    * @param items elementos a filtrar
    */
@@ -74,7 +74,7 @@ export class BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description agrega al skeleton los items
    * @param items
    */
@@ -93,7 +93,7 @@ export class BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description asigna el id si lo tiene lo ignora
    * @param items
    */

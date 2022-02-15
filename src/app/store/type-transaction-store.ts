@@ -6,7 +6,7 @@ export class TypeTransactionStore extends BaseStore {
   private typeTransaction: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener tipo de transacción y guardarla en cache
    */
   protected async GetService() {

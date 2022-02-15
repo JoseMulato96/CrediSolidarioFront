@@ -6,7 +6,7 @@ export class StateAccountStore extends BaseStore {
   private statusCivilStore: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener tipo de cuenta y guardarla en cache
    */
   protected async GetService() {

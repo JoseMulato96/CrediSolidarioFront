@@ -19,7 +19,7 @@ export class MenuComponent {
   ) {}
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description abre o cierra el sub menu
    * @param item
    */
@@ -28,7 +28,7 @@ export class MenuComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description envia el item del menu selecionado
    * @param item
    */

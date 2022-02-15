@@ -6,7 +6,7 @@ export class AcademicLevelStore extends BaseStore {
   private academicLevel: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener niveles academico y guardarla en cache
    */
   protected async GetService() {

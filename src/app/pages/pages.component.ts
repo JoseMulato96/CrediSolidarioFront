@@ -71,7 +71,7 @@ export class PagesComponent {
     )
   }
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida si han dado click a crear una nueva solicitu y borrar el cache
    * @param item
    */

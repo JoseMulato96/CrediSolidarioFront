@@ -1,6 +1,6 @@
 export class Utils {
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene la extencion del archivo
    */
   static ExtracExtFile(nameFile: string) {
@@ -8,7 +8,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description pasar un dato blob a string
    * @param blob
    */
@@ -29,7 +29,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description remueve los doble espacio de seguidos y solo deja uno
    * @param value
    */
@@ -38,7 +38,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description genera un grupo aletorio
    */
   static GeneralNameGroup(): any {
@@ -50,7 +50,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description genera un id
    */
   public static GeneralId() {
@@ -69,7 +69,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Formatea el tipo de hora de pendiento del string
    * @param date
    * @param format
@@ -92,7 +92,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene la edad dependiendo de una fecha
    * @param date
    */
@@ -110,7 +110,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description crea una copia de un json
    * @param json
    */
@@ -119,7 +119,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description formato moneda
    * @param value
    */
@@ -128,7 +128,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description mapea valores de un objeto a otro
    * @param fromObj
    * @param toObj
@@ -165,7 +165,7 @@ export class Utils {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description descarga un archivo de los datos blod
    * @param blob
    * @param nameFile

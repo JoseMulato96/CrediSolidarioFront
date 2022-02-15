@@ -24,20 +24,20 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Actualizando el esqueleto de los parametros que resiven
    */
   Skeleton: GridModel = new GridModel();
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Evento cuando hace click en el momento del boton del cell
    */
   @Output("btnaction")
   EvtClickBtnCell: EventEmitter<any> = new EventEmitter<any>();
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description carga los items en la configuracion Skeleton
    * @param items elementos
    */
@@ -56,7 +56,7 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description retorna el valor sea formateado
    * @param value valor de la posicion
    * @param column la columna que le corresponde
@@ -72,7 +72,7 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description ejecuta el evento que aplico en la celda
    * */
   _OnClickBtnColumn(value, column, btn, position) {
@@ -85,7 +85,7 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description El sistema evalua si hay que aplicar alguna funcionalidad de sumatoria
    * */
   _IsApplicationFunction(column: ColumnsGridModel, posicion: number) {
@@ -104,7 +104,7 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description permite agregar un elemento
    * @param data item
    */
@@ -113,7 +113,7 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description remueve el elemento
    * @param position
    */
@@ -122,7 +122,7 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description el sistema valida valor antes de que precione el botones  opciones
    * @param value
    * @param btn
@@ -135,7 +135,7 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description cambia el numero de pagina que debe colocar
    * @param numb número de pagina
    */
@@ -147,7 +147,7 @@ export class BGridComponent extends BaseComponent {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cambio en la configuración
    * @param data PageModel
    */

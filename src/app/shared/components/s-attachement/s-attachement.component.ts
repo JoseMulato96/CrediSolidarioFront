@@ -41,7 +41,7 @@ export class SAttachementComponent extends BaseComponent implements OnInit {
   EvtSelectFile: EventEmitter<any> = new EventEmitter<any>();
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description coloca estado del componente disable y sin poderlo usar
    * @param value
    */
@@ -51,7 +51,7 @@ export class SAttachementComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description limpia el contenido
    */
   Clear(): any {
@@ -59,7 +59,7 @@ export class SAttachementComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha cuando ha selecionado un archivo
    * @param $event
    */
@@ -108,7 +108,7 @@ export class SAttachementComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Valida la extencion con base a la configuracion dada
    * @param file
    */
@@ -129,7 +129,7 @@ export class SAttachementComponent extends BaseComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el click del boton exportar para abrir la ventana
    * @param e
    */

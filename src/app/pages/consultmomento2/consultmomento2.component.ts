@@ -60,7 +60,7 @@ export class ConsultMomento2Component extends BaseConsult implements OnInit {
   ACTION_CANCEL: string = "CANCEL";
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description realiza la solicitud y filtra los datos
    * @param filter
    * @param pageCurrent
@@ -87,7 +87,7 @@ export class ConsultMomento2Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener la informacion de los filtros de locomponentes
    */
   GetFiltersComponents() {
@@ -101,7 +101,7 @@ export class ConsultMomento2Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el boton de actiones sobre la celda
    * @param params
    */
@@ -119,7 +119,7 @@ export class ConsultMomento2Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cerrar la solicitud
    * @param item
    * @param position
@@ -152,7 +152,7 @@ export class ConsultMomento2Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cerrar la solicitud
    * @param item
    * @param position
@@ -185,7 +185,7 @@ export class ConsultMomento2Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Se direje a la ultima vista en que quedo
    * @param item
    * @param position
@@ -218,7 +218,7 @@ export class ConsultMomento2Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Solicita al usuario si desea eliminar el usuario
    * @param item
    * @param position
@@ -251,7 +251,7 @@ export class ConsultMomento2Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Mostrar u ocultar los botones
    * @param item
    * @param stateValue

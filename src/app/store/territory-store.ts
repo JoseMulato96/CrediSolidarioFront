@@ -10,7 +10,7 @@ export class TerritoryStore extends BaseStore {
   DataCities: any = [];
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener localizacion de ciudades, departamento, paises y guardarla en cache
    */
   async GetService() {
@@ -21,7 +21,7 @@ export class TerritoryStore extends BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener los paises del servicio
    */
   async GetServiceContries() {
@@ -38,7 +38,7 @@ export class TerritoryStore extends BaseStore {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Obtener las ciudades del pais
    */
   async GetServiceCities(value: string, options: any) {
@@ -52,7 +52,7 @@ export class TerritoryStore extends BaseStore {
     return this.DataCities;
   }  
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description realiza el mopping de los atributos del servicio con los atributos que se requiere
    */
   private MappingData(list = []): any[] {

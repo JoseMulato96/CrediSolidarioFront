@@ -6,7 +6,7 @@ export class TypeBeneficiaryStore extends BaseStore {
   private service: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener vinculados y guardarla en cache
    */
   protected async GetService() {

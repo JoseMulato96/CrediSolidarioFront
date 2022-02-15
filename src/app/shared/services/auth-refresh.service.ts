@@ -15,7 +15,7 @@ export class AuthRefreshService {
   private _timeRefresh: number = 1
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Tiempo que debe conteo
    * @param timeExpires
    */
@@ -24,7 +24,7 @@ export class AuthRefreshService {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener el Tiempo
    */
   public GetTimeRefresh(): number {

@@ -53,7 +53,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   @ViewChild("modelFileupdate") ModelFileupdate: Modal;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Escucha el evento click en el boton de filtrado
    * @param e eventos del cursor
    */
@@ -84,7 +84,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description realiza la solicitud y filtra los datos
    * @param filter
    * @param pageCurrent
@@ -112,7 +112,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Escucha el boton de actiones sobre la celda
    * @param params
    */
@@ -136,7 +136,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha cuando cambia el tamaño de la pagina
    */
   OnSelectPageSize(value) {
@@ -151,7 +151,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Solo para cerrar el modal
    */
   ClickAcept() {
@@ -159,7 +159,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cerrar la solicitud
    * @param item
    * @param position
@@ -192,7 +192,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Abre el modal con las observaciones
    * @param element item del row
    */
@@ -202,7 +202,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha el evento cuando cambia de pagina
    * @param page
    */
@@ -218,7 +218,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Cerrar la solicitud
    * @param item
    * @param position
@@ -256,7 +256,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
     });
   }
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Se direje a la ultima vista en que quedo
    * @param item
    * @param position
@@ -321,7 +321,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Solicita al usuario si desea eliminar el usuario
    * @param item
    * @param position
@@ -357,7 +357,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Mostrar u ocultar los botones
    * @param item
    * @param stateValue
@@ -524,7 +524,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description abre una ventana emergente para subir archivos
    * @param element
    * @param position
@@ -582,7 +582,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description adicionar archivo
    */
   async OnSelectFileDocument(file: File) {
@@ -596,7 +596,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description adicionar archivo
    */
   async OnSelectFileSoportIngress(file: File) {
@@ -613,7 +613,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description adicionar archivo
    */
   async OnSelectFileSoportStudy(file: File) {
@@ -630,7 +630,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description adicionar archivo
    */
   async OnSelectFileViculacion(file: File) {
@@ -647,7 +647,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description adicionar archivo
    */
   async OnSelectFileAccount(file: File) {
@@ -681,7 +681,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description subida de archivo
    */
   OnClickUpload() {
@@ -721,7 +721,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description cierra la ventana emergente
    */
   OnClickUploadCancel() {
@@ -851,7 +851,7 @@ export class ConsultMomento1Component extends BaseConsult implements OnInit {
 
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description realizar el servicio y exportar el excel el datto obtenido
    */
   ExportExcelFuerzaComercial() {

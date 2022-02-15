@@ -84,7 +84,7 @@ export class SectionPage5Component extends BaseSection
   };
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion previo
    */
   async Prev(): Promise<any> {
@@ -92,7 +92,7 @@ export class SectionPage5Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la direccion siguiente
    */
   async Next(): Promise<any> {
@@ -100,7 +100,7 @@ export class SectionPage5Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description envia a guardar los servicio los datos
    */
   async Save(): Promise<any> {
@@ -131,7 +131,7 @@ export class SectionPage5Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida los campos si es correcto la informacion o es requeridad
    */
   async Valid(): Promise<any> {
@@ -151,7 +151,7 @@ export class SectionPage5Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description carga la informacion de los campos
    */
   async Load(): Promise<any> {
@@ -240,7 +240,7 @@ export class SectionPage5Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description bloquea los componentes de la seccion
    */
   IsLockSection() {

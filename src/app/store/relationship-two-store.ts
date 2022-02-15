@@ -6,7 +6,7 @@ export class RelationshipTwoStore extends BaseStore {
   private relationshipService: FormService;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtener Tipo de relaciones (Padres, Madre, Hijo...) y guardarla en cache
    */
   protected async GetService() {

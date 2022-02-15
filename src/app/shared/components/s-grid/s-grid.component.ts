@@ -33,7 +33,7 @@ export class SGridComponent extends BGridComponent implements OnInit {
   p: any;
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha cuando seleciona la pagina
    * @param page
    */
@@ -42,7 +42,7 @@ export class SGridComponent extends BGridComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description escucha cuando seleciona fila del grid
    * @param isSelect
    * @param value
@@ -56,7 +56,7 @@ export class SGridComponent extends BGridComponent implements OnInit {
   ngOnInit() {}
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description El sistema toma los datos actuales para exportar en un excel.
    */
   ExportFileExcel() {
@@ -97,7 +97,7 @@ export class SGridComponent extends BGridComponent implements OnInit {
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description Obtiene un archivo en excel con base a los datos enviados
    * @param dataexport
    */

@@ -181,21 +181,21 @@ export class SectionPage4Component extends BaseSection
   };
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la url previo
    */
   async Prev(): Promise<any> {
     return AddressesUrlParams.SECTION_03;
   }
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description retorna la url siguiente
    */
   async Next(): Promise<any> {
     return AddressesUrlParams.SECTION_05;
   }
   /**
-   * @author Jorge Luis Caviedes Alvarado
+   * 
    * @description Guarda el contenido del formulario
    */
   async Save(): Promise<any> {
@@ -237,7 +237,7 @@ export class SectionPage4Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description valida los componente este correctos
    */
   async Valid(): Promise<any> {
@@ -265,7 +265,7 @@ export class SectionPage4Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description carga los datos previos
    */
   async Load(): Promise<any> {
@@ -307,7 +307,7 @@ export class SectionPage4Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description muestra una alerta si renuncia al auxilio funerario
    * @param e
    */
@@ -388,7 +388,7 @@ export class SectionPage4Component extends BaseSection
   }
 
   /**
-   * @author Jorge Luis Caviedes Alvarador
+   * r
    * @description bloquea los componentes de la seccion
    */
   IsLockSection() {
